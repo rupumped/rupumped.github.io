@@ -1,0 +1,58 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25cm;
+    max-width: 100%;
+}
+.separator {
+    height: 1px;
+    background-color: gainsboro;
+}
+.section {
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+}
+
+#header #name {
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+#header #navigation {
+    text-align: center;
+}
+#header .nav-link {
+    text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#title-card {
+    display: flex;
+}
+#headshot {
+    width: 350px;
+    border-radius: 8%;
+}
+#title-card-right {
+    margin-left: 1cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+}
+#social-media-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#social-media-wrapper img {
+    width: 1.7cm;
+    border-radius: 8%;
+}
+
+footer {
+    text-align: center;
+}
