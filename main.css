@@ -7,6 +7,8 @@ body {
 .separator {
     height: 1px;
     background-color: gainsboro;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 .section {
     margin-top: 2cm;
@@ -51,6 +53,18 @@ body {
 #social-media-wrapper img {
     width: 1.7cm;
     border-radius: 8%;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+.item img {
+    width: 200px;
+    border-radius: 8%;
+}
+.item .desc {
+    margin-left: 1cm;
 }
 
 footer {
