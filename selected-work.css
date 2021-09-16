@@ -1,0 +1,28 @@
+#selected-work-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.project {
+    position: relative;
+    max-width: 100%;
+}
+.project img {
+    width: 286px;
+    height: auto;
+    max-width: 100%;
+}
+.proj-overlay {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 0.8em;
+    padding-left: 5px;
+    font-size: 1ch;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    letter-spacing: -0.05ch;
+    line-height: 2em;
+}

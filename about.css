@@ -1,0 +1,88 @@
+:root {
+    --img-margin: 0.5em;
+}
+
+#quote-container {
+    display: flex;
+    margin-bottom: 0;
+}
+#quote-symbol {
+    font-size: 110px;
+    font-family: 'IM Fell English SC', serif;
+    color: #999999;
+    margin-right: 0.1em;
+
+    transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+
+    position: relative;
+    top: 30px;
+}
+#quote {
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+#quote-words {
+    margin-bottom: 0.2em;
+}
+#quote-citation {
+    color: #777777;
+}
+
+#bio {
+    margin-top: 0;
+}
+#img-dog {
+    position: relative;
+    float: right;
+    clear: right;
+    margin-left: var(--img-margin);
+    margin-bottom: var(--img-margin);
+    width: 16em;
+    height: auto;
+    max-width: 100%;
+}
+#img-teaching {
+    position: relative;
+    float: left;
+    clear: left;
+    margin-top: var(--img-margin);
+    margin-right: var(--img-margin);
+    margin-bottom: var(--img-margin);
+    width: 18em;
+    height: auto;
+    max-width: 100%;
+}
+#img-fun {
+    width: 100%;
+    height: auto;
+}
+#img-final {
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width: 570px) {
+    #img-dog {
+        display: block;
+        position: static;
+        float: none;
+        clear: none;
+        margin-top: var(--img-margin);
+        margin-bottom: var(--img-margin);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #img-teaching {
+        display: block;
+        position: static;
+        float: none;
+        clear: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

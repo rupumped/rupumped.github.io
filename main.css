@@ -19,9 +19,14 @@ body {
     margin-bottom: 2cm;
 }
 h1 {
-    /* font-family: 'Open Sans', sans-serif; */
     font-weight: bold;
     font-size: xx-large;
+}
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 a {
@@ -52,72 +57,7 @@ a:hover {
     margin-right: 1em;
 }
 
-#title-card {
-    display: flex;
-}
-#headshot {
-    width: 350px;
-    border-radius: 8%;
-}
-#title-card-right {
-    margin-left: 1cm;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-}
-#social-media-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-#social-media-wrapper img {
-    width: 1.7cm;
-    border-radius: 8%;
-}
-
-#bio {
-    text-align: justify;
-}
-
-.item {
-    display: flex;
-    align-items: center;
-}
-.item img {
-    width: 187px;
-    border-radius: 8%;
-    margin-right: 1cm;
-}
-
 footer {
     text-align: center;
     font-size: small;
-}
-
-@media only screen and (max-width: 724px) {
-    #title-card {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    #headshot {
-        max-width: 95%;
-    }
-    #title-card-right {
-        margin-left: 0;
-    }
-
-    #bio {
-        text-align: left;
-    }
-
-    .item {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .item img {
-        margin-bottom: 1em;
-        margin-right: 0;
-    }
 }
