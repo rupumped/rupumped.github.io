@@ -1,0 +1,49 @@
+.cover {
+    position: relative;
+}
+.cover img {
+    width: 100%;
+    height: auto;
+}
+.cover .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+.disclaimer {
+    font-size: medium;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.skills .bullet {
+    border-radius: 50%;
+    background-color: black;
+    width: 0.6em;
+    height: 0.6em;
+    margin: 0.5em;
+}
+.skills .skill {
+    text-align: center;
+    padding: 0.5em;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
