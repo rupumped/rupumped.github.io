@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>TinyNets</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+
+	<!-- SEO Description-->
+	<meta name="description" content="TinyNets: ​A Lightweight Networking Strategy for Robotic Control Systems">
+
+	<!-- Favicon -->
+	<!-- <link rel="icon" href="https://rupumped.github.io/favicon.png" type="image/x-icon"> -->
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+	</script>
+	<![endif]-->
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Questrial&display=swap" rel="stylesheet">
+
+	<!-- Copy-Paste Debugging -->
+	<!-- Web: h_ttps://rupumped.github.io/
+		 Nick Ubuntu: f_ile:///home/nick/GitHub/rupumped.github.io/
+		 Nick Windows: f_ile:///C:/Users/nick/Documents/GitHub/rupumped.github.io/
+		 -->
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
+</head>
+<body>
+	<div id="header">
+        <div id="name">NICHOLAS S SELBY</div>
+        <div id="navigation">
+            <a class="nav-link" href="index.html">HOME</a>
+            <a class="nav-link" href="about.html">ABOUT ME</a>
+            <a class="nav-link" href="selected-work.html">SELECTED WORK</a>
+            <a class="nav-link" href="blog.html">BLOG</a>
+            <a class="nav-link" href="service.html">SERVICE</a>
+        </div>
+    </div>
+
+    <div class="cover section">
+        <img src="project-pages/tinynets-cover.jpg" alt="A physical network implemented on breadboards">
+        <div class="title">​TinyNets: ​A Lightweight Networking Strategy for Robotic Control Systems</div>
+    </div>
+
+    <h1>Skills Demonstrated</h1>
+    <div class="skills">
+        <div class="skill">Networking</div>
+        <div class="bullet"></div>
+        <div class="skill">Artificial Intelligence</div>
+        <div class="bullet"></div>
+        <div class="skill">PCB Design</div>
+        <div class="bullet"></div>
+        <div class="skill">HTML/CSS/JavaScript</div>
+        <div class="bullet"></div>
+        <div class="skill">Distributed Algorithms</div>
+        <div class="bullet"></div>
+        <div class="skill">C/C++</div>
+    </div>
+
+    <div class="separator"></div>
+
+    <h1>Motivation</h1>
+    <p>The field of Networked Control Systems, or NCS, is unique from many other networking fields. NCS refers to any application where many devices are linked together to perform control of a physical system. They are common in robotics and avionics, where many sensors and actuators work together to perform a common goal (i.e. walking, stabilization, etc.), and in manufacturing, where machine degrees of freedom are linked to close positioning control loops, and where multiple machines are linked to coordinate material handling and production scheduling.</p>
+    <p>Critically,</p>
+    <ul>
+        <li>In NCS, <b>total throughput is valued but not a key metric.</b></li>
+        <li>Rather, message sizes are typically very small (between three and fifty bytes) and message delay time is the critical metric. Often, messages are only one packet in length.</li>
+        <li><b>Determinism in Message Delivery Time is critical.</b> Systems must guarantee that certain control loops 'close' within a defined set of time less they become unstable.</li>
+        <li><b>Robustness is critical.</b> NCS should not contain any Single Points of Failure</li>
+        <li><b>Statelessness is critical.</b> NCS should not pause operation under any circumstances to re-converge on routing solutions, as this adds fatal indeterminism to message delivery.</li>
+    </ul>
+    <p>State of the art Networked Control Systems employ simple Switched Ethernet, or proprietary versions thereof, in order to route traffic. Hardware endpoints are fitted with an Ethernet PHY and are connected in a heirarchy of switches. Ethernet MAC addresses are used, and all routing takes place on Layer 2.</p>
+    <p>Switched Ethernet has become the industry standard because of its relative interoperability and high speeds. Critically, the last 10 years has seen Switched Ethernet take up large portions of market share because it solves many problems associated with Fieldbusses. Most importantly, adding devices to a Fieldbus always caused a linear increase in message delivery time, as is not the case with Switched Ethernet.</p>
+    <p>However, Switched Ethernet was not originally developed for Networked Control Systems, and many in industry have pointed out that it will not fulfill customer needs in the near- and long-term future.</p>
+    <p>In Switched Ethernet, because a Minimum Spanning Tree is created, nodes in a particular layer compete for link-time on the layer above. Message delay time increases linearly with the probability that peers are transmitting at the same time, and with the number of peers on that layer.</p>
+    <p>In addition, Switched Ethernet contains Single Points of Failure, where a broken link or switch means that the network must re-run the Spanning Tree Protocol algorithm - a process that often takes seconds. Because Switched Ethernet graphs are highly heirarchical, it is often the case that failure on a single link can cause entire sections of the network to fail, or become unreachable.</p>
+    <p>Device endpoints in NCS are scaling down in size and up in number. Requiring that each endpoint carries with it an RJ45 Magnetic Jack and Ethernet PHY is dubious, and sets a lower limit on the size and complexity that sensors and actuators in an NCS must possess.</p>
+    <p>Switched Ethernet is non-programmable. I.E. Switches are black-box IC's and do not allow systems designers to arbitrarily add functions to a system on the networking layer. For example, many NCS designers would like to implement message priorities and load balancing, but this is not possible on Layer 2.</p>
+    <p>An alternative to Ethernet which could optimize the above metrics would have massive implications for micro-robotics, avionics, and open-source reconfigurable hardware systems.</p>
+
+    <div class="section"></div>
+
+    <h1>Solution</h1>
+    <p>TinyNets is a networking strategy for distributed robotic control systems developed by my team and me in MIT's graduate computer science networking course. Our key contributions are:</p>
+    <ul>
+        <li>A strategy for stateless multipath routing that increases message delivery time determinism and network robustness.</li>
+        <li>A real-time cost function, using next-hop buffer size (i.e. busyness metric) as well as historical hop-count for per-packet dynamic re-routing, that increases packet delivery-time determinism.</li>
+        <li>A software-defined network architecture for arbitrary implementation in any embedded system, where computing, physical space, and time is limited.</li>
+    </ul>
+    <p>At a high level, our protocol:<img class="img-right" src="project-pages/tinynets-hardware.jpg" alt="Our algorithm running on real hardware"></p>
+    <ul>
+        <li>Implements a multipath distance-vector routing protocol</li>
+        <li>Performs real-time route selection</li>
+        <li>Does automatic, convergence-free route discovery and optimization</li>
+        <li>Is robust in the face of link losses and router failures</li>
+        <li>Can be arbitrarily implemented in software on numerous microcontrollers</li>
+    </ul>
+    <p>Below is an illustration of TinyNets on a simulated network:</p>
+    <div class="centered section">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4Rnn4MHgGAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p>You can download the full project report <a href="project-pages/tinynets-report.pdf" target="_blank" download>here</a>. Download our code and CAD files to try it yourself on <a rel="external" href="https://github.com/jakeread/tinynets" target="_blank">our GitHub repository</a>.</p>
+    
+	<footer>
+		<p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+	</footer>
+</body>
+</html>

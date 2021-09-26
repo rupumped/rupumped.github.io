@@ -1,7 +1,3 @@
-:root {
-    --img-margin: 0.5em;
-}
-
 #quote-container {
     display: flex;
     margin-bottom: 0;
@@ -37,25 +33,13 @@
     margin-top: 0;
 }
 #img-dog {
-    position: relative;
-    float: right;
-    clear: right;
-    margin-left: var(--img-margin);
-    margin-bottom: var(--img-margin);
     width: 16em;
     height: auto;
-    max-width: 100%;
 }
 #img-teaching {
-    position: relative;
-    float: left;
-    clear: left;
     margin-top: var(--img-margin);
-    margin-right: var(--img-margin);
-    margin-bottom: var(--img-margin);
     width: 18em;
     height: auto;
-    max-width: 100%;
 }
 #img-fun {
     width: 100%;

@@ -9,11 +9,16 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
     transform: translate(-50%, -50%);
     font-family: 'Open Sans', sans-serif;
     color: white;
     font-size: 3em;
     font-weight: bolder;
+    text-align: center;
+    line-height: 1.2em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 .disclaimer {
@@ -46,4 +51,32 @@
 img {
     max-width: 100%;
     height: auto;
+}
+
+.blockquote {
+    border-left-width: 4px;
+    border-left-color: gainsboro;
+    border-left-style: solid;
+    padding-left: 1em;
+    margin-left: 1em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+}
+caption {
+    caption-side: bottom;
+    text-align: left;
+    font-size: medium;
+    line-height: 1.2em;
+}
+th {
+    background-color: gainsboro;
+}
+td, th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 7px 5px;
+    text-align: center;
 }

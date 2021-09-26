@@ -1,3 +1,7 @@
+:root {
+    --img-margin: 0.5em;
+}
+
 body {
     margin-left: auto;
     margin-right: auto;
@@ -35,6 +39,14 @@ a {
 a:hover {
     color: #3387a2;
 }
+a.active-link {
+    text-decoration: none;
+    color: #ccc;
+}
+a.active-link:hover {
+    text-decoration: none;
+    color: #ccc;
+}
 
 #header {
     font-family: 'Open Sans', sans-serif;
@@ -57,7 +69,52 @@ a:hover {
     margin-right: 1em;
 }
 
+.img-right {
+    position: relative;
+    float: right;
+    clear: right;
+    max-width: 100%;
+    margin-left: var(--img-margin);
+}
+.img-left {
+    position: relative;
+    float: left;
+    clear: left;
+    max-width: 100%;
+    margin-right: var(--img-margin);
+}
+.img-right, .img-left {
+    padding: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.13);
+}
+.img-full-width {
+    width: 100%;
+    height: auto;
+}
+
+div.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+div.gallery a {
+    height: 60px;
+    padding: 2px;
+    margin: 1px;
+    border: 1px solid #ccc;
+}
+div.gallery a:hover {
+    border-color: #777;
+}
+div.gallery img {
+    height: 100%;
+    width: auto;
+}
+
 footer {
+    margin-top: 2cm;
     text-align: center;
     font-size: small;
 }
