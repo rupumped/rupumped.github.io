@@ -113,6 +113,10 @@ div.gallery img {
     width: auto;
 }
 
+iframe {
+    border: none;
+}
+
 footer {
     margin-top: 2cm;
     text-align: center;
