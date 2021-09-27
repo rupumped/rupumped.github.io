@@ -20,6 +20,9 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
+#tinynets-title {
+    font-size: 2.5em;
+}
 
 .disclaimer {
     font-size: medium;
@@ -79,4 +82,22 @@ td, th {
     border: 1px solid rgb(190, 190, 190);
     padding: 7px 5px;
     text-align: center;
+}
+
+@media only screen and (max-width: 766px) {
+    .cover {
+        position: static;
+    }
+
+    .cover .title {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+        color: black;
+        font-size: 2em;
+    }
+    #tinynets-title {
+        font-size: 2em;
+    }
 }
