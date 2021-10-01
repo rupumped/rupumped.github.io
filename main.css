@@ -9,7 +9,7 @@ body {
     max-width: 90%;
     font-family: 'Questrial', sans-serif;
     font-size: 21px;
-    line-height: 30px;
+    line-height: 1.4em;
     letter-spacing: 0.06em;
 }
 .separator {
@@ -121,4 +121,5 @@ footer {
     margin-top: 2cm;
     text-align: center;
     font-size: small;
+    line-height: normal;
 }
