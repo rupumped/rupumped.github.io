@@ -16,11 +16,12 @@ div.w-img img {
     height: auto;
     max-width: 100%;
     margin-right: 1cm;
+    border-radius: 8%;
 }
 
 p.date {
     color: #777;
-    margin-bottom: 0;
+    margin-bottom: 0.5em;
 }
 h1 {
     color: black;
