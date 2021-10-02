@@ -123,3 +123,6 @@ footer {
     font-size: small;
     line-height: normal;
 }
+footer img {
+    margin-bottom: 0.6em;
+}
