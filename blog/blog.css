@@ -44,3 +44,14 @@ p.teaser {
         margin-top: 1em;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    h1,p.teaser {
+        color: white;
+    }
+    
+    a.item:hover {
+        text-decoration-line: underline;
+        text-decoration-color: white;
+    }
+}
