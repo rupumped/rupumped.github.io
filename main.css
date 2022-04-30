@@ -18,11 +18,11 @@ body {
     margin-top: 2em;
     margin-bottom: 2em;
 }
-.section {
+.section, section {
     margin-top: 2cm;
     margin-bottom: 2cm;
 }
-h1 {
+h2 {
     font-weight: bold;
     font-size: xx-large;
 }
@@ -39,19 +39,11 @@ a {
 a:hover {
     color: #3387a2;
 }
-a.active-link {
-    text-decoration: none;
-    color: #ccc;
-}
-a.active-link:hover {
-    text-decoration: none;
-    color: #ccc;
-}
 
-#header {
+header {
     font-family: 'Open Sans', sans-serif;
 }
-#header #name {
+header #name {
     text-align: center;
     font-size: 2.5ch;
     font-weight: 700;
@@ -59,14 +51,23 @@ a.active-link:hover {
     margin-top: 1.5em;
     margin-bottom: 1em;
 }
-#header #navigation {
+nav {
     text-align: center;
     font-size: 1.2ch;
 }
-#header .nav-link {
+nav a {
     text-align: center;
     margin-left: 1em;
     margin-right: 1em;
+    white-space: nowrap;
+}
+nav a.active-link {
+    text-decoration: none;
+    color: #ccc;
+}
+nav a.active-link:hover {
+    text-decoration: none;
+    color: #ccc;
 }
 
 .img-right {

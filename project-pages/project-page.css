@@ -5,23 +5,26 @@
     width: 100%;
     height: auto;
 }
-.cover .title {
+.cover h1 {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
+    margin: 0;
     font-family: 'Open Sans', sans-serif;
     color: white;
     font-size: 3em;
     font-weight: bolder;
     text-align: center;
     line-height: 1.2em;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke: 1px black;
 }
 #tinynets-title {
     font-size: 2.5em;
+}
+#lowtemp-title {
+    color:black;
 }
 
 .disclaimer {
@@ -33,6 +36,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-top: 0.5em;
 }
 .skills .bullet {
     border-radius: 50%;
@@ -44,6 +48,7 @@
 .skills .skill {
     text-align: center;
     padding: 0.5em;
+    white-space: nowrap;
 }
 
 .centered {
@@ -56,7 +61,15 @@ img {
     height: auto;
 }
 
-.blockquote {
+h2 {
+    margin: 0 auto;
+}
+section {
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+}
+
+blockquote {
     border-left-width: 4px;
     border-left-color: gainsboro;
     border-left-style: solid;
@@ -89,15 +102,28 @@ td, th {
         position: static;
     }
 
-    .cover .title {
+    .cover h1 {
         position: static;
         top: auto;
         left: auto;
         transform: none;
         color: black;
-        font-size: 2em;
+        font-size: 1.8em;
     }
     #tinynets-title {
-        font-size: 2em;
+        font-size: 1.8em;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .cover h1 {
+            color: white;
+            -webkit-text-stroke-width: 0;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .skills .bullet {
+        background-color: white;
     }
 }

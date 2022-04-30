@@ -23,7 +23,7 @@ p.date {
     color: #777;
     margin-bottom: 0.5em;
 }
-h1 {
+h2 {
     color: black;
     line-height: 1.2em;
 }
@@ -46,7 +46,7 @@ p.teaser {
 }
 
 @media (prefers-color-scheme: dark) {
-    h1,p.teaser {
+    h2,p.teaser {
         color: white;
     }
     
