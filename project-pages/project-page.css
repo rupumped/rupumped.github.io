@@ -1,3 +1,8 @@
+:root {
+    --skill-margin: 0.25em;
+    --bullet-diameter: 0.6em;
+}
+
 .cover {
     position: relative;
 }
@@ -29,6 +34,7 @@
 
 .disclaimer {
     font-size: medium;
+    line-height: 1.4em;
 }
 
 .skills {
@@ -38,14 +44,14 @@
     align-items: center;
     margin-top: 0.5em;
 }
-.skills .bullet {
+.bullet {
     border-radius: 50%;
     background-color: black;
-    width: 0.6em;
-    height: 0.6em;
+    width: var(--bullet-diameter);
+    height: var(--bullet-diameter);
     margin: 0.5em;
 }
-.skills .skill {
+.skill {
     text-align: center;
     padding: 0.5em;
     white-space: nowrap;
@@ -59,6 +65,7 @@
 img {
     max-width: 100%;
     height: auto;
+    /* box-sizing: border-box; */
 }
 
 h2 {
@@ -98,8 +105,18 @@ td, th {
 }
 
 @media only screen and (max-width: 766px) {
+    :root {
+        --bullet-diameter: 0.3em;
+    }
+
+    main {
+        margin-top: 60px;
+        padding-top: 20px;
+    }
+
     .cover {
         position: static;
+        margin-top: 0;
     }
 
     .cover h1 {
@@ -112,6 +129,43 @@ td, th {
     }
     #tinynets-title {
         font-size: 1.8em;
+    }
+
+    #skills-demonstrated {
+        margin: 0;
+    }
+    #skills-demonstrated h2 {
+        font-size: 21px;
+    }
+    .skills {
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0 0.3em;
+    }
+    .skill {
+        padding: 0;
+        margin: 0 var(--skill-margin);
+        font-size: 16px;
+        line-height: 1.3em;
+    }
+    .bullet {
+        padding: 0;
+        margin: 0 var(--skill-margin);
+    }
+
+    main img {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+    }
+    .img-left, .img-right {
+        margin-bottom: 1em;
+        margin-top: 1em;
+    }
+    .img-top {
+        margin-top: 0;
     }
 
     @media (prefers-color-scheme: dark) {
