@@ -1,5 +1,7 @@
 :root {
     --img-margin: 0.5em;
+    --bg-color: white;
+    --text-color: black;
 }
 
 body {
@@ -11,6 +13,8 @@ body {
     font-size: 21px;
     line-height: 1.4em;
     letter-spacing: 0.06em;
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
 .separator {
     height: 1px;
@@ -41,31 +45,42 @@ a:hover {
 }
 
 header {
+    background-color: var(--bg-color);
     font-family: 'Open Sans', sans-serif;
 }
 header #name {
     text-align: center;
-    font-size: 2.5ch;
+    font-size: 2ch;
     font-weight: 700;
     letter-spacing: 0.1ch;
     margin-top: 1.5em;
     margin-bottom: 1em;
 }
-nav {
+header .menu-btn {
+    display: none;
+}
+header .menu-icon {
+    display: none;
+}
+header ul {
+    list-style: none;
     text-align: center;
     font-size: 1.2ch;
 }
-nav a {
+header ul li {
+    display: inline-block;
+}
+header ul li a {
     text-align: center;
     margin-left: 1em;
     margin-right: 1em;
     white-space: nowrap;
 }
-nav a.active-link {
+header ul li a.active-link {
     text-decoration: none;
     color: #ccc;
 }
-nav a.active-link:hover {
+header ul li a.active-link:hover {
     text-decoration: none;
     color: #ccc;
 }
@@ -129,12 +144,136 @@ footer img {
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        background: black;
-        color: white;
+    :root {
+        --bg-color: black;
+        --text-color: white;
     }
 
     th {
-        color: black;
+        color: var(--bg-color);
+    }
+}
+
+@media only screen and (max-width: 766px) {
+    header {
+        position: fixed;
+        top: 0;
+        height: max-content;
+    }
+
+    header ul {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: var(--bg-color);
+    }
+
+    header ul li {
+        display: initial;
+    }
+    
+    header li a {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    header li a:hover,
+    header .menu-btn:hover {
+        background-color: #f4f4f4;
+    }
+    
+    header #name {
+        display: block;
+        float: left;
+        font-size: 1.1em;
+        padding: 10px 20px;
+        text-decoration: none;
+        text-align: left;
+        margin: 0;
+        padding: 14px 20px;
+    }
+    
+    /* menu */
+    
+    header .menu {
+        clear: both;
+        max-height: 0;
+    }
+    
+    /* menu icon */
+    
+    header .menu-icon {
+        cursor: pointer;
+        display: inline-block;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+        box-sizing: border-box;
+    }
+    
+    header .menu-icon .navicon {
+        background: #333;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background .2s ease-out;
+        width: 18px;
+    }
+    
+    header .menu-icon .navicon:before,
+    header .menu-icon .navicon:after {
+        background: #333;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+    }
+    
+    header .menu-icon .navicon:before {
+        top: 5px;
+    }
+    
+    header .menu-icon .navicon:after {
+        top: -5px;
+    }
+    
+    /* menu btn */
+    
+    header .menu-btn:checked ~ .menu {
+        max-height: none;
+        height: 100vh;
+    }
+    
+    header .menu-btn:checked ~ .menu-icon .navicon {
+        background: transparent;
+    }
+    
+    header .menu-btn:checked ~ .menu-icon .navicon:before {
+        transform: rotate(-45deg);
+    }
+    
+    header .menu-btn:checked ~ .menu-icon .navicon:after {
+        transform: rotate(45deg);
+    }
+    
+    header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+    header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+        top: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        header li a:hover,
+        header .menu-btn:hover {
+            background-color: #0b0b0b;
+        }
+        header .menu-icon .navicon,
+        header .menu-icon .navicon:before,
+        header .menu-icon .navicon:after {
+            background: #ccc;
+            background: #ccc;
+        }
     }
 }
