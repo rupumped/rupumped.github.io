@@ -25,55 +25,61 @@
 <body>
 	<header>
         <div id="name">NICHOLAS S SELBY</div>
-        <nav>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT ME</a>
-            <a href="selected-work.html">SELECTED WORK</a>
-            <a href="blog.html">BLOG</a>
-            <a href="service.html">SERVICE</a>
-        </nav>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT ME</a></li>
+            <li><a href="selected-work.html">SELECTED WORK</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="service.html">SERVICE</a></li>
+        </ul>
     </header>
 
-    <div class="cover section">
-        <img src="project-pages/ndte-cover.jpg" alt="Surface plot of acoustic wave propagation through aluminum and air">
-        <h1>Nondestructive Testing</h1>
-    </div>
+    <main>
+        <div class="cover section">
+            <img src="project-pages/ndte-cover.jpg" alt="Surface plot of acoustic wave propagation through aluminum and air">
+            <h1>Nondestructive Testing</h1>
+        </div>
 
-    <h2>Skills Demonstrated</h2>
-    <div class="skills">
-        <div class="skill">​Signal Processing</div>
-        <div class="bullet"></div>
-        <div class="skill">MATLAB</div>
-        <div class="bullet"></div>
-        <div class="skill">CNC Machining</div>
-        <div class="bullet"></div>
-        <div class="skill">LabVIEW</div>
-        <div class="bullet"></div>
-        <div class="skill">CAD</div>
-        <div class="bullet"></div>
-        <div class="skill">Finite Element Analysis</div>
-    </div>
+        <section id="skills-demonstrated">
+            <h2>Skills Demonstrated</h2>
+            <div class="skills">
+                <div class="skill">​Signal Processing</div>
+                <div class="bullet"></div>
+                <div class="skill">MATLAB</div>
+                <div class="bullet"></div>
+                <div class="skill">CNC Machining</div>
+                <div class="bullet"></div>
+                <div class="skill">LabVIEW</div>
+                <div class="bullet"></div>
+                <div class="skill">CAD</div>
+                <div class="bullet"></div>
+                <div class="skill">Finite Element Analysis</div>
+            </div>
+        </section>
 
-    <div class="separator"></div>
+        <div class="separator"></div>
 
-    <p>Working under the direction of Professors Laurence Jacobs and David Torello at Georgia Tech, I designed and implemented a novel air-coupled transducer calibration technique.</p>
+        <p>Working under the direction of Professors Laurence Jacobs and David Torello at Georgia Tech, I designed and implemented a novel air-coupled transducer calibration technique.</p>
 
-    <section>
-        <h2>Problem</h2>
-        <p>How do you measure the strength of a material without breaking it? When evaluating the wear and tear of bridges, airplane wings, and nuclear reactor walls, nondestructive material testing techniques are invaluable. Due to their precision and flexibility, ultrasonic transducers are often used to estimate the remaining life of important components in structures. However, due to practical constraints such as the surface roughness of the material being tested, methods that work in perfect laboratory conditions cannot be employed directly in the field.</p>
-        <p><img class="img-right" src="project-pages/ndte-problem.jpg" title="'File:Visual inspection of compressor blades-090108-F-9919G-746.jpg.' Wikimedia Commons, the free media repository. 3 Dec 2020, 06:21 UTC. 24 Sep 2021, 20:16 <https://commons.wikimedia.org/w/index.php?title=File:Visual_inspection_of_compressor_blades-090108-F-9919G-746.jpg&oldid=516475415>." alt="Visual inspection of compressor blades">To solve this problem, some researchers are turning to air-coupled transducers for their low cost and greater robustness to surface conditions. By moving the transducer off of direct contact with the part being tested, we no longer need to worry about ensuring perfect coupling between the face of the transducer and the material surface. However, air-coupled transducers require performing a precise calibration to work, and there exists no method to do so in the field.</p>
-    </section>
+        <section>
+            <h2>Problem</h2>
+            <p>How do you measure the strength of a material without breaking it? When evaluating the wear and tear of bridges, airplane wings, and nuclear reactor walls, nondestructive material testing techniques are invaluable. Due to their precision and flexibility, ultrasonic transducers are often used to estimate the remaining life of important components in structures. However, due to practical constraints such as the surface roughness of the material being tested, methods that work in perfect laboratory conditions cannot be employed directly in the field.</p>
+            <p><img class="img-right" src="project-pages/ndte-problem.jpg" title="'File:Visual inspection of compressor blades-090108-F-9919G-746.jpg.' Wikimedia Commons, the free media repository. 3 Dec 2020, 06:21 UTC. 24 Sep 2021, 20:16 <https://commons.wikimedia.org/w/index.php?title=File:Visual_inspection_of_compressor_blades-090108-F-9919G-746.jpg&oldid=516475415>." alt="Visual inspection of compressor blades">To solve this problem, some researchers are turning to air-coupled transducers for their low cost and greater robustness to surface conditions. By moving the transducer off of direct contact with the part being tested, we no longer need to worry about ensuring perfect coupling between the face of the transducer and the material surface. However, air-coupled transducers require performing a precise calibration to work, and there exists no method to do so in the field.</p>
+        </section>
 
-    <section>
-        <h2>Nonlinearity</h2>
-        <p>When an acoustic wave travels through a material, defects in the material called "nonlinearities" transfer some of the acoustic energy in the fundamental frequency of the wave into harmonics. Simply put, if a 2 MHz wave enters a damaged material, nonlinearities in the material will generate a second acoustic wave at 4 MHz, twice the frequency of the input wave. The strength of the generated harmonic relative to that of the fundamental tells us how damaged, or nonlinear, the material is. When a transducer produces an acoustic wave at one end of an object, we model the wave as a sum of Gaussians which each propagate through the material as Gaussians, picking up nonlinearity as they travel. By measuring the accumulated nonlinearity, we can calculate how damaged the material is.</p>
-    </section>
+        <section>
+            <h2>Nonlinearity</h2>
+            <p>When an acoustic wave travels through a material, defects in the material called "nonlinearities" transfer some of the acoustic energy in the fundamental frequency of the wave into harmonics. Simply put, if a 2 MHz wave enters a damaged material, nonlinearities in the material will generate a second acoustic wave at 4 MHz, twice the frequency of the input wave. The strength of the generated harmonic relative to that of the fundamental tells us how damaged, or nonlinear, the material is. When a transducer produces an acoustic wave at one end of an object, we model the wave as a sum of Gaussians which each propagate through the material as Gaussians, picking up nonlinearity as they travel. By measuring the accumulated nonlinearity, we can calculate how damaged the material is.</p>
+        </section>
 
-    <section>
-        <h2>Solution</h2>
-        <p><img class="img-left" src="selected-work/ndte.jpg" alt="A block of aluminum held in a custom experimental apparatus">We designed an experiment in which we generated an acoustic wave at the base of a material with a known nonlinearity. We used our nonlinear modelling technique to analytically determine the magnitude of both the fundamental and harmonic components at the opposite surface. To confirm our model, we used a laser interferometer to measure the physical surface displacement. After confirming our model, we then repeated the experiment replacing the laser interferometer with a much less expensive, but uncalibrated, air-coupled transducer. By propagating the model from the surface of the material through the air to the transducer, we could directly link the transducer output in Volts to the physical strength of the propagating waves. This experimental voltage-to-pressure mapping is unique to the transducer and can be used in future experiments to easily determine material nonlinearity.</p>
-        <p>Our method worked! We tested the calibration on two common materials, aluminum and silicon, and were able to determine the nonlinearity of both materials to high accuracy. I presented our methodology at the <i>Review of Progress in Quantitative Nondestructive Evaluation</i> conference and we published our work in the journal <i>Ultrasonics</i>. To learn more about our project, <a href="homepage/xducer.pdf" download target="_blank">read our paper</a> and <a href="project-pages/ndte-poster.pdf" download target="_blank">download our poster</a>.</p>
-    </section>
+        <section>
+            <h2>Solution</h2>
+            <p><img class="img-left" src="selected-work/ndte.jpg" alt="A block of aluminum held in a custom experimental apparatus">We designed an experiment in which we generated an acoustic wave at the base of a material with a known nonlinearity. We used our nonlinear modelling technique to analytically determine the magnitude of both the fundamental and harmonic components at the opposite surface. To confirm our model, we used a laser interferometer to measure the physical surface displacement. After confirming our model, we then repeated the experiment replacing the laser interferometer with a much less expensive, but uncalibrated, air-coupled transducer. By propagating the model from the surface of the material through the air to the transducer, we could directly link the transducer output in Volts to the physical strength of the propagating waves. This experimental voltage-to-pressure mapping is unique to the transducer and can be used in future experiments to easily determine material nonlinearity.</p>
+            <p>Our method worked! We tested the calibration on two common materials, aluminum and silicon, and were able to determine the nonlinearity of both materials to high accuracy. I presented our methodology at the <i>Review of Progress in Quantitative Nondestructive Evaluation</i> conference and we published our work in the journal <i>Ultrasonics</i>. To learn more about our project, <a href="homepage/xducer.pdf" download target="_blank">read our paper</a> and <a href="project-pages/ndte-poster.pdf" download target="_blank">download our poster</a>.</p>
+        </section>
+    </main>
     
 	<footer>
 		<p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>

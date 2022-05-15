@@ -25,53 +25,59 @@
 <body>
 	<header>
         <div id="name">NICHOLAS S SELBY</div>
-        <nav>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT ME</a>
-            <a href="selected-work.html">SELECTED WORK</a>
-            <a href="blog.html">BLOG</a>
-            <a href="service.html">SERVICE</a>
-        </nav>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT ME</a></li>
+            <li><a href="selected-work.html">SELECTED WORK</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="service.html">SERVICE</a></li>
+        </ul>
     </header>
 
-    <div class="cover section">
-        <img src="project-pages/capstone-cover.jpg" alt="A drone flying in the sky">
-        <h1>​Aerial Mapping System for Urban Environments</h1>
-    </div>
+    <main>
+        <div class="cover section">
+            <img src="project-pages/capstone-cover.jpg" alt="A drone flying in the sky">
+            <h1>​Aerial Mapping System for Urban Environments</h1>
+        </div>
 
-    <h2>Skills Demonstrated</h2>
-    <div class="skills">
-        <div class="skill">UAVs</div>
-        <div class="bullet"></div>
-        <div class="skill">Python</div>
-        <div class="bullet"></div>
-        <div class="skill">Optimization</div>
-        <div class="bullet"></div>
-        <div class="skill">HTML/CSS/JavaScript</div>
-        <div class="bullet"></div>
-        <div class="skill">Image Processing</div>
-        <div class="bullet"></div>
-        <div class="skill">MATLAB</div>
-        <div class="bullet"></div>
-        <div class="skill">GIS</div>
-    </div>
+        <section id="skills-demonstrated">
+            <h2>Skills Demonstrated</h2>
+            <div class="skills">
+                <div class="skill">UAVs</div>
+                <div class="bullet"></div>
+                <div class="skill">Python</div>
+                <div class="bullet"></div>
+                <div class="skill">Optimization</div>
+                <div class="bullet"></div>
+                <div class="skill">HTML/CSS/JavaScript</div>
+                <div class="bullet"></div>
+                <div class="skill">Image Processing</div>
+                <div class="bullet"></div>
+                <div class="skill">MATLAB</div>
+                <div class="bullet"></div>
+                <div class="skill">GIS</div>
+            </div>
+        </section>
 
-    <div class="separator"></div>
+        <div class="separator"></div>
 
-    <p><img class="img-left" src="project-pages/capstone-intro.jpg" alt="Quadcopter used to image the area">I led a team to design, prototype, and verify a turnkey aerial imaging system for the Georgia Tech Senior Capstone Design challenge in Spring 2016. The project sponsor, the Brown Water Group, is currently conducting sanitation studies in informal communities in Maputo, Mozambique, but was unable to calculate the population densities of the studied communities, an essential measure for their study. While the Brown Group is currently able to measure the population of the communities via a census, they are unable to use either ground-based or satellite-based methods to measure compound areas, the land area of individual homes.</p>
+        <p><img class="img-left img-top" src="project-pages/capstone-intro.jpg" alt="Quadcopter used to image the area">I led a team to design, prototype, and verify a turnkey aerial imaging system for the Georgia Tech Senior Capstone Design challenge in Spring 2016. The project sponsor, the Brown Water Group, is currently conducting sanitation studies in informal communities in Maputo, Mozambique, but was unable to calculate the population densities of the studied communities, an essential measure for their study. While the Brown Group is currently able to measure the population of the communities via a census, they are unable to use either ground-based or satellite-based methods to measure compound areas, the land area of individual homes.</p>
 
-    <p>In this project, my team developed a drone-based imaging system that can quickly and accurately create a composite aerial photo of the area being studied from which compound area may be measured. The delivered system includes a hardware flight system based on a 3DR IRIS+ and uses a GoPro Hero4 to capture a large number of images that may be stitched together to create a composite photo. Further, we developed a software suite that allows users to plan flights over a desired area, stitch large numbers of captured photos into one high-resolution composite photo, and accurately measure area from the composite photo.</p>
+        <p>In this project, my team developed a drone-based imaging system that can quickly and accurately create a composite aerial photo of the area being studied from which compound area may be measured. The delivered system includes a hardware flight system based on a 3DR IRIS+ and uses a GoPro Hero4 to capture a large number of images that may be stitched together to create a composite photo. Further, we developed a software suite that allows users to plan flights over a desired area, stitch large numbers of captured photos into one high-resolution composite photo, and accurately measure area from the composite photo.</p>
 
-    <img class="img-full-width" src="project-pages/capstone-map.jpg" alt="Illustration of the stitching algorithm assembling a map from a grid of images.">
+        <img class="img-full-width" src="project-pages/capstone-map.jpg" alt="Illustration of the stitching algorithm assembling a map from a grid of images.">
 
-    <img class="img-full-width" src="project-pages/capstone-app.jpg" alt="Screenshot of app used to plan the mapping task">
+        <img class="img-full-width" src="project-pages/capstone-app.jpg" alt="Screenshot of app used to plan the mapping task">
 
-    <p>We verified our system by flying it at Cobb County RC field. The drone system followed a series of user-generated flight paths and demonstrated a variety of safety features such as auto-landing and come-home commands to ensure the system will remain under the control of the operator in emergency situations. In addition, the image-stitching and area measurement software was verified using sample images generated from the Google Maps aerial photography dataset.</p>
+        <p>We verified our system by flying it at Cobb County RC field. The drone system followed a series of user-generated flight paths and demonstrated a variety of safety features such as auto-landing and come-home commands to ensure the system will remain under the control of the operator in emergency situations. In addition, the image-stitching and area measurement software was verified using sample images generated from the Google Maps aerial photography dataset.</p>
 
-    <p>To learn more about the project, <a href="project-pages/capstone-report.pdf" download target="_blank">read our report</a>. All of our software is open source on <a aria-label="GitHub repository" rel="external" href="https://github.com/rupumped/AerialMapping" target="_blank">GitHub</a>.</p>
+        <p>To learn more about the project, <a href="project-pages/capstone-report.pdf" download target="_blank">read our report</a>. All of our software is open source on <a aria-label="GitHub repository" rel="external" href="https://github.com/rupumped/AerialMapping" target="_blank">GitHub</a>.</p>
 
-    <img class="img-full-width" src="project-pages/capstone-action.jpg" alt="A drone piloted by one of three men in a field">
-    
+        <img class="img-full-width" src="project-pages/capstone-action.jpg" alt="A drone piloted by one of three men in a field">
+    </main>
+
 	<footer>
 		<p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 	</footer>
