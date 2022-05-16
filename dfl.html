@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Autonomous Excavation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <META NAME="Handheld-Friendly" content="True">
+
+	<!-- SEO Description-->
+	<meta name="description" content="Autonomous Excavation">
+    <link rel="canonical" href="https://rupumped.github.io/dfl.html">
+
+	<!-- Favicon -->
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+	</script>
+	<![endif]-->
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Questrial&display=swap" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
+</head>
+<body>
+	<header>
+        <div id="name">NICHOLAS S SELBY</div>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT ME</a></li>
+            <li><a href="selected-work.html">SELECTED WORK</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="service.html">SERVICE</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="cover section">
+            <img src="project-pages/dfl-cover.jpg" alt="A simulation of an excavator digging.">
+            <h1>Autonomous Excavation</h1>
+        </div>
+
+        <section id="skills-demonstrated">
+            <h2>Skills Demonstrated</h2>
+            <div class="skills">
+                <div class="skill">Artificial Intelligence</div>
+                <div class="bullet"></div>
+                <div class="skill">Python</div>
+                <div class="bullet"></div>
+                <div class="skill">Robotics</div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <p>I completed my PhD at MIT working under the direction of <a rel="external" href="http://meche.mit.edu/people/faculty/asada@mit.edu" target="_blank">Professor Harry Asada</a>. My dissertation focused on the application of lifting linearizations and machine learning to automate excavation in remote environments.</p>
+
+        <section>
+            <h2>Motivation</h2>
+            <p>There is a growing need in the construction and mining industries for excavation automation. Various technologies are being developed for operating excavators autonomously with increased productivity and fuel efficiency. The recent and projected growth of the global construction industry and the dangers of the excavation work environment are major drivers behind the development of intelligent excavators for performing earth-moving tasks.</p>
+
+            <p>Excavation is a highly nonlinear process where soil and rocks interact with the bucket of an excavator in a complex manner. While terramechanics models have been studied for many decades, their validity is limited due to the difficulty of identifying the numerous parameters of mechanistic models. Data-driven methods have recently been introduced to autonomous excavation for capturing complex nonlinearities, yet the nonlinear models are still too complex to use, in particular, for real-time control.</p>
+        </section>
+
+        <section>
+            <h2>Problem Definition</h2>
+            <p><img class="img-full-width" src="project-pages/dfl-bucket.jpg" alt="Diagram of an excavator bucket."></p>
+            <p>Lifting linearization is a methodology for representing a nonlinear dynamical system with a linear dynamic model in a high-dimensional space. Underpinned by Koopman operator theory, nonlinear systems represented with supernumerary state variables behave more linearly in the lifted space. The method has recently been applied to various robotics and automation challenges, including active learning, soft robotics, human-robot interaction, power systems, and mission planning. More broadly, deep learning has proven a valuable tool for lifting linearization techniques.</p>
+
+            <p>The original Koopman Operator has two major limitations:</p>
+            <ol>
+                <li>The theory is applicable only to dynamical systems with no exogenous input, i.e. autonomous systems, and</li>
+                <li>Exact linearization requires an infinite-dimensional space, except for a restricted class of systems.</li>
+            </ol>
+            
+            <p>Any extension to non-autonomous, finite-dimensional systems is no longer exact, but an approximation. Various methods for truncating the system with a finite-dimensional space have been reported. Among others, the eigendecomposition of the lifted system allows us to represent the system at desirable accuracy and granularity while providing useful insights into the system. Furthermore, the extended Dynamic Mode Decomposition (eDMD) is completely data-driven, providing a practical tool for complex nonlinear system representation. These methods, however, need a set of observables, i.e. output variables, which are nonlinear functions of independent state variables. It is still an open question how to find an effective set of observable functions.</p>
+                
+            <p>One of the key challenges in the lifting linearization of nonlinear systems with exogenous input is causality. If observable functions are functions of both state variables and input variables, we cannot use such observables for lifting the system. Lifting entails computing time derivatives of the observables and, thereby, the dynamic equations inevitably include the time derivative of input. In discrete formulation, this means the use of future input. Including these input terms, the time-evolution of the observables turns out not to be causal. If one measures a set of candidates of observables from a nonlinear system that is subject to control inputs and uses the measured variables for lifting the system, they may end up with a non-causal dynamical system.</p>
+
+            <p>In Dual-Faceted Linearization (DFL), another approach to lifting linearization, the causality issue is analyzed based on physical system modeling theory. In DFL, the propagation of inputs across the nonlinear dynamical system can be tracked, and their effect on all observables, called auxiliary variables, can be localized. Assuming that inputs are linearly involved in observables, a method has been established for eliminating the input-dependent component from each observable and lifting the dynamics using the remaining input-free observables. In the Koopman-based lifting linearization, too, it is assumed that the observables are input-affine in order to eliminate input-dependent components from observable functions so a causal dynamic model can be obtained.</p>
+
+            <p>Lifting linearization is a powerful methodology for tackling a broad spectrum of nonlinear problems, in particular, excavation process modeling and control. However, two critical challenges have not yet been fully solved:</p>
+            <ol>
+                <li>Finding an effective set of observables to approximate a nonlinear system in a low-dimensional lifted space</li>
+                <li>Finding causal observables uncorrelated with inputs</li>
+            </ol>
+        </section>
+        
+        <section>
+            <h2>Solution</h2>
+            <img class="img-right" style="width: 350px;" src="project-pages/dfl-network.jpg" alt="A neural network representation of the learned lifting linearization algorithm.">
+            <p>My dissertation proposed solutions to these two challenges. I presented a low-dimensional, causal, lifting linear model obtained from experimental data. I used neural networks to find effective observables through learning.</p>
+
+            <p>The algorithm worked by collecting experimental data from simulation, filtering the input, then using a neural network to transform the complex soil-excavator dynamics into simple, linear trajectories in a higher-dimensional space. This learned, "lifted" linearization (L3) model can then be used to rapidly predict future interactions. This can enable the excavator's computer to pick an optimal digging path that picks up a maximum amount of soil with each scoop without getting stuck.</p>
+
+            <p>I tested my L3 algorithm in a state-of-the-art excavator simulator against several other popular models, beating them all while using less memory. Our results were published in <i>IEEE Robotics and Automation Letters</i> and we showcased our work at the <i>International Conference on Intelligent Robots and Systems</i>. To learn more about the project, <a rel="external" href="https://arxiv.org/abs/2104.02004" target="_blank">read our journal paper</a> and <a rel="external" href="https://dspace.mit.edu/handle/1721.1/140046" target="_blank">my dissertation</a>. All of our source code is open source on <a aria-label="GitHub repository" rel="external" href="https://github.com/Darbeloff/DFL" target="_blank">GitHub</a>.</p>
+        </section>
+    </main>
+
+	<footer>
+		<p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+	</footer>
+</body>
+</html>
