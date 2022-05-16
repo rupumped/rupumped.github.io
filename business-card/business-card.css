@@ -102,7 +102,7 @@ textarea:focus {
     outline: none;
 }
 
-@media (min-aspect-ratio: 375/767) {
+@media (min-aspect-ratio: 375/718) {
     header {
         background: var(--bg-color);
         padding-bottom: 1em;
