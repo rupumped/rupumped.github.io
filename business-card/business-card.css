@@ -1,9 +1,11 @@
 :root {
     --bg-color: #1D9BF0;
     --text-color: white;
+    --translucent-black: rgba(0,0,0,0.8);
     --blue-triangle-height: 2cm;
     --black-triangle-height: 3.5cm;
     --black-triangle-width: 80%;
+    --crop-dist: 0px;
 }
 
 body {
@@ -17,7 +19,7 @@ body {
 }
 #blue-triangle{
     position: relative;
-    top: calc(var(--blue-triangle-height) + var(--black-triangle-height));
+    top: calc(var(--blue-triangle-height) + var(--black-triangle-height) + var(--crop-dist));
     left: 0;
     background-image: linear-gradient(to top right, transparent 50%, var(--bg-color) 50%);
     height: var(--blue-triangle-height);
@@ -26,7 +28,7 @@ body {
 }
 #black-triangle{
     position: relative;
-    top: var(--black-triangle-height);
+    top: calc(var(--black-triangle-height) + var(--crop-dist));
     float: right;
     background-image: linear-gradient(to top right, transparent 50%, black 50%);
     height: var(--black-triangle-height);
@@ -36,6 +38,7 @@ body {
 #bg-img {
     width: 100%;
     z-index: 1;
+    clip-path: inset(var(--crop-dist) 0px 0px 0px);
 }
 
 header {
@@ -76,7 +79,7 @@ main {
 .contact {
     display: flex;
     align-items: center;
-    background: rgba(0,0,0,0.8);
+    background: var(--translucent-black);
     font-size: 16px;
     text-decoration: none;
     color: white;
@@ -94,7 +97,7 @@ main {
 
 textarea {
     font-size: 17px;
-    background: rgba(0,0,0,0.8);
+    background: var(--translucent-black);
     color: white;
     resize: none;
 }
@@ -103,22 +106,25 @@ textarea:focus {
 }
 
 @media (min-aspect-ratio: 375/718) {
-    header {
-        background: var(--bg-color);
-        padding-bottom: 1em;
-        border-radius: 5%;
-    }
-    #blue-triangle {
-        display: none;
-    }
-    #black-triangle {
-        display: none;
+    :root {
+        --crop-dist: 2cm;
     }
     main {
         margin: 0.2cm 0;
     }
     .contact {
         margin: 0.2cm 0;
+    }
+}
+@media (min-aspect-ratio: 375/664) {
+    :root {
+        --crop-dist: 3cm;
+    }
+    main {
+        margin: 0.1cm 0;
+    }
+    .contact {
+        margin: 0.1cm 0;
     }
 }
 
