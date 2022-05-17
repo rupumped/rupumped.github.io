@@ -2,6 +2,13 @@
     --img-w: 286px;
 }
 
+#click-on {
+    display: initial;
+}
+#tap {
+    display: none;
+}
+
 #selected-work-container {
     display: flex;
     flex-wrap: wrap;
@@ -53,4 +60,13 @@
 
 .project:hover .proj-overlay {
     bottom: 0;
+}
+
+@media only screen and (max-width: 850px) {
+    #click-on {
+        display: none;
+    }
+    #tap {
+        display: initial;
+    }
 }
