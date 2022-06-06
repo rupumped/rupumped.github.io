@@ -30,6 +30,10 @@
     border-radius: 8%;
 }
 
+section {
+    margin: 0;
+}
+
 #bio {
     text-align: justify;
 }
@@ -44,7 +48,7 @@
     margin-right: 1cm;
 }
 
-#service ul {
+section ul {
     margin-top: 0;
 }
 
@@ -63,6 +67,10 @@
     }
     #title-card-right {
         margin-top: 1em;
+    }
+
+    h2 {
+        font-size: 28px;
     }
 
     #bio {

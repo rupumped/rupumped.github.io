@@ -1,3 +1,4 @@
+/* General */
 :root {
     --img-margin: 0.5em;
     --bg-color: white;
@@ -46,6 +47,7 @@ a:hover {
     color: #3387a2;
 }
 
+/* Header */
 header {
     background-color: var(--bg-color);
     font-family: 'Open Sans', sans-serif;
@@ -90,6 +92,31 @@ header ul li#business-card {
     display: none;
 }
 
+/* Details/Summary */
+summary {
+    margin: 0.3em 0;
+    list-style: none;
+}
+details {
+    margin-bottom: 1em;
+}
+details[open] {
+    margin-bottom: 2em;
+}
+details h2 {
+    display: inline;
+}
+summary::-webkit-details-marker, summary::marker {
+    display: none;
+}
+details .chevron {
+    display: inline;
+}
+details[open] .chevron {
+    transform: rotate(180deg);
+}
+
+/* Images */
 .img-right {
     position: relative;
     float: right;
@@ -115,6 +142,7 @@ header ul li#business-card {
     height: auto;
 }
 
+/* Image galleries */
 div.gallery {
     display: flex;
     flex-wrap: wrap;
@@ -134,10 +162,12 @@ div.gallery img {
     width: auto;
 }
 
+/* IFrames */
 iframe {
     border: none;
 }
 
+/* Footers */
 footer {
     margin-top: 2cm;
     text-align: center;
@@ -148,6 +178,7 @@ footer img {
     margin-bottom: 0.6em;
 }
 
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: black;
@@ -159,6 +190,7 @@ footer img {
     }
 }
 
+/* Mobile */
 @media only screen and (max-width: 766px) {
     :root {
         --mobile-name-size: 1.1em;
