@@ -32,6 +32,9 @@ body {
     margin-top: 2cm;
     margin-bottom: 2cm;
 }
+h1, h2, h3 {
+    line-height: 1.2em;
+}
 h2, h3 {
     font-family: var(--special-font-family);
 }
