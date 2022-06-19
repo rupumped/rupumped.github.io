@@ -1,6 +1,6 @@
 a.item {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);
 }
 a.item:hover {
     text-decoration: underline;
@@ -24,12 +24,8 @@ p.date {
     margin-bottom: 0.5em;
 }
 h2 {
-    color: black;
+    color: var(--text-color);
     line-height: 1.2em;
-}
-p.teaser {
-    font-family: 'Open Sans', sans-serif;
-    color: black;
 }
 
 @media only screen and (max-width: 767px) {
@@ -46,12 +42,8 @@ p.teaser {
 }
 
 @media (prefers-color-scheme: dark) {
-    h2,p.teaser {
-        color: white;
-    }
-    
     a.item:hover {
         text-decoration-line: underline;
-        text-decoration-color: white;
+        text-decoration-color: var(--text-color);
     }
 }

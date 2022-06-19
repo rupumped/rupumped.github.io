@@ -3,8 +3,11 @@
     --img-margin: 0.5em;
     --bg-color: white;
     --text-color: black;
+    --link-color: 0, 105, 194;
     --seperator-color: gainsboro;
     --max-w: 90%;
+    --main-font-family: 'Open Sans', sans-serif;
+    --special-font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -12,7 +15,7 @@ body {
     margin-right: auto;
     width: 25cm;
     max-width: var(--max-w);
-    font-family: 'Questrial', sans-serif;
+    font-family: var(--main-font-family);
     font-size: 21px;
     line-height: 1.4em;
     letter-spacing: 0.06em;
@@ -29,9 +32,15 @@ body {
     margin-top: 2cm;
     margin-bottom: 2cm;
 }
+h2, h3 {
+    font-family: var(--special-font-family);
+}
 h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+h3 {
     font-weight: bold;
-    font-size: xx-large;
 }
 .centered {
     display: block;
@@ -41,22 +50,22 @@ h2 {
 }
 
 a {
-    color: #4CAAC9;
+    color: rgb(var(--link-color));
+    text-underline-offset: 0.2em;
 }
 a:hover {
-    color: #3387a2;
+    text-decoration: none;
 }
 
 /* Header */
 header {
     background-color: var(--bg-color);
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--special-font-family);
 }
 header #name {
     text-align: center;
-    font-size: 2ch;
-    font-weight: 700;
-    letter-spacing: 0.1ch;
+    font-size: 1.7em;
+    letter-spacing: 0.06em;
     margin-top: 1.5em;
     margin-bottom: 1em;
 }
@@ -69,7 +78,7 @@ header .menu-icon {
 header ul {
     list-style: none;
     text-align: center;
-    font-size: 1.2ch;
+    font-size: 0.7em;
 }
 header ul li {
     display: inline-block;
@@ -94,7 +103,7 @@ header ul li#business-card {
 
 /* Details/Summary */
 summary {
-    margin: 0.3em 0;
+    margin: 0.3em 0 0.8em 0;
     list-style: none;
 }
 details {
@@ -141,6 +150,11 @@ details[open] .chevron {
     width: 100%;
     height: auto;
 }
+.img-center {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
 
 /* Image galleries */
 div.gallery {
@@ -171,7 +185,7 @@ iframe {
 footer {
     margin-top: 2cm;
     text-align: center;
-    font-size: small;
+    font-size: 0.6em;
     line-height: normal;
 }
 footer img {
@@ -183,6 +197,7 @@ footer img {
     :root {
         --bg-color: black;
         --text-color: white;
+        --link-color: 140, 180, 255;
     }
 
     th {
@@ -199,6 +214,10 @@ footer img {
         --hamburger-slice-height: 2px;
     }
 
+    h2 {
+        font-size: 1.3em;
+    }
+
     header {
         position: fixed;
         top: 0;
@@ -208,37 +227,31 @@ footer img {
         border-bottom: 2px solid var(--seperator-color);
         z-index: 9;
     }
-
     header ul {
         margin: 0;
         padding: 0;
         overflow: hidden;
         background-color: var(--bg-color);
     }
-
     header ul li {
         display: initial;
     }
-    
     header ul li a {
         display: block;
         margin: 0;
         padding: 10px 0;
         text-align: center;
     }
-    
     header li a:hover,
     header .menu-btn:hover {
         background-color: #f4f4f4;
     }
-
     header ul li#business-card {
         display: initial;
     }
     header ul li#business-card a {
         color: rgba(0,0,0,1);
     }
-    
     header #name {
         display: block;
         float: left;

@@ -49,13 +49,12 @@
     letter-spacing: -0.05ch;
     line-height: 2em;
 }
-.proj-title {
-    font-family: 'Questrial', sans-serif;
+h2 {
     padding-top: 40%;
-    font-size: 3ch;
     line-height: 1em;
     text-align: center;
     vertical-align: middle;
+    margin: 0;
 }
 
 .project:hover .proj-overlay {

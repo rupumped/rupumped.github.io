@@ -17,10 +17,10 @@
     width: 100%;
     transform: translate(-50%, -50%);
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--main-font-family);
     color: white;
     font-size: 3em;
-    font-weight: bolder;
+    font-weight: 700;
     text-align: center;
     line-height: 1.2em;
     -webkit-text-stroke: 1px black;
@@ -30,8 +30,9 @@
 }
 
 .disclaimer {
-    font-size: medium;
+    font-size: 0.7em;
     line-height: 1.4em;
+    font-style: italic;
 }
 
 .skills {
@@ -40,6 +41,7 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 0.5em;
+    line-height: 1em;
 }
 .bullet {
     border-radius: 50%;
@@ -62,15 +64,6 @@
 img {
     max-width: 100%;
     height: auto;
-    /* box-sizing: border-box; */
-}
-
-h2 {
-    margin: 0 auto;
-}
-section {
-    margin-top: 2cm;
-    margin-bottom: 2cm;
 }
 
 blockquote {
@@ -89,7 +82,7 @@ table {
 caption {
     caption-side: bottom;
     text-align: left;
-    font-size: medium;
+    font-size: 0.8em;
     line-height: 1.2em;
 }
 th {
@@ -132,7 +125,7 @@ td, th {
         margin: 0;
     }
     #skills-demonstrated h2 {
-        font-size: 21px;
+        font-size: 1.3em;
     }
     .skills {
         justify-content: flex-start;
@@ -142,7 +135,7 @@ td, th {
     .skill {
         padding: 0;
         margin: 0 var(--skill-margin);
-        font-size: 16px;
+        font-size: 0.8em;
         line-height: 1.3em;
     }
     .bullet {
@@ -167,7 +160,7 @@ td, th {
 
     @media (prefers-color-scheme: dark) {
         .cover h1 {
-            color: white;
+            color: var(--text-color);
             -webkit-text-stroke-width: 0;
         }
     }
@@ -175,6 +168,6 @@ td, th {
 
 @media (prefers-color-scheme: dark) {
     .skills .bullet {
-        background-color: white;
+        background-color: var(--text-color);
     }
 }
