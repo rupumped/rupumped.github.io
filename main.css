@@ -29,8 +29,7 @@ body {
     margin-bottom: 2em;
 }
 .section, section {
-    margin-top: 2cm;
-    margin-bottom: 2cm;
+    margin: 2.7em 0;
 }
 h1, h2, h3 {
     line-height: 1.2em;
@@ -218,6 +217,10 @@ footer img {
         --mobile-menu-icon-padding: 28px;
         --hamburger-radius: 5px;
         --hamburger-slice-height: 2px;
+    }
+
+    body {
+        font-size: 20px;
     }
 
     h2 {
