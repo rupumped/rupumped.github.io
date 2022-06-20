@@ -50,10 +50,27 @@ section.toc div ul {
 section.toc div ul li {
     padding-left: 1em;
     text-indent: -1em;
+    break-inside: avoid;
 }
 section.toc div ul li:before {
     content: ">";
     padding-right: 0.4em;
+}
+
+section.odd, section.even {
+    padding: 1em 1em;
+    margin: 0;
+}
+section.odd h2, section.even h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+section.odd p, section.even p {
+    margin: 0.5em 0;
+}
+section.even {
+    background-color: rgba(var(--link-color), 0.1);
 }
 
 sup {
