@@ -158,6 +158,9 @@ details[open] .chevron {
     margin: 0 auto;
     max-width: 100%;
 }
+img.white-bg {
+    background-color: white;
+}
 
 /* Image galleries */
 div.gallery {

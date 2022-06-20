@@ -10,21 +10,25 @@ p.date {
     margin: 0.7em 0;
 }
 
-figure {
+figure.cover {
     width: 100%;
     margin: 0;
     padding: 1.1em 0;
     border-top: 1px solid var(--seperator-color);
     border-bottom: 1px solid var(--seperator-color);
 }
-figure img {
+figure.cover img {
     width: 100%;
 }
 figcaption {
     font-size: 0.8em;
     line-height: 1.4em;
+    text-align: center;
+}
+figure.cover figcaption {
     font-style: italic;
     margin-top: 0;
+    text-align: left;
 }
 
 section.toc {
