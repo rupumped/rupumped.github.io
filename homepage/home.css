@@ -32,7 +32,7 @@ address {
     justify-content: space-around;
 }
 #social-media-wrapper img {
-    width: 1.6cm;
+    width: 2.8em;
     border-radius: 8%;
 }
 
@@ -69,7 +69,23 @@ section ul {
     }
 }
 
-@media only screen and (max-width: 724px) {
+@media only screen and (max-width: 940px) {
+    #title-card {
+        padding: 0;
+        box-shadow: none;
+    }
+    #headshot {
+        width: 14em;
+    }
+    #title-card .separator {
+        margin: 1em 0;
+    }
+    #social-media-wrapper img {
+        width: 2.5em;
+    }
+}
+
+@media only screen and (max-width: 808px) {
     #title-card {
         flex-wrap: wrap;
         justify-content: center;
@@ -87,13 +103,18 @@ section ul {
     #title-card-right {
         margin-top: 1em;
     }
+    #title-card .separator {
+        margin: 2em 0;
+    }
     address a {
         display: inline-block;
         max-width: 100%;
         overflow: scroll;
         font-size: 0.9em;
     }
+}
 
+@media only screen and (max-width: 724px) {
     #bio {
         text-align: left;
     }
