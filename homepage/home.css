@@ -106,7 +106,7 @@ section ul {
     #title-card .separator {
         margin: 2em 0;
     }
-    address a {
+    address {
         display: inline-block;
         max-width: 100%;
         overflow: scroll;
