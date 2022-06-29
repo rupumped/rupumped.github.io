@@ -26,7 +26,7 @@
     margin-bottom: 0.2em;
 }
 #quote-citation {
-    color: #777777;
+    color: var(--grayed-out);
 }
 
 #bio {

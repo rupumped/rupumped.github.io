@@ -3,6 +3,8 @@
     --img-margin: 0.5em;
     --bg-color: white;
     --text-color: black;
+    --grayed-out: #747474;
+    --active-gray: #ccc;
     --link-color: 0, 105, 194;
     --seperator-color: gainsboro;
     --max-w: 90%;
@@ -92,11 +94,11 @@ header ul li a {
 }
 header ul li a.active-link {
     text-decoration: none;
-    color: #ccc;
+    color: var(--grayed-out);
 }
 header ul li a.active-link:hover {
     text-decoration: none;
-    color: #ccc;
+    color: var(--grayed-out);
 }
 
 header ul li#business-card {
@@ -146,7 +148,7 @@ details[open] .chevron {
     padding: 3px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgba(0,0,0,0.13);
+    border-color: var(--active-gray);
 }
 .img-full-width {
     width: 100%;
@@ -171,10 +173,10 @@ div.gallery a {
     height: 60px;
     padding: 2px;
     margin: 1px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--grayed-out);
 }
 div.gallery a:hover {
-    border-color: #777;
+    border-color: var(--active-gray);
 }
 div.gallery img {
     height: 100%;
@@ -202,11 +204,9 @@ footer img {
     :root {
         --bg-color: black;
         --text-color: white;
+        --grayed-out: #ccc;
+        --active-gray: #666;
         --link-color: 140, 180, 255;
-    }
-
-    th {
-        color: var(--bg-color);
     }
 }
 
@@ -251,15 +251,11 @@ footer img {
         padding: 10px 0;
         text-align: center;
     }
-    header li a:hover,
-    header .menu-btn:hover {
-        background-color: #f4f4f4;
-    }
     header ul li#business-card {
         display: initial;
     }
     header ul li#business-card a {
-        color: rgba(0,0,0,1);
+        color: var(--bg-color);
     }
     header #name {
         display: block;
@@ -292,7 +288,7 @@ footer img {
     }
     
     header .menu-icon .navicon {
-        background: #333;
+        background: var(--grayed-out);
         display: block;
         height: var(--hamburger-slice-height);
         position: relative;
@@ -302,7 +298,7 @@ footer img {
     
     header .menu-icon .navicon:before,
     header .menu-icon .navicon:after {
-        background: #333;
+        background: var(--grayed-out);
         content: '';
         display: block;
         height: 100%;
@@ -349,22 +345,5 @@ footer img {
 
     div.gallery a {
         height: 40px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        header {
-            border-color: #2b2b2b;
-        }
-
-        header li a:hover,
-        header .menu-btn:hover {
-            background-color: #0b0b0b;
-        }
-        header .menu-icon .navicon,
-        header .menu-icon .navicon:before,
-        header .menu-icon .navicon:after {
-            background: #ccc;
-            background: #ccc;
-        }
     }
 }

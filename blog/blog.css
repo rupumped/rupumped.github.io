@@ -20,7 +20,7 @@ div.w-img img {
 }
 
 p.date {
-    color: #777;
+    color: var(--grayed-out);
     margin-bottom: 0.5em;
 }
 h2 {
