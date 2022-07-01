@@ -233,7 +233,7 @@ footer img {
         left: 5%;
         width: var(--max-w);
         background-color: var(--bg-color);
-        border-bottom: 2px solid var(--seperator-color);
+        border-bottom: 2px solid var(--active-gray);
         z-index: 9;
     }
     header ul {
