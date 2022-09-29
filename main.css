@@ -131,21 +131,22 @@ details[open] .chevron {
 }
 
 /* Images */
+img {
+    box-sizing: border-box;
+}
 .img-right {
-    position: relative;
     float: right;
     clear: right;
-    max-width: 100%;
     margin-left: var(--img-margin);
 }
 .img-left {
-    position: relative;
     float: left;
     clear: left;
-    max-width: 100%;
     margin-right: var(--img-margin);
 }
 .img-right, .img-left {
+    position: relative;
+    max-width: 100%;
     padding: 3px;
     border-width: 1px;
     border-style: solid;
