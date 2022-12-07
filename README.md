@@ -4,9 +4,6 @@ My personal website. To visit, go to https://rupumped.github.io/. This ReadMe is
 ## Completely free of JavaScript
 JavaScript is a useful tool for many applications, but slows down browsers and has a history of security vulnerabilities. My personal website has interactive and responsive elements, but it does so using CSS.
 
-## Open Source
-The website is licensed using the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/), so you can share and adapt my work freely.
-
 ## W3C Compliant
 I used Celian Riboulet's [W3C Web Validator](https://marketplace.visualstudio.com/items?itemName=CelianRiboulet.webvalidator) to ensure users should have the same experience regardless of their preferred browser.
 
@@ -18,3 +15,6 @@ If not for the British film actor who shares my name, this website would be the 
 
 ## Accessible
 I used the [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) to ensure that each page of my personal website is accessible and easily parsable by screen readers. All images have `alt` attributes, all links are descriptive and/or have ARIA labels, dark mode can be set through the browser, and every page adheres to the [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/) international standard.
+
+## Open Source
+The website is licensed using the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/), so you can share and adapt my work freely.
