@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Nicholas Selby
+N;CHARSET=UTF-8:Selby;Nicholas;;;
+GENDER:M
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:nicholas.selby@renewvia.com
+ADR;CHARSET=UTF-8;TYPE=WORK:;;PO Box 14805;Nairobi;;;Kenya
+ROLE;CHARSET=UTF-8:Director of Engineering
+ORG;CHARSET=UTF-8:Renewvia Solar Africa
+URL;CHARSET=UTF-8:https://rupumped.github.io/
+URL;type=WORK;CHARSET=UTF-8:https://www.renewvia.com/renewvia-energy-africa
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/nicholas-selby-5278b334/
+REV:2023-03-04T10:49:57.805Z
+END:VCARD
