@@ -2,7 +2,7 @@
 My personal website. To visit, go to https://rupumped.github.io/. This ReadMe is just so I can brag about its technical merits. I coded it from scratch without even using bootstrap, and I'm proud of it.
 
 ## Completely free of JavaScript
-JavaScript is a useful tool for many applications, but slows down browsers and has a history of security vulnerabilities. My personal website has interactive and responsive elements, but it does so using CSS.
+JavaScript is a useful tool for many applications, but slows down browsers and has a history of security vulnerabilities. My personal website has interactive and responsive elements, but it does so using CSS. The only exception is for the display of mathematical formulas, for which I use [KaTeX](https://katex.org/).
 
 ## W3C Compliant
 I used Celian Riboulet's [W3C Web Validator](https://marketplace.visualstudio.com/items?itemName=CelianRiboulet.webvalidator) to ensure users should have the same experience regardless of their preferred browser.

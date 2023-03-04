@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
 	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+	<script src="katex-support.js"></script>
 </head>
 <body>
 	<header>
@@ -75,63 +76,77 @@
 			<h2>I2R Losses in a Three-Phase Distribution Network</h2>
 			<img class="img-center" style="width: 12cm;" src="blog-posts/losses-3p.jpg" alt="Diagram of a three-phase distribution network">
 			<p>Consider a three-phase AC distribution network in a wye configuration with four cables: Line 1, Line 2, Line 3, and Neutral. Assume each conductor has the same resistance, \(\mathrm{R} &gt; 0\), and each of the three lines, \(k\), is supplying a load with current \(i_k &gt; 0\). The current flowing back to the source along the neutral is:</p>
-			\begin{equation}
-				i_{\mathrm{N},3\mathrm{p}}=\sqrt{i_1^2+i_2^2+i_3^2-i_1i_2-i_1i_3-i_2i_3}
-			\end{equation}
+			<div class="equation">
+				\begin{equation}
+					i_{\mathrm{N},3\mathrm{p}}=\sqrt{i_1^2+i_2^2+i_3^2-i_1i_2-i_1i_3-i_2i_3}
+				\end{equation}
+			</div>
 
 			<p>The power lost along a conductor due to the current, \(i\), being impeded by resistance \(\mathrm{R}\) is given by</p>
-			\begin{equation}
-				\mathrm{P}=i^2\mathrm{R}
-			\end{equation}
-			<!-- (2) \label{eq:i2r} -->
+			<div class="equation">
+				\begin{equation}
+					\mathrm{P}=i^2\mathrm{R}
+				\end{equation}
+				<!-- (2) \label{eq:i2r} -->
+			</div>
 
 			<p>Therefore, the power loss in the above three-phase network is given by the sum of the power losses along each line:</p>
-			\begin{equation}
-				\begin{array}{rl}
-					\mathrm{P}_{3\mathrm{p}} & =i_1^2\mathrm{R}+i_2^2\mathrm{R}+i_3^2\mathrm{R}+i_{\mathrm{N},3\mathrm{p}}^2\mathrm{R} \\
-					& =\left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R}
-				\end{array}
-			\end{equation}
-			<!-- (3) \label{eq:p3} -->
+			<div class="equation">
+				\begin{equation}
+					\begin{array}{rl}
+						\mathrm{P}_{3\mathrm{p}} & =i_1^2\mathrm{R}+i_2^2\mathrm{R}+i_3^2\mathrm{R}+i_{\mathrm{N},3\mathrm{p}}^2\mathrm{R} \\
+						& =\left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R}
+					\end{array}
+				\end{equation}
+				<!-- (3) \label{eq:p3} -->
+			</div>
 		</section>
 
 		<section id="Single-Phase">
 			<h2>Reconfiguring for Single-Phase Distribution</h2>
 			<img class="img-center" style="width: 12cm;" src="blog-posts/losses-1p.jpg" alt="Diagram of a three-phase distribution network converted to a single-phase network with three line conductors">
 			<p>Now consider a single-phase distribution network made by connecting Lines 1, 2, and 3 of the above three-phase network. Lines 1, 2, and 3 now act as a single conductor with resistance \(\mathrm{R}/3\) carrying current \(\sum_{k=1}^3 i_k\). Assuming the AC power source was reconfigured to output single-phase AC along the three conductors, Kirchhoff's Current Law dictates the current along the neutral is equal to the current along the new, combined line:</p>
-			\begin{equation}
-				i_{\mathrm{N},1\mathrm{p}}=\sum_{k=1}^3 i_k
-			\end{equation}
+			<div class="equation">
+				\begin{equation}
+					i_{\mathrm{N},1\mathrm{p}}=\sum_{k=1}^3 i_k
+				\end{equation}
+			</div>
 
 			<p>Applying Eq. (3), the power loss in this single-phase network can be expressed:</p>
-			\begin{equation}
-				\begin{array}{rl}
-					\mathrm{P}_{1\mathrm{p}} & = \left(\sum_{k=1}^3 i_k\right)^2\frac{\mathrm{R}}{3}+\left(\sum_{k=1}^3 i_k\right)^2\mathrm{R}\\
-					& =\frac{4}{3}\left(i_1+i_2+i_3\right)^2\mathrm{R}
-				\end{array}
-			\end{equation}
-			<!-- (5) \label{eq:p1} -->
+			<div class="equation">
+				\begin{equation}
+					\begin{array}{rl}
+						\mathrm{P}_{1\mathrm{p}} & = \left(\sum_{k=1}^3 i_k\right)^2\frac{\mathrm{R}}{3}+\left(\sum_{k=1}^3 i_k\right)^2\mathrm{R}\\
+						& =\frac{4}{3}\left(i_1+i_2+i_3\right)^2\mathrm{R}
+					\end{array}
+				\end{equation}
+				<!-- (5) \label{eq:p1} -->
+			</div>
 
 			<p>If \(\mathrm{P}_{1\mathrm{p}}&lt; \mathrm{P}_{3\mathrm{p}}\), then total power loss would be reduced by reconfiguring the original three-phase network to be single-phase using the method described above. This occurs when:</p>
-			\begin{equation}
-				\begin{array}{rcl}
-					\mathrm{P}_{1\mathrm{p}} &amp; &lt; &amp; \mathrm{P}_{3\mathrm{p}} \\
-					\frac{4}{3}\left(i_1+i_2+i_3\right)^2\mathrm{R} &amp; &lt; &amp; \left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R} \\
-					11\left(i_1i_2+i_1i_3+i_2i_3\right) &amp; &lt; &amp; 2\left(i_1^2+i_2^2+i_3^2\right)
-				\end{array}
-			\end{equation}
-			<!-- (6) \label{eq:p1ltp3} -->
+			<div class="equation">
+				\begin{equation}
+					\begin{array}{rcl}
+						\mathrm{P}_{1\mathrm{p}} &amp; &lt; &amp; \mathrm{P}_{3\mathrm{p}} \\
+						\frac{4}{3}\left(i_1+i_2+i_3\right)^2\mathrm{R} &amp; &lt; &amp; \left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R} \\
+						11\left(i_1i_2+i_1i_3+i_2i_3\right) &amp; &lt; &amp; 2\left(i_1^2+i_2^2+i_3^2\right)
+					\end{array}
+				\end{equation}
+				<!-- (6) \label{eq:p1ltp3} -->
+			</div>
 		</section>
 
 		<section id="Balance">
 			<h2>Defining Balance</h2>
 			<p>Note that the above inequality has no dependence on resistance \(\mathrm{R}\) if \(\mathrm{R}\neq 0\). We can define a unitless measure, \(\beta\), to quantify how well the load is balanced in the three-phase network:</p>
-			\begin{equation}
-				\beta \triangleq \begin{cases}
-					\frac{i_1^2+i_2^2+i_3^2}{i_1i_2+i_1i_3+i_2i_3}-1 & \text{if max}\left(i_1, i_2, i_3\right)\neq 0 \\
-					0 & \text{otherwise}
-				\end{cases}
-			\end{equation}
+			<div class="equation">
+				\begin{equation}
+					\beta \triangleq \begin{cases}
+						\frac{i_1^2+i_2^2+i_3^2}{i_1i_2+i_1i_3+i_2i_3}-1 & \text{if max}\left(i_1, i_2, i_3\right)\neq 0 \\
+						0 & \text{otherwise}
+					\end{cases}
+				\end{equation}
+			</div>
 			<p>such that, when the loads are perfectly balanced, i.e. \(i_1=i_2=i_3\), \(\beta=0\), and as the currents become further from equal, \(\beta\) increases. Note that \(\beta\) is strictly nonnegative for all positive currents.</p>
 
 			<p>Rewriting Eq. (6) assuming that at least one of the currents is nonzero yields \(\beta &gt; 4.5\). Therefore, it can be said that, if the loads are unbalanced such that \(\beta &gt; 4.5\), the line losses in the above single-phase distribution network would be less than those in the original three-phase network.</p>
@@ -141,65 +156,79 @@
 			<h2>Optimizing the Single-Phase Distribution Network</h2>
 			<img class="img-center" style="width: 12cm;" src="blog-posts/losses-1ps.jpg" alt="Diagram of a three-phase distribution network converted into a single-phase network with two line conductors">
 			<p>Now consider a single-phase distribution network that has been optimized by moving the load originally on Line 3 to Line 1 or 2, then connecting Line 1 to Line 2 and Line 3 to Neutral. Thus, we have a single-phase network with current \(i_{1\mathrm{p}^*}=\sum_{k=1}^3 i_k\) and total resistance \(\mathrm{R}\). Applying Eq. (2), we can compute the power line loss for this new network:</p>
-			\begin{equation}
-				\begin{array}{rl}
-					\mathrm{P}_{1\mathrm{p}^*} &amp; =\left(\sum_{k=1}^3 i_k\right)^2\mathrm{R} \\
-					& =\left(i_1+i_2+i_3\right)^2\mathrm{R}
-				\end{array}
-			\end{equation}
-			<!-- (8) \label{eq:p1s} -->
+			<div class="equation">
+				\begin{equation}
+					\begin{array}{rl}
+						\mathrm{P}_{1\mathrm{p}^*} &amp; =\left(\sum_{k=1}^3 i_k\right)^2\mathrm{R} \\
+						& =\left(i_1+i_2+i_3\right)^2\mathrm{R}
+					\end{array}
+				\end{equation}
+				<!-- (8) \label{eq:p1s} -->
+			</div>
 
 			<p>If \(\mathrm{P}_{1\mathrm{p}^*} &lt; \mathrm{P}_{3\mathrm{p}}\), then total power loss would be reduced by reconfiguring the original three-phase network into the optimized single-phase network. This occurs when:</p>
-			\begin{equation}
-				\begin{array}{rcl}
-					\mathrm{P}_{1\mathrm{p}^*} &amp; &lt; &amp; \mathrm{P}_{3\mathrm{p}} \\
-					\left(i_1+i_2+i_3\right)^2\mathrm{R} &amp; &lt; &amp; \left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R} \\
-					3\left(i_1i_2+i_1i_3+i_2i_3\right) &amp; &lt; &amp; i_1^2+i_2^2+i_3^2
-				\end{array}
-			\end{equation}
-			<!-- (9) \label{eq:beta-gt-2}-->
+			<div class="equation">
+				\begin{equation}
+					\begin{array}{rcl}
+						\mathrm{P}_{1\mathrm{p}^*} &amp; &lt; &amp; \mathrm{P}_{3\mathrm{p}} \\
+						\left(i_1+i_2+i_3\right)^2\mathrm{R} &amp; &lt; &amp; \left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R} \\
+						3\left(i_1i_2+i_1i_3+i_2i_3\right) &amp; &lt; &amp; i_1^2+i_2^2+i_3^2
+					\end{array}
+				\end{equation}
+				<!-- (9) \label{eq:beta-gt-2}-->
+			</div>
 			<p>or \(\beta &gt; 2\).</p>
 		</section>
 
 		<section id="Energy">
 			<h2>Extension to Energy</h2>
 			<p>Redefine current \(i\) to be a function of time, \(t\): \(i(t)\). Thus, the currents \(i_1\), \(i_2\), and \(i_3\) are now functions of time: \(i_1(t)\), \(i_2(t)\), and \(i_3(t)\). Substituting \(i(t)\) into Eq. (2) similarly redefines power loss to be a function of time as well:</p>
-			\begin{equation}
-				\mathrm{P}(t)=i^2(t)\mathrm{R}
-			\end{equation}
+			<div class="equation">
+				\begin{equation}
+					\mathrm{P}(t)=i^2(t)\mathrm{R}
+				\end{equation}
+			</div>
 
 			<p>The energy lost due to power line losses \(\mathrm{P}(t)\) between times \(0\) and \(\mathrm{T}\) is:</p>
-			\begin{equation}
-				\mathrm{E}=\int_0^\mathrm{T} \mathrm{P}(t)dt
-			\end{equation}
-			<!-- (11) \label{eq:energy} -->
+			<div class="equation">
+				\begin{equation}
+					\mathrm{E}=\int_0^\mathrm{T} \mathrm{P}(t)dt
+				\end{equation}
+				<!-- (11) \label{eq:energy} -->
+			</div>
 
 			<p>Applying Eq. (11) to Eqs. (3), (5), and (8), we can compute the energy lost due to power line losses between times \(0\) and \(\mathrm{T}\) for the three-phase, single-phase, and optimized single-phase networks, respectively, as:</p>
-			\begin{equation}
-				\begin{cases}
-					\mathrm{E}_{3\mathrm{p}} &= \int_0^\mathrm{T} \left(\left(2\left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right) \right. \right.\\
-					& \left. \left. -i_1(t)i_2(t)-i_1(t)i_3(t)-i_2(t)i_3(t)\right)\mathrm{R}\right)dt\\
-					\mathrm{E}_{1\mathrm{p}} &= \int_0^\mathrm{T} \left(\frac{4}{3}\left(i_1(t)+i_2(t)+i_3(t)\right)^2\mathrm{R}\right)dt\\
-					\mathrm{E}_{1\mathrm{p}^*}&= \int_0^\mathrm{T} \left(\left(i_1(t)+i_2(t)+i_3(t)\right)^2\mathrm{R}\right)dt
-				\end{cases}
-			\end{equation}
+			<div class="equation">
+				\begin{equation}
+					\begin{cases}
+						\mathrm{E}_{3\mathrm{p}} &= \int_0^\mathrm{T} \left(\left(2\left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right) \right. \right.\\
+						& \left. \left. -i_1(t)i_2(t)-i_1(t)i_3(t)-i_2(t)i_3(t)\right)\mathrm{R}\right)dt\\
+						\mathrm{E}_{1\mathrm{p}} &= \int_0^\mathrm{T} \left(\frac{4}{3}\left(i_1(t)+i_2(t)+i_3(t)\right)^2\mathrm{R}\right)dt\\
+						\mathrm{E}_{1\mathrm{p}^*}&= \int_0^\mathrm{T} \left(\left(i_1(t)+i_2(t)+i_3(t)\right)^2\mathrm{R}\right)dt
+					\end{cases}
+				\end{equation}
+			</div>
 
 			<p>Just as with the power inequalities, if \(\mathrm{E}_{1\mathrm{p}} &lt; \mathrm{E}_{3\mathrm{p}}\) or \(\mathrm{E}_{1\mathrm{p}^*} &lt; \mathrm{E}_{3\mathrm{p}}\), reconfiguring the network from three-phase to single-phase or optimized single-phase, respectively, would reduce energy loss during the period from time \(0\) to \(\mathrm{T}\). As an example, consider the comparison of the three-phase system to the optimized single-phase system:</p>
-			\begin{equation}
-				\begin{array}{rcl}
-					\mathrm{E}_{1\mathrm{p}^*} &amp; &lt; &amp; \mathrm{E}_{3\mathrm{p}} \\
-					\int_0^\mathrm{T} 3\left(i_1(t)i_2(t)+i_1(t)i_3(t)+i_2(t)i_3(t)\right)dt &amp; &lt; &amp; \int_0^\mathrm{T} \left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right)dt
-				\end{array}
-			\end{equation}
+			<div class="equation">
+				\begin{equation}
+					\begin{array}{rcl}
+						\mathrm{E}_{1\mathrm{p}^*} &amp; &lt; &amp; \mathrm{E}_{3\mathrm{p}} \\
+						\int_0^\mathrm{T} 3\left(i_1(t)i_2(t)+i_1(t)i_3(t)+i_2(t)i_3(t)\right)dt &amp; &lt; &amp; \int_0^\mathrm{T} \left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right)dt
+					\end{array}
+				\end{equation}
+			</div>
 
 			<p>Note that, as before, the inequality does not depend on resistance \(\mathrm{R}\) and can be summarized using a single, unitless measure:</p>
-			\begin{equation}
-				\Beta \triangleq \begin{cases}
-				\frac{\int_0^\mathrm{T}\left(i_1(t)^2+i_2(t)^2+i_3(t)^2\right)dt}{\int_0^\mathrm{T}\left(i_1(t)i_2(t)+i_1(t)i_3(t)+i_2(t)i_3(t)\right)dt}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
-					0 & \text{otherwise}
-				\end{cases}
-			\end{equation}
-			<!-- (14) \label{eq:phi_e} -->
+			<div class="equation">
+				\begin{equation}
+					\Beta \triangleq \begin{cases}
+					\frac{\int_0^\mathrm{T}\left(i_1(t)^2+i_2(t)^2+i_3(t)^2\right)dt}{\int_0^\mathrm{T}\left(i_1(t)i_2(t)+i_1(t)i_3(t)+i_2(t)i_3(t)\right)dt}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
+						0 & \text{otherwise}
+					\end{cases}
+				\end{equation}
+				<!-- (14) \label{eq:phi_e} -->
+			</div>
 
 			<p>Rewriting the energy inequalities using \(\Beta\) yields the same numeric cut-offs for \(\Beta\) as \(\beta\):</p>
 			<ul>
@@ -208,12 +237,14 @@
 			</ul>
 			
 			<p>The discrete-time extension of \(\Beta\) is trivial:</p>
-			\begin{equation}
-				\Beta \approx \begin{cases}
-				\frac{\sum_{\tau=0}^\mathrm{T}\left(i_1(\tau)^2+i_2(\tau)^2+i_3(\tau)^2\right)\Delta t(\tau)}{\sum_{\tau=0}^\mathrm{T}\left(i_1(\tau)i_2(\tau)+i_1(\tau)i_3(\tau)+i_2(\tau)i_3(\tau)\right)\Delta t(\tau)}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
-					0 & \text{otherwise}
-				\end{cases}
-			\end{equation}
+			<div class="equation">
+				\begin{equation}
+					\Beta \approx \begin{cases}
+					\frac{\sum_{\tau=0}^\mathrm{T}\left(i_1(\tau)^2+i_2(\tau)^2+i_3(\tau)^2\right)\Delta t(\tau)}{\sum_{\tau=0}^\mathrm{T}\left(i_1(\tau)i_2(\tau)+i_1(\tau)i_3(\tau)+i_2(\tau)i_3(\tau)\right)\Delta t(\tau)}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
+						0 & \text{otherwise}
+					\end{cases}
+				\end{equation}
+			</div>
 			<p>where \(\Delta t(\tau)\) is the sampling period at time \(\tau\). Note that \(\Delta t(\tau)\) need not be constant over time. The cut-off values of \(4.5\) and \(2\) do not change.</p>
 		</section>
 
@@ -237,9 +268,11 @@
 			<img class="img-center" style="width: 12cm;" src="blog-posts/losses-busbar.jpg" alt="An electrical diagram of two batteries connected to an inverter">
 
 			<p>Consider the above diagram of two batteries connected to one of the battery inverters in a three-phase system. For simplicity, assume this system has only three battery inverters, one for each phase, and only one of the battery inverters is currently outputting power to a load. The ratio of the current output of the two batteries is inversely proportional to the ratio of the resistances between the batteries and the inverter:</p>
-			\begin{equation}
-				\frac{i_1}{i_2}=\frac{\mathrm{R}_2}{\mathrm{R}_1}
-			\end{equation}
+			<div class="equation">
+				\begin{equation}
+					\frac{i_1}{i_2}=\frac{\mathrm{R}_2}{\mathrm{R}_1}
+				\end{equation}
+			</div>
 			<p>Note that, even if the bus bar resistance is small, the ratio of the currents depends only on the <i>ratio</i> of the resistances. Thus, if there is twice as much conductor between the battery inverter and the first battery as between the battery inverter and the second battery, then the second battery will drain twice as fast as the first. If this condition persists, because the batteries are bussed, current will eventually flow from the first battery to the second due to the drop in battery voltage as state-of-charge decreases. This flow will likely overload its battery fuse due to the low absolute resistance between the batteries on the bus bar. Therefore, even though the I2R losses of a three-phase network may be less than those of a single-phase network, the additional OPEX required to replace the battery fuses in an unbalanced three-phase system should be considered.</p>
 			
 			<p>From a design perspective, most single-phase distribution networks have only two conductors: line and neutral. If the mini-grid distribution network is not already built, the distribution engineer must consider the additional CAPEX involved with running two additional conductors.</p>
