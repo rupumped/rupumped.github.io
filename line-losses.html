@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>I2R Losses in Single- and Three-Phase Distribution Networks</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- SEO Description-->
+	<meta name="description" content="How unbalanced do loads on a three-phase distribution network have to be to warrant reconfiguring the network to be single-phase?">
+	<link rel="canonical" href="https://rupumped.github.io/line-losses.html">
+
+	<!-- Favicon -->
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="blog-posts/blog-post.css">
+
+	<!-- KaTeX for Math -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+	<header>
+		<div id="name">NICHOLAS S SELBY</div>
+		<input class="menu-btn" type="checkbox" id="menu-btn">
+		<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+		<ul class="menu">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="about.html">ABOUT ME</a></li>
+			<li><a href="selected-work.html">SELECTED WORK</a></li>
+			<li><a href="blog.html">BLOG</a></li>
+			<li><a href="service.html">SERVICE</a></li>
+		</ul>
+	</header>
+
+	<main>
+		<h1>I2R Losses in Single- and Three-Phase Distribution Networks</h1>
+		<p class="date">Posted on March 4, 2023</p>
+		<figure class="cover">
+			<img src="blog-posts/losses-cover.jpg" alt="Photo CC0: Kistler, Ken. 'Electric Power Lines At Sunset.'">
+			<figcaption>Photo CC0: Kistler, Ken. "Electric Power Lines At Sunset."</figcaption>
+		</figure>
+
+		<section class="toc">
+			<h2>Contents</h2>
+			<div>
+				<ul>
+					<li><a href="#Introduction">Introduction</a></li>
+					<li><a href="#Three-Phase">I2R Losses in a Three-Phase Distribution Network</a></li>
+					<li><a href="#Single-Phase">Reconfiguring for Single-Phase Distribution</a></li>
+					<li><a href="#Balance">Defining Balance</a></li>
+					<li><a href="#Opt-Single">Optimizing the Single-Phase Distribution Network</a></li>
+					<li><a href="#Energy">Extension to Energy</a></li>
+					<li><a href="#Intuition">Developing an Intuition</a></li>
+					<li><a href="#Additional">Additional Considerations</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="Introduction">
+			<h2>Introduction</h2>
+			<p>Power line losses are a significant concern in mini-grid systems. These losses not only impact the efficiency and reliability of the system, but also increase the overall cost of electricity for end-users. One of the key factors that contributes to power losses in distribution networks is load unbalance. When loads are unevenly distributed across the phases of a three-phase network, the resulting current imbalance can cause additional losses in the system.</p>
+
+			<p>In this essay, we will explore the impact of load unbalance on power losses in both three-phase and single-phase distribution networks for mini-grids. Specifically, we will answer the question: "How unbalanced do loads on a three-phase distribution network have to be to warrant reconfiguring the network to be single-phase?" By analyzing the theoretical and practical implications of load unbalance, we will gain insights on the most optimal configuration for mini-grids in terms of minimizing power losses and improving energy efficiency. This analysis will help mini-grid operators and designers make informed decisions about the configuration of distribution networks, ultimately improving the quality and affordability of electricity for end-users.</p>
+		</section>
+
+		<section id="Three-Phase">
+			<h2>I2R Losses in a Three-Phase Distribution Network</h2>
+			<img class="img-center" style="width: 12cm;" src="blog-posts/losses-3p.jpg" alt="Diagram of a three-phase distribution network">
+			<p>Consider a three-phase AC distribution network in a wye configuration with four cables: Line 1, Line 2, Line 3, and Neutral. Assume each conductor has the same resistance, \(\mathrm{R} &gt; 0\), and each of the three lines, \(k\), is supplying a load with current \(i_k &gt; 0\). The current flowing back to the source along the neutral is:</p>
+			\begin{equation}
+				i_{\mathrm{N},3\mathrm{p}}=\sqrt{i_1^2+i_2^2+i_3^2-i_1i_2-i_1i_3-i_2i_3}
+			\end{equation}
+
+			<p>The power lost along a conductor due to the current, \(i\), being impeded by resistance \(\mathrm{R}\) is given by</p>
+			\begin{equation}
+				\mathrm{P}=i^2\mathrm{R}
+			\end{equation}
+			<!-- (2) \label{eq:i2r} -->
+
+			<p>Therefore, the power loss in the above three-phase network is given by the sum of the power losses along each line:</p>
+			\begin{equation}
+				\begin{array}{rl}
+					\mathrm{P}_{3\mathrm{p}} & =i_1^2\mathrm{R}+i_2^2\mathrm{R}+i_3^2\mathrm{R}+i_{\mathrm{N},3\mathrm{p}}^2\mathrm{R} \\
+					& =\left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R}
+				\end{array}
+			\end{equation}
+			<!-- (3) \label{eq:p3} -->
+		</section>
+
+		<section id="Single-Phase">
+			<h2>Reconfiguring for Single-Phase Distribution</h2>
+			<img class="img-center" style="width: 12cm;" src="blog-posts/losses-1p.jpg" alt="Diagram of a three-phase distribution network converted to a single-phase network with three line conductors">
+			<p>Now consider a single-phase distribution network made by connecting Lines 1, 2, and 3 of the above three-phase network. Lines 1, 2, and 3 now act as a single conductor with resistance \(\mathrm{R}/3\) carrying current \(\sum_{k=1}^3 i_k\). Assuming the AC power source was reconfigured to output single-phase AC along the three conductors, Kirchhoff's Current Law dictates the current along the neutral is equal to the current along the new, combined line:</p>
+			\begin{equation}
+				i_{\mathrm{N},1\mathrm{p}}=\sum_{k=1}^3 i_k
+			\end{equation}
+
+			<p>Applying Eq. (3), the power loss in this single-phase network can be expressed:</p>
+			\begin{equation}
+				\begin{array}{rl}
+					\mathrm{P}_{1\mathrm{p}} & = \left(\sum_{k=1}^3 i_k\right)^2\frac{\mathrm{R}}{3}+\left(\sum_{k=1}^3 i_k\right)^2\mathrm{R}\\
+					& =\frac{4}{3}\left(i_1+i_2+i_3\right)^2\mathrm{R}
+				\end{array}
+			\end{equation}
+			<!-- (5) \label{eq:p1} -->
+
+			<p>If \(\mathrm{P}_{1\mathrm{p}}&lt; \mathrm{P}_{3\mathrm{p}}\), then total power loss would be reduced by reconfiguring the original three-phase network to be single-phase using the method described above. This occurs when:</p>
+			\begin{equation}
+				\begin{array}{rcl}
+					\mathrm{P}_{1\mathrm{p}} &amp; &lt; &amp; \mathrm{P}_{3\mathrm{p}} \\
+					\frac{4}{3}\left(i_1+i_2+i_3\right)^2\mathrm{R} &amp; &lt; &amp; \left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R} \\
+					11\left(i_1i_2+i_1i_3+i_2i_3\right) &amp; &lt; &amp; 2\left(i_1^2+i_2^2+i_3^2\right)
+				\end{array}
+			\end{equation}
+			<!-- (6) \label{eq:p1ltp3} -->
+		</section>
+
+		<section id="Balance">
+			<h2>Defining Balance</h2>
+			<p>Note that the above inequality has no dependence on resistance \(\mathrm{R}\) if \(\mathrm{R}\neq 0\). We can define a unitless measure, \(\beta\), to quantify how well the load is balanced in the three-phase network:</p>
+			\begin{equation}
+				\beta \triangleq \begin{cases}
+					\frac{i_1^2+i_2^2+i_3^2}{i_1i_2+i_1i_3+i_2i_3}-1 & \text{if max}\left(i_1, i_2, i_3\right)\neq 0 \\
+					0 & \text{otherwise}
+				\end{cases}
+			\end{equation}
+			<p>such that, when the loads are perfectly balanced, i.e. \(i_1=i_2=i_3\), \(\beta=0\), and as the currents become further from equal, \(\beta\) increases. Note that \(\beta\) is strictly nonnegative for all positive currents.</p>
+
+			<p>Rewriting Eq. (6) assuming that at least one of the currents is nonzero yields \(\beta &gt; 4.5\). Therefore, it can be said that, if the loads are unbalanced such that \(\beta &gt; 4.5\), the line losses in the above single-phase distribution network would be less than those in the original three-phase network.</p>
+		</section>
+
+		<section id="Opt-Single">
+			<h2>Optimizing the Single-Phase Distribution Network</h2>
+			<img class="img-center" style="width: 12cm;" src="blog-posts/losses-1ps.jpg" alt="Diagram of a three-phase distribution network converted into a single-phase network with two line conductors">
+			<p>Now consider a single-phase distribution network that has been optimized by moving the load originally on Line 3 to Line 1 or 2, then connecting Line 1 to Line 2 and Line 3 to Neutral. Thus, we have a single-phase network with current \(i_{1\mathrm{p}^*}=\sum_{k=1}^3 i_k\) and total resistance \(\mathrm{R}\). Applying Eq. (2), we can compute the power line loss for this new network:</p>
+			\begin{equation}
+				\begin{array}{rl}
+					\mathrm{P}_{1\mathrm{p}^*} &amp; =\left(\sum_{k=1}^3 i_k\right)^2\mathrm{R} \\
+					& =\left(i_1+i_2+i_3\right)^2\mathrm{R}
+				\end{array}
+			\end{equation}
+			<!-- (8) \label{eq:p1s} -->
+
+			<p>If \(\mathrm{P}_{1\mathrm{p}^*} &lt; \mathrm{P}_{3\mathrm{p}}\), then total power loss would be reduced by reconfiguring the original three-phase network into the optimized single-phase network. This occurs when:</p>
+			\begin{equation}
+				\begin{array}{rcl}
+					\mathrm{P}_{1\mathrm{p}^*} &amp; &lt; &amp; \mathrm{P}_{3\mathrm{p}} \\
+					\left(i_1+i_2+i_3\right)^2\mathrm{R} &amp; &lt; &amp; \left(2\left(i_1^2+i_2^2+i_3^2\right)-i_1i_2-i_1i_3-i_2i_3\right)\mathrm{R} \\
+					3\left(i_1i_2+i_1i_3+i_2i_3\right) &amp; &lt; &amp; i_1^2+i_2^2+i_3^2
+				\end{array}
+			\end{equation}
+			<!-- (9) \label{eq:beta-gt-2}-->
+			<p>or \(\beta &gt; 2\).</p>
+		</section>
+
+		<section id="Energy">
+			<h2>Extension to Energy</h2>
+			<p>Redefine current \(i\) to be a function of time, \(t\): \(i(t)\). Thus, the currents \(i_1\), \(i_2\), and \(i_3\) are now functions of time: \(i_1(t)\), \(i_2(t)\), and \(i_3(t)\). Substituting \(i(t)\) into Eq. (2) similarly redefines power loss to be a function of time as well:</p>
+			\begin{equation}
+				\mathrm{P}(t)=i^2(t)\mathrm{R}
+			\end{equation}
+
+			<p>The energy lost due to power line losses \(\mathrm{P}(t)\) between times \(0\) and \(\mathrm{T}\) is:</p>
+			\begin{equation}
+				\mathrm{E}=\int_0^\mathrm{T} \mathrm{P}(t)dt
+			\end{equation}
+			<!-- (11) \label{eq:energy} -->
+
+			<p>Applying Eq. (11) to Eqs. (3), (5), and (8), we can compute the energy lost due to power line losses between times \(0\) and \(\mathrm{T}\) for the three-phase, single-phase, and optimized single-phase networks, respectively, as:</p>
+			\begin{equation}
+				\begin{cases}
+					\mathrm{E}_{3\mathrm{p}} &= \int_0^\mathrm{T} \left(\left(2\left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right) \right. \right.\\
+					& \left. \left. -i_1(t)i_2(t)-i_1(t)i_3(t)-i_2(t)i_3(t)\right)\mathrm{R}\right)dt\\
+					\mathrm{E}_{1\mathrm{p}} &= \int_0^\mathrm{T} \left(\frac{4}{3}\left(i_1(t)+i_2(t)+i_3(t)\right)^2\mathrm{R}\right)dt\\
+					\mathrm{E}_{1\mathrm{p}^*}&= \int_0^\mathrm{T} \left(\left(i_1(t)+i_2(t)+i_3(t)\right)^2\mathrm{R}\right)dt
+				\end{cases}
+			\end{equation}
+
+			<p>Just as with the power inequalities, if \(\mathrm{E}_{1\mathrm{p}} &lt; \mathrm{E}_{3\mathrm{p}}\) or \(\mathrm{E}_{1\mathrm{p}^*} &lt; \mathrm{E}_{3\mathrm{p}}\), reconfiguring the network from three-phase to single-phase or optimized single-phase, respectively, would reduce energy loss during the period from time \(0\) to \(\mathrm{T}\). As an example, consider the comparison of the three-phase system to the optimized single-phase system:</p>
+			\begin{equation}
+				\begin{array}{rcl}
+					\mathrm{E}_{1\mathrm{p}^*} &amp; &lt; &amp; \mathrm{E}_{3\mathrm{p}} \\
+					\int_0^\mathrm{T} 3\left(i_1(t)i_2(t)+i_1(t)i_3(t)+i_2(t)i_3(t)\right)dt &amp; &lt; &amp; \int_0^\mathrm{T} \left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right)dt
+				\end{array}
+			\end{equation}
+
+			<p>Note that, as before, the inequality does not depend on resistance \(\mathrm{R}\) and can be summarized using a single, unitless measure:</p>
+			\begin{equation}
+				\Beta \triangleq \begin{cases}
+				\frac{\int_0^\mathrm{T}\left(i_1(t)^2+i_2(t)^2+i_3(t)^2\right)dt}{\int_0^\mathrm{T}\left(i_1(t)i_2(t)+i_1(t)i_3(t)+i_2(t)i_3(t)\right)dt}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
+					0 & \text{otherwise}
+				\end{cases}
+			\end{equation}
+			<!-- (14) \label{eq:phi_e} -->
+
+			<p>Rewriting the energy inequalities using \(\Beta\) yields the same numeric cut-offs for \(\Beta\) as \(\beta\):</p>
+			<ul>
+				<li>If \(\Beta &gt; 4.5\), the energy lost due to power line losses between times \(0\) and \(\mathrm{T}\) would be reduced by reconfiguring the three-phase system as a single-phase system.</li>
+				<li>If \(\Beta &gt; 2\), the energy lost due to power line losses between times \(0\) and \(\mathrm{T}\) would be reduced by reconfiguring the three-phase system as an optimized single-phase system.</li>
+			</ul>
+			
+			<p>The discrete-time extension of \(\Beta\) is trivial:</p>
+			\begin{equation}
+				\Beta \approx \begin{cases}
+				\frac{\sum_{\tau=0}^\mathrm{T}\left(i_1(\tau)^2+i_2(\tau)^2+i_3(\tau)^2\right)\Delta t(\tau)}{\sum_{\tau=0}^\mathrm{T}\left(i_1(\tau)i_2(\tau)+i_1(\tau)i_3(\tau)+i_2(\tau)i_3(\tau)\right)\Delta t(\tau)}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
+					0 & \text{otherwise}
+				\end{cases}
+			\end{equation}
+			<p>where \(\Delta t(\tau)\) is the sampling period at time \(\tau\). Note that \(\Delta t(\tau)\) need not be constant over time. The cut-off values of \(4.5\) and \(2\) do not change.</p>
+		</section>
+
+		<section id="Intuition">
+			<h2>Developing an Intuition</h2>
+			<figure>
+				<img class="img-center" style="width: 20cm;" src="blog-posts/losses-intuition.jpg" alt="Plots show how much load imbalance is required before conversion to a single-phase network would reduce line losses">
+				<figcaption>These plots show how much load imbalance is required before conversion to a single-phase network would reduce line losses. Relative load sizes on Lines 2 and 3 that fall within the green domain minimize line losses with a three-phase network, and those that fall within the red domain minimize line-losses with a single-phase network. The left plot shows this relationship for a single-phase network with three line conductors and one neutral conductor, and the right plot for two line conductors and two neutral conductors.</figcaption>
+			</figure>
+			<p>Without loss of generality, let Line 1 carry the largest load, i.e. \(i_1\geq i_2\) and \(i_1\geq i_3\). Scale the loads on Lines 2 and 3 to be expressed as a fraction of the load on Line 1, i.e. \(0\leq i_2/i_1\leq 1\) and \(0\leq i_3/i_1\leq 1\). We can use these two scaled currents, \(i_2/i_1\) and \(i_3/i_1\), to visualize the domain of relative loads for which a single- or three-phase network would minimize line losses. The above figure illustrates this.</p>
+
+			<p>The amount of load imbalance required for the line losses of a single-phase distribution network to be less than those of a corresponding three-phase network is significant. For example, if the load on Line 2 is 40% of the size of the load on Line 1, even a system in which there was no load on Line 3 would still have lesser line losses with a three-phase distribution network than a corresponding single-phase network.</p>
+
+			<p>For most distribution networks, <b>three-phase networks will usually be more efficient at reducing I2R losses than single-phase networks.</b> In three-phase networks, the neutral conductor carries only the unbalanced current, which is typically smaller than the currents in the lines. In a single-phase distribution network, there is no balancing of loads, so the current flowing along the return path must be equal to the current flowing along the line. The only time line losses are reduced by reconfiguring a three-phase network into a single-phase network is when the benefit gained from the neutral conductor in a three-phase network carrying only the unbalanced current is outweighed by the additional resistance on the lines from not combining them into a single conductor. From Eq. (9), this only happens when the sum of the cross-correlations between the three currents is less than one-third the sum of the squares of the three currents. Even for Renewvia's smaller networks that are harder to consistently balance, that ratio is usually between 0.8 and 0.9, leading to values of \(\Beta\) between 0.2 and 0.3, significantly less than the cut-off value of 2.</p>
+		</section>
+
+		<section id="Additional">
+			<h2>Additional Considerations</h2>
+			<p>This essay has only addressed the question of when the line losses of a three-phase distribution network are greater than those of a single-phase network with the same four conductors. However, several additional considerations exist when considering which system will lead to a more efficient mini-grid. For example, in the power house, batteries are often bussed to enable equal current draw from each module. Battery inverters and charge controllers are connected to the DC bus rather than directly to individual batteries. For most calculations, bus bars are considered to have negligible resistance. However, in three-phase systems, different battery inverters are responsible for different phases, so the resistances between one battery and different battery inverters can be different.</p>
+
+			<img class="img-center" style="width: 12cm;" src="blog-posts/losses-busbar.jpg" alt="An electrical diagram of two batteries connected to an inverter">
+
+			<p>Consider the above diagram of two batteries connected to one of the battery inverters in a three-phase system. For simplicity, assume this system has only three battery inverters, one for each phase, and only one of the battery inverters is currently outputting power to a load. The ratio of the current output of the two batteries is inversely proportional to the ratio of the resistances between the batteries and the inverter:</p>
+			\begin{equation}
+				\frac{i_1}{i_2}=\frac{\mathrm{R}_2}{\mathrm{R}_1}
+			\end{equation}
+			<p>Note that, even if the bus bar resistance is small, the ratio of the currents depends only on the <i>ratio</i> of the resistances. Thus, if there is twice as much conductor between the battery inverter and the first battery as between the battery inverter and the second battery, then the second battery will drain twice as fast as the first. If this condition persists, because the batteries are bussed, current will eventually flow from the first battery to the second due to the drop in battery voltage as state-of-charge decreases. This flow will likely overload its battery fuse due to the low absolute resistance between the batteries on the bus bar. Therefore, even though the I2R losses of a three-phase network may be less than those of a single-phase network, the additional OPEX required to replace the battery fuses in an unbalanced three-phase system should be considered.</p>
+			
+			<p>From a design perspective, most single-phase distribution networks have only two conductors: line and neutral. If the mini-grid distribution network is not already built, the distribution engineer must consider the additional CAPEX involved with running two additional conductors.</p>
+			
+			<p>Other considerations include:</p>
+			<ul>
+				<li>The CAPEX of any additional battery inverters necessary for a three-phase network</li>
+				<li>The superior efficiency of three-phase diesel backup generators compared to single-phase ones</li>
+				<li>The ability to use battery inverters of single-phase systems to collaborate to fulfill the total load</li>
+				<li>The existence of three-phase loads, which may require the purchase of additional transformers if the grid is single-phase</li>
+			</ul>
+		</section>
+	</main>
+	
+	<footer>
+		<p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+	</footer>
+</body>
+</html>
