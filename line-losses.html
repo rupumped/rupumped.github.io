@@ -201,8 +201,7 @@
 			<div class="equation">
 				\begin{equation}
 					\begin{cases}
-						\mathrm{E}_{3\mathrm{p}} &= \int_0^\mathrm{T} \left(\left(2\left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right) \right. \right.\\
-						& \left. \left. -i_1(t)i_2(t)-i_1(t)i_3(t)-i_2(t)i_3(t)\right)\mathrm{R}\right)dt\\
+						\mathrm{E}_{3\mathrm{p}} &= \int_0^\mathrm{T} \left(\left(2\left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right) -i_1(t)i_2(t)-i_1(t)i_3(t)-i_2(t)i_3(t)\right)\mathrm{R}\right)dt\\
 						\mathrm{E}_{1\mathrm{p}} &= \int_0^\mathrm{T} \left(\frac{4}{3}\left(i_1(t)+i_2(t)+i_3(t)\right)^2\mathrm{R}\right)dt\\
 						\mathrm{E}_{1\mathrm{p}^*}&= \int_0^\mathrm{T} \left(\left(i_1(t)+i_2(t)+i_3(t)\right)^2\mathrm{R}\right)dt
 					\end{cases}
@@ -223,7 +222,7 @@
 			<div class="equation">
 				\begin{equation}
 					\Beta \triangleq \begin{cases}
-					\frac{\int_0^\mathrm{T}\left(i_1(t)^2+i_2(t)^2+i_3(t)^2\right)dt}{\int_0^\mathrm{T}\left(i_1(t)i_2(t)+i_1(t)i_3(t)+i_2(t)i_3(t)\right)dt}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
+					\frac{\int_0^\mathrm{T}\left(i_1^2(t)+i_2^2(t)+i_3^2(t)\right)dt}{\int_0^\mathrm{T}\left(i_1(t)i_2(t)+i_1(t)i_3(t)+i_2(t)i_3(t)\right)dt}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
 						0 & \text{otherwise}
 					\end{cases}
 				\end{equation}
@@ -236,16 +235,16 @@
 				<li>If \(\Beta &gt; 2\), the energy lost due to power line losses between times \(0\) and \(\mathrm{T}\) would be reduced by reconfiguring the three-phase system as an optimized single-phase system.</li>
 			</ul>
 			
-			<p>The discrete-time extension of \(\Beta\) is trivial:</p>
+			<p>The discrete-time approximation of \(\Beta\) can be computed with Riemann sums:</p>
 			<div class="equation">
 				\begin{equation}
 					\Beta \approx \begin{cases}
-					\frac{\sum_{\tau=0}^\mathrm{T}\left(i_1(\tau)^2+i_2(\tau)^2+i_3(\tau)^2\right)\Delta t(\tau)}{\sum_{\tau=0}^\mathrm{T}\left(i_1(\tau)i_2(\tau)+i_1(\tau)i_3(\tau)+i_2(\tau)i_3(\tau)\right)\Delta t(\tau)}-1 & \text{if } \exists_t \left(\mathrm{max}\left(i_1(t), i_2(t), i_3(t)\right)\neq 0\right) \\
+					\frac{\sum_{\tau=1}^\mathrm{M}\left(i_1^2(t_\tau)+i_2^2(t_\tau)+i_3^2(t_\tau)\right)\Delta t(t_\tau)}{\sum_{\tau=1}^\mathrm{M}\left(i_1(t_\tau)i_2(t_\tau)+i_1(t_\tau)i_3(t_\tau)+i_2(t_\tau)i_3(t_\tau)\right)\Delta t(t_\tau)}-1 & \text{if } \exists_\tau \left(\mathrm{max}\left(i_1(t_\tau), i_2(t_\tau), i_3(t_\tau)\right)\neq 0\right) \\
 						0 & \text{otherwise}
 					\end{cases}
 				\end{equation}
 			</div>
-			<p>where \(\Delta t(\tau)\) is the sampling period at time \(\tau\). Note that \(\Delta t(\tau)\) need not be constant over time. The cut-off values of \(4.5\) and \(2\) do not change.</p>
+			<p>where \(\Delta t(t_\tau)\) is the sampling period at time \(t_\tau\), the time at sample \(\tau\in \{1, 2, ..., \mathrm{M}\}\), such that \(t_1=0\) and \(t_\mathrm{M}=\mathrm{T}\), where \(\mathrm{M}\) is the number of samples. Note that \(\Delta t\) need not be constant over time. The cut-off values of \(4.5\) and \(2\) do not change.</p>
 		</section>
 
 		<section id="Intuition">
