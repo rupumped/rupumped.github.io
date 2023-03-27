@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Phishing Prevention on a Budget: How to Test and Train Your Employees for Free</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- SEO Description-->
+	<meta name="description" content="Maximize your cybersecurity defenses by conducting free phishing tests on your employees and empowering them to recognize and avoid phishing attempts.">
+	<link rel="canonical" href="https://rupumped.github.io/phishing.html">
+
+	<!-- Favicon -->
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="blog-posts/blog-post.css">
+</head>
+<body>
+	<header>
+		<div id="name">NICHOLAS S SELBY</div>
+		<input class="menu-btn" type="checkbox" id="menu-btn">
+		<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+		<ul class="menu">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="about.html">ABOUT ME</a></li>
+			<li><a href="selected-work.html">SELECTED WORK</a></li>
+			<li><a href="blog.html">BLOG</a></li>
+			<li><a href="service.html">SERVICE</a></li>
+		</ul>
+	</header>
+
+	<main>
+		<h1>Phishing Prevention on a Budget: How to Test and Train Your Employees for Free</h1>
+		<p class="date">Posted on March 28, 2023</p>
+		<figure class="cover">
+			<img src="blog-posts/phishing-cover.jpg" alt="Arm reaching out of an email to steal cash and credit cards">
+			<figcaption>Image CC0: Mohamed Hassan.</figcaption>
+		</figure>
+
+		<section class="toc">
+			<h2>Contents</h2>
+			<div>
+				<ul>
+					<li><a href="#Introduction">Introduction</a></li>
+					<li><a href="#Prepare">Prepare your Employees</a></li>
+					<li><a href="#SMTP">Set Up a Free SMTP Server</a></li>
+					<li><a href="#Malware">Create a "Malware" Website</a></li>
+					<li><a href="#Send">Execute the Phishing Test</a></li>
+					<li><a href="#Aftermath">Aftermath</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="Introduction">
+			<h2>Introduction</h2>
+			<p>Phishing attacks continue to be a significant threat to businesses of all sizes, and they're becoming increasingly sophisticated. Hackers use social engineering tactics to trick employees into divulging sensitive information, such as login credentials or financial data. This can result in data breaches, financial losses, and damage to a company's reputation.</p>
+
+			<p>To prevent these attacks, companies must take proactive steps to educate their employees and provide them with the necessary tools and training to recognize and avoid phishing attempts. One effective way to achieve this is by conducting phishing tests.</p>
+
+			<p>Phishing tests are simulated attacks that mimic real-life phishing attempts. They allow companies to assess their employees' susceptibility to phishing and identify areas where additional training is needed. While some organizations hire third-party providers to conduct these tests, it can be costly. In this article, I'll show you how to run a phishing test on your employees for free, without the need for expensive third-party services, or even a dedicated internal server. I'll provide you with step-by-step instructions and tips on how to make the most of this valuable tool for strengthening your company's cybersecurity defenses.</p>
+		</section>
+
+		<section id="Prepare">
+			<h2>Prepare your Employees</h2>
+			<p>Preparing your employees for a phishing test is essential to ensure that they understand the purpose of the test and are not caught off guard when they receive the simulated phishing email. Make sure that your employees know what actions they should take if they receive a suspected phishing email. This includes reporting it to the IT team, deleting the email, and avoiding clicking on any links or attachments. Create a mailbox for your employees to report suspicious emails. I created phishing@renewvia.com. Then, post a company-wide announcement, for example:</p>
+
+			<blockquote>If you receive an email that looks suspicious, and you'd like help identifying if it's a phishing scam, please forward it to phishing@renewvia.com and send me a message. Sometimes, these scams are really convincing, and there's no harm in asking me to test it for you.</blockquote>
+
+			<p>You may also choose to alert your employees that you will be performing a phishing test. When employees are aware that a phishing test is going to take place, they're more likely to take it seriously and make an effort to identify and report any suspicious emails they receive.</p>
+
+			<p>Wait long enough, perhaps a week, after sending the announcement to ensure everyone has had a chance to read and digest the request.</p>
+		</section>
+
+		<section id="SMTP">
+			<h2>Set Up a Free SMTP Server</h2>
+			<p>If you'd like to be notified when an employee fails the phishing test, one option is to set up an SMTP server so your "malware" can send you an email when it's run on someone's computer. An SMTP (Simple Mail Transfer Protocol) server is a computer program or software that is responsible for sending and receiving emails. It's the standard protocol used for sending emails over the internet, and it's responsible for ensuring that the emails are delivered to the intended recipient's email server.</p>
+
+			<p>I recommend using <a rel="external" target="_blank" href="https://elasticemail.com/">Elastic Email</a>'s Email API, an email delivery engine with an SMTP relay you can call from JavaScript. As of this writing, a free Elastic Email account allows you up to 100 emails per day. To set up your SMTP server, <a rel="external" target="_blank" href="https://app.elasticemail.com/api/create-account">create an account</a> to use their Email API using a dummy email address specifically for this purpose. After creating an account, log in and click "Connect to SMTP API" from the Start menu on your account dashboard.</p>
+
+			<img class="img-center" alt="Screenshot of the Elastic Email account dashboard" src="blog-posts/phishing-elasticemaildash.jpg">
+
+			<p>Then, create a user with the same email you used to create the Elastic Email account. Save the password generated by Elastic Email for later. When you are done, you should see a screen like this:</p>
+
+			<img class="img-center" alt="Screenshot of the Elastic Email SMTP settings" src="blog-posts/phishing-smtp.jpg">
+		</section>
+
+		<section id="Malware">
+			<h2>Create a "Malware" Website</h2>
+			<p>The next step is to create the website to which your phishing email will link. In my opinion, the easiest way to do this is to use <a rel="external" target="_blank" href="https://pages.github.com/">GitHub Pages</a>. Navigate to <a rel="external" target="_blank" href="https://github.com/">GitHub</a>, sign out of your account if you are already logged in, and click the "Sign Up" button in the top right corner of the page. Follow the instructions to create an account. Note that the username you pick will be included in the URL of the phishing link you send to your employees, so I recommend including your company name in the username (e.g., "renewvia-official").</p>
+
+			<p>Once you have created your new GitHub account, sign in and click "<a rel="external" target="_blank" href="https://github.com/new">New</a>" to create a new repository. Name your repository "[your username].github.io," where "[your username]" is your GitHub account username (e.g., "renewvia-official.github.io"). Ensure the repository is public and click the "Create repository" button. When GitHub navigates you to the new repository page, click "creating a new file."</p>
+
+			<img class="img-center" alt="Screenshot of a new repository in GitHub" src="blog-posts/phishing-creatinganewphile.jpg">
+
+			<p>Name your new file "index.html" to ensure it will be displayed by the browser when your "malware" site is live. Modify the following HTML script for your company, and copy-paste it into the "Edit new file" input box.</p>
+			<pre>
+<code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;You done messed up&lt;/title&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;META NAME="Handheld-Friendly" content="True"&gt;
+&lt;script src="https://smtpjs.com/v3/smtp.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;This was a simulated phishing exercise conducted by <span class="purple">[your company's name]</span> to raise awareness about the dangers of phishing. If it had been a real phishing attempt, you would have unknowingly given your personal information to a criminal. The information below can help you recognize phishing messages.&lt;/p&gt;
+
+&lt;p&gt;The email was sent from the address <span class="purple">[your email address]</span>. However, it is important to note that the sender's email address can easily be forged, and therefore should not be fully trusted.&lt;/p&gt;
+
+&lt;p&gt;If you hover your mouse over the link provided in the email, you will see that it would direct you to <span class="purple">[your GitHub username]</span>.github.io, which is not a legitimate <span class="purple">[your company's name]</span> website. To identify the domain, look for the third forward slash (/) and read the words preceding it. In this case, the domain is github.io. It is also important to note that just because a link has an "https://" and a lock symbol in the browser does not necessarily mean that the website is safe to visit.&lt;/p&gt;
+
+&lt;p&gt;To protect yourself from phishing attacks, be cautious of emails and messages that exhibit any of the following six characteristics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A request to click on links&lt;/li&gt;
+&lt;li&gt;An unexpected attachment&lt;/li&gt;
+&lt;li&gt;A sense of urgency&lt;/li&gt;
+&lt;li&gt;An appeal to human greed and/or fear&lt;/li&gt;
+&lt;li&gt;A request for your sensitive data&lt;/li&gt;
+&lt;li&gt;Any non-Renewvia websites asking for your Renewvia account information&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Always verify the URL of the website before entering your login credentials. If it is not a <span class="purple">[your company's name]</span> website, do not provide your credentials. Phishers often direct users to imitation websites that appear legitimate to steal their sensitive information.&lt;/p&gt;
+
+&lt;p&gt;If you have any doubts or concerns about an email, forward it to <span class="purple">[the mailbox you set up for reporting phishing]</span>.&lt;/p&gt;
+
+&lt;p&gt;As a result of clicking on the link, you are required to complete a cybersecurity awareness training. Please complete the training at &lt;a rel="external" target="_blank" href="https://learnsecurity.amazon.com/en/index.html"&gt;https://learnsecurity.amazon.com/en/index.html&lt;/a&gt; and send <span class="purple">[your name]</span> your certificate of completion.&lt;/p&gt;
+
+&lt;script&gt;
+var url = window.location.href.split('?');
+var id = url[url.length-1];
+
+Email.send({
+Host : "smtp.elasticemail.com",
+Username : "<span class="purple">[your Elastic Email SMTP username]</span>",
+Password : "<span class="purple">[your Elastic Email SMTP password]</span>",
+To : '<span class="purple">[your email address]</span>',
+From : "<span class="purple">[your Elastic Email SMTP username]</span>",
+Subject : "Someone clicked the link",
+Body : id
+}).then(
+message =&gt; console.log(message)
+);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+			</pre>
+
+			<p>After pasting the above code into the input box, you will need to replace all of the bracketed purple text:</p>
+			<ul>
+				<li><code><span class="purple">[your company's name]</span></code>, e.g., Renewvia.</li>
+				<li><code><span class="purple">[your email address]</span></code> should be the email address from which you will send the phishing scam and to which you want your company's employees to submit their training certificates of completion.</li>
+				<li><code><span class="purple">[your GitHub username]</span></code> should be the username you created for your GitHub account, e.g., renewvia-official.</li>
+				<li><code><span class="purple">[the mailbox you set up for reporting phishing]</span></code>, e.g., phishing@renewvia.com.</li>
+				<li><code><span class="purple">[your name]</span></code></li>
+				<li><code><span class="purple">[your Elastic Email SMTP username]</span></code>, e.g., phishing@renewvia.com.</li>
+				<li><code><span class="purple">[your Elastic Email SMTP password]</span></code> should be the alphanumeric password you recorded when you created the Elastic Email SMTP user.</li>
+			</ul>
+
+			<p>My recommended website includes an assignment for those that click the link: complete a <a rel="external" target="_blank" href="https://learnsecurity.amazon.com/en/index.html">Cybersecurity Awareness Training</a> provided by Amazon and submit their certificates of completion. NIST maintains a list of <a rel="external" target="_blank" href="https://www.nist.gov/itl/applied-cybersecurity/nice/resources/online-learning-content">free and low-cost online cybersecurity learning content</a> that's worth checking out.</p>
+
+			<p>When you finish editing the HTML file, scroll to the bottom of the page, name the commit whatever you want (e.g., "Create index.html"), and click "Commit new file." Automatically, GitHub will create a public website from the HTML you just committed. You can visit that website at https://[your GitHub username].github.io where "[your GitHub username]" is replaced with your GitHub username (e.g., https://renewvia-official.github.io/).</p>
+
+			<img class="img-center" alt="Screenshot of the GitHub 'Commit new file' process" src="blog-posts/phishing-commitnewfile.jpg">
+
+			<p>A crucial component of the above HTML page is the <code>script</code> element, which contains the JavaScript necessary to identify the individual who clicked the link and send you a notification email when they do. It works by reading the URL and looking for a question mark, "?", after which it expects the name of the person who clicked the link. So, using renewvia-official.github.io as an example subdomain, if someone visits https://renewvia-official.github.io/?nick, then their browser will automatically send an email containing the name "nick" to whichever email address was entered in the "To:" field of the above HTML page's script element.</p>
+		</section>
+
+		<section id="Send">
+			<h2>Execute the Phishing Test</h2>
+			<p>You are ready to begin sending phishing emails to your company's employees. Draft a phishing email or use mine:</p>
+
+			<blockquote>
+				Subject: URGENT Review Analysis<br><br>Body: Per our discussion, please review this analysis and send me your thoughts by EOD.				
+			</blockquote>
+
+			<p>In the composition window of your email manager, highlight "this analysis" and create a hyperlink to the GitHub page you just created, being sure to include the question mark, "?", followed by some identifier for the recipient of the email. Extending the above example, you would send the email to me, and "this analysis" would link to https://renewvia-official.github.io/?nick. Repeat the process for each employee, adjusting the hyperlink URL each time so that you can identify which employees fail the test by clicking the link. Note that, as you test your phishing scam, you can use the browser's console to examine the status of the request sent to the SMTP server. The notification emails may wind up in your Spam/Junk folder.</p>
+		</section>
+
+		<section id="Aftermath">
+			<h2>Aftermath</h2>
+			<p>Even if you prepared them well, your company's employees may have mixed responses to the phishing test. Heartily congratulate those who forward the email to the phishing report mailbox you set up, publicly rewarding them for their diligence. Gently encourage those who fail and click the link: "It's okay. That's why we do tests. After the training, you will understand better how to keep yourself and the company safe."</p>
+
+			<p>You may also want to create an internal report about how your company performed as a whole, including a plan to improve awareness and perform periodic testing.</p>
+
+			<p>Conducting phishing tests on your company's employees is a critical step in protecting your company's sensitive information and maintaining its cybersecurity defenses. While hiring third-party providers to conduct these tests can be expensive, you can run them for free using these steps. By preparing your employees, you can help to create a culture of awareness and vigilance around cybersecurity within your organization. By taking these proactive steps, you can minimize the risk of successful phishing attacks and ensure that your company's sensitive information remains secure. Remember, prevention is always better than cure, and the best defense against phishing attacks is an informed and alert workforce.</p>
+		</section>
+	</main>
+	
+	<footer>
+		<p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+	</footer>
+</body>
+</html>

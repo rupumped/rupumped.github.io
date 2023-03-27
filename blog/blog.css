@@ -1,49 +1,49 @@
 a.item {
-    text-decoration: none;
-    color: var(--text-color);
+	text-decoration: none;
+	color: var(--text-color);
 }
 a.item:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 
 div.w-img {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 div.w-img img {
-    width: 187px;
-    height: auto;
-    max-width: 100%;
-    margin-right: 1cm;
-    border-radius: 8%;
+	width: 187px;
+	height: auto;
+	max-width: 100%;
+	margin-right: 1cm;
+	border-radius: 8%;
 }
 
 p.date {
-    color: var(--grayed-out);
-    margin-bottom: 0.5em;
+	color: var(--grayed-out);
+	margin-bottom: 0.5em;
 }
 h2 {
-    color: var(--text-color);
-    line-height: 1.2em;
+	color: var(--text-color);
+	line-height: 1.2em;
 }
 
 @media only screen and (max-width: 767px) {
-    div.w-img {
-        flex-wrap: wrap;
-    }
+	div.w-img {
+		flex-wrap: wrap;
+	}
 
-    div.w-img img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1em;
-    }
+	div.w-img img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 1em;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
-    a.item:hover {
-        text-decoration-line: underline;
-        text-decoration-color: var(--text-color);
-    }
+	a.item:hover {
+		text-decoration-line: underline;
+		text-decoration-color: var(--text-color);
+	}
 }

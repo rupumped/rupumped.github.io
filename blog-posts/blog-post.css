@@ -1,86 +1,86 @@
 h1 {
-    font-family: var(--special-font-family);
-    font-weight: normal;
-    font-size: 2.1em;
-    margin: 1.5em 0 0.5em 0;
+	font-family: var(--special-font-family);
+	font-weight: normal;
+	font-size: 2.1em;
+	margin: 1.5em 0 0.5em 0;
 }
 
 p.date {
-    font-size: 0.8em;
-    margin: 0.7em 0;
+	font-size: 0.8em;
+	margin: 0.7em 0;
 }
 
 figure.cover {
-    width: 100%;
-    margin: 0;
-    padding: 1.1em 0;
-    border-top: 1px solid var(--seperator-color);
-    border-bottom: 1px solid var(--seperator-color);
+	width: 100%;
+	margin: 0;
+	padding: 1.1em 0;
+	border-top: 1px solid var(--seperator-color);
+	border-bottom: 1px solid var(--seperator-color);
 }
 figure.cover img {
-    width: 100%;
+	width: 100%;
 }
 figcaption {
-    font-size: 0.8em;
-    line-height: 1.4em;
-    text-align: center;
+	font-size: 0.8em;
+	line-height: 1.4em;
+	text-align: center;
 }
 figure.cover figcaption {
-    font-style: italic;
-    margin-top: 0;
-    text-align: left;
+	font-style: italic;
+	margin-top: 0;
+	text-align: left;
 }
 
 section.toc {
-    background-color: rgba(var(--link-color), 0.1);
-    padding: 1.5em;
+	background-color: rgba(var(--link-color), 0.1);
+	padding: 1.5em;
 }
 section.toc h2 {
-    margin-top: 0;
+	margin-top: 0;
 }
 section.toc div {
-    column-count: 2;
-    column-fill: balance;
+	column-count: 2;
+	column-fill: balance;
 }
 section.toc div ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 section.toc div ul li {
-    padding-left: 1em;
-    text-indent: -1em;
-    break-inside: avoid;
+	padding-left: 1em;
+	text-indent: -1em;
+	break-inside: avoid;
 }
 section.toc div ul li:before {
-    content: ">";
-    padding-right: 0.4em;
+	content: ">";
+	padding-right: 0.4em;
 }
 
 section.odd, section.even {
-    padding: 1em 1em;
-    margin: 0;
+	padding: 1em 1em;
+	margin: 0;
 }
 section.odd h2, section.even h2 {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin: 0.5em 0;
+	font-weight: bold;
+	font-size: 1.2em;
+	margin: 0.5em 0;
 }
 section.odd p, section.even p {
-    margin: 0.5em 0;
+	margin: 0.5em 0;
 }
 section.even {
-    background-color: rgba(var(--link-color), 0.1);
+	background-color: rgba(var(--link-color), 0.1);
 }
 
 sup {
-    font-size: 80%;
-    white-space: nowrap;
-    line-height: 1;
+	font-size: 80%;
+	white-space: nowrap;
+	line-height: 1;
 }
 
 @media only screen and (max-width: 809px) {
-    section.toc div {
-        column-count: auto;
-    }
+	section.toc div {
+		column-count: auto;
+	}
 }
