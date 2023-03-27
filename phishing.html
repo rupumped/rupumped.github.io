@@ -59,11 +59,11 @@
 
 		<section id="Introduction">
 			<h2>Introduction</h2>
-			<p>Phishing attacks continue to be a significant threat to businesses of all sizes, and they're becoming increasingly sophisticated. Hackers use social engineering tactics to trick employees into divulging sensitive information, such as login credentials or financial data. This can result in data breaches, financial losses, and damage to a company's reputation.</p>
+			<p>Phishing attacks continue to be a significant threat to businesses of all sizes, and they are becoming increasingly sophisticated. Hackers use social engineering tactics to trick employees into divulging sensitive information, such as login credentials or financial data. This can result in data breaches, financial losses, and damage to a company's reputation.</p>
 
 			<p>To prevent these attacks, companies must take proactive steps to educate their employees and provide them with the necessary tools and training to recognize and avoid phishing attempts. One effective way to achieve this is by conducting phishing tests.</p>
 
-			<p>Phishing tests are simulated attacks that mimic real-life phishing attempts. They allow companies to assess their employees' susceptibility to phishing and identify areas where additional training is needed. While some organizations hire third-party providers to conduct these tests, it can be costly. In this article, I'll show you how to run a phishing test on your employees for free, without the need for expensive third-party services, or even a dedicated internal server. I'll provide you with step-by-step instructions and tips on how to make the most of this valuable tool for strengthening your company's cybersecurity defenses.</p>
+			<p>Phishing tests are simulated attacks that mimic real-life phishing attempts. They allow companies to assess their employees' susceptibility to phishing and identify areas where additional training is needed. While some organizations hire third-party providers to conduct these tests, it can be costly. In this article, I will show you how to run a phishing test on your employees for free, without the need for expensive third-party services, or even a dedicated internal server. I will provide you with step-by-step instructions and tips on how to make the most of this valuable tool for strengthening your company's cybersecurity defenses.</p>
 		</section>
 
 		<section id="Prepare">
@@ -72,14 +72,14 @@
 
 			<blockquote>If you receive an email that looks suspicious, and you'd like help identifying if it's a phishing scam, please forward it to phishing@renewvia.com and send me a message. Sometimes, these scams are really convincing, and there's no harm in asking me to test it for you.</blockquote>
 
-			<p>You may also choose to alert your company's employees that you will be performing a phishing test. When employees are aware that a phishing test is going to take place, they're more likely to take it seriously and make an effort to identify and report any suspicious emails they receive.</p>
+			<p>You may also choose to alert your company's employees that you will be performing a phishing test. When employees are aware that a phishing test is going to take place, they are more likely to take it seriously and make an effort to identify and report any suspicious emails they receive.</p>
 
 			<p>Wait long enough, perhaps a week, after sending the announcement to ensure everyone has had a chance to read and digest the request.</p>
 		</section>
 
 		<section id="SMTP">
 			<h2>Set Up a Free SMTP Server</h2>
-			<p>If you'd like to be notified when an employee fails the phishing test, one option is to set up an SMTP server so your "malware" can send you an email when it's run on someone's computer. An SMTP (Simple Mail Transfer Protocol) server is a computer program or software that is responsible for sending and receiving emails. It's the standard protocol used for sending emails over the internet, and it's responsible for ensuring that the emails are delivered to the intended recipient's email server.</p>
+			<p>If you would like to be notified when an employee fails the phishing test, one option is to set up an SMTP server so your "malware" can send you an email when it is run on someone's computer. An SMTP (Simple Mail Transfer Protocol) server is a computer program or software that is responsible for sending and receiving emails. It is the standard protocol used for sending emails over the internet, and it is responsible for ensuring that the emails are delivered to the intended recipient's email server.</p>
 
 			<p>I recommend using <a rel="external" target="_blank" href="https://elasticemail.com/">Elastic Email</a>'s Email API, an email delivery engine with an SMTP relay you can call from JavaScript. As of this writing, a free Elastic Email account allows you up to 100 emails per day. To set up your SMTP server, <a rel="external" target="_blank" href="https://app.elasticemail.com/api/create-account">create an account</a> to use their Email API using a dummy email address specifically for this purpose. After creating an account, log in and click "Connect to SMTP API" from the Start menu on your account dashboard.</p>
 
@@ -163,7 +163,9 @@ message =&gt; console.log(message)
 				<li><code><span class="purple">[your Elastic Email SMTP password]</span></code> should be the alphanumeric password you recorded when you created the Elastic Email SMTP user.</li>
 			</ul>
 
-			<p>My recommended website includes an assignment for those that click the link: complete a <a rel="external" target="_blank" href="https://learnsecurity.amazon.com/en/index.html">Cybersecurity Awareness Training</a> provided by Amazon and submit their certificates of completion. NIST maintains a list of <a rel="external" target="_blank" href="https://www.nist.gov/itl/applied-cybersecurity/nice/resources/online-learning-content">free and low-cost online cybersecurity learning content</a> that's worth checking out.</p>
+			<p>My recommended website includes an assignment for those that click the link: complete a <a rel="external" target="_blank" href="https://learnsecurity.amazon.com/en/index.html">Cybersecurity Awareness Training</a> provided by Amazon and submit their certificates of completion. NIST maintains a list of <a rel="external" target="_blank" href="https://www.nist.gov/itl/applied-cybersecurity/nice/resources/online-learning-content">free and low-cost online cybersecurity learning content</a> that is worth reading.</p>
+
+			<p>Note that this method involves keeping your Elastic Email SMTP user credentials visible in the HTML of a public webpage. GitHub will likely send you an email warning you of the risks associated with not encrypting login credentials. Because you have created the account specifically for the purpose of conducting a phishing test, the security risk here is negligible. Nonetheless, SmtpJS.com provides an <a rel="external" target="_blank" href="https://www.smtpjs.com/#useit">explainer for how to encrypt your SMTP credentials</a> in the "Security" section of their homepage.</p>
 
 			<p>When you finish editing the HTML file, scroll to the bottom of the page, name the commit whatever you want (e.g., "Create index.html"), and click "Commit new file." Automatically, GitHub will create a public website from the HTML you just committed. You can visit that website at https://[your GitHub username].github.io where "[your GitHub username]" is replaced with your GitHub username (e.g., https://renewvia-official.github.io/).</p>
 
