@@ -106,6 +106,13 @@ header ul li#business-card {
 	display: none;
 }
 
+/* Containers for elements that can be wider than the viewport.*/
+/* Don't use for equations. They handle their own overflow. */
+.overflowable {
+	white-space: pre-wrap;
+	overflow: scroll;
+}
+
 /* Details/Summary */
 summary {
 	margin: 0.3em 0 0.8em 0;
@@ -201,7 +208,7 @@ https://bourne2learn.com/math/katex/tag-placement_nowrap.html */
 	position:absolute;
 	right:0; 
 }
-.equation{
+.equation {
 	display:block;
 	height:auto;
 	margin:1em 0;
@@ -226,13 +233,32 @@ https://bourne2learn.com/math/katex/tag-placement_nowrap.html */
 
 /* Code Blocks */
 pre {
-	white-space: pre-wrap;
-	overflow: scroll;
 	padding: 1em;
 	border: 1px solid var(--grayed-out);
 }
 span.purple {
 	color: purple;
+}
+
+/* Tables */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 2px solid var(--active-gray);
+}
+caption {
+	caption-side: bottom;
+	text-align: left;
+	font-size: 0.8em;
+	line-height: 1.2em;
+}
+th {
+	background-color: var(--active-gray);
+}
+td, th {
+	border: 1px solid var(--active-gray);
+	padding: 7px 5px;
+	text-align: center;
 }
 
 /* Footers */

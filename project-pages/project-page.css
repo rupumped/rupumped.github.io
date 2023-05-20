@@ -74,26 +74,6 @@ blockquote {
 	margin-left: 1em;
 }
 
-table {
-	width: 100%;
-	border-collapse: collapse;
-	border: 2px solid var(--active-gray);
-}
-caption {
-	caption-side: bottom;
-	text-align: left;
-	font-size: 0.8em;
-	line-height: 1.2em;
-}
-th {
-	background-color: var(--active-gray);
-}
-td, th {
-	border: 1px solid var(--active-gray);
-	padding: 7px 5px;
-	text-align: center;
-}
-
 @media only screen and (max-width: 766px) {
 	:root {
 		--bullet-diameter: 0.3em;
