@@ -1,0 +1,52 @@
+#main-img {
+	content: url("teaching-2.jpg");
+}
+
+#img-teaching-0:hover ~ #main-img {
+	content: url("teaching-0.jpg");
+}
+#img-teaching-1:hover ~ #main-img {
+	content: url("teaching-1.jpg");
+}
+#img-teaching-3:hover ~ #main-img {
+	content: url("teaching-3.jpg");
+}
+#img-experiment-0:hover ~ #main-img {
+	content: url("experiment-0.jpg");
+}
+#img-experiment-1:hover ~ #main-img {
+	content: url("experiment-1.jpg");
+}
+#img-experiment-2:hover ~ #main-img {
+	content: url("experiment-2.jpg");
+}
+#img-sensor-0:hover ~ #main-img {
+	content: url("sensor-0.jpg");
+}
+#img-sensor-1:hover ~ #main-img {
+	content: url("sensor-1.jpg");
+}
+#img-sensor-2:hover ~ #main-img {
+	content: url("sensor-2.jpg");
+}
+#img-sensor-3:hover ~ #main-img {
+	content: url("sensor-3.jpg");
+}
+#img-sensor-4:hover ~ #main-img {
+	content: url("sensor-4.jpg");
+}
+#img-presentation-0:hover ~ #main-img {
+	content: url("presentation-0.jpg");
+}
+#img-presentation-1:hover ~ #main-img {
+	content: url("presentation-1.jpg");
+}
+#img-presentation-2:hover ~ #main-img {
+	content: url("presentation-2.jpg");
+}
+#img-group-0:hover ~ #main-img {
+	content: url("group-0.jpg");
+}
+#img-group-1:hover ~ #main-img {
+	content: url("group-1.jpg");
+}

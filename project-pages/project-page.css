@@ -123,21 +123,6 @@ blockquote {
 		margin: 0 var(--skill-margin);
 	}
 
-	main img {
-		width: 100%;
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-		padding: 0 !important;
-		border: 0 !important;
-	}
-	.img-left, .img-right {
-		margin-bottom: 1em;
-		margin-top: 1em;
-	}
-	.img-top {
-		margin-top: 0;
-	}
-
 	@media (prefers-color-scheme: dark) {
 		.cover h1 {
 			color: var(--text-color);
