@@ -415,6 +415,10 @@ footer img {
 		margin-top: 4.5em;
 	}
 
+	footer {
+		text-align: left;
+	}
+
 	.img-left, .img-right, .img-full-width, .img-center {
 		display: block;
 		float: none;
