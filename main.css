@@ -308,25 +308,25 @@ footer img {
 		border-bottom: 2px solid var(--active-gray);
 		z-index: 9;
 	}
-	header ul {
+	nav ul {
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
 		background-color: var(--bg-color);
 	}
-	header ul li {
+	nav ul li {
 		display: initial;
 	}
-	header ul li a {
+	nav ul li a {
 		display: block;
 		margin: 0;
 		padding: 10px 0;
 		text-align: center;
 	}
-	header ul li#business-card {
+	nav ul li#business-card {
 		display: initial;
 	}
-	header ul li#business-card a {
+	nav ul li#business-card a {
 		color: var(--bg-color);
 	}
 	header #name {
@@ -341,7 +341,7 @@ footer img {
 	
 	/* menu */
 	
-	header .menu {
+	nav .menu {
 		clear: both;
 		max-height: 0;
 		transition: max-height .5s ease;
@@ -349,7 +349,7 @@ footer img {
 	
 	/* menu icon */
 	
-	header .menu-icon {
+	nav .menu-icon {
 		cursor: pointer;
 		display: block;
 		padding: var(--mobile-menu-icon-padding) 0;
@@ -359,7 +359,7 @@ footer img {
 		box-sizing: border-box;
 	}
 	
-	header .menu-icon .navicon {
+	nav .menu-icon .navicon {
 		background: var(--grayed-out);
 		display: block;
 		height: var(--hamburger-slice-height);
@@ -368,8 +368,8 @@ footer img {
 		width: 18px;
 	}
 	
-	header .menu-icon .navicon:before,
-	header .menu-icon .navicon:after {
+	nav .menu-icon .navicon:before,
+	nav .menu-icon .navicon:after {
 		background: var(--grayed-out);
 		content: '';
 		display: block;
@@ -379,35 +379,35 @@ footer img {
 		width: 100%;
 	}
 	
-	header .menu-icon .navicon:before {
+	nav .menu-icon .navicon:before {
 		top: var(--hamburger-radius);
 	}
 	
-	header .menu-icon .navicon:after {
+	nav .menu-icon .navicon:after {
 		top: calc(-1 * var(--hamburger-radius));
 	}
 	
 	/* menu btn */
 	
-	header .menu-btn:checked ~ .menu {
+	nav .menu-btn:checked ~ .menu {
 		max-height: 100vh;
 		height: 100vh;
 	}
 	
-	header .menu-btn:checked ~ .menu-icon .navicon {
+	nav .menu-btn:checked ~ .menu-icon .navicon {
 		background: transparent;
 	}
 	
-	header .menu-btn:checked ~ .menu-icon .navicon:before {
+	nav .menu-btn:checked ~ .menu-icon .navicon:before {
 		transform: rotate(-45deg);
 	}
 	
-	header .menu-btn:checked ~ .menu-icon .navicon:after {
+	nav .menu-btn:checked ~ .menu-icon .navicon:after {
 		transform: rotate(45deg);
 	}
 	
-	header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-	header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+	nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+	nav .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
 		top: 0;
 	}
 
