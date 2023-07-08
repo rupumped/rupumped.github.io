@@ -44,16 +44,6 @@ section {
 	text-align: justify;
 }
 
-.item {
-	display: flex;
-	align-items: center;
-}
-.item img {
-	width: 187px;
-	border-radius: 8%;
-	margin-right: 1cm;
-}
-
 section ul {
 	margin-top: 0;
 }
@@ -117,14 +107,5 @@ section ul {
 @media only screen and (max-width: 724px) {
 	#bio {
 		text-align: left;
-	}
-
-	.item {
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	.item img {
-		margin-bottom: 1em;
-		margin-right: 0;
 	}
 }

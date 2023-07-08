@@ -32,6 +32,16 @@ body {
 .section, section {
 	margin: 2.7em 0;
 }
+article {
+	display: flex;
+	align-items: center;
+}
+article img {
+	flex: 0 0 auto;
+	width: 13rem;
+	border-radius: 8%;
+	margin-right: 1cm;
+}
 h1, h2, h3 {
 	line-height: 1.2em;
 }
@@ -413,6 +423,15 @@ footer img {
 
 	main {
 		margin-top: 4.5em;
+	}
+
+	article {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	article img {
+		margin-bottom: 1em;
+		margin-right: 0;
 	}
 
 	footer {

@@ -1,22 +1,19 @@
-a.item {
+a.post {
 	text-decoration: none;
 	color: var(--text-color);
 }
-a.item:hover {
+a.post:hover {
 	text-decoration: underline;
 }
 
-
-div.w-img {
-	display: flex;
-	align-items: center;
+article img {
+	width: 17rem;
 }
-div.w-img img {
-	width: 187px;
-	height: auto;
-	max-width: 100%;
-	margin-right: 1cm;
-	border-radius: 8%;
+article h2 {
+	margin-top: 0;
+}
+article p {
+	margin-bottom: 0;
 }
 
 p.date {
@@ -29,20 +26,14 @@ h2 {
 }
 
 @media only screen and (max-width: 767px) {
-	div.w-img {
-		flex-wrap: wrap;
-	}
-
-	div.w-img img {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 1em;
+	article img {
+		width: 14rem;
+		margin-top: 0.5rem;
 	}
 }
 
 @media (prefers-color-scheme: dark) {
-	a.item:hover {
+	a.post:hover {
 		text-decoration-line: underline;
 		text-decoration-color: var(--text-color);
 	}
