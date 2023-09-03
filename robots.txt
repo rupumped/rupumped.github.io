@@ -3,3 +3,5 @@ Disallow:
 
 User-agent: GPTBot
 Disallow: /
+
+Sitemap: https://rupumped.github.io/sitemap.xml
