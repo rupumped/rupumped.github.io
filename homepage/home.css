@@ -48,6 +48,11 @@ section ul {
 	margin-top: 0;
 }
 
+article h2 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		--shadow-shade: 200;
