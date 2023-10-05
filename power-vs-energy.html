@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>How Mistaking Power for Energy Almost Cost Millions</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- SEO Description -->
+	<meta name="description" content="Learn how pedanticism and collaborative physics ensured rural farmers' access to affordable, renewable electricity, and how you can understand the difference between power and energy.">
+	<link rel="canonical" href="https://rupumped.github.io/power-vs-energy.html">
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "How Mistaking Power for Energy Almost Cost Millions",
+			"image": [
+				"https://rupumped.github.io/blog/power-vs-energy.jpg",
+				"https://rupumped.github.io/blog-posts/power-vs-energy-cover.jpg"
+			],
+			"datePublished": "2023-10-06T00:00:00+00:00",
+			"author": [{
+				"@type": "Person",
+				"name": "Nicholas S. Selby",
+				"url": "https://rupumped.github.io/"
+			}]
+		}
+	</script>
+
+	<!-- Favicon -->
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="blog-posts/blog-post.css">
+
+	<!-- KaTeX for Math -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+	<script src="https://rupumped.github.io/NicksAPPS/JavaScript/katex-support.js"></script>
+</head>
+<body>
+	<header>
+		<div id="name">NICHOLAS S SELBY</div>
+		<nav>
+			<input class="menu-btn" type="checkbox" id="menu-btn">
+			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+			<ul class="menu">
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="about.html">ABOUT ME</a></li>
+				<li><a href="selected-work.html">SELECTED WORK</a></li>
+				<li><a href="blog.html">BLOG</a></li>
+				<li><a href="service.html">SERVICE</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<h1>How Mistaking Power for Energy Almost Cost Millions</h1>
+		<p class="date">Posted on October 6, 2023</p>
+		<figure class="cover">
+			<img src="blog-posts/power-vs-energy-cover.jpg" alt="A solar mini-grid">
+			<figcaption>Photo Credit: Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH</figcaption>
+		</figure>
+
+		<section class="toc">
+			<h2>Contents</h2>
+			<div>
+				<ul>
+					<li><a href="#Motivation">Motivation</a></li>
+					<li><a href="#Biking">Analogy 1: Mountain Biking</a></li>
+					<li><a href="#Driving">Analogy 2: Driving a Car</a></li>
+					<li><a href="#Cooking">Analogy 3: Cooking</a></li>
+					<li><a href="#Candle">Analogy 4: Burning a Candle</a></li>
+					<li><a href="#Showering">Analogy 5: Showering</a></li>
+					<li><a href="#Physics">Physics</a></li>
+					<li><a href="#Importance">Importance to Mini-Grid Design Requirements</a></li>
+					<li><a href="#Questions">Questions to Test Understanding</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="Motivation">
+			<h2>Motivation</h2>
+			<p>I am an engineer working with an African solar mini-grid developer. Over the past year, our team has been diligently working on a bid for some significant agricultural mini-grid projects. Our journey has been marked by challenges and a crucial lesson in distinguishing between power and energy.</p>
+			<p>Initially, our project was based on a load profile for rural farming communities provided by the technical consultants overseeing the initiative. This profile stipulated that the mini-grid systems would run at full load for just three months of the year and at half load for the surrounding six months. It's difficult to estimate the load requirements for communities that have never had electricity, but we all agreed the proposed load profile was likely accurate enough. Armed with this information, we, along with other mini-grid developers, meticulously designed our systems and budgets.</p>
+			<p>However, our endeavor took a sudden turn when one of the major financial backers of the project insisted on a significant change. They mandated that we adjust our load profile to assume that the load would be at 100% capacity continuously for eight hours each day for nine months each year. This shift was made to ensure supply reliability even outside peak seasons, a well-intentioned goal.</p>
+			<p>But here's the twist: maintaining a renewable fraction of at least 90% while meeting this new requirement drastically escalated the project costs. Regrettably, the financial backer only marginally increased the budget, leaving a gaping deficit to cover the escalated expenses. Furthermore, the developers had reservations about whether end users, mostly rural farmers with seasonal energy demands, would genuinely demand such an extensive power supply. Predictably, these changes led to negative project internal rates of return, causing months of intense, often heated, discussions among various project stakeholders.</p>
+			<p>Amid this tumult, I had a pivotal conversation with one of the financial backer's technical staff. Frustrated, he emphasized the need to ensure power supply during times beyond the peak season. This statement puzzled me, and I sought clarification: "Is this a power requirement or an energy requirement?" I inquired. The consultant appeared bewildered, asking for further explanation. I elucidated, "Are you instructing us to supply maximum power at any given moment it might be needed, or to sustain a full load continuously for nine months each year?" He replied, "Well, technically, the former. Why? What's the distinction?"</p>
+			<p>By specifying the need for a full load every day for nine months, an energy requirement, instead of any day for nine months, a power requirement, they inadvertently doubled the capital expenditure of our projects without a proportionate increase in expected revenues.</p>
+			<p>This experience underscores the critical importance of differentiating between power and energy in technical fields. In the following narrative, I will present five analogies to elucidate this principle and conclude by highlighting the fundamental physics that underpin these distinctions.</p>
+		</section>
+
+		<section id="Biking">
+			<h2>Analogy 1: Mountain Biking</h2>
+			<p>Omer, an avid mountain biker, found himself gearing up for an exhilarating adventure through the rugged terrains of his favorite trails. As he pedaled through the wilderness, the rhythmic motion of his ride triggered a cascade of thoughts, weaving analogies between his biking journey and various aspects of his job as a solar mini-grid engineer.</p>
+			<p>The trail's challenges led him to ponder the concept of charge, which he equated to the mass of his trusty bike and his own body. In much the same way electromagnetic forces move electric charges through a circuit, he pushed the mass of his bike and body up and over hills. Just as voltage determines the potential for current in an electrical circuit, Omer realized that the force he applied to the pedals was his voltage. It defined the potential he could convert into speed.</p>
+			<p>As he pedaled faster and faster, he recognized that his speed was akin to current. The faster he pedaled, the greater the flow of effort, just like the flow of electric charge in a circuit. Power, he thought, was how fast he expended his energy, especially when he tackled steep hills that demanded more power to ascend. The top of each hill brought a sense of exhaustion, analogous to the total energy expended during the climb, but it was also tinged with the excitement of the thrilling descent that lay ahead.</p>
+			<p>This experience was reminiscent of the components of a solar mini-grid. Omer likened the battery bank capacity of a solar mini-grid to how much energy he had after a good night's rest, fully ready for the bike ride. It represented the potential amount of energy that could be stored in his body, much like a battery bank capacity represents the potential amount of electrical energy that could be stored in a mini-grid.</p>
+			<p>Moreover, the size of a solar array was analogous to the quality of Omer's sleep. Just as the efficiency of his sleep rejuvenated his energy level, the size of the solar array determined how quickly it could fill the battery bank with energy.</p>
+			<p>Thinking of battery inverter power ratings, Omer couldn't help but compare them to the strength of his legs. Just as the output power rating of a battery inverter indicated its capacity to deliver energy, the strength of his legs determined how powerfully he could pedal.</p>
+		</section>
+
+		<section id="Driving">
+			<h2>Analogy 2: Driving a Car</h2>
+			<p>With the mountain biking adventure behind him, Omer hopped into his car to go home. The parallels between biking and driving were uncanny.</p>
+			<p>The amount he pressed on the gas pedal was like power, akin to how much effort he exerted to propel his vehicle forward. Just as power determines how quickly work can be done in physics, the pressure on the gas pedal defined the rate at which Omer converted gasoline into motion.</p>
+			<p>In this analogy, the amount of gas in his car's tank was equated to energy, representing the potential for his journey. Just as energy is the capacity to do work, the gas in the tank was the potential to move his car.</p>
+			<p>Thinking about a mini-grid battery capacity was akin to considering the size of his gas tank. It represented how much potential energy could be stored for his journey, similar to the size of a battery bank determining how long a full charge would last a community.</p>
+			<p>The size of the solar array was like how quickly he could refill the gas tank. Just as a larger solar array can capture more energy, a faster refill rate allowed Omer to replenish his car's potential for motion quickly.</p>
+			<p>Finally, Omer compared the battery inverter capacity to engine horsepower. Just as engine horsepower determines how quickly the car can convert fuel into power, the battery inverter capacity defined how quickly the electrical system could convert stored energy in batteries into usable power for a community.</p>
+		</section>
+
+		<section id="Cooking">
+			<h2>Analogy 3: Cooking</h2>
+			<p>Arriving home, Omer's culinary prowess took center stage as he prepared dinner on his gas stovetop. As he turned on the burners and felt the heat emanating from them, he couldn't help but draw analogies once again, relating the cooking process to the components of a mini-grid system.</p>
+			<p>The amount of heat produced by the stove burners was akin to power. Just as power measures the rate at which work is done in physics, the intensity of the heat determined how quickly it could cook his meal.</p>
+			<p>In this analogy, the total effect of the heat on the food over time was equated to energy. Just as energy represents the cumulative capacity to do work, the impact of the heat on his meal was the total effect over the duration of the cooking process.</p>
+			<p>Thinking about the mini-grid battery bank capacity was similar to considering the amount of gas in his propane tank. It represented the potential energy available for the community, much like the gas in his tank was the potential to fuel his stove.</p>
+			<p>Lastly, Omer compared the battery inverter output capacity to how high his stove's maximum setting could go. Just as the inverter capacity defined the system's ability to convert stored energy into usable power, the stove's maximum setting determined the highest level of heat it could produce.</p>
+			<p>With these analogies in mind, Omer skillfully cooked his dinner, appreciating how the principles of power, energy, and electrical systems were not confined to his professional life but permeated even the simplest activities of daily living.</p>
+		</section>
+
+		<section id="Candle">
+			<h2>Analogy 4: Burning a Candle</h2>
+			<p>For a cozy dinner ambiance, Omer lit a fancy candle with multiple wicks. It was the perfect opportunity for more analogies.</p>
+			<p>The brightness of the candle, Omer realized, was akin to power. Just as power measures the rate at which work is done in physics, the candle's brightness determined how effectively it illuminated the room.</p>
+			<p>In this analogy, the amount of wax burned represented energy. Much like energy accumulates over time, the amount of wax consumed by the candle's flame represented the cumulative consumption of the candle during its burn.</p>
+			<p>Thinking about the mini-grid battery bank capacity was similar to considering the total wax in the candle. It represented the potential energy available for illumination, much like the wax in the candle was the potential for light.</p>
+			<p>Lastly, Omer compared the battery inverter output capacity to the number of wicks available to be lit. Just as the number of wicks determined the candle's potential to light a large room by burning more wax at once, the inverter's capacity defined its potential to consume energy faster to power a larger load.</p>
+		</section>
+		
+		<section id="Showering">
+			<h2>Analogy 5: Showering</h2>
+			<p>Finally, after his satisfying dinner by candlelight, Omer decided to take a soothing shower to relax and unwind. As he stood under the flowing water, he couldn't resist drawing analogies once more, connecting the shower to the components of a mini-grid system.</p>
+			<p>The water in the pipes was akin to charge. Just as electric charges flow through a circuit, the water in the pipes was the potential amount of water available for Omer's shower.</p>
+			<p>In this analogy, the water pressure in the showerhead was equated to voltage. Much like voltage determines the potential for current in an electrical circuit, the water pressure defined the potential for water to flow from the showerhead.</p>
+			<p>The flow rate of water from the showerhead represented current. It was the flow of water during Omer's shower, akin to the flow of electric charge in a circuit.</p>
+			<p>Power, Omer realized, was how satisfying the shower felt in one moment. It was determined by both the water pressure and the flow rate, affecting the intensity of the shower experience. Just as power measures the rate at which work is done in physics, the power of the shower represented the intensity of the water flow.</p>
+			<p>If power was how satisfying the shower was in one moment, energy, Omer thought, was the total amount of satisfaction from the shower from start to finish. It was calculated as the product of water pressure and the total water used. It represented the cumulative effect of the water pressure and flow rate over the duration of the shower.</p>
+			<p>Thinking about the mini-grid battery bank capacity was similar to considering the total water available for use times water pressure. It represented the potential amount of water available for Omer's shower and its pressure, much like the battery bank capacity represents the potential energy available in a mini-grid system.</p>
+			<p>The size of the mini-grid solar array is like the capacity of the city's water treatment plants, determining how fast they can purify and deliver water to the pipes. Just as a larger solar array can generate more energy, a faster refill allowed Omer to shower however frequently he wanted.</p>
+			<p>Lastly, Omer compared the battery inverter's ability to control the flow of power to the shower handle's ability to increase the flow of water. Just as the inverter's capacity defined the system's ability to convert stored energy into usable power, the shower handle's adjustment determined how effectively he could increase the water flow for a more invigorating shower.</p>
+			<p>As Omer relaxed under the warm water, he marveled at how these analogies had enhanced his understanding of the fundamental principles of power, energy, and electrical systems that interconnected with his everyday life.</p>
+		</section>
+
+		<section id="Physics">
+			<h2>Physics</h2>
+			<p>As Omer headed to bed, he found himself contemplating the very essence of these concepts, exploring their origins and how they were governed by the laws of physics. Lying in bed waiting for sleep to take him, he embarked on a mental journey to uncover the intricacies of electricity, power, energy, and electrical systems, free from the confines of analogies.</p>
+			<p>Electric charge is the physical property of matter that causes it to experience a force when placed in an electromagnetic field like the electromagnetic fields generated by equipment in a mini-grid. In mini-grid systems, the carriers of electric charge are primarily electrons traversing metal conductors and semiconductors found in the generation and distribution equipment. Electric charge is measured in coulombs, where 1 coulomb is the magnitude of about six quintillion electrons' worth of charge. In Omer's day, charge had been represented by the mass of Omer and his bike and by the water flowing through the pipes to Omer's shower.</p>
+			<p>Voltage is the amount of work energy needed per unit of electric charge to move this charge between two points in an electric field. In other words, voltage is the difference in electric potential between two points, like between the negative and positive terminals of a battery bank. For alternating current (AC) systems where the instantaneous voltage between the line and neutral conductors is continuously oscillating between positive and negative values, what we call “voltage” is actually a clever calculation called the root mean square (RMS) voltage. The RMS voltage is the square root of the mean over one cycle of the square of the instantaneous voltage, and it ends up being equal to the peak instantaneous voltage divided by the square root of two, about 71% of the peak instantaneous voltage. We use the same trick to define the current in AC systems. Voltage is measured in volts, where there being a one-volt difference between two points means that it would take one joule of energy to move one coulomb of charge from one point to the other. In Omer's day, voltage had been represented by the force Omer applied to his mountain bike pedals and the water pressure in Omer's showerhead.</p>
+			<p>Electric current is the net rate of flow of electric charge through a surface, similar to the number of electrons flowing across a specific cross section of conductor per unit time. Because the output voltage of a mini-grid is often nominally fixed, governed by the electrical code of the country in which the mini-grid resides, larger community loads mean greater currents flowing from the battery inverters to the community. Current is measured in amperes, where one ampere is equal to 1 coulomb moving past a point in a second. In Omer's day, electric current had been represented by Omer's mountain-biking speed and the flow rate of water in Omer's shower.</p>
+			<p>Energy, in a general sense, is the quantitative property that is transferred to a body or to a physical system, recognizable in the performance of work and in the form of heat and light. Electrical energy is energy related to forces on electrically-charged particles and the movement of those particles. Energy is a conserved quantity: energy can be converted in form, but not created or destroyed. Solar panels convert solar energy into electrical energy. In DC-coupled systems, that electrical energy is then stored in batteries by charge controllers until battery inverters send it flowing out to their community to be converted once more into light, heat, or other work. When discussing mini-grids, energy is measured in kilowatt-hours, where one kilowatt-hour is the amount of energy delivered by one kilowatt of power for one hour. In Omer's day, electrical energy had been represented by the amount of exhaustion Omer felt at the top of a large hill, the amount of gas in his car's tank, the total effect of the heat from his stove on his dinner while he was cooking, the amount of candle wax burned during his dinner, and the total amount of satisfaction Omer got from his shower from start to finish.</p>
+			<p>Electric power is the rate at which electrical energy is transferred by an electric circuit. In mini-grids, the electric power output to the community is usually limited by the battery inverter output capacity, a specification that can be read from the battery inverter's datasheet. For this reason, the battery inverter is usually the first piece of equipment an engineer selects when designing a mini-grid: the battery inverter must be at least capable enough to supply the greatest power its community will require. When discussing mini-grids, power is measured in kilowatts. Electric power is the mathematical product of voltage and current, i.e. one kilowatt equals 1000 times 1 volt times 1 ampere. Power is also the time derivative of energy, and energy is the integral of power over time. In Omer's day, electric power was represented by how fast Omer expended energy while mountain biking, how hard he pressed on the gas pedal while driving, the amount of heat produced by the stove burners, the brightness of his candle, and how satisfying his shower felt in one moment.</p>
+			<div class="overflowable">
+				<table>
+					<tr>
+						<th>Analogy</th>
+						<th>Power</th>
+						<th>Energy</th>
+					</tr>
+					<tr>
+						<td>Mountain Biking</td>
+						<td>how fast Omer expended energy while mountain biking</td>
+						<td>the amount of exhaustion Omer felt at the top of a large hill</td>
+					</tr>
+					<tr>
+						<td>Driving a Car</td>
+						<td>how hard he pressed on the gas pedal while driving</td>
+						<td>the amount of gas in his car's tank</td>
+					</tr>
+					<tr>
+						<td>Cooking</td>
+						<td>the amount of heat produced by the stove burners</td>
+						<td>the total effect of the heat from his stove on his dinner while he was cooking</td>
+					</tr>
+					<tr>
+						<td>Burning a Candle</td>
+						<td>the brightness of his candle</td>
+						<td>the amount of candle wax burned during his dinner</td>
+					</tr>
+					<tr>
+						<td>Showering</td>
+						<td>how satisfying his shower felt in one moment</td>
+						<td>the total amount of satisfaction Omer got from his shower from start to finish</td>
+					</tr>
+					<tr>
+						<td>Physics</td>
+						<td>the rate at which electrical energy is transferred by an electric circuit</td>
+						<td>the cumulative quantity of heat, light, or other work delivered by power over time</td>
+					</tr>
+					<tr>
+						<td>Math</td>
+						<td>the time derivative of energy</td>
+						<td>the integral of power over time</td>
+					</tr>
+				</table>
+			</div>
+		</section>
+
+		<section id="Importance">
+			<h2>Importance to Mini-Grid Design Requirements</h2>
+			<p>Power and energy are distinct concepts in physics and engineering:</p>
+			<ul>
+				<li><b>Power</b> is the rate at which work is done or the rate at which energy is transferred or converted. It is typically measured in kilowatts (kW) and represents how fast energy is consumed.</li>
+				<li><b>Energy</b> is the capacity to do work or the ability to cause change. It is typically measured in kilowatt-hours (kWh) and represents the cumulative effect of power over time.</li>
+			</ul>
+			<p>The consultant's requirement was to ensure a reliable power supply, even during periods outside the peak season. This implied that the focus should have been on power, not energy. They wanted the ability to supply maximum power when needed, not a continuous full load over a long duration. Given this understanding, the requirement should have been articulated as follows:</p>
+			<blockquote>"We need the mini-grid systems to be capable of supplying maximum power during specific high-demand periods outside of the peak season."</blockquote>
+			<p>By framing the requirement in this way, the focus remains on power, not energy, and the mini-grid developers can design their systems to ensure robust power supply when it's needed most without unnecessarily inflating the costs by requiring constant full load capacity throughout the year. This would have allowed for a more cost-effective solution while still meeting the essential reliability criteria.</p>
+			<p>In the end, recognizing the significant challenges stemming from the consultant's initial misrepresentation of the requirement, a collaborative effort ensued. The consultant, in consultation with the mini-grid developers, clarified the project's needs, emphasizing the necessity for reliable power supply during specific high-demand periods. This more precise and realistic project requirement resonated with all stakeholders, including the financial backer, who agreed to return to the original load profile for which consensus had been reached. This resolution restored confidence and reinforced the importance of understanding the distinction between power and energy in technical decision-making, highlighting the significance of precise communication to avoid unnecessary complications and costs. As a result, thousands of rural farmers in Africa will now be able to access affordable, renewable electricity from the mini-grids.</p>
+		</section>
+
+		<section id="Questions">
+			<h2>Questions to Test Understanding</h2>
+			<details class="question">
+				<summary>
+					Assuming zero losses, how much energy is consumed by a consistent 2-kW load over 3 hours?
+					<span class="reveal-answer-button"><span class="reveal">Reveal</span><span class="hide">Hide</span> Answer</span>
+				</summary>
+				<p>6 kWh. Energy is the integral of power over time. If the power is represented as \(\mathrm{P}(t) = 2\ \mathrm{kW}\), then \(\mathrm{E}(t)=\int_0^{3\ \mathrm{hr}} (2\ \mathrm{kW}) dt = (2\ \mathrm{kW})\times(3\ \mathrm{hr}) = 6\ \mathrm{kWh}\). Alternatively, remember that the integral of a constant value over time is just the product of the constant value, 2 kW, and the duration, 3 hours.</p>
+			</details>
+
+			<details class="question">
+				<summary>
+					Assuming zero losses and a constant power supply, how much power is needed to provide a load with 6 kWh of energy over 3 hours?
+					<span class="reveal-answer-button"><span class="reveal">Reveal</span><span class="hide">Hide</span> Answer</span>
+				</summary>
+				<p>2 kW. Power is the time derivative of energy. If the energy starts at 0 and grows steadily to 6 kWh over the course of 3 hours, then \(\mathrm{E}(t) = (\frac{6\ \mathrm{kWh}}{3\ \mathrm{hr}})\times t+0 = (2\ \mathrm{kW})\times t\). Therefore, power is \(\frac{d\mathrm{E}(t)}{dt} = \frac{d}{dt} \bigl((2\ \mathrm{kW})\times t\bigr) = 2\ \mathrm{kW}\). Alternatively, use your answer to the previous question to answer this one: if a consistent 2-kW load requires 6 kWh of energy over 3 hours, then a constant 2 kW of power is needed to provide a load with 6 kWh of energy over 3 hours.</p>
+			</details>
+
+			<details class="question">
+				<summary>
+					Assuming zero losses, how much energy is consumed by a load that grows linearly from 0 to 6 kW over the course of 3 hours?
+					<span class="reveal-answer-button"><span class="reveal">Reveal</span><span class="hide">Hide</span> Answer</span>
+				</summary>
+				<p>9 kWh. Energy is the integral of power over time. Since the load grows linearly from 0 to 6 kW over the course of three hours, \(\mathrm{P}(t) = (\frac{6\ \mathrm{kW}}{3\ \mathrm{hr}})\times t+0 = (2\frac{\mathrm{kW}}{\mathrm{hr}})\times t\). Therefore, energy is</p>
+				<div class="equation">
+					\begin{equation}
+						\begin{array}{rl}
+							\mathrm{E} & = \int_0^{3\ \mathrm{hr}} \mathrm{P}(t)dt \\ \\
+							& = \int_0^{3\ \mathrm{hr}} (2\frac{\mathrm{kW}}{\mathrm{hr}})\times t\ dt \\ \\
+							& = \bigl[(1\frac{\mathrm{kW}}{\mathrm{hr}})\times t^2\bigr]_0^{3\ \mathrm{hr}} \\ \\
+							& = (1\frac{\mathrm{kW}}{\mathrm{hr}})\times (3\ \mathrm{hr})^2-(1\frac{\mathrm{kW}}{\mathrm{hr}})\times (0\ \mathrm{hr})^2 \\ \\
+							& = (1 \frac{\mathrm{kW}}{\mathrm{hr}})\times (9\ \mathrm{hr}^2)-0 \\ \\
+							& = 9\ \mathrm{kWh}
+						\end{array}
+						\notag
+					\end{equation}
+				</div>
+				<p>Alternatively, notice that the shape formed by the time axis, \(\mathrm{P}(t)\), and the limits of integration is a triangle with a base of 3 hours and a height of 6 kW. The area of that triangle, and therefore the integral, is \(\frac{1}{2}\times(3\ \mathrm{hr})\times(6\ \mathrm{kW}) = 9\ \mathrm{kWh}\). Alternatively, notice that the time average of power over the period is 3 kW, so the integral is product of the average of the integrand, 3 kW, and the duration, 3 hours, or \((3\ \mathrm{kW})\times(3\ \mathrm{hr}) = 9\ \mathrm{kWh}\).</p>
+			</details>
+			
+			<details class="question">
+				<summary>
+					Is a mini-grid design requirement of a renewable fraction of at least 90% a power requirement or an energy requirement?
+					<span class="reveal-answer-button"><span class="reveal">Reveal</span><span class="hide">Hide</span> Answer</span>
+				</summary>
+				<p>An energy requirement. The renewable fraction is the fraction of the energy delivered to the load that originated from renewable power sources. In solar mini-grids, this usually refers to the fraction of the total energy delivered to the load that was generated by the solar panels as opposed to a backup diesel generator. The renewable fraction is not directly related to power.</p>
+			</details>
+
+			<details class="question">
+				<summary>
+					Given the detailed design of a mini-grid system and a community load profile, is it easier to determine if the mini-grid will be able to meet the maximum-power or energy needs of its community?
+					<span class="reveal-answer-button"><span class="reveal">Reveal</span><span class="hide">Hide</span> Answer</span>
+				</summary>
+				<p>It is easier to determine if the mini-grid will be able to meet the maximum-power needs of a community. Ensuring a mini-grid will be able to meet the maximum-power needs of its community is as simple as checking the technical specifications of the equipments' datasheets. To determine if the same mini-grid will be able to meet the energy needs of a community, you need to simulate the energy flows through the mini-grid over time.</p>
+			</details>
+
+			<details class="question">
+				<summary>
+					Solar panels are sized and marketed based on their maximum power output. When designing a mini-grid, should you size your solar array based on the community's energy needs or maximum-power requirement?
+					<span class="reveal-answer-button"><span class="reveal">Reveal</span><span class="hide">Hide</span> Answer</span>
+				</summary>
+				<p>You should size your solar array based on the community's energy needs. Just because a solar panel is labeled “500 W” does not mean that it will consistently supply 500 W for 24 hours a day. In mini-grid design, solar panels should be thought of as a way to add energy to batteries. Even in AC-coupled systems equipped with PV inverters, which can convert DC power from solar panels directly into AC power for the grid, PV inverters themselves cannot form the grid. Even if PV inverters could form a grid, a poorly timed cloud could bring the entire system to a halt. Thus, a battery inverter should be sized according to the community's maximum-power requirement, whereas the solar array should be sized based on the community's energy requirement.</p>
+			</details>
+
+			<details class="question">
+				<summary>
+					If my goal is to design a cost-effective mini-grid that will be able to supply a given maximum power to a community at any time, should I mandate that the mini-grid be designed to supply maximum power to a community consistently for all time?
+					<span class="reveal-answer-button"><span class="reveal">Reveal</span><span class="hide">Hide</span> Answer</span>
+				</summary>
+				<p>No. To determine if a proposed mini-grid will be able to meet the maximum-power needs of a community, you need to inspect (1) the battery inverter's datasheet and confirm that the battery inverter is rated to supply the maximum load, (2) the battery's datasheet to ensure that the battery's C-rate is greater than or equal to the maximum load in kW divided by the total battery bank capacity in kWh, and (3) the conductors and electrical protection equipment used to ensure they can safely carry the maximum current.</p>
+			</details>
+
+			<details class="question">
+				<summary>
+					What if, in addition to ensuring the mini-grid will be able to supply a maximum power to a community at any time, I also need it to meet a certain minimum renewable fraction?
+					<span class="reveal-answer-button"><span class="reveal">Reveal</span><span class="hide">Hide</span> Answer</span>
+				</summary>
+				<p>Because the renewable fraction of a system is a function of energy, not power, you will need to simulate the mini-grid's performance given realistic load profiles. When designing the load profile, note that renewable fraction is as much a function of load profile as it is of mini-grid component sizes. I would recommend designing several test load profiles, each with a few random off-season consumption peaks, to ensure the renewable fraction remains above the minimum threshold. For example, in addition to peak load for eight hours each day for three months and half load for the surrounding six months, I could add one week in the middle of the off season in which the system will need to run at full capacity. That way, I can guarantee system performance under reasonable load assumptions without drastically inflating the size of my system.</p>
+			</details>
+		</section>
+	</main>
+	
+	<footer>
+		<a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>© 2018–2023 This work by <a href="https://rupumped.github.io" property="cc:attributionName" rel="cc:attributionURL">Nicholas S. Selby</a> is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br>Feel free to fork the <a rel="external" target="_blank" href="https://github.com/rupumped/rupumped.github.io">source code</a> from GitHub and create your own website using this template.
+	</footer>
+</body>
+</html>

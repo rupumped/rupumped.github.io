@@ -147,6 +147,41 @@ details[open] .chevron {
 	transform: rotate(180deg);
 }
 
+/* Quiz Questions */
+details.question > summary > span.reveal-answer-button {
+	border: 1px solid;
+	font-size: 0.6em;
+	padding: 0.2em 0.5em;
+	margin-bottom: 0.2em;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 1em;
+	line-height: 1em;
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+details:not([open]) > summary > span.reveal-answer-button > span.reveal {
+	display: initial;
+}
+details:not([open]) > summary > span.reveal-answer-button > span.hide {
+	display: none;
+}
+details[open] > summary > span.reveal-answer-button > span.reveal {
+	display: none;
+}
+details[open] > summary > span.reveal-answer-button > span.hide {
+	display: initial;
+}
+
+details.question > p {
+	margin-left: 3em;
+}
+
 /* Images */
 img {
 	box-sizing: border-box;
@@ -452,5 +487,10 @@ footer img {
 
 	div.gallery img:not(.img-full-width) {
 		height: 1.3cm;
+	}
+
+	/* Quiz Questions */
+	details.question > p {
+		margin-left: 1em;
 	}
 }
