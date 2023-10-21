@@ -12,17 +12,20 @@
 	--special-font-family: 'Raleway', sans-serif;
 }
 
-body {
-	margin-left: auto;
-	margin-right: auto;
-	width: 25cm;
-	max-width: var(--max-w);
+html {
 	font-family: var(--main-font-family);
 	font-size: 21px;
 	line-height: 1.4em;
 	letter-spacing: 0.06em;
 	color: var(--text-color);
 	background-color: var(--bg-color);
+}
+
+body {
+	margin-left: auto;
+	margin-right: auto;
+	width: 25cm;
+	max-width: var(--max-w);
 }
 .separator {
 	height: 1px;
@@ -73,7 +76,6 @@ a:hover {
 
 /* Header */
 header {
-	background-color: var(--bg-color);
 	font-family: var(--special-font-family);
 }
 header #name {

@@ -1,0 +1,47 @@
+html {
+	background: url("savannah.png") no-repeat bottom center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: black;
+}
+
+body {
+	height: 80vh;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+#headshot {
+	width: 6em;
+	height: 6em;
+	border-radius: 50%;
+}
+
+h3 {
+	text-align: center;
+	text-shadow: 0 0 1px #ffffe8;
+}
+
+#home-button {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: rgba(0, 45, 77, 1);
+	color: #fffffe;
+	border: 1px solid black;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+#home-button:hover {
+	background-color: rgba(0, 45, 77, 0.7);
+}
