@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Marble Flow</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- SEO Description -->
+	<meta name="author" content="Nicholas S. Selby">
+	<meta name="description" content="Optical Flow and Object Tracking for Robots">
+	<link rel="canonical" href="https://rupumped.github.io/marbleflow.html">
+
+	<!-- Open Graph Tags -->
+	<meta property="og:title" content="Marble Flow">
+	<meta property="og:description" content="Optical Flow and Object Tracking for Robots">
+	<meta property="og:image" content="https://rupumped.github.io/project-pages/marbleflow-cover.jpg">
+	<meta property="og:image:width" content="1792">
+	<meta property="og:image:height" content="717">
+	<meta property="og:image:alt" content="A robot playing with marbles">
+	<meta property="og:url" content="https://rupumped.github.io/marbleflow.html">
+	<meta property="og:type" content="website">
+	<meta property="og:video" content="https://www.youtube.com/watch?v=sgq_YhP6NFc">
+
+	<!-- Favicon -->
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway&display=swap" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
+</head>
+<body>
+	<header>
+		<div id="name">NICHOLAS S SELBY</div>
+		<nav>
+			<input class="menu-btn" type="checkbox" id="menu-btn">
+			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+			<ul class="menu">
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="about.html">ABOUT ME</a></li>
+				<li><a href="selected-work.html">SELECTED WORK</a></li>
+				<li><a href="blog.html">BLOG</a></li>
+				<li><a href="service.html">SERVICE</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div class="cover section">
+			<img src="project-pages/marbleflow-cover.jpg" alt="A robot playing with marbles">
+			<h1>Optical Flow and Object Tracking for Robots</h1>
+		</div>
+
+		<section id="skills-demonstrated">
+			<h2>Skills Demonstrated</h2>
+			<div class="skills">
+				<div class="skill">Robotics & Control</div>
+				<div class="bullet"></div>
+				<div class="skill">Computer Vision</div>
+				<div class="bullet"></div>
+				<div class="skill">Python</div>
+				<div class="bullet"></div>
+				<div class="skill">C++</div>
+			</div>
+		</section>
+
+		<div class="separator"></div>
+
+		<div class="centered section">
+			<iframe width="560" height="315" style="margin: auto;" src="https://www.youtube-nocookie.com/embed/sgq_YhP6NFc" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		
+		<p>For our graduate-level computer vision course final project, I worked with <a rel="external" target="_blank" href="https://www.linkedin.com/in/abbasmshikari/">Abbas Shikari</a> to develop MarbleFlow, an innovative project aimed at developing an optical marble tracker using a mobile camera. The project involved creating a system where a camera mounted on a robot arm could track a ball's movement, enabling the arm to follow the ball based on camera input. Additionally, we implemented dense optical flow for estimating the camera's motion trajectory. Our project implemented two key computer vision algorithms:</p>
+		<ol>
+			<li><b>Ball Tracking System:</b> Leveraging threshold-based object detection, we calculated the 2D centroid position of a ball from a video feed. The system provided an error signal in x and y axes by comparing the centroid position with the image center, which was used for a velocity controller on the Sawyer robot arm.</li>
+			<li><b>Dense Optical Flow Algorithm:</b> Implemented on the full image, this algorithm averaged the dense optical flow to estimate the camera's velocity, allowing the recreation of the camera's estimated trajectory.</li>
+		</ol>
+
+		<img class="img-center" style="background-color: lightgray;" src="https://raw.githubusercontent.com/ashikari/MarbleFlow/master/block_diagram.png" alt="A block diagram illustrating our software. Video feed from the camera is fed through a series of transforms. Next, we use blob detection to compute the marble's location relative to the center of the image. Then, we feed the location into a PID controller and use an inverse kinematics model to command the robot to move to minimize the distance between the center of the image and the marble's location.">
+
+		<p>We wrote the computer vision algorithms in C++ using OpenCV and employed the ROS framework in Python to implement the robot PID controller and kinematics. The project successfully demonstrated the capability to track a ball and control a robotic arm based on visual inputs. The dense optical flow algorithm provided accurate camera motion estimates, enhancing the system's overall efficacy.</p>
+			
+		<p>MarbleFlow was a rewarding educational experience that allowed us to deepen our understanding of fundamental computer vision algorithms and their practical applications. It provided us with hands-on experience in integrating hardware and software to solve a specific problem: tracking and following a moving object with a robotic arm. We are grateful for the opportunity to have worked on this project and are excited to apply the skills and knowledge we've gained in our future endeavors in the field of computer vision and robotics. Download our code and try it yourself on <a rel="external" target="_blank" href="https://github.com/ashikari/MarbleFlow">our GitHub repository</a>.</p>
+	</main>
+	
+	<footer>
+		<a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>© 2018–2024 This work by <a href="https://rupumped.github.io" property="cc:attributionName" rel="cc:attributionURL">Nicholas S. Selby</a> is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br>Feel free to fork the <a rel="external" target="_blank" href="https://github.com/rupumped/rupumped.github.io">source code</a> from GitHub and create your own website using this template.
+	</footer>
+</body>
+</html>
