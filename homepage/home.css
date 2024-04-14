@@ -52,6 +52,9 @@ article h2 {
 	font-size: 1em;
 	font-weight: bold;
 }
+article .journal-name {
+	font-style: italic;
+}
 
 @media (prefers-color-scheme: dark) {
 	:root {
