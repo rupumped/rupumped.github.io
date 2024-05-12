@@ -327,6 +327,11 @@ footer img {
 		--active-gray: #666;
 		--link-color: 140, 180, 255;
 	}
+
+	img.bw {
+		-webkit-filter: invert(100%);
+		filter: invert(100%);
+	}
 }
 
 /* Mobile */

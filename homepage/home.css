@@ -60,11 +60,6 @@ article .journal-name {
 	:root {
 		--shadow-shade: 200;
 	}
-
-	#social-media-wrapper img.bw {
-		-webkit-filter: invert(100%);
-		filter: invert(100%);
-	}
 }
 
 @media only screen and (max-width: 940px) {
