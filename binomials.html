@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>A Gradient-Based Approach to Solving Mixed Binomial Distributions</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- SEO Description -->
+	<meta name="author" content="Nicholas S. Selby">
+	<meta name="description" content="Determine the individual probabilities of multiple binomial distributions when given their combined probability mass function using gradient descent.">
+	<link rel="canonical" href="https://rupumped.github.io/binomials.html">
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "A Gradient-Based Approach to Solving Mixed Binomial Distributions",
+			"image": [
+				"https://rupumped.github.io/blog/binomials.jpg",
+				"https://rupumped.github.io/blog-posts/binomials-cover.jpg"
+			],
+			"datePublished": "2024-09-04T00:00:00+00:00",
+			"author": [{
+				"@type": "Person",
+				"name": "Nicholas S. Selby",
+				"url": "https://rupumped.github.io/"
+			}]
+		}
+	</script>
+
+	<!-- Open Graph Tags -->
+	<meta property="og:title" content="A Gradient-Based Approach to Solving Mixed Binomial Distributions">
+	<meta property="og:description" content="Determine the individual probabilities of multiple binomial distributions when given their combined probability mass function using gradient descent.">
+	<meta property="og:image" content="https://rupumped.github.io/blog/binomials.jpg">
+	<meta property="og:image:width" content="3000">
+	<meta property="og:image:height" content="3000">
+	<meta property="og:image:alt" content="A chalkboard with math">
+	<meta property="og:url" content="https://rupumped.github.io/binomials.html">
+	<meta property="og:type" content="article">
+
+	<!-- Favicon -->
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="blog-posts/blog-post.css">
+
+	<!-- KaTeX for Math -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+	<script src="https://rupumped.github.io/NicksAPPS/JavaScript/katex-support.js"></script>
+</head>
+<body>
+	<header>
+		<div id="name">NICHOLAS S SELBY</div>
+		<nav>
+			<input class="menu-btn" type="checkbox" id="menu-btn">
+			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+			<ul class="menu">
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="about.html">ABOUT ME</a></li>
+				<li><a href="selected-work.html">SELECTED WORK</a></li>
+				<li><a href="blog.html">BLOG</a></li>
+				<li><a href="service.html">SERVICE</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<h1>A Gradient-Based Approach to Solving Mixed Binomial Distributions</h1>
+		<p class="date">Posted on September 4, 2024</p>
+		<figure class="cover">
+			<img src="blog-posts/binomial-cover.jpg" alt="A chalkboard with math">
+		</figure>
+
+		<section class="toc">
+			<h2>Contents</h2>
+			<div>
+				<ul>
+					<li><a href="#Problem">Problem Statement</a></li>
+					<li><a href="#Solution">Solution: Gradient Descent</a></li>
+					<li><a href="#Algorithm">Algorithm</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<section id="Problem">
+			<h2>Problem Statement</h2>
+			<p>Let the probability mass function (PMF) of a binomial distribution \(B(n, p)\) be given by</p>
+			<div class="equation">
+				\begin{equation}
+					f(k;n,p)=\left( \begin{array}{c}
+						n \\
+						k
+					\end{array} \right)p^k (1-p)^{n-k}
+				\end{equation}
+			</div>
+
+			<p>Given a number of independent Bernoulli trials, \(n\), a number of distributions, \(m\), and an observed PMF</p>
+			<div class="equation">
+				\begin{equation}
+					t(k)=\frac{1}{m}\sum_{i=1}^m f(k;n,p_i)
+				\end{equation}
+			</div>
+
+			<p>compute \(p_i\ \forall i\in (1,...,m)\).</p>
+		</section>
+
+		<section id="Solution">
+			<h2>Solution: Gradient Descent</h2>
+			<p>Draw \(m\) values, \(p_i'\), from a uniform distribution between 0 and 1.</p>
+
+			<p>Let \(t'(k)\) be a PMF given by</p>
+			<div class="equation">
+				\begin{equation}
+					t'(k)=\frac{1}{m}\sum_{i=1}^m f(k;n,p_i')
+				\end{equation}
+			</div>
+
+			<p>Let \(J\) represent a cost function on the sum of the squared errors between \(t(k)\) and \(t'(k)\):</p>
+			<div class="equation">
+				\begin{equation}
+					J(p_1,...,p_m)=\sum_{j=0}^n \left( t(j)-t'(j) \right)^2
+				\end{equation}
+			</div>
+
+			<p>We can now restate the problem as a minimization of \(J\):</p>
+			<div class="equation">
+				\begin{equation}
+					\argmin_{p_1,...,p_m} J(p_1,...,p_m)
+				\end{equation}
+				<!-- (5) \label{eq:problem} -->
+			</div>
+
+			<p>We can solve this problem using gradient descent by computing the gradient of \(J\). For each \(p_l\):</p>
+			<div class="equation">
+				\begin{equation}
+					\begin{array}{rl}
+						\frac{\partial J}{\partial p_l} & =\frac{\partial}{\partial p_l} \sum_{j=0}^n \left( t(j)-\frac{1}{m}\sum_{i=1}^m f(k;n,p_i') \right)^2 \\
+						& =\sum_{j=0}^n \frac{\partial}{\partial p_l} \left( t(j)-\frac{1}{m}\sum_{i=1}^m f(k;n,p_i') \right)^2 \\
+						& =2\left( t(j)-\frac{1}{m}\sum_{i=1}^m f(k;n,p_i') \right)\left( -\frac{1}{m}\sum_{i=1}^m \frac{\partial}{\partial p_l}f(j;n,p_i) \right)
+					\end{array}
+				\end{equation}
+				<!-- (6) \label{eq:grad-J} -->
+			</div>
+
+			<p>Note that \(f(j;n,p_i)\) is a function of \(p_l\) if and only if \(i=l\). Therefore,</p>
+			<div class="equation">
+				\begin{equation}
+					\frac{\partial}{\partial p_l}f(j;n,p_i)=\begin{cases}
+						\begin{array}{ll}
+							\left. \frac{\partial}{\partial p} f(j;n,p) \right|_{p=p_l}& \mathrm{if}\ i=l \\
+							0 & \mathrm{otherwise}
+						\end{array}
+					\end{cases}
+				\end{equation}
+				<!-- (7) \label{eq:bin-derv-cases} -->
+			</div>
+
+			<p>Computing the derivative of the binomial distribution:</p>
+			<div class="equation">
+				\begin{equation}
+					\begin{array}{rl}
+						\frac{\partial}{\partial p} f(j;n,p) & =\frac{\partial}{\partial p} \left( \begin{array}{c} n \\ j \end{array} \right)p^j (1-p)^{n-j} \\
+						& = \left( \begin{array}{c} n \\ j \end{array} \right) \frac{\partial}{\partial p} \left( p^j (1-p)^{n-j} \right)\\
+						& = \left( \begin{array}{c} n \\ j \end{array} \right) \left( p^j\frac{\partial}{\partial p} \left((1-p)^{n-j}\right) + (1-p)^{n-j}\frac{\partial}{\partial p}(p^j) \right) \\
+						& = \left( \begin{array}{c} n \\ j \end{array} \right) \left(-p^j(n-j)(1-p)^{n-j-1}+(1-p)^{n-j}kp^{j-1} \right) \\
+						& = \left( \begin{array}{c} n \\ j \end{array} \right)p^{j-1}(1-p)^{n-j-1}(j-pn)
+					\end{array}
+				\end{equation}
+				<!-- (8) \label{eq:bin-derv} -->
+			</div>
+
+			<p>Plugging our solution from Eq. (8) into Eq. (7) yields:</p>
+			<div class="equation">
+				\begin{equation}
+					\frac{\partial}{\partial p_l}f(j;n,p_i)=\begin{cases}
+						\begin{array}{ll}
+							\left( \begin{array}{c} n \\ j \end{array} \right)p_l^{j-1}(1-p_l)^{n-j-1}(j-p_ln) & \mathrm{if}\ i=l \\
+							0 & \mathrm{otherwise}
+						\end{array}
+					\end{cases}
+				\end{equation}
+				<!-- (9) \label{eq:cases-solved} -->
+			</div>
+
+			<p>Plugging our solution from Eq. (9) into Eq. (6) yields:</p>
+			<div class="equation">
+				\begin{equation}
+					\frac{\partial J}{\partial p_l}=\frac{2}{m}\sum_{j=0}^n\left( t(j)-\frac{1}{m}\sum_{i=1}^m f(j;n,p_i) \right)\left( \begin{array}{c} n \\ j \end{array} \right)p_l^{j-1}(1-p_l)^{n-j-1}(p_ln-j)
+				\end{equation}
+			</div>
+		</section>
+
+		<section id="Algorithm">
+			<h2>Algorithm</h2>
+			<p>Now that we have computed the gradient for \(J\), we can apply any gradient-based optimization algorithm to solve Eq. (5). For example, applying gradient descent with step size \(\alpha\) and stop condition \(\epsilon\):</p>
+			
+			<div class="algorithm">
+				<div class="state">Given inputs \(t(k)\), \(m\), \(n\), \(\alpha\), and \(\epsilon\):</div>
+				<div class="state">\(i \gets 1\)</div>
+				<div class="state"><b>while</b> \(i \leq m\) <b>do</b>:</div>
+				<div class="indented">
+					<div class="state">\(p_i \sim U_{[0,1]}\)</div>
+					<div class="state">\(i\gets i+1\)</div>
+				</div>
+				<div class="state">\(D\gets \inf\)</div>
+				<div class="state"><b>while</b> \(D\geq \epsilon\) <b>do</b>:</div>
+				<div class="indented">
+					<div class="state">\(t'(k)\gets \sum_{i=1}^m f(k;n,p_i')\)</div>
+					<div class="state">\(l\gets 1\)</div>
+					<div class="state"><b>while</b> \(l\leq m\) <b>do</b>:</div>
+					<div class="indented">
+						<div class="state">\(D_l\gets \alpha\sum_{j=0}^n\left( t(j)-\frac{1}{m}\sum_{i=1}^m f(j;n,p_i) \right)\left( \begin{array}{c} n \\ j \end{array} \right)p_l^{j-1}(1-p_l)^{n-j-1}(p_ln-j)\)</div>
+						<div class="state">\(l\gets l+1\)</div>
+					</div>
+					<div class="state">\(l\gets 1\)</div>
+					<div class="state"><b>while</b> \(l\leq m\) <b>do</b>:</div>
+					<div class="indented">
+						<div class="state">\(p_l\gets p_l-D_l\)</div>
+					</div>
+					<div class="state">\(D\gets \sum_{i=1}^m D_i^2\)</div>
+				</div>
+			</div>
+
+			<p>The output of the algorithm is \(p_i\ \forall i\in (1,...,m)\), a list of probabilities defining the \(m\) binomial distributions whose average most closely matches \(t(k)\).</p>
+
+			<p>For unknown \(m\), plot \(J\) against \(m\) and select an appropriate cutoff point after which the difference between \(t(k)\) and \(t(j)\) is considered small enough. Alternatively, apply a penalty to \(m\), e.g. \(\lambda m\), and find the minimum of \(J+\lambda m\) iteratively.</p>
+		</section>
+	</main>
+	
+	<footer>
+		<a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>© 2018–2024 This work by <a href="https://rupumped.github.io" property="cc:attributionName" rel="cc:attributionURL">Nicholas S. Selby</a> is licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br>Feel free to fork the <a rel="external" target="_blank" href="https://github.com/rupumped/rupumped.github.io">source code</a> from GitHub and create your own website using this template.
+	</footer>
+</body>
+</html>

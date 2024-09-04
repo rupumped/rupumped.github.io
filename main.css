@@ -277,6 +277,14 @@ https://bourne2learn.com/math/katex/tag-placement_nowrap.html */
 	-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,0.8);
 }
 
+/* Algorithm */
+div.algorithm {
+	margin: 1em 0 1em 1em;
+}
+div.indented {
+	margin-left: 1em;
+}
+
 /* Code Blocks */
 pre {
 	padding: 1em;
