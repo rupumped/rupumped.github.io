@@ -1,0 +1,34 @@
+body {
+	width: 30cm;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.25em;
+	border-left: 0.18em solid var(--seperator-color);
+	padding: 0.08em 0.4em;
+}
+
+div.url-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+	gap: 1.6em;
+}
+
+div.url-list a {
+	font-size: 0.9em;
+}
+
+/* Mobile */
+@media only screen and (max-width: 766px) {
+	h1 {
+		font-size: 1.9em;
+	}
+
+	div.url-list {
+		gap: 1.1em;
+	}
+}
