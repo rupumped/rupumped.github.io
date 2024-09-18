@@ -107,6 +107,13 @@ article .journal-name {
 	}
 }
 
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+	#title-card {
+		background-color: black;
+	}
+}
+
 @media only screen and (max-width: 724px) {
 	#bio {
 		text-align: left;
