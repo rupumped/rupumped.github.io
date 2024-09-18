@@ -31,9 +31,13 @@ address {
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
-#social-media-wrapper img {
+#social-media-wrapper a {
 	width: 2.8em;
 	border-radius: 8%;
+}
+#social-media-wrapper a svg {
+	height: 100%;
+	width: 100%;
 }
 
 section {
@@ -58,7 +62,7 @@ article .journal-name {
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--shadow-shade: 200;
+		--shadow-shade: 150;
 	}
 }
 
@@ -104,13 +108,6 @@ article .journal-name {
 		max-width: 100%;
 		overflow: scroll;
 		font-size: 0.9em;
-	}
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-	#title-card {
-		background-color: black;
 	}
 }
 

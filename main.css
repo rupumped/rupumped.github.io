@@ -369,14 +369,14 @@ footer #copyright {
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg-color: #0e1217;
+		--bg-color: #07090b;
 		--text-color: #f0f6fc;
 		--grayed-out: #ccc;
 		--active-gray: #666;
 		--link-color: 140, 180, 255;
 	}
 
-	img.bw {
+	img.bw, svg.bw {
 		-webkit-filter: invert(100%);
 		filter: invert(100%);
 	}
