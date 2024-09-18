@@ -313,4 +313,68 @@
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
+
+<url>
+	<title>vCard</title>
+	<loc>https://rupumped.github.io/business-card/vcard.vcf</loc>
+	<lastmod>2024-02-14T00:00:00+00:00</lastmod>
+	<changefreq>yearly</changefreq>
+	<priority>0.20</priority>
+</url>
+
+<url>
+	<title>Mini-Grid Impact BibTex</title>
+	<loc>https://rupumped.github.io/homepage/minigrid-impact.bib</loc>
+	<lastmod>2024-06-06T00:00:00+00:00</lastmod>
+	<changefreq>never</changefreq>
+	<priority>0.20</priority>
+</url>
+
+<url>
+	<title>L3 BibTex</title>
+	<loc>https://rupumped.github.io/homepage/l3.bib</loc>
+	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<changefreq>never</changefreq>
+	<priority>0.20</priority>
+</url>
+
+<url>
+	<title>TeachBot BibTex</title>
+	<loc>https://rupumped.github.io/homepage/teachbot.bib</loc>
+	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<changefreq>never</changefreq>
+	<priority>0.20</priority>
+</url>
+
+<url>
+	<title>R-Find BibTex</title>
+	<loc>https://rupumped.github.io/homepage/rfind.bib</loc>
+	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<changefreq>never</changefreq>
+	<priority>0.20</priority>
+</url>
+
+<url>
+	<title>R-Fly BibTex</title>
+	<loc>https://rupumped.github.io/homepage/rfly.bib</loc>
+	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<changefreq>never</changefreq>
+	<priority>0.20</priority>
+</url>
+
+<url>
+	<title>NDTE BibTex</title>
+	<loc>https://rupumped.github.io/homepage/xducer.bib</loc>
+	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<changefreq>never</changefreq>
+	<priority>0.20</priority>
+</url>
+
+<url>
+	<title>Quantum Computing BibTex</title>
+	<loc>https://rupumped.github.io/homepage/dualaxis.bib</loc>
+	<lastmod>2021-09-27T00:00:00+00:00</lastmod>
+	<changefreq>never</changefreq>
+	<priority>0.20</priority>
+</url>
 </urlset>
