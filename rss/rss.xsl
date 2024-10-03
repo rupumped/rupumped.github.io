@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9">
+	xmlns:atom="http://www.w3.org/2005/Atom">
 <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
 <xsl:template match="/">
 	<html>
 	<head>
-		<title>XML Sitemap</title>
+		<title>RSS Feed</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -21,7 +21,7 @@
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="main.css"/>
-		<link rel="stylesheet" type="text/css" href="sitemap/sitemap.css"/>
+		<link rel="stylesheet" type="text/css" href="rss/rss.css"/>
 	</head>
 	<body>
 		<header>
@@ -40,41 +40,32 @@
 		</header>
 
 		<main>
-			<h1>XML Sitemap</h1>
+			<h1>RSS Feed</h1>
 
 			<section>
-				<h2>Homepage</h2>
-				<xsl:call-template name="process-priority">
-					<xsl:with-param name="priority" select="'1.00'"/>
-				</xsl:call-template>
+				<details open="true">
+					<summary>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron" aria-label="Expand icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+						<h2>Academic Publications</h2>
+					</summary>
+					
+					<xsl:call-template name="process-category">
+						<xsl:with-param name="category" select="'Academic Publications'"/>
+					</xsl:call-template>
+				</details>
 			</section>
 
 			<section>
-				<h2>Main Sections</h2>
-				<xsl:call-template name="process-priority">
-					<xsl:with-param name="priority" select="'0.80'"/>
-				</xsl:call-template>
-			</section>
-
-			<section>
-				<h2>Selected Work</h2>
-				<xsl:call-template name="process-priority">
-					<xsl:with-param name="priority" select="'0.60'"/>
-				</xsl:call-template>
-			</section>
-
-			<section>
-				<h2>Blog</h2>
-				<xsl:call-template name="process-priority">
-					<xsl:with-param name="priority" select="'0.40'"/>
-				</xsl:call-template>
-			</section>
-
-			<section>
-				<h2>Supplementary Documents</h2>
-				<xsl:call-template name="process-priority">
-					<xsl:with-param name="priority" select="'0.20'"/>
-				</xsl:call-template>
+				<details open="true">
+					<summary>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron" aria-label="Expand icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+						<h2>Blog Posts</h2>
+					</summary>
+					
+					<xsl:call-template name="process-category">
+						<xsl:with-param name="category" select="'Blog Posts'"/>
+					</xsl:call-template>
+				</details>
 			</section>
 		</main>
 
@@ -127,12 +118,19 @@
 	</html>
 </xsl:template>
 
-<xsl:template name="process-priority">
-	<xsl:param name="priority"/>
+<xsl:template name="process-category">
+	<xsl:param name="category"/>
 	<div class="url-list">
-		<xsl:for-each select="/sitemap:urlset/sitemap:url[sitemap:priority = $priority]">
-			<a href="{sitemap:loc}">
-				<xsl:value-of select="sitemap:title"/>
+		<xsl:for-each select="/rss/channel/item[category = $category]">
+			<a class="article-container" rel="external" target="_blank" href="{link}" aria-label="{title}">
+				<article>
+					<img src="{enclosure/@url}" alt="{title}" />
+					<div>
+						<h3><xsl:value-of select="title"/></h3>
+						<p class="desc"><xsl:value-of select="description"/></p>
+						<p class="date"><xsl:value-of select="substring(pubDate, 6, string-length(pubDate)-18)"/></p>
+					</div>
+				</article>
 			</a>
 		</xsl:for-each>
 	</div>

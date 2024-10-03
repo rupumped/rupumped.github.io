@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="rss/rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Nicholas S Selby</title>
+		<link>https://rupumped.github.io/</link>
+		<description>Academic publications and blog posts by Nicholas S Selby</description>
+		<language>en-us</language>
+		<copyright>Copyright 2018–2024, Nicholas S Selby</copyright>
+		<pubDate>Thu, 3 Oct 2024 00:00:00 GMT</pubDate>
+		<lastBuildDate>Thu, 3 Oct 2024 00:00:00 GMT</lastBuildDate>
+		<docs>https://www.rssboard.org/rss-specification</docs>
+		<managingEditor>nicholas.selby@renevia.com (Nicholas S Selby)</managingEditor>
+		<webMaster>nicholas.selby@renevia.com (Nicholas S Selby)</webMaster>
+		<image>
+			<url>https://rupumped.github.io/homepage/headshot.jpg</url>
+			<title>Nicholas S Selby</title>
+			<link>https://rupumped.github.io/</link>
+		</image>
+		<atom:link href="https://rupumped.github.io/rss.xml" rel="self" type="application/rss+xml" />
+
+		<!-- Publications -->
+		<item>
+			<title>Social and Economic Impact Analysis of Solar Mini-Grids in Rural Africa: A Cohort Study from Kenya and Nigeria</title>
+			<link>https://iopscience.iop.org/article/10.1088/2634-4505/ad4ffb</link>
+			<description>This study presents the first comprehensive analysis of the social and economic effects of solar mini-grids in rural African settings, specifically in Kenya and Nigeria. A group of 2,658 household heads and business owners connected to mini-grids over the last five years were interviewed both before and one year after their connection. These interviews focused on changes in gender equality, productivity, health, safety, and economic activity. The results show notable improvements in all areas. Economic activities and productivity increased significantly among the connected households and businesses. The median income of rural Kenyan community members quadrupled. Gender equality also improved, with women gaining more opportunities in decision making and business. Health and safety enhancements were linked to reduced use of hazardous energy sources like kerosene lamps. The introduction of solar mini-grids not only transformed the energy landscape but also led to broad socioeconomic benefits in these rural areas. The research highlights the substantial impact of decentralized renewable energy on the social and economic development of rural African communities. Its findings are crucial for policymakers, development agencies, and stakeholders focused on promoting sustainable energy and development in Africa.</description>
+			<enclosure url="https://rupumped.github.io/homepage/minigrid-impact.jpg" length="666191" type="image/jpeg" />
+			<category>Academic Publications</category>
+			<pubDate>Wed, 5 Jun 2024 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://iopscience.iop.org/article/10.1088/2634-4505/ad4ffb</guid>
+		</item>
+		<item>
+			<title>Learning of Causal Observable Functions for Koopman-DFL Lifting Linearization of Nonlinear Controlled Systems and Its Application to Excavation Automation</title>
+			<link>https://arxiv.org/abs/2104.02004</link>
+			<description>Effective and causal observable functions for low-order lifting linearization of nonlinear controlled systems are learned from data by using neural networks. While Koopman operator theory allows us to represent a nonlinear system as a linear system in an infinite-dimensional space of observables, exact linearization is guaranteed only for autonomous systems with no input, and finding effective observable functions for approximation with a low-order linear system remains an open question. Dual-Faceted Linearization uses a set of effective observables for low-order lifting linearization, but the method requires knowledge of the physical structure of the nonlinear system. Here, a data-driven method is presented for generating a set of nonlinear observable functions that can accurately approximate a nonlinear control system to a low-order linear control system. A caveat in using data of measured variables as observables is that the measured variables may contain input to the system, which incurs a causality contradiction when lifting the system, i.e. taking derivatives of the observables. The current work presents a method for eliminating such anti-causal components of the observables and lifting the system using only causal observables. The method is applied to excavation automation, a complex nonlinear dynamical system, to obtain a low-order lifted linear model for control design.</description>
+			<enclosure url="https://rupumped.github.io/homepage/l3.jpg" length="88844" type="image/jpeg" />
+			<category>Academic Publications</category>
+			<pubDate>Thu, 24 Jun 2021 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://arxiv.org/abs/2104.02004</guid>
+		</item>
+		<item>
+			<title>TeachBot: Towards Teaching Robotics Fundamentals for Human-Robot Collaboration at Work</title>
+			<link>https://www.sciencedirect.com/science/article/pii/S2405844021016868</link>
+			<description>The shortage of skilled workers who can use robots is a crucial issue hampering the growth of manufacturing industries. We present a new type of workforce training system, TeachBot, in which a robotic instructor delivers a series of interactive lectures using graphics and physical demonstration of its arm movements. Furthermore, the TeachBot allows learners to physically interact with the robot. This new human-computer interface, integrating oral and graphical instructions with motion demonstration and physical touch, enables to create engaging training materials. Effective learning takes place when the learner simultaneously interacts with an embodiment of new knowledge. We apply this “Learning by Touching” methodology to teach basic concepts, e.g. how a shaft encoder and feedback control work. In a pilot randomized control test with a small number of human subjects, we find suggestive evidence that Learning by Touching enhances learning effectiveness in this robotic context for adult learners. Students whose learning experience included touching the robot as opposed to watching it delivers the lessons showed gains in their ability to integrate knowledge about robotics. The “touching” group showed statistically significant gains in self-efficacy, which is an important antecedent to further learning and successful use of new technologies, as well as gains in knowledge about robotic concepts that trend toward significance.</description>
+			<enclosure url="https://rupumped.github.io/homepage/teachbot.jpg" length="809892" type="image/jpeg" />
+			<category>Academic Publications</category>
+			<pubDate>Mon, 12 Jul 2021 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S2405844021016868</guid>
+		</item>
+		<item>
+			<title>Minding the Billions: Ultra-wideband Localization in Deployed RFID Tags</title>
+			<link>https://www.mit.edu/~fadel/papers/RFind-paper.pdf</link>
+			<description>State-of-the-art RFID localization systems fall under two categories. The first category operates with off-the-shelf narrowband RFID tags but makes restrictive assumptions on the environment or the tag's movement patterns. The second category does not make such restrictive assumptions; however, it requires designing new ultra-wideband hardware for RFIDs and uses the large bandwidth to directly compute a tag's 3D location. Hence, while the first category is restrictive, the second one requires replacing the billions of RFIDs already produced and deployed annually. This paper presents RFind, a new technology that brings the benefits of ultra-wideband localization to the billions of RFIDs in today's world. RFind does not require changing today's passive narrowband RFID tags. Instead, it leverages their underlying physical properties to emulate a very large bandwidth and uses it for localization. Our empirical results demonstrate that RFind can emulate over 220MHz of bandwidth on tags designed with a communication bandwidth of only tens to hundreds of kHz, while remaining compliant with FCC regulations. This, combined with a new super-resolution algorithm over this bandwidth, enables RFind to perform 3D localization with sub-centimeter accuracy in each of the x/y/z dimensions, without making any restrictive assumptions on the tag's motion or the environment.</description>
+			<enclosure url="https://rupumped.github.io/homepage/rfind.jpg" length="130018" type="image/jpeg" />
+			<category>Academic Publications</category>
+			<pubDate>Wed, 4 Oct 2017 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://www.mit.edu/~fadel/papers/RFind-paper.pdf</guid>
+		</item>
+		<item>
+			<title>Relays for Battery-Free Networks</title>
+			<link>https://www.mit.edu/~fadel/papers/RFly-paper.pdf</link>
+			<description>Battery-free sensors, such as RFIDs, are annually attached to billions of items including pharmaceutical drugs, clothes, and manufacturing parts. The fundamental challenge with battery-free sensors is that they are only reliable at short distances of tens of centimeters to few meters. As a result, today's systems for communicating with and localizing battery-free sensors are crippled by the limited range. To overcome this challenge, this paper presents RFly, a system that leverages drones as relays for battery-free networks. RFly delivers two key innovations. It introduces the first full-duplex relay for battery-free networks. The relay can seamlessly integrate with a deployed RFID infrastructure, and it preserves phase and timing characteristics of the forwarded packets. RFly also develops the first RF-localization algorithm that can operate through a mobile relay. We built a hardware prototype of RFly's relay into a custom PCB circuit and mounted it on a Parrot Bebop drone. Our experimental evaluation demonstrates that RFly enables communication with commercial RFIDs at over 50 m. Moreover, its through-relay localization algorithm has a median accuracy of 19 centimeters. These results demonstrate that RFly provides powerful primitives for communication and localization in battery-free networks.</description>
+			<enclosure url="https://rupumped.github.io/homepage/rfly.jpg" length="89321" type="image/jpeg" />
+			<category>Academic Publications</category>
+			<pubDate>Mon, 7 Aug 2017 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://www.mit.edu/~fadel/papers/RFly-paper.pdf</guid>
+		</item>
+		<item>
+			<title>Determination of Absolute Material Nonlinearity with Air-Coupled Ultrasonic Receivers</title>
+			<link>https://rupumped.github.io/homepage/xducer.pdf</link>
+			<description>Quantitative evaluation of the microstructural state of a specimen can be deduced from knowledge of the sample's absolute acoustic nonlinearity parameter, b, making the measurement of b a powerful tool in the NDE toolbox. However, the various methods used in the past to measure b each suffer from significant limitations. Piezoelectric contact transducers are sensitive to nonlinear signals, cheap, and simple to use, but they are hindered by the variability of the interfacial contact between transducer and specimen surface. Laser interferometry provides non-contact detection, but requires carefully prepared specimens or complicated optics to maximize sensitivity to the higher harmonic components of a received waveform. Additionally, laser interferometry is expensive and relatively difficult to use in the field. Air-coupled piezoelectric transducers offer the strengths of both of these technologies and the weaknesses of neither, but are notoriously difficult to calibrate for use in nonlinear measurements. This work proposes a hybrid modeling and experimental approach to air-coupled transducer calibration and the use of this calibration in a model-based optimization to determine the absolute b parameter of the material under investigation. This approach is applied to aluminum and fused silica, which are both well-documented materials and provide a strong reference for comparison of experimental and modeling results.</description>
+			<enclosure url="https://rupumped.github.io/homepage/xducer.jpg" length="40016" type="image/jpeg" />
+			<category>Academic Publications</category>
+			<pubDate>Tue, 20 Jun 2017 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/homepage/xducer.pdf</guid>
+		</item>
+		<item>
+			<title>In Situ Biaxial Rotation at Low-Temperatures in High Magnetic Fields</title>
+			<link>https://rupumped.github.io/homepage/dualaxis.pdf</link>
+			<description>We report the design, construction, and characterization of a biaxial sample rotation stage for use in a cryogenic system for orientation-dependent studies of anisotropic electronic transport phenomena at low temperatures and high magnetic fields. Our apparatus allows for continuous rotation of a sample about two axes, both independently and simultaneously.</description>
+			<enclosure url="https://rupumped.github.io/homepage/dualaxis.jpg" length="11538" type="image/jpeg" />
+			<category>Academic Publications</category>
+			<pubDate>Wed, 24 Sep 2014 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/homepage/dualaxis.pdf</guid>
+		</item>
+
+		<!-- Blog Posts -->
+		<item>
+			<title>A Gradient-Based Approach to Solving Mixed Binomial Distributions</title>
+			<link>https://rupumped.github.io/binomials.html</link>
+			<description>Determine the individual probabilities of multiple binomial distributions when given their combined probability mass function using gradient descent.</description>
+			<enclosure url="https://rupumped.github.io/blog/binomial.jpg" length="182075" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Wed, 4 Sep 2024 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/binomials.html</guid>
+		</item>
+		<item>
+			<title>How Mistaking Power for Energy Almost Cost Millions</title>
+			<link>https://rupumped.github.io/power-vs-energy.html</link>
+			<description>Learn how pedanticism and collaborative physics ensured rural farmers' access to affordable, renewable electricity, and how you can understand the difference between power and energy.</description>
+			<enclosure url="https://rupumped.github.io/blog/power-vs-energy.jpg" length="68439" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Thu, 5 Oct 2023 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/power-vs-energy.html</guid>
+		</item>
+		<item>
+			<title>Nairobi Bound: A Comprehensive Guide for Americans Starting a New Life in Kenya's Capital</title>
+			<link>https://rupumped.github.io/guide-to-kenya.html</link>
+			<description>When I moved to Kenya in February 2022, I had never been to Africa. This is a collection of everything I wish I knew before I moved.</description>
+			<enclosure url="https://rupumped.github.io/blog/kenya.jpg" length="418113" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Wed, 24 May 2023 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/guide-to-kenya.html</guid>
+		</item>
+		<item>
+			<title>Phishing Prevention on a Budget: How to Test and Train Your Employees for Free</title>
+			<link>https://rupumped.github.io/phishing.html</link>
+			<description>Maximize your cybersecurity defenses by conducting free phishing tests on your employees and empowering them to recognize and avoid phishing attacks.</description>
+			<enclosure url="https://rupumped.github.io/blog/phishing.jpg" length="119818" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Tue, 28 Mar 2023 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/phishing.html</guid>
+		</item>
+		<item>
+			<title>I2R Losses in Single- and Three-Phase Distribution Networks</title>
+			<link>https://rupumped.github.io/line-losses.html</link>
+			<description>How unbalanced do loads on a three-phase distribution network have to be to warrant reconfiguring the network to be single-phase?</description>
+			<enclosure url="https://rupumped.github.io/blog/line-losses.jpg" length="998236" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Sat, 4 Mar 2023 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/line-losses.html</guid>
+		</item>
+		<item>
+			<title>15 Steps to Donate a Kidney</title>
+			<link>https://rupumped.github.io/kidney.html</link>
+			<description>The best decision I ever made was to donate my left kidney to a stranger. I kept a detailed journal of the entire experience, from the idea's inception to my surgery and recovery.</description>
+			<enclosure url="https://rupumped.github.io/blog/kidney.jpg" length="510502" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/kidney.html</guid>
+		</item>
+		<item>
+			<title>Quick Reference Sheet for Bond Graphs</title>
+			<link>https://rupumped.github.io/blog/bond-graph-quick-ref.pdf</link>
+			<description>My PhD research relied heavily on bond graph modeling of physical systems. I made this printable reference to help me remember causal stroke directions, constitutive laws, etc. Note: clicking on this link will download a PDF.</description>
+			<enclosure url="https://rupumped.github.io/blog/bond-graphs.jpg" length="70340" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Wed, 21 Jul 2021 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/blog/bond-graph-quick-ref.pdf</guid>
+		</item>
+		<item>
+			<title>The MIT MechE Qualifying Exam Fails Women</title>
+			<link>https://thetech.com/2020/08/27/meche-qual-exams-fail-women</link>
+			<description>Half of all women who failed the MIT Mechanical Engineering doctoral qualifying examination would likely have passed if they were men. Note: clicking on this link will redirect you to the article in The Tech, MIT's school newspaper.</description>
+			<enclosure url="https://rupumped.github.io/blog/quals.jpg" length="29255" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Thu, 27 Aug 2020 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://thetech.com/2020/08/27/meche-qual-exams-fail-women</guid>
+		</item>
+		<item>
+			<title>Common Public Speaking Problems and Exercises to Fix Them</title>
+			<link>https://rupumped.github.io/public-speaking-problems.html</link>
+			<description>Swallow a tablespoon of honey. Then, rehearse while laying flat on the ground facing upward with a heavy object on your belly. Whenever you inhale, force the object to rise. While speaking, force the object to fall.</description>
+			<enclosure url="https://rupumped.github.io/blog/public-speaking.jpg" length="32701" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Sat, 25 Jul 2020 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/public-speaking-problems.html</guid>
+		</item>
+		<item>
+			<title>Biblical Inerrancy</title>
+			<link>https://rupumped.github.io/biblical-inerrancy.html</link>
+			<description>I grew up believing that everything written in the Bible was literally true. I aim to guide a deconstruction of biblical inerrancy and provide an alternative view in which I have found freedom.</description>
+			<enclosure url="https://rupumped.github.io/blog/biblical-inerrancy.jpg" length="124023" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Thu, 28 May 2020 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/biblical-inerrancy.html</guid>
+		</item>
+		<item>
+			<title>Graduate Student Mental Health is in Crisis</title>
+			<link>https://thetech.com/2019/10/10/graduate-student-mental-health</link>
+			<description>MIT graduate students need immediate action to improve access to mental health care and address root causes. Note: clicking on this link will redirect you to the article in The Tech, MIT's school newspaper.</description>
+			<enclosure url="https://rupumped.github.io/blog/g4hmit.jpg" length="136234" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Thu, 10 Oct 2019 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://thetech.com/2019/10/10/graduate-student-mental-health</guid>
+		</item>
+		<item>
+			<title>Gospel Authorship</title>
+			<link>https://rupumped.github.io/gospel-authorship.html</link>
+			<description>In the quest to understand the origins of the four canonical Gospels, a puzzling mystery emerges—none of the authors are confirmed to have personally met Jesus.</description>
+			<enclosure url="https://rupumped.github.io/blog/gospels.jpg" length="324981" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Sun, 15 Apr 2018 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/gospel-authorship.html</guid>
+		</item>
+	</channel>
+</rss>
