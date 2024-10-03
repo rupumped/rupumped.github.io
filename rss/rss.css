@@ -6,6 +6,10 @@ h1 {
 	text-align: center;
 }
 
+#rss-validator {
+	text-align: center;
+}
+
 a.article-container {
 	text-decoration: none;
 	color: var(--text-color);

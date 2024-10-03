@@ -41,6 +41,7 @@
 
 		<main>
 			<h1>RSS Feed</h1>
+			<div id="rss-validator"><a rel="external" target="_blank" href="http://validator.w3.org/feed/check.cgi?url=https%3A//rupumped.github.io/rss.xml"><img src="rss/valid-rss-rogers.png" alt="[Valid RSS]" title="Validate my RSS feed" /></a></div>
 
 			<section>
 				<details open="true">
