@@ -150,7 +150,7 @@ details[open] .chevron {
 }
 
 /* Quiz Questions */
-details.question > summary > span.reveal-answer-button {
+details > summary > span.reveal-answer-button {
 	border: 1px solid;
 	font-size: 0.6em;
 	padding: 0.2em 0.5em;
@@ -289,6 +289,12 @@ div.indented {
 pre {
 	padding: 1em;
 	border: 1px solid var(--grayed-out);
+}
+:not(pre) > code {
+	background-color: color-mix(in srgb, var(--grayed-out) 15%, transparent);
+	font-size: 85%;
+	border-radius: 0.5em;
+	padding: 0.2em 0.4em;
 }
 span.purple {
 	color: purple;
