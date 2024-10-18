@@ -231,7 +231,7 @@
 					</details>
 				</li>
 
-				<li>Add a column "Qty of Oldest Order Left in Inventory Before This Sale" to the Sales table in column O. Enter the formula <code>=INDEX(FILTER(Orders[Cumulative Ordered], (Orders[Flavor]=[@Flavor]) * (Orders[Date]&lt;[@Date])), [@[Index of Oldest Order Still in Inventory Before This Sale]]) - IF([@[Index of Last Sale]]=0, 0, INDEX(K2:K$3, [@[Index of Last Sale]]))</code> into cell O3, copying it into the remaining rows.
+				<li>Add a column "Qty of Oldest Order Left in Inventory Before This Sale" to the Sales table in column O. Enter the formula <code>=INDEX(FILTER( Orders[Cumulative Ordered], (Orders[Flavor]=[@Flavor]) * (Orders[Date]&lt;[@Date])), [@[Index of Oldest Order Still in Inventory Before This Sale]]) - IF([@[Index of Last Sale]]=0, 0, INDEX(K2:K$3, [@[Index of Last Sale]]))</code> into cell O3, copying it into the remaining rows.
 					<details>
 						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
 						<p>This formula consists of two main parts connected by a subtraction operation:</p>
@@ -354,7 +354,7 @@
 
 			<p>The remaining columns can be calculated using the same methodology as the above COGS calculations, although you may want to adjust the column names for relevance, with the following changes to account for there being no Orders table:</p>
 			<ul>
-				<li>Instead of filtering ranges to precede the current row's date, you can adjust the array input of the FILTER function to include only rows above the current row using Excel's structured referencing. For example, if the Cumulative Supply column is in column K, the Project names are in column B, and row 1 is reserved for column headers, then the filtered Cumulative Supplies could be calculated using <code>FILTER(K$1:K9,B$1:B9=[@Project])</code> for row 9.</li>
+				<li>Instead of filtering ranges to precede the current row's date, you can adjust the array input of the FILTER function to include only rows above the current row using Excel's structured referencing. For example, if the Cumulative Supply column is in column K, the Project names are in column B, and row 1 is reserved for column headers, then the filtered Cumulative Supplies could be calculated using <code>FILTER(K$1:K9, B$1:B9=[@Project])</code> for row 9.</li>
 				<li>You must enclose the formulas for "Index of Oldest Diesel Still in Tank Before This Consumption," "Liters of Oldest Diesel Left in Tank Before This Consumption," and "Price Per Liter of Oldest Diesel"—analogous to "Index of Oldest Order Still in Inventory Before This Sale," "Qty of Oldest Order Left in Inventory Before This Sale," and "Cost Per Unit of Oldest Inventory," respectively—in IF statements that return 0 if the Index of Last Entry is 0.</li>
 			</ul>
 
