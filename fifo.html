@@ -220,7 +220,7 @@
 					</details>
 				</li>
 
-				<li>Add a column "Index of Oldest Order Still in Inventory Before This Sale" to the Sales table in column N. Enter the formula <code>=XMATCH([@[Total Qty Sold Before This Sale]], FILTER(Orders[Cumulative Ordered], (Orders[Flavor]=[@Flavor]) * (Orders[Date]&lt;[@Date])), 1, 1)</code> into cell N3, copying it into the remaining rows.
+				<li>Add a column "Index of Oldest Order Still in Inventory Before This Sale" to the Sales table in column N. Enter the formula <code>=XMATCH([@[Total Qty Sold Before This Sale]], FILTER(Orders[Cumulative Ordered], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), 1, 1)</code> into cell N3, copying it into the remaining rows.
 					<details>
 						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
 						<p>The FILTER function filters the "Cumulative Ordered" column from the Orders table. It applies two conditions. First, <code>Orders[Flavor]=[@Flavor]</code> only includes rows where the flavor matches the current sale's flavor. Second, <code>Orders[Date]&lt;[@Date]</code> only includes orders with dates earlier than the current sale date. The result is an array of cumulative ordered quantities for the same flavor, from orders placed before the current sale.</p>
@@ -231,13 +231,13 @@
 					</details>
 				</li>
 
-				<li>Add a column "Qty of Oldest Order Left in Inventory Before This Sale" to the Sales table in column O. Enter the formula <code>=INDEX(FILTER( Orders[Cumulative Ordered], (Orders[Flavor]=[@Flavor]) * (Orders[Date]&lt;[@Date])), [@[Index of Oldest Order Still in Inventory Before This Sale]]) - IF([@[Index of Last Sale]]=0, 0, INDEX(K2:K$3, [@[Index of Last Sale]]))</code> into cell O3, copying it into the remaining rows.
+				<li>Add a column "Qty of Oldest Order Left in Inventory Before This Sale" to the Sales table in column O. Enter the formula <code>=INDEX(FILTER( Orders[Cumulative Ordered], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), [@[Index of Oldest Order Still in Inventory Before This Sale]]) - IF([@[Index of Last Sale]]=0, 0, INDEX(K2:K$3, [@[Index of Last Sale]]))</code> into cell O3, copying it into the remaining rows.
 					<details>
 						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
 						<p>This formula consists of two main parts connected by a subtraction operation:</p>
 						<ol>
 							<li>
-								<p><code>INDEX(FILTER(Orders[Cumulative Ordered], (Orders[Flavor]=[@Flavor]) * (Orders[Date] &lt;[@Date])), [@[Index of Oldest Order Still in Inventory Before This Sale]])</code></p>
+								<p><code>INDEX(FILTER( Orders[Cumulative Ordered], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), [@[Index of Oldest Order Still in Inventory Before This Sale]])</code></p>
 								
 								<p>The FILTER function filters the "Cumulative Ordered" column from the Orders table, including only rows where the flavor matches the current sale's flavor and the order date is earlier than the current sale date. The INDEX function retrieves the value from the filtered array at the position specified by "Index of Oldest Order Still in Inventory Before This Sale." This part gives us the cumulative quantity ordered up to the oldest order that still has inventory available for this sale.</p>
 							</li>
