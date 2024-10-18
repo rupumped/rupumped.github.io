@@ -86,6 +86,15 @@
 
 		<!-- Blog Posts -->
 		<item>
+			<title>Improved FIFO COGS Tracking in Microsoft Excel</title>
+			<link>https://rupumped.github.io/fifo.html</link>
+			<description>An open-source tool to track COGS using FIFO with multiple SKUs and consumables</description>
+			<enclosure url="https://rupumped.github.io/blog/fifo.jpg" length="195430" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Fri, 18 Oct 2024 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/fifo.html</guid>
+		</item>
+		<item>
 			<title>A Gradient-Based Approach to Solving Mixed Binomial Distributions</title>
 			<link>https://rupumped.github.io/binomials.html</link>
 			<description>Determine the individual probabilities of multiple binomial distributions when given their combined probability mass function using gradient descent.</description>
