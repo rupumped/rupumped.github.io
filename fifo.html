@@ -85,8 +85,9 @@
 					<li><a href="#Intro">Introduction</a></li>
 					<li><a href="#Goal">Goal</a></li>
 					<li><a href="#PriorArt">Prior Art</a></li>
-					<li><a href="#Proof">The Limits of Bounded Algorithms</a></li>
-					<li><a href="#Solution">Improving on Prior Solutions</a></li>
+					<li><a href="#Formalization">Formalizing the COGS Problem</a></li>
+					<li><a href="#Algorithm">An Improved Algorithm</a></li>
+					<li><a href="#Implementation">Implementation in Excel</a></li>
 					<li><a href="#Consumables">Extension to Consumables</a></li>
 					<li><a href="#Conclusion">Conclusion</a></li>
 				</ul>
@@ -125,17 +126,14 @@
 			<p><a rel="external" target="_blank" href="https://www.eloquens.com/tool/3BgVCy0x/finance/inventory-management-excel-templates/fifo-based-cogs-inventory-valuation-template-in-excel">Jason</a> applies similar logic as Hasaan, but replaces Hasaan's Data Tables with massive helper matrices to calculate Emil's intermediate quantities sold from each order. This solution still lacks the ability to track consumables and multiple SKUs simultaneously, but it is easily portable between softwares and results in a Sales table with a COGS column out of the box. Unfortunately, it is not perfectly autonomous; the helper matrices must be manually resized to ensure they always have both more rows and columns than the number of rows in the Orders and Sales tables.</p>
 		</section>
 
-		<section id="Proof">
-			<h2>The Limits of Bounded Algorithms</h2>
-			<p>The fundamental challenge in FIFO COGS calculation lies in the complexity of tracking inventory depletion over time. While determining the cost of the oldest goods still in inventory sold (COOGS) for each sale is relatively straightforward, the real difficulty arises when these older goods are exhausted. Calculating the cost of the remaining goods sold (CORGS) from more recent orders requires a recursive function capable of iterating through multiple inventory layers. This type of operation traditionally relies on the <a rel="external" target="_blank" href="https://en.wikipedia.org/wiki/%CE%9C_operator">μ operator</a>, the mathematical concept behind "while loops" in programming. Excel, despite its widespread use in financial calculations, notably lacked the capability to implement such operations until the introduction of <a rel="external" target="_blank" href="https://support.microsoft.com/en-us/office/lambda-function-bd212d27-1cd1-4321-a34a-ccbf254b8b67">LAMBDA functions</a>. This limitation has been a significant hurdle in developing comprehensive, formula-based FIFO COGS tracking solutions within spreadsheet environments.</p>
+		<section id="Formalization">
+			<h2>Formalizing the COGS Problem</h2>
+			<p>The fundamental challenge in FIFO COGS calculation lies in the complexity of tracking inventory depletion over time.</p>
 
-			<p>To prove that the μ operator is necessary for the calculation of COGS, I must first formalize the CORGS problem in a way that allows for unbounded input. While Excel spreadsheets have a finite number of rows, my goal is to develop an algorithm that does not require adjustments based on data volume. This approach contrasts with Jason's method, which relies on helper matrices that need manual resizing when the number of orders or sales exceeds the initial setup. Such manual intervention is prone to errors and reduces scalability. By formulating CORGS to handle theoretically unbounded input, I can aim to design a more robust algorithm. This algorithm would ideally compute CORGS without requiring manual adjustments, regardless of how the dataset grows over time.</p>
-
-			<h3>Formalizing the Cost-of-Remaining-Goods-Sold (CORGS) Problem</h3>
 			<ol>
-				<li>Let \(\mathrm{S}=\{\mathrm{s}_1, \mathrm{s}_2, \mathrm{s}_3, \ldots\}\) be an infinite sequence of supply entries, where each \(\mathrm{s}_i\) is a pair \((\mathrm{q}_i, \mathrm{c}_i)\) such that \(\mathrm{q}_i\geq 0\) is the quantity of goods in the \(i\)-th supply entry, and \(\mathrm{c}_i\geq 0\) is the cost per unit of goods in the \(i\)-th supply entry.</li>
+				<li>Let \(\mathrm{S}=\{\mathrm{s}_1, \mathrm{s}_2, \ldots, \mathrm{s}_N\}\) be a finite sequence of \(N\) previous supply entries, where each \(\mathrm{s}_i\) is a pair \((\mathrm{q}_i, \mathrm{c}_i)\) such that \(\mathrm{q}_i\geq 0\) is the quantity of goods in the \(i\)-th supply entry, and \(\mathrm{c}_i\geq 0\) is the cost per unit of goods in the \(i\)-th supply entry.</li>
 				<li>Given a target quantity \(\mathrm{Q}\geq 0\), calculate the total cost \(\mathrm{C}\) of fulfilling this quantity using the FIFO (First-In-First-Out) method from the infinite sequence \(\mathrm{S}\).</li>
-				<li>Define \(\mathrm{CORGS}(\mathrm{Q}, \mathrm{S}) = \mathrm{C}\), where:
+				<li>Define \(\mathrm{COGS}(\mathrm{Q}, \mathrm{S}) = \mathrm{C}\), where:
 					<div class="equation">
 						\begin{equation}
 							\mathrm{C} = \sum_{i=1}^n \left( \mathrm{min}\left(\mathrm{Q}-\sum_{j=1}^{i-1} \mathrm{q}_j, \mathrm{q}_i \right) \times \mathrm{c}_i \right)
@@ -145,55 +143,62 @@
 				</li>
 			</ol>
 
-			<p>Note that the input sequence \(\mathrm{S}\) is infinite, allowing for truly unbounded input. The calculation requires finding the prefix of \(\mathrm{S}\) (i.e. a finite, initial portion of \(\mathrm{S}\)) that satisfies the condition \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}\). The sum in the CORGS calculation is finite (it stops at \(n\)), but \(n\) itself is not known in advance and could be arbitrarily large.</p>
-
-			<p>To prove that this formalization of CORGS cannot be computed by any program that always halts without unbounded search, I will use a proof by contradiction. I will assume it can be computed without unbounded search and show that this leads to a contradiction.</p>
-
-			<h3>Proof by Contradiction that CORGS Cannot be Computed Without Unbounded Search</h3>
-			<p><b>Theorem:</b> The formalized CORGS problem cannot be computed by any program that always halts without using unbounded search.</p>
-
-			<ol>
-				<li><b>Assumption:</b> Suppose there exists a program \(\mathrm{P}\) that computes \(\mathrm{CORGS}(\mathrm{Q}, \mathrm{S})\) for any input \(\mathrm{Q}\) and \(\mathrm{S}\), always halts, and does not use unbounded search.</li>
-				<li><b>Properties of \(\mathrm{P}\):</b>
-					<ul>
-						<li>\(\mathrm{P}\) must examine elements of \(\mathrm{S}\) sequentially to maintain the FIFO order.</li>
-						<li>\(\mathrm{P}\) must halt after examining a finite number of elements of \(\mathrm{S}\).</li>
-						<li>The number of elements \(\mathrm{P}\) examines must be determined by \(\mathrm{Q}\) and the elements of \(\mathrm{S}\) it has seen so far.</li>
-					</ul>
-				</li>
-				<li><b>Construct a contradictory input:</b> Let \(\mathrm{Q}\) be any positive real. Define \( \mathrm{S} = \{ \mathrm{s}_1, \mathrm{s}_2, \mathrm{s}_3, \ldots \} \) where:
-					<ul>
-						<li>For \(i = 1 \ldots k\) (where \(k\) is arbitrarily large): \(\mathrm{s}_i = (0, 0)\) (i.e. quantity 0, cost 0).</li>
-						<li>For \(i \gt k: \mathrm{s}_i = (\mathrm{Q}, 1)\) (i.e. quantity \(\mathrm{Q}\), cost 1).</li>
-					</ul>
-				</li>
-				<li><b>Run program:</b> \(\mathrm{P}\) must halt after examining some finite number of elements, \(m\). \(\mathrm{P}\) cannot know if \(k \lt m\) or \(k > m\), because it has not used unbounded search. Consider two cases:
-					<ul>
-						<li>Case 1: If \(k \lt m\), the correct CORGS value is \(\mathrm{Q}\).</li>
-						<li>Case 2: If \(k \gt m\), the correct CORGS value is 0 or undefined because the algorithm has not found any stock.</li>
-					</ul>
-				</li>
-				<li><b>Contradiction:</b> \(\mathrm{P}\) must produce the same output for both cases because it has examined the same \(m\) elements. However, the correct CORGS values are different for \(k \lt m\) and \(k \gt m\). Therefore, \(\mathrm{P}\) cannot correctly compute CORGS for all inputs.</li>
-			</ol>
-
-			<p>My assumption that such a program \(\mathrm{P}\) exists leads to a contradiction. Therefore, no such program can exist.</p>
-
-			<p>This proof demonstrates that any program that always halts and does not use unbounded search cannot correctly compute CORGS for all possible inputs. The key insight is that without unbounded search, a program cannot distinguish between sequences that differ only after some arbitrarily large index. The necessity of unbounded search arises from the need to find the least \(n\) such that \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}\), which cannot be determined in advance for an arbitrary infinite sequence \(\mathrm{S}\).</p>
-
-			<p>This proof establishes that unbounded search (the μ operator or an equivalent computational capability) is indeed necessary for computing CORGS in its most general, unbounded form.</p>
-
-			<p>Thankfully, Excel's LAMBDA functions can actually be μ-recursive functions, allowing us to define any computable function in Excel. Further, analogs of Excel's LAMBDA functions exist in <a rel="external" target="_blank" href="https://support.google.com/docs/answer/12508718?hl=en">Google Sheets</a> and <a rel="external" target="_blank" href="https://help.libreoffice.org/latest/he/text/sbasic/shared/01020300.html">LibreOffice Calc</a>.</p>
+			<p>The calculation requires finding the prefix of \(\mathrm{S}\) (i.e. an initial portion of \(\mathrm{S}\)) that satisfies the condition \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}\). The sum in the COGS calculation stops at \(n\), but \(n\) itself is not known in advance and could be arbitrarily large, so long as \(n \leq N\).</p>
 		</section>
 
-		<section id="Solution">
-			<h2>Improving on Prior Solutions</h2>
-			<p>The solution presented here will come in two parts: calculating the cost of the oldest goods (still in inventory) sold (COOGS) and calculating the cost of the remaining goods sold (CORGS). COGS will therefore be the sum of COOGS and CORGS.</p>
+		<section id="Algorithm">
+			<h2>An Improved Algorithm</h2>
+			<p>Given a sequence of supply entries \(\mathrm{S}\) and target quantity \(\mathrm{Q}\):</p>
+			<ol>
+				<li>Define the cumulative supply function:
+					<div class="equation">
+						\begin{equation}
+							\mathrm{CS}(i) \coloneqq \sum_{j=1}^{i} \mathrm{q}_j
+						\end{equation}
+					</div>
+				</li>
+
+				<li>Define index functions that identify key positions in the sequence:
+					<div class="equation">
+						\begin{equation}
+							\begin{cases}
+								\mathrm{first}(\mathrm{Q},\mathrm{S}) \coloneqq \min_{\mathrm{CS}(i)\gt \mathrm{Q}} i \\
+								\mathrm{last}(\mathrm{Q},\mathrm{S}) \coloneqq \max_{\mathrm{CS}(i)\leq \mathrm{Q}} i \\
+							\end{cases}
+						\end{equation}
+					</div>
+				</li>
+
+				<li>COGS can be decomposed into three components, the cost of oldest goods sold, the cost of the middle goods sold, and the cost of the newest goods sold:
+					<div class="equation">
+						\begin{equation}
+							\mathrm{COGS}(\mathrm{Q},\mathrm{S}) = \mathrm{COOGS}(\mathrm{Q},\mathrm{S}) + \mathrm{COMGS}(\mathrm{Q},\mathrm{S}) + \mathrm{CONGS}(\mathrm{Q},\mathrm{S})
+						\end{equation}
+					</div>
+					where
+					<div class="equation">
+						\begin{equation}
+							\begin{cases}
+								\mathrm{COOGS}(\mathrm{Q},\mathrm{S}) \coloneqq \min (\mathrm{q}_1, \mathrm{Q})\times \mathrm{c}_1 \\
+								\mathrm{COMGS}(\mathrm{Q},\mathrm{S}) \coloneqq \sum_{i=2}^{\mathrm{last}(\mathrm{Q},\mathrm{S})-1} \mathrm{q}_i \times \mathrm{c}_i \\
+								\mathrm{CONGS}(\mathrm{Q},\mathrm{S}) \coloneqq \left( \mathrm{Q}-\mathrm{CS}(\mathrm{last}(\mathrm{Q},\mathrm{S})) \right)\times \mathrm{c}_{\mathrm{last}(\mathrm{Q},\mathrm{S})}
+							\end{cases}
+						\end{equation}
+					</div>
+				</li>
+			</ol>
+
+			<p>Excel can use cumulative quantities and XMATCH to efficiently implement the \(\mathrm{first}()\) and \(\mathrm{last}()\) functions without explicitly computing partial sums for each inquiry.</p>
+		</section>
+
+		<section id="Implementation">
+			<h2>Implementation in Excel</h2>
+			<p>The solution presented here will come in three parts: calculating the cost of the oldest goods (still in inventory) sold (COOGS), calculating the cost of the newest goods sold (CONGS), and calculating the cost of the remaining, middle goods sold (COMGS). COGS will therefore be the sum of COOGS, COMGS, and CONGS.</p>
 
 			<p>Begin with the two tables illustrated below. The first table, Orders, has columns "Date," "Flavor," "Qty Purchased," and "Cost Per Unit" in columns A through D of the spreadsheet. The second table, Sales, has columns "Date," "Flavor," "Qty Sold," and "COGS" in columns G through J of the spreadsheet. Row 1 is reserved for the table names. Row 2 is reserved for the column headers. The data begins in row 3. With the exception of the COGS column, both tables are entirely filled with data representing the details of various orders and sales. Note that the tables need not be the same size, dates can be repeated, and both tables should be sorted by date.</p>
 
 			<img class="img-center" src="blog-posts/fifo-pie-start.jpg" alt="Screenshot of two Excel tables: Orders and Sales">
 
-			<h3>Calculating Cost of Oldest Goods Sold (COOGS)</h3>
 			<ol>
 				<li>Add columns to track the cumulative quantities of goods ordered and sold to the Orders and Sales tables, respectively. Add a column "Cumulative Ordered" to the Orders table in column E of the Excel workbook. Enter the formula <code>=SUMIF(B$3:B3, [@Flavor], C$3:C3)</code> into cell E3, then copy that cell into the remaining rows in that column. Likewise, add a column "Cumulative Sold" to the Sales table in column K of the Excel workbook. Enter the formula <code>=SUMIF(H$3:H3, [@Flavor], I$3:I3)</code> into cell K3, then copy that cell into the remaining rows.
 					<details>
@@ -277,63 +282,65 @@
 						<p>This subtracts the quantity of the oldest inventory being sold in this transaction from the total quantity sold in this transaction, resulting in the quantity of inventory being sold in this transaction coming from newer orders.</p>
 					</details>
 				</li>
-			</ol>
 
-			<h3>Calculating Cost of Remaining Goods Sold (CORGS)</h3>
-			<ol>
-				<li>Navigate to the Formulas tab and click Name Manager.</li>
-				<li>Click "New…" to add a new Name.</li>
-				<li>Enter "CORGS" into the "Name" input.</li>
-				<li>In the "Refers to" input, enter the following formula:
-<pre class="overflowable"><code>=LAMBDA(moreStockNeeded, oldestOrderIndex, supply, costPerUnit,
- LET(
-  supplyFromOldestOrder, INDEX(supply, oldestOrderIndex, 1),
-  costPerUnitOfOldestOrder, INDEX(costPerUnit, oldestOrderIndex, 1),
-  IF(moreStockNeeded &lt;= supplyFromOldestOrder,
-   moreStockNeeded * costPerUnitOfOldestOrder,
-   supplyFromOldestOrder * costPerUnitOfOldestOrder + CORGS(moreStockNeeded - supplyFromOldestOrder, oldestOrderIndex+1, supply, costPerUnit)
-  )
- )
-)</code></pre>
-					<p>Note that the usage of LET is not required, but it is helpful to improve readability and performance. Also, note that the function is recursive, so if you change the name in the "Name" input, you must also change the name in the "Refers to" input.</p>
+				<li>Add a column titled "Index of Last Order Consumed" to the Sales table in column T. Enter the formula <code>=XMATCH([@[Cumulative Sold]], FILTER(Orders[Cumulative Ordered], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), 1, 1)</code> into cell T3, copying it into the remaining cells.
+					<details>
+						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
+						<p>The XMATCH function looks up the total quantity sold up this sale ([@[Cumulative Sold]]) in an array of cumulative ordered quantities filtered to only include relevant orders. The FILTER function creates this array by applying two conditions: <code>Orders[Flavor]=[@Flavor]</code> only includes orders of the same flavor, and <code>Orders[Date]&lt;[@Date]</code> only includes orders placed before the current sale date. Using a match mode of <code>1</code> means XMATCH will find the smallest value that is greater than or equal to the cumulative sold quantity, and a search mode of <code>1</code> returns the first match found. This effectively finds the index of the most recent order needed to fulfill this sale; in other words, the last order that must be consumed to have enough inventory for all sales up to this point.</p>
+					</details>
 				</li>
-				<li>Click "OK."</li>
-				<li>Confirm your LAMBDA function is listed in the Name Manager and click "Close."</li>
-				<li>
-					<p>Add a column titled "CORGS" to the Sales table in column S. Enter the following formula into cell T3, copying it into the remaining cells:</p>
-<pre class="overflowable"><code>=LET(filteredSupply, FILTER(Orders[Qty Purchased], (Orders[Flavor]=[@Flavor]) * (Orders[Date]&lt;[@Date])), filteredCostPerUnit, FILTER(Orders[Cost Per Unit], (Orders[Flavor]=[@Flavor]) * (Orders[Date]&lt;[@Date])), IF([@[Index of Oldest Order Still in Inventory Before This Sale]] &gt;= ROWS(filteredSupply), 0, CORGS([@[Additional Qty Needed]], [@[Index of Oldest Order Still in Inventory Before This Sale]]+1, filteredSupply, filteredCostPerUnit)))</code></pre>
-					<p>Note that, here too, the usage of LET is not required.</p>
+
+				<li>Add a column titled "Index of Penultimate Order Consumed" to the Sales table in column U. Enter the formula <code>=IF([@[Index of Last Order Consumed]] = [@[Index of Oldest Order Still in Inventory Before This Sale]], [@[Index of Oldest Order Still in Inventory Before This Sale]], [@[Index of Last Order Consumed]]-1)</code> into cell U3, copying it into the remaining cells.
+					<details>
+						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
+						<p>This formula determines which order was consumed just before the final order needed for this sale. It uses an IF statement to handle two possible scenarios. First, it checks if <code>[@[Index of Last Order Consumed]]</code> equals <code>[@[Index of Oldest Order Still in Inventory Before This Sale]]</code>. If these are equal, it means only one order was needed to fulfill this sale, so the penultimate (second-to-last) order is the same as the oldest order still in inventory. In this case, it returns <code>[@[Index of Oldest Order Still in Inventory Before This Sale]]</code>.	If they are not equal, meaning multiple orders were needed to fulfill this sale, it returns <code>[@[Index of Last Order Consumed]]-1</code>, which gives us the index of the order just before the last one consumed. This helps track which orders were used to fulfill the sale when inventory needs to be drawn from multiple orders.</p>
+					</details>
 				</li>
+
+				<li>Add a column titled "Qty Sold from Middle Orders" to the Sales table in column V. Enter the formula <code>=IF([@[Index of Penultimate Order Consumed]] = [@[Index of Oldest Order Still in Inventory Before This Sale]], 0, SUM( INDEX(FILTER(Orders[Qty Purchased], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), SEQUENCE(1, [@[Index of Penultimate Order Consumed]] - [@[Index of Oldest Order Still in Inventory Before This Sale]], [@[Index of Oldest Order Still in Inventory Before This Sale]]+1, 1))))</code> into cell V3, copying it into the remaining cells.
+					<details>
+						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
+						<p>This formula calculates how much inventory was sold from the "middle" orders, those that fall between the oldest order still in inventory and the last order consumed. It consists of two main parts connected by an IF statement. First, it checks if <code>[@[Index of Penultimate Order Consumed]]</code> equals <code>[@[Index of Oldest Order Still in Inventory Before This Sale]]</code>. If they are equal, it means there are no "middle" orders; the sale only used inventory from one or two orders, so it returns 0.	If they are not equal, it calculates the sum of quantities from the middle orders using several nested functions:</p>
+						<ul>
+							<li><code>FILTER(Orders[Qty Purchased],(Orders[Flavor]=[@Flavor])*(Orders[Date]&lt;[@Date]))</code> creates an array of quantities purchased, filtered to only include the same flavor and orders before the current sale date.</li>
+							<li><code>SEQUENCE(1,[@[Index of Penultimate Order Consumed]]-[@[Index of Oldest Order Still in Inventory Before This Sale]],[@[Index of Oldest Order Still in Inventory Before This Sale]]+1,1)</code> generates a sequence of indices for the middle orders, starting from the order after the oldest and continuing until the penultimate order.</li>
+							<li>INDEX selects the quantities from the filtered array using these sequence numbers.</li>
+							<li>SUM adds up all these quantities to get the total amount sold from middle orders.</li>
+						</ul>
+						<p>This calculation helps track how much inventory was sold from orders that were completely consumed during this sale.</p>
+					</details>
+				</li>
+
+				<li>Add a column titled "Qty Sold from Newest Order" to the Sales table in column W. Enter the formula <code>=[@[Additional Qty Needed]] - [@[Qty Sold from Middle Orders]]</code> into cell W3, copying it into the remaining cells.
+					<details>
+						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
+						<p>This formula calculates how much inventory was sold from the newest (most recent) order needed for this sale. <code>[@[Additional Qty Needed]]</code> represents the total quantity that could not be fulfilled from the oldest order, while <code>[@[Qty Sold from Middle Orders]]</code> represents how much was fulfilled from completely consumed middle orders. By subtracting these values, we get the quantity that must have come from the newest order used in this sale.</p>
+					</details>
+				</li>
+
+				<li>Add a column titled "COMGS" to the Sales table in column X. Enter the formula <code>=IF([@[Qty Sold from Middle Orders]]=0, 0, LET(orderIndecesUsedInThisSale, SEQUENCE(1, [@[Index of Penultimate Order Consumed]] - [@[Index of Oldest Order Still in Inventory Before This Sale]], [@[Index of Oldest Order Still in Inventory Before This Sale]]+1, 1), SUMPRODUCT( INDEX(FILTER(Orders[Qty Purchased],(Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), orderIndecesUsedInThisSale), INDEX(FILTER(Orders[Cost Per Unit], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), orderIndecesUsedInThisSale))))</code> into cell X3, copying it into the remaining cells.
+					<details>
+						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
+						<p>This formula calculates the Cost of Middle Goods Sold (COMGS), the cost of inventory sold from orders that were completely consumed. It uses a LET function to improve readability and efficiency. First, it checks if <code>[@[Qty Sold from Middle Orders]]</code> is 0. If true, there were no middle orders consumed, so it returns 0. If there were middle orders, it uses LET to create a named calculation:</p>
+						<ul>
+							<li><code>orderIndecesUsedInThisSale</code> is defined using SEQUENCE to generate an array of indices for the middle orders, starting after the oldest order and continuing through the penultimate order consumed.</li>
+							<li>FILTER is used twice to create arrays of quantities purchased and costs per unit, filtered to only include the same flavor and orders before the current sale date.</li>
+							<li>INDEX selects the relevant quantities and costs using the sequence of indices.</li>
+							<li>SUMPRODUCT multiplies each quantity by its corresponding cost and adds up all the results.</li>
+						</ul>
+						<p>The end result is the total cost of all inventory sold from orders that were completely consumed during this sale. This represents the middle portion of our FIFO cost calculation, between the oldest and newest inventory used.</p>
+					</details>
+				</li>
+
+				<li>Add a column titled "CONGS" to the Sales table in column Y. Enter the formula <code>=[@[Qty Sold from Newest Order]] * INDEX(FILTER(Orders[Cost Per Unit], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), [@[Index of Last Order Consumed]])</code> into cell Y3, copying it into the remaining cells.
+					<details>
+						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
+						<p>This formula calculates the Cost of Newest Goods Sold (CONGS), the cost of inventory sold from the most recent order needed for this sale. <code>[@[Qty Sold from Newest Order]]</code> represents how much inventory was taken from the newest order used in this sale. This is multiplied by the cost per unit from that order, which is found using INDEX to select the cost from the filtered array costs using [@[Index of Last Order Consumed]] to identify the correct row. This multiplication gives us the total cost of the portion of inventory that came from the newest order used in this sale, completing our FIFO cost calculation along with COOGS (oldest inventory) and COMGS (middle orders).</p>
+					</details>
+				</li>
+
+				<li>Finally, return to the COGS column (J) in the Sales table and enter the formula <code>=[@COOGS] + [@COMGS] + [@CONGS]</code> into each cell. If you want, you can safely hide all the helper columns, E and K through Y.</li>
 			</ol>
-
-			<p>The CORGS LAMBDA function is a recursive function designed to calculate the cost of goods sold for the portion of a sale that could not be fulfilled by the oldest inventory. The function takes four parameters:</p>
-			<ul>
-				<li><code>moreStockNeeded</code>: The quantity still needed to fulfill the sale</li>
-				<li><code>oldestOrderIndex</code>: The index of the oldest order to consider</li>
-				<li><code>supply</code>: An array of quantities from each order</li>
-				<li><code>costPerUnit</code>: An array of costs per unit for each order</li>
-			</ul>
-
-			<p>The LET function defines two new variables:</p>
-			<ul>
-				<li><code>supplyFromOldestOrder</code>: The quantity available from the oldest order being considered</li>
-				<li><code>costPerUnitOfOldestOrder</code>: The cost per unit of the oldest order being considered</li>
-			</ul>
-
-			<p>The IF statement contains the main function logic where the function decides whether to recurse or return a final value. If the needed quantity is less than or equal to the supply from the oldest order, it calculates the cost by multiplying the needed quantity by the cost per unit. Otherwise, it calculates the cost of using all of the oldest order's supply, then recursively calls itself to calculate the cost of the remaining needed quantity, moving to the next oldest order.</p>
-
-			<p>Put differently, the function starts with the oldest order that still has inventory available. It checks if this order can fulfill the entire remaining quantity needed. If it can, it calculates the cost and returns it. If it cannot, it calculates the cost of using all available inventory from this order, subtracts the used quantity from the total needed, moves to the next oldest order, and recursively calls itself with these updated values. This process continues until all needed quantity is accounted for. This recursive approach allows the function to handle sales that span multiple orders with different costs.</p>
-
-			<p>The formula in the CORGS column of the Excel table applies the CORGS LAMBDA function with filters to allow for multiple SKUs and an IF statement to avoid errors on the first order. The let function defines two new variables, <code>filteredSupply</code> and <code>filteredCostPerUnit</code>, corresponding to the quantities purchased for orders of the same flavor and before the current sale date and the cost per unit for the same orders. The IF statement checks if there are any relevant orders left to consider. If the index of the oldest order with inventory is greater than or equal to the number of filtered orders, it returns 0 (no more orders to consider). Otherwise, it calls the CORGS function. Finally, it calls the CORGS LAMBDA function discussed above, with these arguments:</p>
-			<ul>
-				<li><code>[@[Additional Qty Needed]]</code>: The quantity still needed after using the oldest inventory</li>
-				<li><code>[@[Index of Oldest Order Still in Inventory Before This Sale]]+1</code>: Moving to the next oldest order</li>
-				<li><code>filteredSupply</code>: The array of relevant order quantities</li>
-				<li><code>filteredCostPerUnit</code>: The array of relevant costs per unit</li>
-			</ul>
-
-			<h3>Calculating COGS</h3>
-			<p>Finally, return to the COGS column (J) in the Sales table and enter the formula <code>=[@COOGS] + [@CORGS]</code> into each cell. If you want, you can safely hide all the helper columns, E and K through T.</p>
 
 			<img class="img-center" style="width: 23cm;" src="blog-posts/fifo-pie-finish.jpg" alt="Screenshot of two Excel tables: Orders and Sales. The Sales table has a COGS column with correctly calculated values.">
 		</section>
@@ -356,6 +363,7 @@
 			<ul>
 				<li>Instead of filtering ranges to precede the current row's date, you can adjust the array input of the FILTER function to include only rows above the current row using Excel's structured referencing. For example, if the Cumulative Supply column is in column K, the Project names are in column B, and row 1 is reserved for column headers, then the filtered Cumulative Supplies could be calculated using <code>FILTER(K$1:K9, B$1:B9=[@Project])</code> for row 9.</li>
 				<li>You must enclose the formulas for "Index of Oldest Diesel Still in Tank Before This Consumption," "Liters of Oldest Diesel Left in Tank Before This Consumption," and "Price Per Liter of Oldest Diesel"—analogous to "Index of Oldest Order Still in Inventory Before This Sale," "Qty of Oldest Order Left in Inventory Before This Sale," and "Cost Per Unit of Oldest Inventory," respectively—in IF statements that return 0 if the Index of Last Entry is 0.</li>
+				<li>You must enclose the formulas for "Price of Last Diesel Consumed," analogous to "CONGS," in an IF statement that returns 0 if the Liters Consumed from Last Order is 0.</li>
 			</ul>
 
 			<p>I have included a working example of a FIFO diesel tracker in <a href="blog-posts/improved-fifo-cogs-tracking.xlsx" download target="_blank">the example download</a>.</p>
