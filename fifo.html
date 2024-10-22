@@ -302,8 +302,8 @@
 						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
 						<p>This formula calculates how much inventory was sold from the "middle" orders, those that fall between the oldest order still in inventory and the last order consumed. It consists of two main parts connected by an IF statement. First, it checks if <code>[@[Index of Penultimate Order Consumed]]</code> equals <code>[@[Index of Oldest Order Still in Inventory Before This Sale]]</code>. If they are equal, it means there are no "middle" orders; the sale only used inventory from one or two orders, so it returns 0.	If they are not equal, it calculates the sum of quantities from the middle orders using several nested functions:</p>
 						<ul>
-							<li><code>FILTER(Orders[Qty Purchased],(Orders[Flavor]=[@Flavor])*(Orders[Date]&lt;[@Date]))</code> creates an array of quantities purchased, filtered to only include the same flavor and orders before the current sale date.</li>
-							<li><code>SEQUENCE(1,[@[Index of Penultimate Order Consumed]]-[@[Index of Oldest Order Still in Inventory Before This Sale]],[@[Index of Oldest Order Still in Inventory Before This Sale]]+1,1)</code> generates a sequence of indices for the middle orders, starting from the order after the oldest and continuing until the penultimate order.</li>
+							<li><code>FILTER(Orders[Qty Purchased], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date]))</code> creates an array of quantities purchased, filtered to only include the same flavor and orders before the current sale date.</li>
+							<li><code>SEQUENCE(1, [@[Index of Penultimate Order Consumed]] - [@[Index of Oldest Order Still in Inventory Before This Sale]], [@[Index of Oldest Order Still in Inventory Before This Sale]]+1, 1)</code> generates a sequence of indices for the middle orders, starting from the order after the oldest and continuing until the penultimate order.</li>
 							<li>INDEX selects the quantities from the filtered array using these sequence numbers.</li>
 							<li>SUM adds up all these quantities to get the total amount sold from middle orders.</li>
 						</ul>
@@ -318,12 +318,12 @@
 					</details>
 				</li>
 
-				<li>Add a column titled "COMGS" to the Sales table in column X. Enter the formula <code>=IF([@[Qty Sold from Middle Orders]]=0, 0, LET(orderIndecesUsedInThisSale, SEQUENCE(1, [@[Index of Penultimate Order Consumed]] - [@[Index of Oldest Order Still in Inventory Before This Sale]], [@[Index of Oldest Order Still in Inventory Before This Sale]]+1, 1), SUMPRODUCT( INDEX(FILTER(Orders[Qty Purchased],(Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), orderIndecesUsedInThisSale), INDEX(FILTER(Orders[Cost Per Unit], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), orderIndecesUsedInThisSale))))</code> into cell X3, copying it into the remaining cells.
+				<li>Add a column titled "COMGS" to the Sales table in column X. Enter the formula <code>=IF([@[Qty Sold from Middle Orders]]=0, 0, LET(oIUITS, SEQUENCE(1, [@[Index of Penultimate Order Consumed]] - [@[Index of Oldest Order Still in Inventory Before This Sale]], [@[Index of Oldest Order Still in Inventory Before This Sale]]+1, 1), SUMPRODUCT( INDEX(FILTER(Orders[Qty Purchased],(Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), oIUITS), INDEX(FILTER(Orders[Cost Per Unit], (Orders[Flavor] = [@Flavor]) * (Orders[Date] &lt; [@Date])), oIUITS))))</code> into cell X3, copying it into the remaining cells.
 					<details>
 						<summary><span class="reveal-answer-button"><span class="reveal">Explain This Step</span><span class="hide">Hide Explanation</span></span></summary>
 						<p>This formula calculates the Cost of Middle Goods Sold (COMGS), the cost of inventory sold from orders that were completely consumed. It uses a LET function to improve readability and efficiency. First, it checks if <code>[@[Qty Sold from Middle Orders]]</code> is 0. If true, there were no middle orders consumed, so it returns 0. If there were middle orders, it uses LET to create a named calculation:</p>
 						<ul>
-							<li><code>orderIndecesUsedInThisSale</code> is defined using SEQUENCE to generate an array of indices for the middle orders, starting after the oldest order and continuing through the penultimate order consumed.</li>
+							<li><code>oIUITS</code>, "order indeces used in this sale," is defined using SEQUENCE to generate an array of indices for the middle orders, starting after the oldest order and continuing through the penultimate order consumed.</li>
 							<li>FILTER is used twice to create arrays of quantities purchased and costs per unit, filtered to only include the same flavor and orders before the current sale date.</li>
 							<li>INDEX selects the relevant quantities and costs using the sequence of indices.</li>
 							<li>SUMPRODUCT multiplies each quantity by its corresponding cost and adds up all the results.</li>
