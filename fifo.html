@@ -85,7 +85,7 @@
 					<li><a href="#Intro">Introduction</a></li>
 					<li><a href="#Goal">Goal</a></li>
 					<li><a href="#PriorArt">Prior Art</a></li>
-					<li><a href="#Formalization">Formalizing the COGS Problem</a></li>
+					<li><a href="#Formalization">Formalizing the FIFO Problem</a></li>
 					<li><a href="#Algorithm">An Improved Algorithm</a></li>
 					<li><a href="#Implementation">Implementation in Excel</a></li>
 					<li><a href="#Consumables">Extension to Consumables</a></li>
@@ -127,28 +127,30 @@
 		</section>
 
 		<section id="Formalization">
-			<h2>Formalizing the COGS Problem</h2>
+			<h2>Formalizing the FIFO Problem</h2>
 			<p>The fundamental challenge in FIFO COGS calculation lies in the complexity of tracking inventory depletion over time.</p>
 
 			<ol>
 				<li>Let \(\mathrm{S}=\{\mathrm{s}_1, \mathrm{s}_2, \ldots, \mathrm{s}_N\}\) be a finite sequence of \(N\) previous supply entries, where each \(\mathrm{s}_i\) is a pair \((\mathrm{q}_i, \mathrm{c}_i)\) such that \(\mathrm{q}_i\geq 0\) is the quantity of goods in the \(i\)-th supply entry, and \(\mathrm{c}_i\geq 0\) is the cost per unit of goods in the \(i\)-th supply entry.</li>
-				<li>Given a target quantity \(\mathrm{Q}\geq 0\), calculate the total cost \(\mathrm{C}\) of fulfilling this quantity using the FIFO (First-In-First-Out) method from the infinite sequence \(\mathrm{S}\).</li>
-				<li>Define \(\mathrm{COGS}(\mathrm{Q}, \mathrm{S}) = \mathrm{C}\), where:
+				<li>Given a total quantity already sold \(\mathrm{Q}'\geq 0\) and a target additional quantity \(\mathrm{Q}\geq 0\), calculate the total cost \(\mathrm{C}\) of fulfilling this quantity using the FIFO (First-In-First-Out) method from the infinite sequence \(\mathrm{S}\).</li>
+				<li>Define \(\mathrm{COGS}(\mathrm{Q}, \mathrm{Q}', \mathrm{S}) = \mathrm{C}\), where:
 					<div class="equation">
 						\begin{equation}
-							\mathrm{C} = \sum_{i=1}^n \left( \mathrm{min}\left(\mathrm{Q}-\sum_{j=1}^{i-1} \mathrm{q}_j, \mathrm{q}_i \right) \times \mathrm{c}_i \right)
+							\mathrm{C} = \sum_{i=1}^n \left( \min \left(\mathrm{Q}+\mathrm{Q}'-\sum_{j=1}^{i-1} \mathrm{q}_j, \mathrm{q}_i - \mathrm{min} \left(\mathrm{q}_i, \mathrm{Q}'-\sum_{j=1}^{i-1} \mathrm{q}_j \right) \right) \times \mathrm{c}_i \right)
 						\end{equation}
 					</div>
-					where \(n\) is the smallest integer such that \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}\).
+					where \(n\) is the smallest integer such that \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}+\mathrm{Q}'\).
 				</li>
 			</ol>
 
-			<p>The calculation requires finding the prefix of \(\mathrm{S}\) (i.e. an initial portion of \(\mathrm{S}\)) that satisfies the condition \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}\). The sum in the COGS calculation stops at \(n\), but \(n\) itself is not known in advance and could be arbitrarily large, so long as \(n \leq N\).</p>
+			<p>The calculation requires finding the prefix of \(\mathrm{S}\) (i.e. an initial portion of \(\mathrm{S}\)) that satisfies the condition \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}+\mathrm{Q}'\). The sum in the COGS calculation stops at <span class="nobreak">\(n\),</span> but \(n\) itself is not known in advance and could be arbitrarily large, so long as <span class="nobreak">\(n \leq N\).</span></p>
+
+			<p>Put simply, according to FIFO, the COGS for a given target quantity is the sum of all the COGS for the contributions of the individual supply orders. For any given supply order \(i\), the quantity sold from that order is the minimum of the quantity supplied in that order remaining in inventory and the quantity left to sell after having sold all the previous orders. The quantity supplied in order \(i\) remaining in inventory is the difference between the original quantity in that order \(\mathrm{q}_i\) and the amount already sold from the order, the minimum of \(\mathrm{Q}'\) and the cumulative supply before order \(i\). The quantity left to sell after having sold all the previous orders is the difference between the target quantity and the quantity already sold, the difference between the cumulative supply before order \(i\) and \(\mathrm{Q}'\). Finally, the contribution of order \(i\) to the COGS is the quantity sold from that order times the cost per unit of that order, \(\mathrm{c}_i\).</p>
 		</section>
 
 		<section id="Algorithm">
 			<h2>An Improved Algorithm</h2>
-			<p>Given a sequence of supply entries \(\mathrm{S}\) and target quantity \(\mathrm{Q}\):</p>
+			<p>Given a sequence of supply entries <span class="nobreak">\(\mathrm{S}\),</span> a total quantity already sold <span class="nobreak">\(\mathrm{Q}'\),</span> and a target additional quantity <span class="nobreak">\(\mathrm{Q}\):</span></p>
 			<ol>
 				<li>Define the cumulative supply function:
 					<div class="equation">
@@ -162,8 +164,8 @@
 					<div class="equation">
 						\begin{equation}
 							\begin{cases}
-								\mathrm{first}(\mathrm{Q},\mathrm{S}) \coloneqq \min_{\mathrm{CS}(i)\gt \mathrm{Q}} i \\
-								\mathrm{last}(\mathrm{Q},\mathrm{S}) \coloneqq \max_{\mathrm{CS}(i)\leq \mathrm{Q}} i \\
+								\mathrm{first}(\mathrm{Q}',\mathrm{S}) \coloneqq \min_{\mathrm{CS}(i)\gt \mathrm{Q}'} i \\
+								\mathrm{last}(\mathrm{Q},\mathrm{Q}',\mathrm{S}) \coloneqq 1+\max_{\mathrm{CS}(i)\lt \mathrm{Q}+\mathrm{Q}'} i \\
 							\end{cases}
 						\end{equation}
 					</div>
@@ -172,23 +174,31 @@
 				<li>COGS can be decomposed into three components, the cost of oldest goods sold, the cost of the middle goods sold, and the cost of the newest goods sold:
 					<div class="equation">
 						\begin{equation}
-							\mathrm{COGS}(\mathrm{Q},\mathrm{S}) = \mathrm{COOGS}(\mathrm{Q},\mathrm{S}) + \mathrm{COMGS}(\mathrm{Q},\mathrm{S}) + \mathrm{CONGS}(\mathrm{Q},\mathrm{S})
+							\mathrm{COGS}(\mathrm{Q},\mathrm{Q}',\mathrm{S}) = \mathrm{COOGS}(\mathrm{Q},\mathrm{Q}',\mathrm{S}) + \mathrm{COMGS}(\mathrm{Q},\mathrm{Q}',\mathrm{S}) + \mathrm{CONGS}(\mathrm{Q},\mathrm{Q}',\mathrm{S})
 						\end{equation}
 					</div>
 					where
 					<div class="equation">
 						\begin{equation}
-							\begin{cases}
-								\mathrm{COOGS}(\mathrm{Q},\mathrm{S}) \coloneqq \min (\mathrm{q}_1, \mathrm{Q})\times \mathrm{c}_1 \\
-								\mathrm{COMGS}(\mathrm{Q},\mathrm{S}) \coloneqq \sum_{i=2}^{\mathrm{last}(\mathrm{Q},\mathrm{S})-1} \mathrm{q}_i \times \mathrm{c}_i \\
-								\mathrm{CONGS}(\mathrm{Q},\mathrm{S}) \coloneqq \left( \mathrm{Q}-\mathrm{CS}(\mathrm{last}(\mathrm{Q},\mathrm{S})) \right)\times \mathrm{c}_{\mathrm{last}(\mathrm{Q},\mathrm{S})}
-							\end{cases}
+							\mathrm{COOGS}(\mathrm{Q},\mathrm{Q}',\mathrm{S}) \coloneqq \min \left( \mathrm{CS}(\mathrm{first}(\mathrm{Q}',\mathrm{S})) -\mathrm{Q}', \mathrm{Q} \right) \times \mathrm{c}_{\mathrm{first}(\mathrm{Q}',\mathrm{S})}
+						\end{equation}
+					</div>
+					and
+					<div class="equation">
+						\begin{equation}
+							\mathrm{COMGS}(\mathrm{Q},\mathrm{Q}',\mathrm{S}) \coloneqq \sum_{i=\mathrm{first}(\mathrm{Q}',\mathrm{S})+1}^{\mathrm{last}(\mathrm{Q},\mathrm{Q}',\mathrm{S})-1} \mathrm{q}_i \times \mathrm{c}_i
+						\end{equation}
+					</div>
+					and
+					<div class="equation">
+						\begin{equation}
+							\mathrm{CONGS}(\mathrm{Q},\mathrm{Q}',\mathrm{S}) \coloneqq \left( \mathrm{Q} - \min \left( \mathrm{CS}(\mathrm{first}(\mathrm{Q}',\mathrm{S})) -\mathrm{Q}', \mathrm{Q} \right) - \sum_{i=\mathrm{first}(\mathrm{Q}',\mathrm{S})+1}^{\mathrm{last}(\mathrm{Q},\mathrm{Q}',\mathrm{S})-1} \mathrm{q}_i \right)\times \mathrm{c}_{\mathrm{last}(\mathrm{Q},\mathrm{Q}',\mathrm{S})}
 						\end{equation}
 					</div>
 				</li>
 			</ol>
 
-			<p>Excel can use cumulative quantities and XMATCH to efficiently implement the \(\mathrm{first}()\) and \(\mathrm{last}()\) functions without explicitly computing partial sums for each inquiry.</p>
+			<p>Put simply, the first order at least partially consumed by this sale is the first order for which the cumulative supply is greater than the total quantity already consumed. The last order at least partially consumed by this sale is the order immediately after the last order for which the cumulative supply is less than the sum of the total quantity already consumed and the new target quantity. The cost of oldest goods sold is the product of the quantity consumed from that first order and the per-unit cost of that order. The quantity consumed from that first order is the minimum of the quantity remaining in that first order and the target quantity, where the quantity remaining in that first order is the difference between the cumulative supply up through the first order and the quantity already consumed. The cost of middle goods sold is the sum of the products of the quantities in the middle orders and the respective per-unit costs. The cost of newest goods sold is the product of the quantity consumed from the last order and the per-unit cost of that order, where the quantity consumed from that last order is difference between the target quantity and the sum of the quantites sold from the oldest and middle orders.</p>
 		</section>
 
 		<section id="Implementation">
