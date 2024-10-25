@@ -19,6 +19,7 @@ html {
 	letter-spacing: 0.06em;
 	color: var(--text-color);
 	background-color: var(--bg-color);
+	scrollbar-color:  var(--grayed-out) var(--active-gray);
 }
 
 body {
@@ -259,7 +260,7 @@ https://bourne2learn.com/math/katex/tag-placement_nowrap.html */
 	height:auto;
 	margin:1em 0;
 	padding:0 2px 12px;
-	overflow-x:auto;
+	overflow-x:scroll;
 	white-space:nowrap;
 }
 .equation::-webkit-scrollbar{
