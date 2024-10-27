@@ -50,9 +50,9 @@
 	<link rel="stylesheet" type="text/css" href="blog-posts/blog-post.css">
 
 	<!-- KaTeX for Math -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 	<script src="https://rupumped.github.io/NicksAPPS/JavaScript/katex-support.js"></script>
 </head>
 <body>
@@ -143,14 +143,14 @@
 				</li>
 			</ol>
 
-			<p>The calculation requires finding the prefix of \(\mathrm{S}\) (i.e. an initial portion of \(\mathrm{S}\)) that satisfies the condition \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}+\mathrm{Q}'\). The sum in the COGS calculation stops at <span class="nobreak">\(n\),</span> but \(n\) itself is not known in advance and could be arbitrarily large, so long as <span class="nobreak">\(n \leq N\).</span></p>
+			<p>The calculation requires finding the prefix of \(\mathrm{S}\) (i.e. an initial portion of \(\mathrm{S}\)) that satisfies the condition \(\sum_{i=1}^n \mathrm{q}_i \geq \mathrm{Q}+\mathrm{Q}'\). The sum in the COGS calculation stops at \(n\), but \(n\) itself is not known in advance and could be arbitrarily large, so long as \(n \leq N\).</p>
 
 			<p>Put simply, according to FIFO, the COGS for a given target quantity is the sum of all the COGS for the contributions of the individual supply orders. For any given supply order \(i\), the quantity sold from that order is the minimum of the quantity supplied in that order remaining in inventory and the quantity left to sell after having sold all the previous orders. The quantity supplied in order \(i\) remaining in inventory is the difference between the original quantity in that order \(\mathrm{q}_i\) and the amount already sold from the order, the minimum of \(\mathrm{Q}'\) and the cumulative supply before order \(i\). The quantity left to sell after having sold all the previous orders is the difference between the target quantity and the quantity already sold, the difference between the cumulative supply before order \(i\) and \(\mathrm{Q}'\). Finally, the contribution of order \(i\) to the COGS is the quantity sold from that order times the cost per unit of that order, \(\mathrm{c}_i\).</p>
 		</section>
 
 		<section id="Algorithm">
 			<h2>An Improved Algorithm</h2>
-			<p>Given a sequence of supply entries <span class="nobreak">\(\mathrm{S}\),</span> a total quantity already sold <span class="nobreak">\(\mathrm{Q}'\),</span> and a target additional quantity <span class="nobreak">\(\mathrm{Q}\):</span></p>
+			<p>Given a sequence of supply entries \(\mathrm{S}\), a total quantity already sold \(\mathrm{Q}'\), and a target additional quantity \(\mathrm{Q}\):</p>
 			<ol>
 				<li>Define the cumulative supply function:
 					<div class="equation">
