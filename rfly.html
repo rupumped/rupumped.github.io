@@ -31,46 +31,33 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="secondary.css">
 	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
 </head>
 <body>
 	<header>
-		<div id="name">NICHOLAS S SELBY</div>
-		<nav>
-			<input class="menu-btn" type="checkbox" id="menu-btn">
-			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
-			<ul class="menu">
-				<li><a href="index.html">HOME</a></li>
-				<li><a href="about.html">ABOUT ME</a></li>
-				<li><a href="selected-work.html">SELECTED WORK</a></li>
-				<li><a href="blog.html">BLOG</a></li>
-				<li><a href="service.html">SERVICE</a></li>
-			</ul>
-		</nav>
+		<div class="header-content">
+			<div id="name">NICHOLAS S SELBY</div>
+			<nav>
+				<input class="menu-btn" type="checkbox" id="menu-btn">
+				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<ul class="menu">
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="selected-work.html">PROJECTS</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="service.html">SERVICE</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<main>
-		<div class="cover section">
-			<img src="project-pages/rfly-cover.jpg" alt="Drone with a mounted PCB">
-			<h1>Full-Duplex Wireless Relay</h1>
-		</div>
+		<h1>Full-Duplex Wireless Relay</h1>
 
-		<section id="skills-demonstrated">
-			<h2>Skills Demonstrated</h2>
-			<div class="skills">
-				<div class="skill">C/C++</div>
-				<div class="bullet"></div>
-				<div class="skill">Wireless Networking</div>
-				<div class="bullet"></div>
-				<div class="skill">UAVs</div>
-				<div class="bullet"></div>
-				<div class="skill">Signal Processing</div>
-				<div class="bullet"></div>
-				<div class="skill">MATLAB</div>
-				<div class="bullet"></div>
-				<div class="skill">PCB Design</div>
-			</div>
-		</section>
+		<img class="img-full-width" src="project-pages/rfly-cover.jpg" alt="Drone with a mounted PCB">
+
+		<h2 class="challenge"><b>Challenge:</b> Automate warehouse inventory tracking</h2>
 
 		<div class="separator"></div>
 
@@ -87,6 +74,18 @@
 		<p>The key innovation in designing RFly is a new relay that enables cataloging and locating battery-free RFIDs over a wide area. Specifically, due to their battery-free nature, RFIDs are crippled by their communication range. RFly's relay can seamlessly integrate with an existing RFID infrastructure and extend the coverage area of every reader by a 100x. Moreover, RFly's location-finding algorithm collects wireless responses from every RFID along its flight path, then combines these responses to pinpoint the RFID's location, achieving an accuracy of around a foot. These capabilities enable RFly to scan for objects over a wide area and pinpoint their location to the actual shelf they are placed on.</p>
 
 		<p>To learn more about RFly, <a rel="external" href="http://www.mit.edu/~fadel/papers/RFly-paper.pdf" download target="_blank">read our paper!</a></p>
+
+		<section id="skills-demonstrated">
+			<h2>Skills Demonstrated</h2>
+			<div class="skills">
+				<div class="skill">C/C++</div>
+				<div class="skill">Wireless Networking</div>
+				<div class="skill">UAVs</div>
+				<div class="skill">Signal Processing</div>
+				<div class="skill">MATLAB</div>
+				<div class="skill">PCB Design</div>
+			</div>
+		</section>
 	</main>
 
 	<footer>

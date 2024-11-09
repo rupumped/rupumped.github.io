@@ -58,22 +58,6 @@
 	<priority>0.80</priority>
 </url>
 
-<!-- <url>
-	<title>RFind Paper</title>
-	<loc>https://rupumped.github.io/homepage/rfind.pdf</loc>
-	<lastmod>2021-09-07T00:00:00+00:00</lastmod>
-	<changefreq>never</changefreq>
-	<priority>0.40</priority>
-</url>
-
-<url>
-	<title>RFly Paper</title>
-	<loc>https://rupumped.github.io/homepage/rfly.pdf</loc>
-	<lastmod>2021-09-07T00:00:00+00:00</lastmod>
-	<changefreq>never</changefreq>
-	<priority>0.40</priority>
-</url> -->
-
 <url>
 	<title>NDTE Journal Paper</title>
 	<loc>https://rupumped.github.io/homepage/xducer.pdf</loc>
@@ -229,7 +213,7 @@
 <url>
 	<title>Nairobi Bound: A Comprehensive Guide for Americans Starting a New Life in Kenya's Capital</title>
 	<loc>https://rupumped.github.io/guide-to-kenya.html</loc>
-	<lastmod>2024-10-02T00:00:00+00:00</lastmod>
+	<lastmod>2024-11-10T00:00:00+00:00</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>0.40</priority>
 </url>

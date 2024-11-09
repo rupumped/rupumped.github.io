@@ -31,49 +31,66 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="secondary.css">
 	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
-	<link rel="stylesheet" type="text/css" href="project-pages/capstone.css">
+	<style>
+		#main-img {
+			content: url("project-pages/capstone-action.jpg");
+		}
+
+		#img-capstone-gal0:hover ~ #main-img {
+			content: url("project-pages/capstone-gal0.jpg");
+		}
+		#img-capstone-gal1:hover ~ #main-img {
+			content: url("project-pages/capstone-gal1.jpg");
+		}
+		#img-capstone-gal2:hover ~ #main-img {
+			content: url("project-pages/capstone-gal2.jpg");
+		}
+		#img-capstone-gal3:hover ~ #main-img {
+			content: url("project-pages/capstone-gal3.jpg");
+		}
+		#img-capstone-gal4:hover ~ #main-img {
+			content: url("project-pages/capstone-gal4.jpg");
+		}
+		#img-capstone-gal5:hover ~ #main-img {
+			content: url("project-pages/capstone-gal5.jpg");
+		}
+		#img-capstone-gal6:hover ~ #main-img {
+			content: url("project-pages/capstone-gal6.jpg");
+		}
+		#img-capstone-gal7:hover ~ #main-img {
+			content: url("project-pages/capstone-gal7.jpg");
+		}
+		#img-capstone-gal8:hover ~ #main-img {
+			content: url("project-pages/capstone-gal8.jpg");
+		}
+	</style>
 </head>
 <body>
 	<header>
-		<div id="name">NICHOLAS S SELBY</div>
-		<nav>
-			<input class="menu-btn" type="checkbox" id="menu-btn">
-			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
-			<ul class="menu">
-				<li><a href="index.html">HOME</a></li>
-				<li><a href="about.html">ABOUT ME</a></li>
-				<li><a href="selected-work.html">SELECTED WORK</a></li>
-				<li><a href="blog.html">BLOG</a></li>
-				<li><a href="service.html">SERVICE</a></li>
-			</ul>
-		</nav>
+		<div class="header-content">
+			<div id="name">NICHOLAS S SELBY</div>
+			<nav>
+				<input class="menu-btn" type="checkbox" id="menu-btn">
+				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<ul class="menu">
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="selected-work.html">PROJECTS</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="service.html">SERVICE</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<main>
-		<div class="cover section">
-			<img src="project-pages/capstone-cover.jpg" alt="A drone flying in the sky">
-			<h1>Aerial Mapping System for Urban Environments</h1>
-		</div>
+		<h1>Aerial Mapping System for Urban Environments</h1>
 
-		<section id="skills-demonstrated">
-			<h2>Skills Demonstrated</h2>
-			<div class="skills">
-				<div class="skill">UAVs</div>
-				<div class="bullet"></div>
-				<div class="skill">Python</div>
-				<div class="bullet"></div>
-				<div class="skill">Optimization</div>
-				<div class="bullet"></div>
-				<div class="skill">HTML/CSS/JavaScript</div>
-				<div class="bullet"></div>
-				<div class="skill">Image Processing</div>
-				<div class="bullet"></div>
-				<div class="skill">MATLAB</div>
-				<div class="bullet"></div>
-				<div class="skill">GIS</div>
-			</div>
-		</section>
+		<img class="img-full-width" src="project-pages/capstone-cover.jpg" alt="A drone flying in the sky">
+
+		<h2 class="challenge"><b>Challenge:</b> Build a drone-based imaging system that can quickly and accurately create a composite aerial photo of a large area</h2>
 
 		<div class="separator"></div>
 
@@ -105,6 +122,19 @@
 			<img src="project-pages/capstone-gal8.jpg" id="img-capstone-gal8" alt="Computer running code">
 			<img src="project-pages/capstone-action.jpg" class="img-full-width" id="main-img" alt="A drone piloted by one of three men in a field">
 		</div>
+
+		<section id="skills-demonstrated">
+			<h2>Skills Demonstrated</h2>
+			<div class="skills">
+				<div class="skill">UAVs</div>
+				<div class="skill">Python</div>
+				<div class="skill">Optimization</div>
+				<div class="skill">HTML/CSS/JavaScript</div>
+				<div class="skill">Image Processing</div>
+				<div class="skill">MATLAB</div>
+				<div class="skill">GIS</div>
+			</div>
+		</section>
 	</main>
 
 	<footer>

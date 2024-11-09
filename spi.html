@@ -30,40 +30,33 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="secondary.css">
 	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
 </head>
 <body>
 	<header>
-		<div id="name">NICHOLAS S SELBY</div>
-		<nav>
-			<input class="menu-btn" type="checkbox" id="menu-btn">
-			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
-			<ul class="menu">
-				<li><a href="index.html">HOME</a></li>
-				<li><a href="about.html">ABOUT ME</a></li>
-				<li><a href="selected-work.html">SELECTED WORK</a></li>
-				<li><a href="blog.html">BLOG</a></li>
-				<li><a href="service.html">SERVICE</a></li>
-			</ul>
-		</nav>
+		<div class="header-content">
+			<div id="name">NICHOLAS S SELBY</div>
+			<nav>
+				<input class="menu-btn" type="checkbox" id="menu-btn">
+				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<ul class="menu">
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="selected-work.html">PROJECTS</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="service.html">SERVICE</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<main>
-		<div class="cover section">
-			<img src="project-pages/spi-cover.jpg" alt="A drone photo of a refugee camp">
-			<h1>SolidarityPi Ecosystem for Offline-First Education</h1>
-		</div>
+		<h1>SolidarityPi Ecosystem for Offline-First Education</h1>
 
-		<section id="skills-demonstrated">
-			<h2>Skills Demonstrated</h2>
-			<div class="skills">
-				<div class="skill">Operating Systems</div>
-				<div class="bullet"></div>
-				<div class="skill">Bash Scripting</div>
-				<div class="bullet"></div>
-				<div class="skill">Curriculum Development</div>
-			</div>
-		</section>
+		<img class="img-full-width" src="project-pages/spi-cover.jpg" alt="A drone photo of a refugee camp">
+
+		<h2 class="challenge"><b>Challenge:</b> Deploy a remote-learning platform without internet</h2>
 
 		<div class="separator"></div>
 
@@ -78,6 +71,15 @@
 		<p>Meanwhile, in Dzaleka Refugee Camp, SolidarityPi is being used to connect college students to accredited courses and professors from Central Michigan University, offering them a life-changing opportunity. Education is often hard to come by in low-resource settings, especially for refugees, so it's inspiring to see the potential for remote learning to make a positive impact.</p>
 			
 		<p>The software behind SolidarityPi is completely open source on <a rel="external" target="_blank" href="https://github.com/Solidarity-Engineering/SolidarityPi">GitHub</a>.</p>
+
+		<section id="skills-demonstrated">
+			<h2>Skills Demonstrated</h2>
+			<div class="skills">
+				<div class="skill">Operating Systems</div>
+				<div class="skill">Bash Scripting</div>
+				<div class="skill">Curriculum Development</div>
+			</div>
+		</section>
 	</main>
 
 	<footer>

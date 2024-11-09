@@ -30,40 +30,33 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="secondary.css">
 	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
 </head>
 <body>
 	<header>
-		<div id="name">NICHOLAS S SELBY</div>
-		<nav>
-			<input class="menu-btn" type="checkbox" id="menu-btn">
-			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
-			<ul class="menu">
-				<li><a href="index.html">HOME</a></li>
-				<li><a href="about.html">ABOUT ME</a></li>
-				<li><a href="selected-work.html">SELECTED WORK</a></li>
-				<li><a href="blog.html">BLOG</a></li>
-				<li><a href="service.html">SERVICE</a></li>
-			</ul>
-		</nav>
+		<div class="header-content">
+			<div id="name">NICHOLAS S SELBY</div>
+			<nav>
+				<input class="menu-btn" type="checkbox" id="menu-btn">
+				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<ul class="menu">
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="selected-work.html">PROJECTS</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="service.html">SERVICE</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<main>
-		<div class="cover section">
-			<img src="project-pages/dfl-cover.jpg" alt="A simulation of an excavator digging">
-			<h1>Autonomous Excavation</h1>
-		</div>
+		<h1>Autonomous Excavation</h1>
 
-		<section id="skills-demonstrated">
-			<h2>Skills Demonstrated</h2>
-			<div class="skills">
-				<div class="skill">Artificial Intelligence</div>
-				<div class="bullet"></div>
-				<div class="skill">Python</div>
-				<div class="bullet"></div>
-				<div class="skill">Robotics</div>
-			</div>
-		</section>
+		<img class="img-full-width" src="project-pages/dfl-cover.jpg" alt="A simulation of an excavator digging">
+
+		<h2 class="challenge"><b>Challenge:</b> Design an algorithm for automating excavation in remote environments</h2>
 
 		<div class="separator"></div>
 
@@ -108,6 +101,15 @@
 			<p>The algorithm worked by collecting experimental data from simulation, filtering the input, then using a neural network to transform the complex soil-excavator dynamics into simple, linear trajectories in a higher-dimensional space. This learned, "lifted" linearization (L3) model can then be used to rapidly predict future interactions. This can enable the excavator's computer to pick an optimal digging path that picks up a maximum amount of soil with each scoop without getting stuck.</p>
 
 			<p>I tested my L3 algorithm in a state-of-the-art excavator simulator against several other popular models, beating them all while using less memory. Our results were published in <i>IEEE Robotics and Automation Letters</i>, and we showcased our work at the <i>International Conference on Intelligent Robots and Systems</i>. To learn more about the project, <a rel="external" href="https://arxiv.org/abs/2104.02004" target="_blank">read our journal paper</a> and <a rel="external" href="https://dspace.mit.edu/handle/1721.1/140046" target="_blank">my dissertation</a>. My <a rel="external" href="https://www.youtube.com/watch?v=EwLRa03t7UY" target="_blank">dissertation defense</a> is also publicly available on YouTube. All of our source code is open source on <a aria-label="GitHub repository" rel="external" href="https://github.com/Darbeloff/DFL" target="_blank">GitHub</a>.</p>
+		</section>
+
+		<section id="skills-demonstrated">
+			<h2>Skills Demonstrated</h2>
+			<div class="skills">
+				<div class="skill">Artificial Intelligence</div>
+				<div class="skill">Python</div>
+				<div class="skill">Robotics</div>
+			</div>
 		</section>
 	</main>
 

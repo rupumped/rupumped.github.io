@@ -30,50 +30,37 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="secondary.css">
 	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
 </head>
 <body>
 	<header>
-		<div id="name">NICHOLAS S SELBY</div>
-		<nav>
-			<input class="menu-btn" type="checkbox" id="menu-btn">
-			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
-			<ul class="menu">
-				<li><a href="index.html">HOME</a></li>
-				<li><a href="about.html">ABOUT ME</a></li>
-				<li><a href="selected-work.html">SELECTED WORK</a></li>
-				<li><a href="blog.html">BLOG</a></li>
-				<li><a href="service.html">SERVICE</a></li>
-			</ul>
-		</nav>
+		<div class="header-content">
+			<div id="name">NICHOLAS S SELBY</div>
+			<nav>
+				<input class="menu-btn" type="checkbox" id="menu-btn">
+				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<ul class="menu">
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="selected-work.html">PROJECTS</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="service.html">SERVICE</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<main>
-		<div class="cover section">
-			<img src="project-pages/ndte-cover.jpg" alt="Surface plot of acoustic wave propagation through aluminum and air">
-			<h1>Nondestructive Testing</h1>
-		</div>
+		<h1>Nondestructive Testing</h1>
 
-		<section id="skills-demonstrated">
-			<h2>Skills Demonstrated</h2>
-			<div class="skills">
-				<div class="skill">Signal Processing</div>
-				<div class="bullet"></div>
-				<div class="skill">MATLAB</div>
-				<div class="bullet"></div>
-				<div class="skill">CNC Machining</div>
-				<div class="bullet"></div>
-				<div class="skill">LabVIEW</div>
-				<div class="bullet"></div>
-				<div class="skill">CAD</div>
-				<div class="bullet"></div>
-				<div class="skill">Finite Element Analysis</div>
-			</div>
-		</section>
+		<img class="img-full-width" src="project-pages/ndte-cover.jpg" alt="Surface plot of acoustic wave propagation through aluminum and air">
+
+		<h2 class="challenge"><b>Challenge:</b> Measure material nonlinearity using an air-coupled transducer</h2>
 
 		<div class="separator"></div>
 
-		<p>Working under the direction of Professors <a href="https://www.me.gatech.edu/faculty/jacobs" rel="external" target="_blank">Laurence Jacobs</a> and <a href="https://www.me.gatech.edu/faculty/torello" rel="external" target="_blank">David Torello</a> at Georgia Tech, I designed and implemented a novel air-coupled transducer calibration technique.</p>
+		<p>Working under the direction of Professors <a href="https://www.me.gatech.edu/faculty/jacobs" rel="external" target="_blank">Laurence Jacobs</a> and <a href="https://www.me.gatech.edu/faculty/torello" rel="external" target="_blank">David Torello</a> at Georgia Tech, I implemented a novel air-coupled transducer calibration technique.</p>
 
 		<section>
 			<h2>Problem</h2>
@@ -90,6 +77,18 @@
 			<h2>Solution</h2>
 			<p><img class="img-left" src="selected-work/ndte.jpg" alt="A block of aluminum held in a custom experimental apparatus">We designed an experiment in which we generated an acoustic wave at the base of a material with a known nonlinearity. We used our nonlinear modelling technique to analytically determine the magnitude of both the fundamental and harmonic components at the opposite surface. To confirm our model, we used a laser interferometer to measure the physical surface displacement. After confirming our model, we then repeated the experiment replacing the laser interferometer with a much less expensive, but uncalibrated, air-coupled transducer. By propagating the model from the surface of the material through the air to the transducer, we could directly link the transducer output in Volts to the physical strength of the propagating waves. This experimental voltage-to-pressure mapping is unique to the transducer and can be used in future experiments to easily determine material nonlinearity.</p>
 			<p>Our method worked! We tested the calibration on two common materials, aluminum and silicon, and were able to determine the nonlinearity of both materials to high accuracy. I presented our methodology at the <i>Review of Progress in Quantitative Nondestructive Evaluation</i> conference and we published our work in the journal <i>Ultrasonics</i>. To learn more about our project, <a href="homepage/xducer.pdf" download target="_blank">read our paper</a> and <a href="project-pages/ndte-poster.pdf" download target="_blank">download our poster</a>.</p>
+		</section>
+
+		<section id="skills-demonstrated">
+			<h2>Skills Demonstrated</h2>
+			<div class="skills">
+				<div class="skill">Signal Processing</div>
+				<div class="skill">MATLAB</div>
+				<div class="skill">CNC Machining</div>
+				<div class="skill">LabVIEW</div>
+				<div class="skill">CAD</div>
+				<div class="skill">Finite Element Analysis</div>
+			</div>
 		</section>
 	</main>
 	

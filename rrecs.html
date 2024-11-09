@@ -30,44 +30,37 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="secondary.css">
 	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
 </head>
 <body>
 	<header>
-		<div id="name">NICHOLAS S SELBY</div>
-		<nav>
-			<input class="menu-btn" type="checkbox" id="menu-btn">
-			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
-			<ul class="menu">
-				<li><a href="index.html">HOME</a></li>
-				<li><a href="about.html">ABOUT ME</a></li>
-				<li><a href="selected-work.html">SELECTED WORK</a></li>
-				<li><a href="blog.html">BLOG</a></li>
-				<li><a href="service.html">SERVICE</a></li>
-			</ul>
-		</nav>
+		<div class="header-content">
+			<div id="name">NICHOLAS S SELBY</div>
+			<nav>
+				<input class="menu-btn" type="checkbox" id="menu-btn">
+				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<ul class="menu">
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="selected-work.html">PROJECTS</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="service.html">SERVICE</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<main>
-		<div class="cover section">
-			<img src="project-pages/rrecs-cover.jpg" alt="An environmentally sustainable blockchain">
-			<h1>Blockchain-Based Carbon Assets</h1>
-		</div>
+		<h1>Blockchain-Based Carbon Assets</h1>
 
-		<section id="skills-demonstrated">
-			<h2>Skills Demonstrated</h2>
-			<div class="skills">
-				<div class="skill">Blockchain</div>
-				<div class="bullet"></div>
-				<div class="skill">Solidity</div>
-				<div class="bullet"></div>
-				<div class="skill">Smart Contracts</div>
-			</div>
-		</section>
+		<img class="img-full-width" src="project-pages/rrecs-cover.jpg" alt="An environmentally sustainable blockchain">
+
+		<h2 class="challenge"><b>Challenge:</b> Create an efficient, transparent marketplace for carbon assets</h2>
 
 		<div class="separator"></div>
 		
-		<p><i>This is a summary of the R-RECs platform for my personal portfolio. To get the most relevant and update information about R-RECs and learn how you can offset your carbon footprint, visit the <a rel="external" target="_blank" href="https://www.r-recs.com/">project homepage</a>.</i></p>
+		<p class="disclaimer">This is a summary of the R-RECs platform for my personal portfolio. To get the most relevant and update information about R-RECs and learn how you can offset your carbon footprint, visit the <a rel="external" target="_blank" href="https://www.r-recs.com/">project homepage</a>.</p>
 
         <p>Renewable energy credits (RECs) are a way to track and verify the production of renewable energy, such as solar, wind, or hydro power. When renewable energy is generated, a corresponding renewable energy credit is also created. These credits can then be bought and sold to offset non-renewable energy consumption.</p>
         
@@ -82,6 +75,18 @@
         <p>Currently, more than 20,000 R-RECs are being traded by companies around the world, creating a growing market for renewable energy credits. By participating in this marketplace, Renewvia is helping to drive the adoption of sustainable energy practices while also generating additional revenue streams to support our mission. We believe that R-RECs offer a unique and innovative solution for tracking and verifying renewable energy production, and we are proud to be at the forefront of this emerging market.</p>
             
         <p>The software behind R-RECs is completely open source on <a aria-label="GitHub repository" rel="external" href="https://github.com/Renewvia-Energy/Renewvia-REC" target="_blank">GitHub</a>.</p>
+
+		<section id="skills-demonstrated">
+			<h2>Skills Demonstrated</h2>
+			<div class="skills">
+				<div class="skill">Blockchain</div>
+				<div class="skill">Solidity</div>
+				<div class="skill">Smart Contracts</div>
+				<div class="skill">Carbon Accounting</div>
+				<div class="skill">HTML/CSS</div>
+				<div class="skill">Vue.JS</div>
+			</div>
+		</section>
 	</main>
 
 	<footer>

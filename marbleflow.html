@@ -31,42 +31,33 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="secondary.css">
 	<link rel="stylesheet" type="text/css" href="project-pages/project-page.css">
 </head>
 <body>
 	<header>
-		<div id="name">NICHOLAS S SELBY</div>
-		<nav>
-			<input class="menu-btn" type="checkbox" id="menu-btn">
-			<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
-			<ul class="menu">
-				<li><a href="index.html">HOME</a></li>
-				<li><a href="about.html">ABOUT ME</a></li>
-				<li><a href="selected-work.html">SELECTED WORK</a></li>
-				<li><a href="blog.html">BLOG</a></li>
-				<li><a href="service.html">SERVICE</a></li>
-			</ul>
-		</nav>
+		<div class="header-content">
+			<div id="name">NICHOLAS S SELBY</div>
+			<nav>
+				<input class="menu-btn" type="checkbox" id="menu-btn">
+				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<ul class="menu">
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="selected-work.html">PROJECTS</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="service.html">SERVICE</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<main>
-		<div class="cover section">
-			<img src="project-pages/marbleflow-cover.jpg" alt="A robot playing with marbles">
-			<h1>Optical Flow and Object Tracking for Robots</h1>
-		</div>
+		<h1>Optical Flow and Object Tracking for Robots</h1>
 
-		<section id="skills-demonstrated">
-			<h2>Skills Demonstrated</h2>
-			<div class="skills">
-				<div class="skill">Robotics & Control</div>
-				<div class="bullet"></div>
-				<div class="skill">Computer Vision</div>
-				<div class="bullet"></div>
-				<div class="skill">Python</div>
-				<div class="bullet"></div>
-				<div class="skill">C++</div>
-			</div>
-		</section>
+		<img class="img-full-width" src="project-pages/marbleflow-cover.jpg" alt="A robot playing with marbles">
+
+		<h2 class="challenge"><b>Challenge:</b> Program a robot arm with a camera to follow objects</h2>
 
 		<div class="separator"></div>
 
@@ -85,6 +76,16 @@
 		<p>We wrote the computer vision algorithms in C++ using OpenCV and employed the ROS framework in Python to implement the robot PID controller and kinematics. The project successfully demonstrated the capability to track a ball and control a robotic arm based on visual inputs. The dense optical flow algorithm provided accurate camera motion estimates, enhancing the system's overall efficacy.</p>
 			
 		<p>MarbleFlow was a rewarding educational experience that allowed us to deepen our understanding of fundamental computer vision algorithms and their practical applications. It provided us with hands-on experience in integrating hardware and software to solve a specific problem: tracking and following a moving object with a robotic arm. We are grateful for the opportunity to have worked on this project and are excited to apply the skills and knowledge we've gained in our future endeavors in the field of computer vision and robotics. Download our code and try it yourself on <a rel="external" target="_blank" href="https://github.com/ashikari/MarbleFlow">our GitHub repository</a>.</p>
+
+		<section id="skills-demonstrated">
+			<h2>Skills Demonstrated</h2>
+			<div class="skills">
+				<div class="skill">Robotics & Control</div>
+				<div class="skill">Computer Vision</div>
+				<div class="skill">Python</div>
+				<div class="skill">C++</div>
+			</div>
+		</section>
 	</main>
 	
 	<footer>
