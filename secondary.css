@@ -12,6 +12,9 @@ header #name {
 header nav ul {
 	text-align: right;
 }
+header nav ul li:last-child a {
+	margin-right: 0;
+}
 
 /* When "NICHOLAS S SELBY" and the nave get too close */
 @media only screen and (max-width: 1360px) {

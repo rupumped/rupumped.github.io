@@ -1,5 +1,6 @@
-body {
-	width: 30cm;
+:root {
+	--main-width: 30cm;
+	--footer-width: 30cm;
 }
 
 h1 {

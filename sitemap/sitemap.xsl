@@ -21,6 +21,7 @@
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="main.css"/>
+		<link rel="stylesheet" type="text/css" href="secondary.css"/>
 		<link rel="stylesheet" type="text/css" href="sitemap/sitemap.css"/>
 	</head>
 	<body>
