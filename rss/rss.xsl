@@ -28,7 +28,7 @@
 			<div class="header-content">
 				<div id="name">NICHOLAS S SELBY</div>
 				<nav>
-					<input class="menu-btn" type="checkbox" id="menu-btn">
+					<input class="menu-btn" type="checkbox" id="menu-btn" />
 					<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
 					<ul class="menu">
 						<li><a href="index.html">HOME</a></li>

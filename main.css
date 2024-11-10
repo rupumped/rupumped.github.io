@@ -6,6 +6,7 @@
 	--grayed-out: #747474;
 	--active-gray: #ccc;
 	--link-color: 0, 105, 194;
+	--shadow-shade: 125;
 	--seperator-color: gainsboro;
 	--main-width: 25cm;
 	--footer-width: 25cm;
@@ -393,6 +394,7 @@ footer #copyright {
 		--grayed-out: #ccc;
 		--active-gray: #666;
 		--link-color: 140, 180, 255;
+		--shadow-shade: 150;
 	}
 
 	img.bw, svg.bw {

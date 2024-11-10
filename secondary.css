@@ -1,7 +1,7 @@
 header {
 	margin-bottom: 3rem;
 	padding: 1em 15%;
-	background-color: color-mix(in srgb, var(--grayed-out) 15%, transparent);
+	box-shadow: rgba(var(--shadow-shade),var(--shadow-shade),var(--shadow-shade),0.2) 0 0.3rem 1.5rem 0;
 }
 header #name {
 	display: block;
@@ -28,6 +28,7 @@ header nav ul {
 	header {
 		padding: 0;
 		background-color: var(--bg-color);
+		box-shadow: none;
 	}
 	header #name {
 		font-size: var(--mobile-name-size);
