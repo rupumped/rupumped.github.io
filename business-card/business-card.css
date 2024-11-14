@@ -74,7 +74,7 @@ main {
 	position: relative;
 	top: 0;
 	left: 0;
-	margin-top: 1cm;
+	margin: 1cm auto;
 }
 .contact {
 	display: flex;
@@ -110,7 +110,7 @@ textarea:focus {
 		--crop-dist: 2cm;
 	}
 	main {
-		margin: 0.2cm 0;
+		margin: 0.2cm auto;
 	}
 	.contact {
 		margin: 0.2cm 0;
@@ -121,7 +121,7 @@ textarea:focus {
 		--crop-dist: 3cm;
 	}
 	main {
-		margin: 0.1cm 0;
+		margin: 0.1cm auto;
 	}
 	.contact {
 		margin: 0.1cm 0;
