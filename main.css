@@ -258,38 +258,10 @@ iframe {
 	border: none;
 }
 
-/* Math
-This script is adapted from  Murray Bourne's "KaTeX tag placement with no wrap"
-https://bourne2learn.com/math/katex/tag-placement_nowrap.html */
-.katex-display > .katex > .katex-html {
-	width: 100%;
-	position:relative;
-}
-.tag {
-	position:absolute;
-	right:0; 
-}
-.equation {
-	display:block;
-	height:auto;
-	margin:1em 0;
-	padding:0 2px 12px;
-	overflow-x:scroll;
-	white-space:nowrap;
-}
-.equation::-webkit-scrollbar{
-	height:8px;
-}
-.equation::-webkit-scrollbar-track{
-	-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,0.3);
-	border-radius:7px;
-}
-.equation::-webkit-scrollbar-thumb{
-	border-radius:7px;
-	-webkit-box-shadow:inset 0 0 8px rgba(0,0,0,0.5);
-}
-.equation::-webkit-scrollbar-thumb:hover{
-	-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,0.8);
+/* Math */
+.katex-display {
+	padding: 0 2px 12px;
+	overflow-x: scroll;
 }
 
 /* Algorithm */
