@@ -134,7 +134,7 @@ main {
 }
 
 /* Containers for elements that can be wider than the viewport.*/
-/* Don't use for equations. They handle their own overflow. */
+/* Don't use for equations or algorithms. They handle their own overflow. */
 .overflowable {
 	white-space: pre-wrap;
 	overflow: scroll;
@@ -266,10 +266,14 @@ iframe {
 
 /* Algorithm */
 div.algorithm {
-	margin: 1em 0 1em 1em;
+	padding: 1em 0 1em 1em;
+	overflow-x: scroll;
 }
 div.indented {
 	margin-left: 1em;
+}
+div.algorithm div.state > span:only-child {
+	white-space: nowrap;
 }
 
 /* Code Blocks */
