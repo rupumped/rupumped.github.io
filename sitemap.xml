@@ -43,14 +43,6 @@
 </url>
 
 <url>
-	<title>Business Card</title>
-	<loc>https://rupumped.github.io/business-card.html</loc>
-	<lastmod>2024-05-15T00:00:00+00:00</lastmod>
-	<changefreq>yearly</changefreq>
-	<priority>0.80</priority>
-</url>
-
-<url>
 	<title>CV</title>
 	<loc>https://rupumped.github.io/homepage/nselby-cv.pdf</loc>
 	<lastmod>2024-02-14T00:00:00+00:00</lastmod>
@@ -303,14 +295,6 @@
 	<loc>https://rupumped.github.io/project-pages/tinynets-report.pdf</loc>
 	<lastmod>2021-09-26T00:00:00+00:00</lastmod>
 	<changefreq>never</changefreq>
-	<priority>0.20</priority>
-</url>
-
-<url>
-	<title>vCard</title>
-	<loc>https://rupumped.github.io/business-card/vcard.vcf</loc>
-	<lastmod>2024-02-14T00:00:00+00:00</lastmod>
-	<changefreq>yearly</changefreq>
 	<priority>0.20</priority>
 </url>
 
