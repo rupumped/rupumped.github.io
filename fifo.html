@@ -126,6 +126,11 @@
 
 			<p>While Hasaan's solution stands out as my favorite among those I found online, it has some limitations. Namely, it lacks the capability to track consumables or handle multiple SKUs simultaneously. Also, the method relies heavily on Excel's Data Tables, a feature for which Google Sheets currently lacks a direct equivalent.</p>
 
+			<figure>
+				<img class="img-center" src="blog-posts/fifo-xkcd.jpg" alt="XKCD comic with a character saying &quot;Seems unnecessary. When I need to do arbitrary computation, I just add a giant block of columns to the side of my sheet and have a Turing machine traverse down it.&quot;" style="width: 7cm;">
+				<figcaption><a rel="external" target="_blank" href="https://www.xkcd.com/2453/">CC BY-NC 2.5 Randall Munroe</a></figcaption>
+			</figure>
+
 			<p><a rel="external" target="_blank" href="https://www.eloquens.com/tool/3BgVCy0x/finance/inventory-management-excel-templates/fifo-based-cogs-inventory-valuation-template-in-excel">Jason</a> applies similar logic as Hasaan, but replaces Hasaan's Data Tables with massive helper matrices to calculate Emil's intermediate quantities sold from each order. This solution still lacks the ability to track consumables and multiple SKUs simultaneously, but it is easily portable between softwares and results in a Sales table with a COGS column out of the box. Unfortunately, it is not perfectly autonomous; the helper matrices must be manually resized to ensure they always have both more rows and columns than the number of rows in the Orders and Sales tables.</p>
 		</section>
 
