@@ -5,7 +5,7 @@
 <url>
 	<title>Homepage</title>
 	<loc>https://rupumped.github.io/</loc>
-	<lastmod>2025-03-12T00:00:00+00:00</lastmod>
+	<lastmod>2025-03-12</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>1.00</priority>
 </url>
@@ -13,7 +13,7 @@
 <url>
 	<title>About</title>
 	<loc>https://rupumped.github.io/about.html</loc>
-	<lastmod>2024-02-14T00:00:00+00:00</lastmod>
+	<lastmod>2024-02-14</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.80</priority>
 </url>
@@ -21,7 +21,7 @@
 <url>
 	<title>Selected Work</title>
 	<loc>https://rupumped.github.io/selected-work.html</loc>
-	<lastmod>2024-09-17T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-17</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>0.80</priority>
 </url>
@@ -29,7 +29,7 @@
 <url>
 	<title>Blog</title>
 	<loc>https://rupumped.github.io/blog.html</loc>
-	<lastmod>2024-10-18T00:00:00+00:00</lastmod>
+	<lastmod>2024-10-18</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>0.80</priority>
 </url>
@@ -37,7 +37,7 @@
 <url>
 	<title>Service</title>
 	<loc>https://rupumped.github.io/service.html</loc>
-	<lastmod>2023-07-08T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-08</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.80</priority>
 </url>
@@ -45,7 +45,7 @@
 <url>
 	<title>CV</title>
 	<loc>https://rupumped.github.io/homepage/nselby-cv.pdf</loc>
-	<lastmod>2024-02-14T00:00:00+00:00</lastmod>
+	<lastmod>2024-02-14</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.80</priority>
 </url>
@@ -53,7 +53,7 @@
 <url>
 	<title>NDTE Journal Paper</title>
 	<loc>https://rupumped.github.io/homepage/xducer.pdf</loc>
-	<lastmod>2021-09-07T00:00:00+00:00</lastmod>
+	<lastmod>2021-09-07</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -61,7 +61,7 @@
 <url>
 	<title>Quantum Computing Journal Paper</title>
 	<loc>https://rupumped.github.io/homepage/dualaxis.pdf</loc>
-	<lastmod>2021-09-07T00:00:00+00:00</lastmod>
+	<lastmod>2021-09-07</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -69,7 +69,7 @@
 <url>
 	<title>Kenya's Largest Solar Mini-Grid</title>
 	<loc>https://rupumped.github.io/kalobeyei.html</loc>
-	<lastmod>2023-07-01T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-01</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -77,7 +77,7 @@
 <url>
 	<title>Blockchain-Based Carbon Assets</title>
 	<loc>https://rupumped.github.io/rrecs.html</loc>
-	<lastmod>2023-07-01T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-01</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -85,7 +85,7 @@
 <url>
 	<title>Dual-Faceted Linearization</title>
 	<loc>https://rupumped.github.io/dfl.html</loc>
-	<lastmod>2023-07-01T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-01</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -93,7 +93,7 @@
 <url>
 	<title>TeachBot</title>
 	<loc>https://rupumped.github.io/teachbot.html</loc>
-	<lastmod>2023-07-01T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-01</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -101,7 +101,7 @@
 <url>
 	<title>Offline-First Education</title>
 	<loc>https://rupumped.github.io/spi.html</loc>
-	<lastmod>2023-07-01T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-01</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -109,7 +109,7 @@
 <url>
 	<title>Wireless Sensing</title>
 	<loc>https://rupumped.github.io/rfind.html</loc>
-	<lastmod>2023-09-10T00:00:00+00:00</lastmod>
+	<lastmod>2023-09-10</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -117,7 +117,7 @@
 <url>
 	<title>Full-Duplex Wireless Relay</title>
 	<loc>https://rupumped.github.io/rfly.html</loc>
-	<lastmod>2023-11-27T00:00:00+00:00</lastmod>
+	<lastmod>2023-11-27</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -125,7 +125,7 @@
 <url>
 	<title>Optical Flow and Object Tracking for Robots</title>
 	<loc>https://rupumped.github.io/marbleflow.html</loc>
-	<lastmod>2024-01-31T00:00:00+00:00</lastmod>
+	<lastmod>2024-01-31</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -133,7 +133,7 @@
 <url>
 	<title>Nondestructive Testing</title>
 	<loc>https://rupumped.github.io/ndte.html</loc>
-	<lastmod>2023-07-01T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-01</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -141,7 +141,7 @@
 <url>
 	<title>Quantum Computing</title>
 	<loc>https://rupumped.github.io/lowtemp.html</loc>
-	<lastmod>2023-09-10T00:00:00+00:00</lastmod>
+	<lastmod>2023-09-10</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -149,7 +149,7 @@
 <url>
 	<title>Aerial Mapping</title>
 	<loc>https://rupumped.github.io/capstone.html</loc>
-	<lastmod>2023-07-01T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-01</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -157,7 +157,7 @@
 <url>
 	<title>Lightweight Networking for Control Systems</title>
 	<loc>https://rupumped.github.io/tinynets.html</loc>
-	<lastmod>2024-09-17T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-17</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -165,7 +165,7 @@
 <url>
 	<title>Solar Racing</title>
 	<loc>https://rupumped.github.io/gtsr.html</loc>
-	<lastmod>2023-07-01T00:00:00+00:00</lastmod>
+	<lastmod>2023-07-01</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -173,7 +173,7 @@
 <url>
 	<title>Emergency QR</title>
 	<loc>https://rupumped.github.io/eqr.html</loc>
-	<lastmod>2024-04-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-04-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
 </url>
@@ -181,7 +181,7 @@
 <url>
 	<title>Improved FIFO COGS Tracking in Microsoft Excel</title>
 	<loc>https://rupumped.github.io/fifo.html</loc>
-	<lastmod>2025-02-13T00:00:00+00:00</lastmod>
+	<lastmod>2025-02-13</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -189,7 +189,7 @@
 <url>
 	<title>A Gradient-Based Approach to Solving Mixed Binomial Distributions</title>
 	<loc>https://rupumped.github.io/binomials.html</loc>
-	<lastmod>2024-09-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -197,7 +197,7 @@
 <url>
 	<title>How Mistaking Power for Energy Almost Cost Millions</title>
 	<loc>https://rupumped.github.io/power-vs-energy.html</loc>
-	<lastmod>2024-09-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -205,7 +205,7 @@
 <url>
 	<title>Nairobi Bound: A Comprehensive Guide for Americans Starting a New Life in Kenya's Capital</title>
 	<loc>https://rupumped.github.io/guide-to-kenya.html</loc>
-	<lastmod>2025-02-20T00:00:00+00:00</lastmod>
+	<lastmod>2025-02-20</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -213,7 +213,7 @@
 <url>
 	<title>Phishing Prevention on a Budget: How to Test and Train Your Employees for Free</title>
 	<loc>https://rupumped.github.io/phishing.html</loc>
-	<lastmod>2024-09-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -221,7 +221,7 @@
 <url>
 	<title>I2R Losses in Single- and Three-Phase Distribution Networks</title>
 	<loc>https://rupumped.github.io/line-losses.html</loc>
-	<lastmod>2024-09-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -229,7 +229,7 @@
 <url>
 	<title>15 Steps to Donate a Kidney</title>
 	<loc>https://rupumped.github.io/kidney.html</loc>
-	<lastmod>2024-09-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -237,7 +237,7 @@
 <url>
 	<title>Quick Reference Sheet for Bond Graphs</title>
 	<loc>https://rupumped.github.io/blog/bond-graph-quick-ref.pdf</loc>
-	<lastmod>2023-06-02T00:00:00+00:00</lastmod>
+	<lastmod>2023-06-02</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -245,7 +245,7 @@
 <url>
 	<title>Common Public Speaking Problems and Exercises to Fix Them</title>
 	<loc>https://rupumped.github.io/public-speaking-problems.html</loc>
-	<lastmod>2024-09-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -253,7 +253,7 @@
 <url>
 	<title>Biblical Inerrancy</title>
 	<loc>https://rupumped.github.io/biblical-inerrancy.html</loc>
-	<lastmod>2024-09-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -261,7 +261,7 @@
 <url>
 	<title>Gospel Authorship</title>
 	<loc>https://rupumped.github.io/gospel-authorship.html</loc>
-	<lastmod>2024-09-05T00:00:00+00:00</lastmod>
+	<lastmod>2024-09-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.40</priority>
 </url>
@@ -269,7 +269,7 @@
 <url>
 	<title>TeachBot Research Poster</title>
 	<loc>https://rupumped.github.io/project-pages/teachbot-poster.pdf</loc>
-	<lastmod>2023-06-19T00:00:00+00:00</lastmod>
+	<lastmod>2023-06-19</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -277,7 +277,7 @@
 <url>
 	<title>NDTE Research Poster</title>
 	<loc>https://rupumped.github.io/project-pages/ndte-poster.pdf</loc>
-	<lastmod>2021-09-26T00:00:00+00:00</lastmod>
+	<lastmod>2021-09-26</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -285,7 +285,7 @@
 <url>
 	<title>Aerial Mapping Report</title>
 	<loc>https://rupumped.github.io/project-pages/capstone-report.pdf</loc>
-	<lastmod>2021-09-26T00:00:00+00:00</lastmod>
+	<lastmod>2021-09-26</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -293,7 +293,7 @@
 <url>
 	<title>TinyNets Report</title>
 	<loc>https://rupumped.github.io/project-pages/tinynets-report.pdf</loc>
-	<lastmod>2021-09-26T00:00:00+00:00</lastmod>
+	<lastmod>2021-09-26</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -301,7 +301,7 @@
 <url>
 	<title>Mini-Grid Impact BibTeX</title>
 	<loc>https://rupumped.github.io/homepage/minigrid-impact.bib</loc>
-	<lastmod>2024-06-06T00:00:00+00:00</lastmod>
+	<lastmod>2024-06-06</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -309,7 +309,7 @@
 <url>
 	<title>L3 BibTeX</title>
 	<loc>https://rupumped.github.io/homepage/l3.bib</loc>
-	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -317,7 +317,7 @@
 <url>
 	<title>TeachBot BibTeX</title>
 	<loc>https://rupumped.github.io/homepage/teachbot.bib</loc>
-	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -325,7 +325,7 @@
 <url>
 	<title>R-Find BibTeX</title>
 	<loc>https://rupumped.github.io/homepage/rfind.bib</loc>
-	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -333,7 +333,7 @@
 <url>
 	<title>R-Fly BibTeX</title>
 	<loc>https://rupumped.github.io/homepage/rfly.bib</loc>
-	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -341,7 +341,7 @@
 <url>
 	<title>NDTE BibTeX</title>
 	<loc>https://rupumped.github.io/homepage/xducer.bib</loc>
-	<lastmod>2023-03-28T00:00:00+00:00</lastmod>
+	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
@@ -349,7 +349,7 @@
 <url>
 	<title>Quantum Computing BibTeX</title>
 	<loc>https://rupumped.github.io/homepage/dualaxis.bib</loc>
-	<lastmod>2021-09-27T00:00:00+00:00</lastmod>
+	<lastmod>2021-09-27</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
 </url>
