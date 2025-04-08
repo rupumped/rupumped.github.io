@@ -5,7 +5,7 @@
 <url>
 	<title>Homepage</title>
 	<loc>https://rupumped.github.io/</loc>
-	<lastmod>2025-03-12</lastmod>
+	<lastmod>2025-04-09</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>1.00</priority>
 </url>
@@ -13,7 +13,7 @@
 <url>
 	<title>About</title>
 	<loc>https://rupumped.github.io/about.html</loc>
-	<lastmod>2024-02-14</lastmod>
+	<lastmod>2025-04-09</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.80</priority>
 </url>
@@ -46,6 +46,14 @@
 	<title>CV</title>
 	<loc>https://rupumped.github.io/homepage/nselby-cv.pdf</loc>
 	<lastmod>2024-02-14</lastmod>
+	<changefreq>yearly</changefreq>
+	<priority>0.80</priority>
+</url>
+
+<url>
+	<title>Speaker Rider</title>
+	<loc>https://rupumped.github.io/speaker-rider.html</loc>
+	<lastmod>2025-04-09</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.80</priority>
 </url>
