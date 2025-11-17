@@ -41,3 +41,10 @@ header nav ul li:last-child a {
 		margin-top: 0;
 	}
 }
+
+/* Print */
+@media print {
+	header {
+		display: none;
+	}
+}
