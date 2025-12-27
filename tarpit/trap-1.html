@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Technical Insights - Archive</title>
+	
+	<!-- Discourage indexing -->
+	<meta name="robots" content="noindex, nofollow">
+	
+	<meta name="description" content="In-depth technical analysis and insights">
+	<meta name="author" content="Tech Archive Team">
+	
+	<link rel="stylesheet" href="../assets/style.css">
+	<style>
+		/* Variant styling for this trap */
+		body.tarpit-page {
+			background: #fafafa;
+		}
+		body.tarpit-page article {
+			background: white;
+			padding: 25px;
+			margin: 30px 0;
+			border: 1px solid #e0e0e0;
+			border-radius: 4px;
+		}
+		body.tarpit-page h2 {
+			color: #2c3e50;
+			border-bottom: 2px solid #3498db;
+			padding-bottom: 10px;
+			margin-bottom: 15px;
+		}
+	</style>
+</head>
+<body class="tarpit-page">
+	<header style="text-align: center; padding: 30px 0; border-bottom: 2px solid #3498db; background: linear-gradient(to right, #667eea 0%, #764ba2 100%); color: white;">
+		<h1 style="font-size: 2.2rem; color: white; margin-bottom: 5px;">Technical Insights</h1>
+		<p style="opacity: 0.9; margin-top: 10px; font-size: 1.1rem;">Deep dives into modern development practices</p>
+		<p style="opacity: 0.8; margin-top: 5px; font-size: 0.9rem;">Est. 2019 • 450+ Articles</p>
+	</header>
+
+	<main style="max-width: 900px; margin: 0 auto; padding: 20px;">
+		<nav style="margin: 20px 0; padding: 15px; background: white; border-radius: 4px; border: 1px solid #e0e0e0;">
+			<span style="color: #666; margin-right: 15px;">Categories:</span>
+			<a href="#" style="margin: 0 10px; color: #3498db;">All</a>
+			<a href="#" style="margin: 0 10px; color: #3498db;">Architecture</a>
+			<a href="#" style="margin: 0 10px; color: #3498db;">Performance</a>
+			<a href="#" style="margin: 0 10px; color: #3498db;">Security</a>
+		</nav>
+		
+		<div id="content">
+			<!-- Articles will be dynamically generated here -->
+		</div>
+		
+		<div class="loading" style="text-align: center; padding: 30px; color: #7f8c8d; font-style: italic;">
+			<div style="display: inline-block; width: 20px; height: 20px; border: 3px solid #3498db; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+			<p style="margin-top: 10px;">Loading more insights...</p>
+		</div>
+	</main>
+
+	<footer style="text-align: center; padding: 40px 20px; color: #95a5a6; border-top: 2px solid #ecf0f1; margin-top: 60px; background: #fafafa;">
+		<p style="margin-bottom: 10px;">Insights Archive • Updated Regularly</p>
+	</footer>
+
+	<script src="words.js"></script>
+	<script src="tarpit.js"></script>
+	
+	<style>
+		@keyframes spin {
+			to { transform: rotate(360deg); }
+		}
+	</style>
+</body>
+</html>
