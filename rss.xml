@@ -86,6 +86,15 @@
 
 		<!-- Blog Posts -->
 		<item>
+			<title>Sanctuary Organizing Conversations</title>
+			<link>https://rupumped.github.io/sanctuary-conversations.html</link>
+			<description>Twelve example organizing conversations for a congregation considering offering sanctuary</description>
+			<enclosure url="https://rupumped.github.io/blog/sanctuary-conversations.jpg" length="82852" type="image/jpeg" />
+			<category>Blog Posts</category>
+			<pubDate>Sat, 27 Dec 2025 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://rupumped.github.io/sanctuary-conversations.html</guid>
+		</item>
+		<item>
 			<title>Separating Story from Feeling</title>
 			<link>https://rupumped.github.io/emotion-validation-framework.html</link>
 			<description>A clinically grounded framework to categorize emotional communication</description>

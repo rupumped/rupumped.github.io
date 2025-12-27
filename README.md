@@ -10,6 +10,9 @@ I used Celian Riboulet's [W3C Web Validator](https://marketplace.visualstudio.co
 ## Mobile-Friendly
 Google's [Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) certifies my personal website as mobile-friendly. Flexboxes and CSS `@media` at-rules ensure all content adapts to smaller screens.
 
+## AI-Unfriendly
+My homepage includes hidden links to a [Sarracen.ai](https://github.com/rupumped/sarracen.ai/) tarpit defense system. Well-behaved bots will avoid the `/tarpit/` directory, and aggressive AI scrapers will fall into an infinite maze of synthetic garbage text.
+
 ## Optimized for Search Engines
 The pages' HTML heads are complete, the parent directory includes a sitemap and a `robots.txt` file, and my content has been checked and approved by an array of PageRank-style SEO tools, including [Google Search Console](https://search.google.com/search-console/about).
 

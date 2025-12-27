@@ -29,7 +29,7 @@
 <url>
 	<title>Blog</title>
 	<loc>https://rupumped.github.io/blog.html</loc>
-	<lastmod>2024-10-18</lastmod>
+	<lastmod>2025-12-27</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>0.80</priority>
 </url>
@@ -184,6 +184,14 @@
 	<lastmod>2024-04-05</lastmod>
 	<changefreq>yearly</changefreq>
 	<priority>0.60</priority>
+</url>
+
+<url>
+	<title>Sanctuary Organizing Conversations</title>
+	<loc>https://rupumped.github.io/sanctuary-conversations.html</loc>
+	<lastmod>2025-12-27</lastmod>
+	<changefreq>yearly</changefreq>
+	<priority>0.40</priority>
 </url>
 
 <url>
