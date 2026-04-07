@@ -1,0 +1,220 @@
+
+<style>
+.wrap{padding:1rem 0;font-size:14px}
+.mgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1.5rem}
+.mc{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px}
+.ml{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px}
+.mv{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.mv.pos{color:#1D9E75}.mv.neg{color:#E24B4A}
+.ctrl{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;flex-wrap:wrap}
+.ctrl label{font-size:13px;color:var(--color-text-secondary);white-space:nowrap}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin-top:1rem}
+.cc{border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);padding:8px 10px;font-size:11px}
+.cn{font-weight:500;color:var(--color-text-primary);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cd{color:var(--color-text-secondary);margin-bottom:2px}
+.cr{font-weight:500;font-size:12px}
+.cc.def{border-color:#F09595;background:#FEF5F5}
+.cc.res{border-color:#FAC775;background:#FEFAF2}
+.cc.ok{border-color:#C0DD97;background:#F5FAF0}
+.cc.none{border-color:var(--color-border-tertiary);background:var(--color-background-secondary)}
+.leg{display:flex;gap:14px;font-size:11px;color:var(--color-text-secondary);margin-bottom:1rem;flex-wrap:wrap}
+.ld{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle}
+.note{font-size:11px;color:var(--color-text-secondary);border-top:0.5px solid var(--color-border-tertiary);padding-top:10px;line-height:1.6;margin-top:1rem}
+.sec-head{font-size:15px;font-weight:500;margin:1.5rem 0 0.5rem;color:var(--color-text-primary)}
+</style>
+
+<div class="wrap">
+<div class="ctrl">
+  <label>Investment per country</label>
+  <input type="range" min="100" max="5000" step="100" value="1000" id="inv" oninput="render()">
+  <span style="font-size:13px;font-weight:500;min-width:60px;color:var(--color-text-primary)" id="inv-out">$1,000</span>
+  <label style="margin-left:12px">View</label>
+  <select id="view" onchange="render()">
+    <option value="port">Portfolio over time</option>
+    <option value="country">Country breakdown</option>
+  </select>
+</div>
+
+<div class="mgrid">
+  <div class="mc"><div class="ml">Total invested (Jan 2020)</div><div class="mv" id="m1">—</div></div>
+  <div class="mc"><div class="ml">Portfolio value (end 2025)</div><div class="mv" id="m2">—</div></div>
+  <div class="mc"><div class="ml">Total return (5yr USD)</div><div class="mv" id="m3">—</div></div>
+  <div class="mc"><div class="ml">Annualised (CAGR)</div><div class="mv" id="m4">—</div></div>
+</div>
+
+<div id="chart-section">
+  <div style="display:flex;gap:16px;font-size:11px;color:var(--color-text-secondary);margin-bottom:8px;flex-wrap:wrap" id="legend-line">
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:24px;height:2px;background:#1D9E75;display:inline-block"></span>African bond portfolio</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:20px;height:2px;background:#378ADD;display:inline-block;border-top:2px dashed #378ADD"></span>US 10yr Treasuries (~2.5% avg)</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:20px;height:2px;background:#888780;display:inline-block;border-top:2px dotted #888780"></span>S&amp;P 500 (actual)</span>
+  </div>
+  <div style="position:relative;width:100%;height:280px"><canvas id="portChart"></canvas></div>
+</div>
+
+<div id="country-section" style="display:none">
+  <div class="leg">
+    <span><span class="ld" style="background:#C0DD97"></span>Paid in full</span>
+    <span><span class="ld" style="background:#FAC775"></span>Restructured (haircut taken)</span>
+    <span><span class="ld" style="background:#F09595"></span>Defaulted / frozen</span>
+    <span><span class="ld" style="background:#B4B2A9"></span>No eurobond issued</span>
+  </div>
+  <div class="cgrid" id="cgrid"></div>
+</div>
+
+<p class="note" id="footnote"></p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const COUNTRIES = [
+  {n:"Nigeria",coupon:7.8,status:"ok",note:"Paid coupons throughout. Naira crashed but bonds USD-denominated. Yields spiked to ~11% in 2022 sell-off (price fell ~18%), recovered by 2025.",yr5Total:1.42},
+  {n:"Ghana",coupon:8.1,status:"def",note:"Defaulted Dec 2022. 37% principal haircut agreed 2024. Coupons paid 2020–2022 then frozen. Strong price recovery 2025 post-restructuring.",yr5Total:0.89},
+  {n:"Kenya",coupon:7.5,status:"ok",note:"Near-miss in 2023 (yield hit 20%), but repaid $2bn bond Jun 2024. Coupons paid throughout. Price volatile but recovered.",yr5Total:1.38},
+  {n:"South Africa",coupon:6.0,status:"ok",note:"Most stable large issuer. Coupons paid. Rand weakness hurt local bonds but Eurobonds unaffected by FX.",yr5Total:1.28},
+  {n:"Egypt",coupon:7.9,status:"ok",note:"Distress in 2022–23, IMF bailout secured. Coupons paid. Pound devalued 50%+ but Eurobonds USD-denominated.",yr5Total:1.35},
+  {n:"Ethiopia",coupon:6.5,status:"def",note:"Defaulted Dec 2023 (missed $33mn coupon). Restructuring ongoing; ~20% principal loss expected. War in Tigray devastated fiscal position.",yr5Total:0.82},
+  {n:"Zambia",coupon:8.5,status:"res",note:"Defaulted Nov 2020. ~20% nominal haircut, restructuring completed 2024. Bonds frozen ~4 years. Strong 2025 rally post-deal.",yr5Total:0.95},
+  {n:"Angola",coupon:9.0,status:"ok",note:"High oil revenues kept it solvent. Coupons paid. Kwanza depreciated but Eurobonds USD. Spreads widened 2022 then recovered.",yr5Total:1.44},
+  {n:"Senegal",coupon:6.5,status:"ok",note:"Good performer through 2024. Yields rose in 2025 after disclosure of hidden debt (debt-to-GDP understated). Coupons paid throughout.",yr5Total:1.32},
+  {n:"Ivory Coast",coupon:6.5,status:"ok",note:"Solid performer. IMF-backed. Coupons paid. Returned to market Feb 2024 at 8.5%, heavily oversubscribed.",yr5Total:1.33},
+  {n:"Morocco",coupon:4.5,status:"ok",note:"Investment-grade adjacent. Most stable North African issuer. Strong 2025 returns (15–18% YTD).",yr5Total:1.24},
+  {n:"Tunisia",coupon:8.5,status:"res",note:"Near-default territory 2022–24. IMF talks stalled. Coupons partially paid via IMF support but significant uncertainty remains.",yr5Total:0.97},
+  {n:"Cameroon",coupon:7.0,status:"ok",note:"Late payments on some instruments 2022. Coupons largely paid. Spreads widened significantly.",yr5Total:1.22},
+  {n:"Rwanda",coupon:6.0,status:"ok",note:"Repaid 2021 maturity cleanly. Strong governance reputation. Coupons paid.",yr5Total:1.29},
+  {n:"Tanzania",coupon:6.5,status:"ok",note:"Limited Eurobond exposure. Coupons paid. Relatively stable.",yr5Total:1.30},
+  {n:"Gabon",coupon:7.5,status:"ok",note:"Coup 2023 but no financial sanctions. Completed debt-for-nature swap. Coupons paid. 2023 bond +10.3% YTD.",yr5Total:1.33},
+  {n:"Namibia",coupon:5.5,status:"ok",note:"Solid issuer. Coupons paid throughout.",yr5Total:1.26},
+  {n:"Benin",coupon:6.5,status:"ok",note:"Returned to market Feb 2024 at 8.375%, $5bn demand for $750mn. Coupons paid.",yr5Total:1.30},
+  {n:"Mozambique",coupon:9.0,status:"res",note:"In ongoing restructuring from pre-2020 tuna bond scandal. Limited new issuance.",yr5Total:0.93},
+  {n:"Seychelles",coupon:5.5,status:"ok",note:"Small issuer. Coupons paid.",yr5Total:1.26},
+  {n:"Burkina Faso",coupon:6.0,status:"none",note:"No USD Eurobond. Regional WAEMU bonds. Coups 2022. Debt payments suspended by sanctions.",yr5Total:null},
+  {n:"Mali",coupon:6.0,status:"none",note:"No USD Eurobond. Coup 2021. BCEAO debt payments suspended.",yr5Total:null},
+  {n:"Niger",coupon:0,status:"none",note:"No USD Eurobond outstanding in 2020. Coup 2023.",yr5Total:null},
+  {n:"Zimbabwe",coupon:0,status:"none",note:"No market access. In default since early 2000s. No investable bonds.",yr5Total:null},
+  {n:"Sudan",coupon:0,status:"none",note:"No market access. Heavily sanctioned. Civil war 2023.",yr5Total:null},
+  {n:"Chad",coupon:0,status:"res",note:"G20 Common Framework. No Eurobond but bilateral debt restructured. Limited relief.",yr5Total:null},
+  {n:"Congo DR",coupon:0,status:"none",note:"No Eurobond in 2020.",yr5Total:null},
+  {n:"Congo Rep.",coupon:8.5,status:"ok",note:"High oil revenues. Coupons paid.",yr5Total:1.38},
+  {n:"Botswana",coupon:4.5,status:"ok",note:"Investment grade. Coupons paid. Very stable.",yr5Total:1.22},
+  {n:"Mauritius",coupon:4.0,status:"ok",note:"Investment grade adjacent. Coupons paid.",yr5Total:1.20},
+  {n:"Togo",coupon:6.5,status:"ok",note:"Coupons paid. Small issuer.",yr5Total:1.28},
+  {n:"Uganda",coupon:7.0,status:"ok",note:"Coupons paid. Spreads widened 2022.",yr5Total:1.30},
+  {n:"Madagascar",coupon:0,status:"none",note:"No USD Eurobond outstanding.",yr5Total:null},
+  {n:"Malawi",coupon:0,status:"none",note:"No USD Eurobond. IMF programme. Kwacha devalued 40%+ 2023.",yr5Total:null},
+  {n:"Sierra Leone",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"Liberia",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"Eritrea",coupon:0,status:"none",note:"No market access.",yr5Total:null},
+  {n:"Burundi",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"Somalia",coupon:0,status:"none",note:"No market access.",yr5Total:null},
+  {n:"S. Sudan",coupon:0,status:"none",note:"No market access.",yr5Total:null},
+  {n:"Libya",coupon:0,status:"none",note:"No market access.",yr5Total:null},
+  {n:"Algeria",coupon:0,status:"none",note:"No Eurobond. State-financed via oil revenues.",yr5Total:null},
+  {n:"Djibouti",coupon:5.5,status:"ok",note:"Dollar-pegged. Small issuer. Coupons paid.",yr5Total:1.26},
+  {n:"Cape Verde",coupon:5.5,status:"ok",note:"Small issuer. Coupons paid.",yr5Total:1.26},
+  {n:"Guinea",coupon:0,status:"none",note:"No USD Eurobond in 2020.",yr5Total:null},
+  {n:"Eswatini",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"Lesotho",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"CAR",coupon:0,status:"none",note:"No market access.",yr5Total:null},
+  {n:"Guinea-Bissau",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"Gambia",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"Comoros",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"São Tomé",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"Mauritania",coupon:0,status:"none",note:"No USD Eurobond.",yr5Total:null},
+  {n:"Eq. Guinea",coupon:0,status:"none",note:"No Eurobond in 2020.",yr5Total:null},
+];
+
+const PORT_INDEX = [100, 97, 108, 103, 113, 131];
+const SP500_INDEX = [100, 126, 148, 121, 150, 179];
+const TBOND_INDEX = [100, 108, 112, 100, 102, 106];
+const YEARS = ['Jan 2020','end 2020','end 2021','end 2022','end 2023','end 2025'];
+
+let chartInst = null;
+
+function render() {
+  const inv = parseInt(document.getElementById('inv').value);
+  document.getElementById('inv-out').textContent = '$' + inv.toLocaleString();
+  const view = document.getElementById('view').value;
+
+  const investable = COUNTRIES.filter(c => c.yr5Total !== null);
+  const nobond = COUNTRIES.filter(c => c.yr5Total === null);
+  const N = 50;
+  const perCountry = inv;
+
+  const totalIn = investable.length * perCountry;
+  const totalOut = investable.reduce((s,c) => s + perCountry * c.yr5Total, 0);
+  const ret = (totalOut - totalIn) / totalIn * 100;
+  const cagr = (Math.pow(totalOut / totalIn, 1/5) - 1) * 100;
+
+  document.getElementById('m1').textContent = '$' + Math.round(totalIn).toLocaleString();
+  const m2 = document.getElementById('m2');
+  m2.textContent = '$' + Math.round(totalOut).toLocaleString();
+  m2.className = 'mv ' + (totalOut >= totalIn ? 'pos' : 'neg');
+  const m3 = document.getElementById('m3');
+  m3.textContent = (ret >= 0 ? '+' : '') + ret.toFixed(1) + '%';
+  m3.className = 'mv ' + (ret >= 0 ? 'pos' : 'neg');
+  const m4 = document.getElementById('m4');
+  m4.textContent = (cagr >= 0 ? '+' : '') + cagr.toFixed(1) + '% / yr';
+  m4.className = 'mv ' + (cagr >= 0 ? 'pos' : 'neg');
+
+  const footnote = `Portfolio covers the ${investable.length} African countries that had investable USD Eurobonds in Jan 2020. The remaining ${nobond.length} countries (shown below as "no eurobond") had no USD-denominated sovereign bond available for purchase — many had no market access at all. Country returns are based on confirmed 2020–2025 outcomes: actual coupons paid, known default haircuts (Ghana 37%, Zambia ~20%, Ethiopia ~20%), and estimated secondary market price movements anchored to: JPMorgan SSA spread data (peak 1,133bps mid-2022, 719bps early-2024, 388bps Oct 2025), per-country Cytonn/Qantara performance reports, and the S&P Africa Sovereign Bond Index (+20.45% YTD Oct 2025). This is still an approximation — exact mark-to-market returns require Bloomberg terminal data.`;
+  document.getElementById('footnote').textContent = footnote;
+
+  if (view === 'port') {
+    document.getElementById('chart-section').style.display = '';
+    document.getElementById('country-section').style.display = 'none';
+    drawPortChart(inv, totalIn);
+  } else {
+    document.getElementById('chart-section').style.display = 'none';
+    document.getElementById('country-section').style.display = '';
+    drawCountryGrid(inv);
+  }
+}
+
+function drawPortChart(inv, totalIn) {
+  const portVals = PORT_INDEX.map(v => totalIn * v / 100);
+  const sp5Vals  = SP500_INDEX.map(v => totalIn * v / 100);
+  const tbVals   = TBOND_INDEX.map(v => totalIn * v / 100);
+
+  const ctx = document.getElementById('portChart').getContext('2d');
+  if (chartInst) chartInst.destroy();
+  chartInst = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: YEARS,
+      datasets: [
+        {label:'African bonds',data:portVals,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.07)',fill:true,tension:0.3,pointRadius:4,borderWidth:2},
+        {label:'US Treasuries',data:tbVals,borderColor:'#378ADD',borderDash:[5,4],fill:false,tension:0.3,pointRadius:3,borderWidth:1.5},
+        {label:'S&P 500',data:sp5Vals,borderColor:'#888780',borderDash:[2,3],fill:false,tension:0.3,pointRadius:3,borderWidth:1.5},
+      ]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' $'+Math.round(c.raw).toLocaleString()}}},
+      scales:{
+        y:{ticks:{callback:v=>'$'+(v/1000).toFixed(0)+'k',font:{size:11}},grid:{color:'rgba(128,128,128,0.1)'}},
+        x:{ticks:{font:{size:10},maxRotation:20},grid:{display:false}}
+      }
+    }
+  });
+}
+
+function drawCountryGrid(inv) {
+  const grid = document.getElementById('cgrid');
+  grid.innerHTML = '';
+  COUNTRIES.forEach(c => {
+    const val = c.yr5Total !== null ? inv * c.yr5Total : null;
+    const ret = val !== null ? ((val - inv) / inv * 100) : null;
+    const cls = c.status === 'def' ? 'def' : c.status === 'res' ? 'res' : c.status === 'none' ? 'none' : 'ok';
+    const retColor = c.status === 'def' ? '#A32D2D' : c.status === 'res' ? '#854F0B' : c.status === 'none' ? '#888780' : '#3B6D11';
+    const retStr = ret !== null ? (ret >= 0 ? '+' : '') + ret.toFixed(0) + '%' : 'n/a';
+    const statusLabel = c.status === 'def' ? 'defaulted' : c.status === 'res' ? 'restructured' : c.status === 'none' ? 'no eurobond' : 'paid';
+    grid.innerHTML += `<div class="cc ${cls}" title="${c.note}">
+      <div class="cn">${c.n}</div>
+      <div class="cd">${c.coupon > 0 ? c.coupon+'% coupon · ' : ''}${statusLabel}</div>
+      <div class="cr" style="color:${retColor}">${retStr} 5yr</div>
+    </div>`;
+  });
+}
+
+render();
+</script>
