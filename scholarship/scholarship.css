@@ -1,0 +1,21 @@
+/* Publication and patent card titles sit at body size — section <h2>s stay at 1.7em */
+article h2 {
+	font-size: 1em;
+	font-weight: bold;
+	margin: 0;
+}
+article .journal-name {
+	font-style: italic;
+}
+
+/* Tighten the list inside Awards so it meets the section heading cleanly */
+#awards ul {
+	margin-top: 0;
+}
+
+/* Context note above patent cards */
+.section-note {
+	margin: 0 0 1.5em 0;
+	color: var(--grayed-out);
+	font-size: 0.9em;
+}

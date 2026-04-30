@@ -1,28 +1,29 @@
 /* General */
 :root {
 	--img-margin: 0.5em;
-	--bg-color: white;
-	--text-color: black;
-	--grayed-out: #747474;
-	--active-gray: #ccc;
-	--link-color: 0, 105, 194;
-	--shadow-shade: 125;
-	--seperator-color: gainsboro;
+	--bg-color: oklch(98% 0.006 55);
+	--text-color: oklch(18% 0.012 55);
+	--grayed-out: oklch(55% 0.010 55);
+	--active-gray: oklch(85% 0.006 55);
+	--link-color: oklch(52% 0.14 55);
+	--accent-color: oklch(52% 0.14 55);
+	--shadow-shade: 120;
+	--separator-color: oklch(88% 0.006 55);
 	--main-width: 25cm;
 	--footer-width: 25cm;
 	--max-w: 90%;
-	--main-font-family: 'Open Sans', sans-serif;
-	--special-font-family: 'Raleway', sans-serif;
+	--main-font-family: 'Literata', Georgia, serif;
+	--special-font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 html {
 	font-family: var(--main-font-family);
-	font-size: 21px;
-	line-height: 1.4em;
-	letter-spacing: 0.06em;
+	font-size: 125%;
+	line-height: 1.55em;
+	letter-spacing: 0.01em;
 	color: var(--text-color);
 	background-color: var(--bg-color);
-	scrollbar-color:  var(--grayed-out) var(--active-gray);
+	scrollbar-color: var(--grayed-out) var(--active-gray);
 }
 
 body {
@@ -31,7 +32,7 @@ body {
 
 .separator {
 	height: 1px;
-	background-color: var(--seperator-color);
+	background-color: var(--separator-color);
 	margin: 2em 0;
 }
 .section, section {
@@ -49,8 +50,9 @@ article img {
 }
 h1 {
 	font-family: var(--special-font-family);
-	font-weight: normal;
+	font-weight: 600;
 	font-size: 2.1em;
+	letter-spacing: -0.01em;
 	margin: 1.5em 0 0.5em 0;
 }
 h1, h2, h3 {
@@ -58,13 +60,14 @@ h1, h2, h3 {
 }
 h2, h3 {
 	font-family: var(--special-font-family);
+	letter-spacing: -0.01em;
 }
 h2 {
 	font-size: 1.7em;
-	font-weight: normal;
+	font-weight: 500;
 }
 h3 {
-	font-weight: bold;
+	font-weight: 600;
 }
 .centered {
 	display: block;
@@ -74,12 +77,20 @@ h3 {
 }
 
 a {
-	color: rgb(var(--link-color));
-	text-underline-offset: 0.2em;
+	color: var(--link-color);
+	text-underline-offset: 0.25em;
 	text-decoration-thickness: 1px;
+	text-decoration-color: color-mix(in oklch, var(--link-color) 50%, transparent);
+	transition: text-decoration-color 0.15s ease;
 }
 a:hover {
-	text-decoration: none;
+	text-decoration-color: var(--link-color);
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent-color);
+	outline-offset: 3px;
+	border-radius: 2px;
 }
 
 /* Header */
@@ -95,7 +106,8 @@ header #name {
 	text-decoration: none;
 	text-align: center;
 	font-size: 1.7em;
-	letter-spacing: 0.06em;
+	font-weight: 600;
+	letter-spacing: 0.04em;
 	margin: 1.5em 0 1em 0;
 }
 header nav .menu-btn {
@@ -107,7 +119,8 @@ header nav .menu-icon {
 header nav ul {
 	list-style: none;
 	text-align: center;
-	font-size: 0.7em;
+	font-size: 0.68em;
+	letter-spacing: 0.08em;
 	padding: 0;
 	margin: 0;
 }
@@ -118,14 +131,26 @@ header nav ul li a {
 	text-align: center;
 	margin: 0 1em;
 	white-space: nowrap;
+	color: var(--text-color);
+	text-decoration: none;
+}
+header nav ul li a:hover {
+	color: var(--link-color);
+	text-decoration: none;
 }
 header nav ul li a.active-link {
-	text-decoration: none;
-	color: var(--grayed-out);
+	text-decoration: underline;
+	text-decoration-color: var(--accent-color);
+	text-underline-offset: 0.3em;
+	text-decoration-thickness: 1px;
+	color: var(--text-color);
 }
 header nav ul li a.active-link:hover {
-	text-decoration: none;
-	color: var(--grayed-out);
+	text-decoration: underline;
+	text-decoration-color: var(--accent-color);
+	text-underline-offset: 0.3em;
+	text-decoration-thickness: 1px;
+	color: var(--text-color);
 }
 
 header nav ul li#business-card {
@@ -285,13 +310,14 @@ div.algorithm div.state > span:only-child {
 /* Code Blocks */
 pre {
 	padding: 1em;
-	border: 1px solid var(--grayed-out);
+	border: 1px solid var(--separator-color);
+	background-color: color-mix(in oklch, var(--bg-color) 92%, var(--text-color));
 }
 :not(pre) > code {
-	background-color: color-mix(in srgb, var(--grayed-out) 15%, transparent);
+	background-color: color-mix(in oklch, var(--active-gray) 40%, transparent);
 	font-size: 85%;
-	border-radius: 0.5em;
-	padding: 0.2em 0.4em;
+	border-radius: 0.4em;
+	padding: 0.15em 0.4em;
 }
 span.purple {
 	color: purple;
@@ -339,7 +365,7 @@ footer #footer-socials {
 	width: 11rem;
 }
 footer #footer-socials a {
-	width: 1.5em;
+	width: 2.2em;
 	border-radius: 8%;
 }
 footer #footer-socials svg {
@@ -350,14 +376,15 @@ footer #footer-socials svg {
 footer #footer-initials {
 	width: 2.2em;
 	height: 2.2em;
-	border: 1px solid var(--active-gray);
+	border: 1px solid color-mix(in oklch, var(--accent-color) 45%, var(--active-gray));
 	padding: 0.5em;
 	border-radius: 50%;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 2.2em;
 	font-family: var(--special-font-family);
-	font-weight: 300;
+	font-weight: 400;
+	color: var(--grayed-out);
 }
 footer #footer-nav {
 	display: flex;
@@ -374,11 +401,13 @@ footer #copyright {
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg-color: #07090b;
-		--text-color: #f0f6fc;
-		--grayed-out: #ccc;
-		--active-gray: #666;
-		--link-color: 140, 180, 255;
+		--bg-color: oklch(13% 0.008 55);
+		--text-color: oklch(92% 0.008 55);
+		--grayed-out: oklch(65% 0.008 55);
+		--active-gray: oklch(36% 0.008 55);
+		--link-color: oklch(78% 0.12 55);
+		--accent-color: oklch(78% 0.12 55);
+		--separator-color: oklch(28% 0.008 55);
 		--shadow-shade: 150;
 	}
 
@@ -403,10 +432,6 @@ footer #copyright {
 		--mobile-menu-icon-padding: 28px;
 		--hamburger-radius: 5px;
 		--hamburger-slice-height: 2px;
-	}
-
-	body {
-		font-size: 20px;
 	}
 
 	h2 {
@@ -443,6 +468,9 @@ footer #copyright {
 	}
 	header nav ul li#business-card a {
 		color: var(--bg-color);
+	}
+	header nav ul li a {
+		color: var(--text-color);
 	}
 	header #name {
 		display: block;
@@ -490,7 +518,7 @@ footer #copyright {
 		display: block;
 		height: 100%;
 		position: absolute;
-		transition: all .2s ease-out;
+		transition: top .2s ease-out, transform .2s ease-out;
 		width: 100%;
 	}
 	

@@ -4,23 +4,16 @@
 }
 #quote-symbol {
 	font-size: 6em;
-	font-family: 'IM Fell English SC', serif;
-	color: #999999;
+	font-family: 'IM Fell English SC', Georgia, serif;
+	color: color-mix(in oklch, var(--accent-color) 60%, var(--grayed-out));
 	margin-right: 0.1em;
-
 	transform: scale(-1, 1);
-	-moz-transform: scale(-1, 1);
-	-webkit-transform: scale(-1, 1);
-	-o-transform: scale(-1, 1);
-	-ms-transform: scale(-1, 1);
-	transform: scale(-1, 1);
-
 	position: relative;
 	top: 30px;
 }
 #quote {
 	font-style: italic;
-	font-family: 'Times New Roman', Times, serif;
+	font-family: var(--main-font-family);
 }
 #quote-words {
 	margin-bottom: 0.2em;

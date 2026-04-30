@@ -36,24 +36,53 @@ address {
 	width: 100%;
 }
 
-section {
-	margin: 0;
-}
-
 #bio {
 	text-align: justify;
+	hyphens: auto;
+	hyphenate-limit-chars: 6 3 3;
 }
 
-section ul {
-	margin-top: 0;
+/* Navigation cards */
+a.nav-card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em 0;
+	border-top: 1px solid var(--separator-color);
+	text-decoration: none;
+	color: var(--text-color);
+	transition: color 0.15s ease;
 }
-
-article h2 {
-	font-size: 1em;
-	font-weight: bold;
+a.nav-card:last-child {
+	border-bottom: 1px solid var(--separator-color);
 }
-article .journal-name {
-	font-style: italic;
+a.nav-card:hover {
+	color: var(--accent-color);
+}
+a.nav-card:hover .nav-card-teaser {
+	color: color-mix(in oklch, var(--accent-color) 60%, var(--grayed-out));
+}
+.nav-card-title {
+	font-family: var(--special-font-family);
+	font-weight: 600;
+	font-size: 1.05em;
+	letter-spacing: -0.01em;
+}
+.nav-card-teaser {
+	font-size: 0.82em;
+	color: var(--grayed-out);
+	margin-top: 0.15em;
+	transition: color 0.15s ease;
+}
+.nav-card-arrow {
+	color: var(--accent-color);
+	font-size: 1.1em;
+	flex-shrink: 0;
+	margin-left: 1em;
+	transition: transform 0.15s ease;
+}
+a.nav-card:hover .nav-card-arrow {
+	transform: translateX(0.25em);
 }
 
 @media only screen and (max-width: 940px) {

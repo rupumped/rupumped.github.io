@@ -11,7 +11,7 @@
 }
 
 #skills-demonstrated {
-	background-color: rgba(var(--link-color), 0.1);
+	background-color: color-mix(in oklch, var(--accent-color) 8%, var(--bg-color));
 	padding: 1.5em;
 }
 #skills-demonstrated h2 {
@@ -39,11 +39,11 @@
 }
 
 blockquote {
-	border-left-width: 4px;
-	border-left-color: var(--seperator-color);
-	border-left-style: solid;
-	padding-left: 1em;
-	margin-left: 1em;
+	padding: 0.8em 1.2em;
+	margin-left: 0;
+	background-color: color-mix(in oklch, var(--accent-color) 5%, var(--bg-color));
+	border-radius: 3px;
+	font-style: italic;
 }
 
 @media only screen and (max-width: 766px) {
