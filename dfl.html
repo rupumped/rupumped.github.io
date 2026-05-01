@@ -39,7 +39,7 @@
 			<a href="index.html" id="name">NICHOLAS S SELBY</a>
 			<nav>
 				<input class="menu-btn" type="checkbox" id="menu-btn">
-				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<label class="menu-icon" for="menu-btn" tabindex="0" aria-label="Toggle navigation"><span class="navicon"></span></label>
 				<ul class="menu">
 					<li><a href="index.html">HOME</a></li>
 					<li><a href="about.html">ABOUT</a></li>
@@ -55,7 +55,7 @@
 	<main>
 		<h1>Autonomous Excavation</h1>
 
-		<img class="img-full-width" src="project-pages/dfl-cover.jpg" alt="A simulation of an excavator digging">
+		<img loading="lazy" class="img-full-width" src="project-pages/dfl-cover.jpg" alt="A simulation of an excavator digging">
 
 		<h2 class="challenge"><b>Challenge:</b> Design an algorithm for automating excavation in remote environments</h2>
 
@@ -72,7 +72,7 @@
 
 		<section>
 			<h2>Problem Definition</h2>
-			<p><img class="img-center" src="project-pages/dfl-bucket.jpg" alt="Diagram of an excavator bucket."></p>
+			<p><img loading="lazy" class="img-center" src="project-pages/dfl-bucket.jpg" alt="Diagram of an excavator bucket."></p>
 			<p>Lifting linearization is a methodology for representing a nonlinear dynamical system with a linear dynamic model in a high-dimensional space. Underpinned by Koopman operator theory, nonlinear systems represented with supernumerary state variables behave more linearly in the lifted space. The method has recently been applied to various robotics and automation challenges, including active learning, soft robotics, human-robot interaction, power systems, and mission planning. More broadly, deep learning has proven a valuable tool for lifting linearization techniques.</p>
 
 			<p>The original Koopman Operator has two major limitations:</p>
@@ -96,7 +96,7 @@
 		
 		<section>
 			<h2>Solution</h2>
-			<img class="img-right" style="width: 350px;" src="project-pages/dfl-network.jpg" alt="A neural network representation of the learned lifting linearization algorithm.">
+			<img loading="lazy" class="img-right" style="width: 350px;" src="project-pages/dfl-network.jpg" alt="A neural network representation of the learned lifting linearization algorithm.">
 			<p>My dissertation proposed solutions to these two challenges. I presented a low-dimensional, causal, lifting linear model obtained from experimental data. I used neural networks to find effective observables through learning.</p>
 
 			<p>The algorithm worked by collecting experimental data from simulation, filtering the input, then using a neural network to transform the complex soil-excavator dynamics into simple, linear trajectories in a higher-dimensional space. This learned, "lifted" linearization (L3) model can then be used to rapidly predict future interactions. This can enable the excavator's computer to pick an optimal digging path that picks up a maximum amount of soil with each scoop without getting stuck.</p>

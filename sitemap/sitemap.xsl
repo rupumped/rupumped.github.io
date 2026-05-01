@@ -17,7 +17,7 @@
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;family=Raleway:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&amp;display=swap" rel="stylesheet"/>
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="main.css"/>
@@ -30,13 +30,14 @@
 				<a href="index.html" id="name">NICHOLAS S SELBY</a>
 				<nav>
 					<input class="menu-btn" type="checkbox" id="menu-btn" />
-					<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+					<label class="menu-icon" for="menu-btn" tabindex="0" aria-label="Toggle navigation"><span class="navicon"></span></label>
 					<ul class="menu">
 						<li><a href="index.html">HOME</a></li>
 						<li><a href="about.html">ABOUT</a></li>
 						<li><a href="selected-work.html">PROJECTS</a></li>
-						<li><a href="blog.html">BLOG</a></li>
+						<li><a href="scholarship.html">SCHOLARSHIP</a></li>
 						<li><a href="service.html">SERVICE</a></li>
+						<li><a href="blog.html">BLOG</a></li>
 					</ul>
 				</nav>
 			</div>

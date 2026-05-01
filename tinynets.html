@@ -40,7 +40,7 @@
 			<a href="index.html" id="name">NICHOLAS S SELBY</a>
 			<nav>
 				<input class="menu-btn" type="checkbox" id="menu-btn">
-				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<label class="menu-icon" for="menu-btn" tabindex="0" aria-label="Toggle navigation"><span class="navicon"></span></label>
 				<ul class="menu">
 					<li><a href="index.html">HOME</a></li>
 					<li><a href="about.html">ABOUT</a></li>
@@ -56,7 +56,7 @@
 	<main>
 		<h1>Lightweight Networking for Control Systems</h1>
 
-		<img class="img-full-width" src="project-pages/tinynets-cover.jpg" alt="A physical network implemented on breadboards">
+		<img loading="lazy" class="img-full-width" src="project-pages/tinynets-cover.jpg" alt="A physical network implemented on breadboards">
 
 		<h2 class="challenge"><b>Challenge:</b> Design a lightweight, decentralized network for control systems</h2>
 
@@ -95,7 +95,7 @@
 				<li>A real-time cost function, using next-hop buffer size (i.e. busyness metric) as well as historical hop-count for per-packet dynamic re-routing, that increases packet delivery-time determinism.</li>
 				<li>A software-defined network architecture for arbitrary implementation in any embedded system, where computing, physical space, and time is limited.</li>
 			</ul>
-			<p>At a high level, our protocol:<img class="img-right" src="project-pages/tinynets-hardware.jpg" alt="Our algorithm running on real hardware"></p>
+			<p>At a high level, our protocol:<img loading="lazy" class="img-right" src="project-pages/tinynets-hardware.jpg" alt="Our algorithm running on real hardware"></p>
 			<ul>
 				<li>Implements a multipath distance-vector routing protocol</li>
 				<li>Performs real-time route selection</li>

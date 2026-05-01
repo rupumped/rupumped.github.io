@@ -40,7 +40,7 @@
 			<a href="index.html" id="name">NICHOLAS S SELBY</a>
 			<nav>
 				<input class="menu-btn" type="checkbox" id="menu-btn">
-				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<label class="menu-icon" for="menu-btn" tabindex="0" aria-label="Toggle navigation"><span class="navicon"></span></label>
 				<ul class="menu">
 					<li><a href="index.html">HOME</a></li>
 					<li><a href="about.html">ABOUT</a></li>
@@ -56,7 +56,7 @@
 	<main>
 		<h1>Optical Flow and Object Tracking for Robots</h1>
 
-		<img class="img-full-width" src="project-pages/marbleflow-cover.jpg" alt="A robot playing with marbles">
+		<img loading="lazy" class="img-full-width" src="project-pages/marbleflow-cover.jpg" alt="A robot playing with marbles">
 
 		<h2 class="challenge"><b>Challenge:</b> Program a robot arm with a camera to follow objects</h2>
 
@@ -72,7 +72,7 @@
 			<li><b>Dense Optical Flow Algorithm:</b> Implemented on the full image, this algorithm averaged the dense optical flow to estimate the camera's velocity, allowing the recreation of the camera's estimated trajectory.</li>
 		</ol>
 
-		<img class="img-center" style="background-color: lightgray;" src="https://raw.githubusercontent.com/ashikari/MarbleFlow/master/block_diagram.png" alt="A block diagram illustrating our software. Video feed from the camera is fed through a series of transforms. Next, we use blob detection to compute the marble's location relative to the center of the image. Then, we feed the location into a PID controller and use an inverse kinematics model to command the robot to move to minimize the distance between the center of the image and the marble's location.">
+		<img loading="lazy" class="img-center" style="background-color: lightgray;" src="https://raw.githubusercontent.com/ashikari/MarbleFlow/master/block_diagram.png" alt="A block diagram illustrating our software. Video feed from the camera is fed through a series of transforms. Next, we use blob detection to compute the marble's location relative to the center of the image. Then, we feed the location into a PID controller and use an inverse kinematics model to command the robot to move to minimize the distance between the center of the image and the marble's location.">
 
 		<p>We wrote the computer vision algorithms in C++ using OpenCV and employed the ROS framework in Python to implement the robot PID controller and kinematics. The project successfully demonstrated the capability to track a ball and control a robotic arm based on visual inputs. The dense optical flow algorithm provided accurate camera motion estimates, enhancing the system's overall efficacy.</p>
 			

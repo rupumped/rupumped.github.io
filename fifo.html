@@ -62,7 +62,7 @@
 			<a href="index.html" id="name">NICHOLAS S SELBY</a>
 			<nav>
 				<input class="menu-btn" type="checkbox" id="menu-btn">
-				<label class="menu-icon" for="menu-btn" tabindex="0"><span class="navicon"></span></label>
+				<label class="menu-icon" for="menu-btn" tabindex="0" aria-label="Toggle navigation"><span class="navicon"></span></label>
 				<ul class="menu">
 					<li><a href="index.html">HOME</a></li>
 					<li><a href="about.html">ABOUT</a></li>
@@ -79,7 +79,7 @@
 		<h1>Improved FIFO COGS Tracking in Microsoft Excel</h1>
 		<p class="date">Posted on October 18, 2024 • 20-minute read</p>
 		<figure class="cover">
-			<img src="blog-posts/fifo-cover.jpg" alt="Two Excel tables showing orders placed for and sales of various pies">
+			<img loading="lazy" src="blog-posts/fifo-cover.jpg" alt="Two Excel tables showing orders placed for and sales of various pies">
 		</figure>
 
 		<section class="toc">
@@ -117,7 +117,7 @@
 			<p><a rel="external" target="_blank" href="https://learnesy.com/fifo-calculation-in-excel/">Emil</a> provides a quick solution to this problem by tracking the quantity of purchased assets sold and the associated COGS in the Orders table rather than the Sales table. For each entry in the Orders table, the method calculates the difference between the total number of sold assets from the Sales table and the sum of all previously sold quantities from the Orders table. The quantity of the current order that was sold is then determined by taking the minimum of this calculated remainder and the quantity of the current order. Finally, the COGS is computed by multiplying this sold quantity by the current price per unit.</p>
 
 			<figure>
-				<img class="img-center" src="blog-posts/fifo-emil.jpg" alt="Screenshot of two Excel tables: purchased assets and sold assets">
+				<img loading="lazy" class="img-center" src="blog-posts/fifo-emil.jpg" alt="Screenshot of two Excel tables: purchased assets and sold assets">
 				<figcaption>Credit: Emil. "FIFO Calculation in Excel." <i>Learnesy</i>.</figcaption>
 			</figure>
 
@@ -128,7 +128,7 @@
 			<p>While Hasaan's solution stands out as my favorite among those I found online, it has some limitations. Namely, it lacks the capability to track consumables or handle multiple SKUs simultaneously. Also, the method relies heavily on Excel's Data Tables, a feature for which Google Sheets currently lacks a direct equivalent.</p>
 
 			<figure>
-				<img class="img-center" src="blog-posts/fifo-xkcd.jpg" alt="XKCD comic with a character saying &quot;Seems unnecessary. When I need to do arbitrary computation, I just add a giant block of columns to the side of my sheet and have a Turing machine traverse down it.&quot;" style="width: 7cm;">
+				<img loading="lazy" class="img-center" src="blog-posts/fifo-xkcd.jpg" alt="XKCD comic with a character saying &quot;Seems unnecessary. When I need to do arbitrary computation, I just add a giant block of columns to the side of my sheet and have a Turing machine traverse down it.&quot;" style="width: 7cm;">
 				<figcaption><a rel="external" target="_blank" href="https://www.xkcd.com/2453/">CC BY-NC 2.5 Randall Munroe</a></figcaption>
 			</figure>
 
@@ -216,7 +216,7 @@
 
 			<p>Begin with the two tables illustrated below. The first table, Orders, has columns "Date," "Flavor," "Qty Purchased," and "Cost Per Unit" in columns A through D of the spreadsheet. The second table, Sales, has columns "Date," "Flavor," "Qty Sold," and "COGS" in columns G through J of the spreadsheet. Row 1 is reserved for the table names. Row 2 is reserved for the column headers. The data begins in row 3. With the exception of the COGS column, both tables are entirely filled with data representing the details of various orders and sales. Note that the tables need not be the same size, dates can be repeated, and both tables should be sorted by date.</p>
 
-			<img class="img-center" src="blog-posts/fifo-pie-start.jpg" alt="Screenshot of two Excel tables: Orders and Sales">
+			<img loading="lazy" class="img-center" src="blog-posts/fifo-pie-start.jpg" alt="Screenshot of two Excel tables: Orders and Sales">
 
 			<ol>
 				<li>Add columns to track the cumulative quantities of goods ordered and sold to the Orders and Sales tables, respectively. Add a column "Cumulative Ordered" to the Orders table in column E of the Excel workbook. Enter the formula <code>=SUMIF(B$3:B3, [@Flavor], C$3:C3)</code> into cell E3, then copy that cell into the remaining rows in that column. Likewise, add a column "Cumulative Sold" to the Sales table in column K of the Excel workbook. Enter the formula <code>=SUMIF(H$3:H3, [@Flavor], I$3:I3)</code> into cell K3, then copy that cell into the remaining rows.
@@ -361,14 +361,14 @@
 				<li>Finally, return to the COGS column (J) in the Sales table and enter the formula <code>=[@COOGS] + [@COMGS] + [@CONGS]</code> into each cell. If you want, you can safely hide all the helper columns, E and K through Y.</li>
 			</ol>
 
-			<img class="img-center" style="width: 23cm;" src="blog-posts/fifo-pie-finish.jpg" alt="Screenshot of two Excel tables: Orders and Sales. The Sales table has a COGS column with correctly calculated values.">
+			<img loading="lazy" class="img-center" style="width: 23cm;" src="blog-posts/fifo-pie-finish.jpg" alt="Screenshot of two Excel tables: Orders and Sales. The Sales table has a COGS column with correctly calculated values.">
 		</section>
 
 		<section id="Consumables">
 			<h2>Extension to Consumables</h2>
 			<p>Some SKUs, like diesel in the tank of a backup generator for a solar mini-grid, do not have points of discrete outflow, and therefore cannot be tracked simply in a "Sales" table. Instead, inventory is tracked in a single table with columns for date, SKU, starting balance, qty purchased, and price per unit. The rows, sorted by date, serve a dual purpose: measuring current supply—and therefore consumption since the previous row—of an SKU, and recording new inventory if an order has been made.</p>
 
-			<img class="img-center" style="width: 20cm;" src="blog-posts/fifo-diesel.jpg" alt="An Excel table tracking diesel purchases and measurements for several sites projects">
+			<img loading="lazy" class="img-center" style="width: 20cm;" src="blog-posts/fifo-diesel.jpg" alt="An Excel table tracking diesel purchases and measurements for several sites projects">
 
 			<p>Consider an example diesel tracker for a company's three mini-grids. The table has the above mentioned columns: Date, Project, Starting Balance, Liters Purchased, and Price Per Liter, where Project is the SKU, Starting Balance is the amount of diesel in the tank prior to the diesel purchase, and Liters Purchased and Price Per Liter may be left zero if no diesel was purchased on that date. Each row corresponds to a different log of the diesel balance and optional diesel purchase for a mini-grid. I can extend the above methodology for calculating COGS to compute a FIFO "Cost of Consumption" for diesel consumed between each log recorded in a row of the table.</p>
 
