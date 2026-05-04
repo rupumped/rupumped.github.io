@@ -35,6 +35,13 @@ address {
 	height: 100%;
 	width: 100%;
 }
+#social-media-wrapper a svg * {
+    fill: var(--grayed-out);
+	transition: fill 0.15s ease;
+}
+#social-media-wrapper a:hover svg * {
+    fill: var(--accent-color);
+}
 
 #bio {
 	text-align: justify;
@@ -60,7 +67,7 @@ a.nav-card:hover {
 	color: var(--accent-color);
 }
 a.nav-card:hover .nav-card-teaser {
-	color: color-mix(in oklch, var(--accent-color) 60%, var(--grayed-out));
+	color: color-mix(in oklch, var(--accent-color) 70%, transparent);
 }
 .nav-card-title {
 	font-family: var(--special-font-family);

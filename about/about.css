@@ -13,7 +13,7 @@
 #quote-symbol {
 	font-size: 6em;
 	font-family: 'IM Fell English SC', Georgia, serif;
-	color: color-mix(in oklch, var(--accent-color) 60%, var(--grayed-out));
+	color: color-mix(in oklch, var(--accent-color) 30%, transparent);
 	margin-right: 0.1em;
 	transform: scale(-1, 1);
 	position: relative;

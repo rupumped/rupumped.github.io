@@ -5,8 +5,8 @@
 	--text-color: oklch(18% 0.012 55);
 	--grayed-out: oklch(55% 0.010 55);
 	--active-gray: oklch(85% 0.006 55);
-	--link-color: oklch(52% 0.14 55);
-	--accent-color: oklch(52% 0.14 55);
+	--link-color: oklch(52% 0.17 258);
+	--accent-color: oklch(52% 0.17 258);
 	--shadow-shade: 120;
 	--separator-color: oklch(88% 0.006 55);
 	--main-width: 25cm;
@@ -378,7 +378,7 @@ footer #footer-socials svg {
 footer #footer-initials {
 	width: 2.2em;
 	height: 2.2em;
-	border: 1px solid color-mix(in oklch, var(--accent-color) 45%, var(--active-gray));
+	border: 1px solid color-mix(in oklch, var(--accent-color) 30%, transparent);
 	padding: 0.5em;
 	border-radius: 50%;
 	text-align: center;
@@ -407,13 +407,13 @@ footer #copyright {
 		--text-color: oklch(92% 0.008 55);
 		--grayed-out: oklch(65% 0.008 55);
 		--active-gray: oklch(36% 0.008 55);
-		--link-color: oklch(78% 0.12 55);
-		--accent-color: oklch(78% 0.12 55);
+		--link-color: oklch(76% 0.14 258);
+		--accent-color: oklch(76% 0.14 258);
 		--separator-color: oklch(28% 0.008 55);
 		--shadow-shade: 150;
 	}
 
-	img.bw, svg.bw {
+	img.bw {
 		-webkit-filter: invert(100%);
 		filter: invert(100%);
 	}
