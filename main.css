@@ -245,7 +245,6 @@ img {
 	margin-right: var(--img-margin);
 }
 .img-right, .img-left, .img-center {
-	max-width: 100%;
 	padding: 3px;
 	border-width: 1px;
 	border-style: solid;
@@ -259,6 +258,9 @@ img {
 	display: block;
 	margin: 0 auto;
 	max-width: 100%;
+}
+.img-right, .img-left {
+	max-width: 45%;
 }
 img.white-bg {
 	background-color: white;
@@ -573,6 +575,7 @@ footer #copyright {
 	}
 
 	.img-left, .img-right, .img-full-width, .img-center {
+		max-width: 100%;
 		display: block;
 		float: none;
 		clear: none;

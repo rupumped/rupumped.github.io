@@ -1,6 +1,14 @@
+#rooftop-hero {
+	display: block;
+	width: 100%;
+	object-fit: cover;
+	object-position: center 35%;
+	margin: 1em 0;
+}
+
 #quote-container {
 	display: flex;
-	margin-bottom: 0;
+	margin: 2em 0;
 }
 #quote-symbol {
 	font-size: 6em;
@@ -20,8 +28,4 @@
 }
 #quote-citation {
 	color: var(--grayed-out);
-}
-
-#bio {
-	margin-top: 0;
 }
