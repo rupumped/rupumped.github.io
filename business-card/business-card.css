@@ -85,6 +85,13 @@ main {
 	color: white;
 	margin: 0.25cm 0;
 }
+.contact::after {
+	content: '›';
+	margin-left: auto;
+	padding-right: 0.4cm;
+	font-size: 1.6em;
+	opacity: 0.6;
+}
 .contact:hover {
 	color: white;
 	text-decoration: underline;
