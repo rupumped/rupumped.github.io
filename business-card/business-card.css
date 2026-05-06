@@ -109,7 +109,8 @@ textarea {
 	resize: none;
 }
 textarea:focus {
-	outline: none;
+	outline: 2px solid rgba(255, 255, 255, 0.65);
+	outline-offset: 2px;
 }
 
 @media (min-aspect-ratio: 375/718) {
