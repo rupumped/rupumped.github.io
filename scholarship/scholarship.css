@@ -1,8 +1,11 @@
 /* Publication and patent card titles sit at body size — section <h2>s stay at 1.7em */
-article h2 {
-	font-size: 1em;
+article .desc {
+	font-size: 0.9em;
+}
+article .desc h3 {
+	font-size: 1.3em;
 	font-weight: bold;
-	margin: 0;
+	margin-bottom: 0.5em;
 }
 article .journal-name {
 	font-style: italic;
