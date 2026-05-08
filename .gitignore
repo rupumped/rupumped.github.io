@@ -1,2 +1,5 @@
-homepage/rfly.pdf
-homepage/rfind.pdf
+scholarship/rfly.pdf
+scholarship/rfind.pdf
+
+.venv
+__pycache__

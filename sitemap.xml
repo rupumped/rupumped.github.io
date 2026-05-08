@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="sitemap/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
@@ -68,7 +67,7 @@
 
 <url>
 	<title>NDTE Journal Paper</title>
-	<loc>https://rupumped.github.io/homepage/xducer.pdf</loc>
+	<loc>https://rupumped.github.io/scholarship/xducer.pdf</loc>
 	<lastmod>2021-09-07</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
@@ -76,7 +75,7 @@
 
 <url>
 	<title>Quantum Computing Journal Paper</title>
-	<loc>https://rupumped.github.io/homepage/dualaxis.pdf</loc>
+	<loc>https://rupumped.github.io/scholarship/dualaxis.pdf</loc>
 	<lastmod>2021-09-07</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
@@ -332,7 +331,7 @@
 
 <url>
 	<title>Mini-Grid Impact BibTeX</title>
-	<loc>https://rupumped.github.io/homepage/minigrid-impact.bib</loc>
+	<loc>https://rupumped.github.io/scholarship/minigrid-impact.bib</loc>
 	<lastmod>2024-06-06</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
@@ -340,7 +339,7 @@
 
 <url>
 	<title>L3 BibTeX</title>
-	<loc>https://rupumped.github.io/homepage/l3.bib</loc>
+	<loc>https://rupumped.github.io/scholarship/l3.bib</loc>
 	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
@@ -348,7 +347,7 @@
 
 <url>
 	<title>TeachBot BibTeX</title>
-	<loc>https://rupumped.github.io/homepage/teachbot.bib</loc>
+	<loc>https://rupumped.github.io/scholarship/teachbot.bib</loc>
 	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
@@ -356,7 +355,7 @@
 
 <url>
 	<title>R-Find BibTeX</title>
-	<loc>https://rupumped.github.io/homepage/rfind.bib</loc>
+	<loc>https://rupumped.github.io/scholarship/rfind.bib</loc>
 	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
@@ -364,7 +363,7 @@
 
 <url>
 	<title>R-Fly BibTeX</title>
-	<loc>https://rupumped.github.io/homepage/rfly.bib</loc>
+	<loc>https://rupumped.github.io/scholarship/rfly.bib</loc>
 	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
@@ -372,7 +371,7 @@
 
 <url>
 	<title>NDTE BibTeX</title>
-	<loc>https://rupumped.github.io/homepage/xducer.bib</loc>
+	<loc>https://rupumped.github.io/scholarship/xducer.bib</loc>
 	<lastmod>2023-03-28</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
@@ -380,7 +379,7 @@
 
 <url>
 	<title>Quantum Computing BibTeX</title>
-	<loc>https://rupumped.github.io/homepage/dualaxis.bib</loc>
+	<loc>https://rupumped.github.io/scholarship/dualaxis.bib</loc>
 	<lastmod>2021-09-27</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.20</priority>
