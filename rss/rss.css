@@ -8,7 +8,19 @@ h1 {
 }
 
 #rss-validator {
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6em;
+	line-height: normal;
+}
+#rss-validator img {
+	display: block;
+	height: 1.25em;
+	width: auto;
+}
+#rss-validator span {
+	margin-bottom: 0.25em;
 }
 
 a.article-container {
