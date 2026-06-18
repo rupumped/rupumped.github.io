@@ -35,13 +35,7 @@ address {
 	height: 100%;
 	width: 100%;
 }
-#social-media-wrapper a svg * {
-    fill: var(--grayed-out);
-	transition: fill 0.15s ease;
-}
-#social-media-wrapper a:hover svg * {
-    fill: var(--accent-color);
-}
+/* #social-media-wrapper a svg * rules are in main.css because they need to match with the footer socials */
 
 #bio {
 	text-align: justify;
