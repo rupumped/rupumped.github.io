@@ -1,0 +1,103 @@
+/* Minimal CSS for viewing sitemap.xml directly in a browser (no XSLT, no JS). */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&display=swap');
+
+:root {
+	--bg-color: oklch(98% 0.006 55);
+	--text-color: oklch(18% 0.012 55);
+	--grayed-out: oklch(55% 0.010 55);
+	--link-color: oklch(52% 0.17 258);
+	--accent-color: oklch(52% 0.17 258);
+	--separator-color: oklch(88% 0.006 55);
+	--main-font-family: 'Literata', Georgia, serif;
+	--special-font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: oklch(13% 0.008 55);
+		--text-color: oklch(92% 0.008 55);
+		--grayed-out: oklch(65% 0.008 55);
+		--link-color: oklch(76% 0.14 258);
+		--accent-color: oklch(76% 0.14 258);
+		--separator-color: oklch(28% 0.008 55);
+	}
+}
+
+/* Reset: everything in an XML document defaults to inline with no styling */
+urlset, url, title, loc, lastmod, changefreq, priority {
+	display: block;
+}
+
+/* urlset is the document's actual root element, so (like html) its background
+   paints the full canvas even though the box itself is width-constrained */
+urlset {
+	min-height: 100vh;
+	max-width: 25cm;
+	margin: 0 auto;
+	padding: 3em 5% 4em;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-family: var(--main-font-family);
+	font-size: 125%;
+	line-height: 1.55em;
+	letter-spacing: 0.01em;
+}
+
+/* No document-level title element to reuse, so the heading is generated */
+urlset::before {
+	content: "Sitemap";
+	display: block;
+	font-family: var(--special-font-family);
+	font-weight: 600;
+	font-size: 2.1em;
+	letter-spacing: -0.01em;
+	text-align: center;
+	margin: 0 0 1.2em 0;
+}
+
+url {
+	padding: 1.2em 0;
+	border-bottom: 1px solid var(--separator-color);
+}
+url:last-child {
+	border-bottom: none;
+}
+
+url > title {
+	font-family: var(--special-font-family);
+	font-weight: 600;
+	font-size: 1.15em;
+	line-height: 1.3em;
+	margin: 0 0 0.3em 0;
+}
+
+/* Not a real anchor (raw XML has no clickable text), shown as a plain permalink */
+url > loc {
+	font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+	font-size: 0.75em;
+	color: var(--grayed-out);
+	word-break: break-all;
+	margin: 0 0 0.3em 0;
+}
+
+url > lastmod {
+	display: inline-block;
+	font-size: 0.8em;
+	color: var(--grayed-out);
+}
+
+/* Crawler metadata, not useful to a human reading this list */
+url > changefreq,
+url > priority {
+	display: none;
+}
+
+@media only screen and (max-width: 766px) {
+	urlset {
+		padding: 2em 6% 3em;
+	}
+	urlset::before {
+		font-size: 1.7em;
+	}
+}

@@ -1,0 +1,165 @@
+/* Minimal CSS for viewing rss.xml directly in a browser (no XSLT, no JS). */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&display=swap');
+
+:root {
+	--bg-color: oklch(98% 0.006 55);
+	--text-color: oklch(18% 0.012 55);
+	--grayed-out: oklch(55% 0.010 55);
+	--link-color: oklch(52% 0.17 258);
+	--accent-color: oklch(52% 0.17 258);
+	--separator-color: oklch(88% 0.006 55);
+	--main-font-family: 'Literata', Georgia, serif;
+	--special-font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: oklch(13% 0.008 55);
+		--text-color: oklch(92% 0.008 55);
+		--grayed-out: oklch(65% 0.008 55);
+		--link-color: oklch(76% 0.14 258);
+		--accent-color: oklch(76% 0.14 258);
+		--separator-color: oklch(28% 0.008 55);
+	}
+}
+
+/* Reset: everything in an XML document defaults to inline with no styling */
+rss, channel, item, title, link, description, pubDate, lastBuildDate,
+language, copyright, docs, managingEditor, webMaster, category, guid,
+image, url, atom\:link, enclosure {
+	display: block;
+}
+
+rss {
+	min-height: 100vh;
+	margin: 0;
+	padding: 3em 5% 4em;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-family: var(--main-font-family);
+	font-size: 125%;
+	line-height: 1.55em;
+	letter-spacing: 0.01em;
+}
+
+channel {
+	max-width: 25cm;
+	margin: 0 auto;
+}
+
+channel > title {
+	font-family: var(--special-font-family);
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 2.1em;
+	letter-spacing: -0.01em;
+	text-align: center;
+	margin: 0 0 0.3em 0;
+}
+
+channel > description {
+	text-align: center;
+	color: var(--grayed-out);
+	margin: 0 0 2.5em 0;
+}
+
+/* Feed metadata that's useful to a reader in an app, not to a human here */
+channel > link,
+channel > pubDate,
+channel > lastBuildDate,
+channel > language,
+channel > copyright,
+channel > docs,
+channel > managingEditor,
+channel > webMaster,
+image,
+atom\:link {
+	display: none;
+}
+
+/* Flex + order lets us re-sequence children visually (title, link, description,
+   enclosure, category, pubDate, guid in the source) without JS or XSLT */
+item {
+	display: flex;
+	flex-direction: column;
+	padding: 1.5em 0;
+	border-bottom: 1px solid var(--separator-color);
+}
+item:last-child {
+	border-bottom: none;
+}
+
+item > title {
+	order: 1;
+	font-family: var(--special-font-family);
+	font-weight: 600;
+	font-size: 1.3em;
+	line-height: 1.3em;
+	margin: 0 0 0.4em 0;
+}
+
+item > description {
+	order: 2;
+	margin: 0 0 0.6em 0;
+	max-height: 4.5em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+
+/* Not a real anchor (raw XML has no clickable text), shown as a plain permalink */
+item > link {
+	order: 3;
+	font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+	font-size: 0.75em;
+	color: var(--grayed-out);
+	word-break: break-all;
+	margin: 0 0 0.7em 0;
+}
+
+item > category {
+	order: 4;
+	align-self: flex-start;
+	font-family: var(--special-font-family);
+	font-size: 0.7em;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--accent-color);
+	border: 1px solid color-mix(in oklch, var(--accent-color) 40%, transparent);
+	border-radius: 1em;
+	padding: 0.15em 0.7em;
+	margin: 0 0 0.4em 0;
+}
+
+/* pubDate is always "Www, D Mon YYYY 00:00:00 GMT" (RFC 822); a fixed-width
+   monospace clip at 16ch always lands right after the 4-digit year and
+   before the time, regardless of 1- vs 2-digit day-of-month */
+item > pubDate {
+	order: 5;
+	align-self: flex-start;
+	display: block;
+	width: 16ch;
+	overflow: hidden;
+	white-space: nowrap;
+	font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+	font-size: 0.8em;
+	color: var(--grayed-out);
+}
+
+item > guid,
+item > enclosure {
+	display: none;
+}
+
+@media only screen and (max-width: 766px) {
+	rss {
+		padding: 2em 6% 3em;
+	}
+	channel > title {
+		font-size: 1.7em;
+	}
+}
