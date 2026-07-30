@@ -19,5 +19,19 @@ The pages' HTML heads are complete, the parent directory includes a sitemap and 
 ## Accessible
 I used the [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html) to ensure that each page of my personal website is accessible and easily parsable by screen readers. All images have `alt` attributes, all links are descriptive and/or have ARIA labels, dark mode can be set through the browser, and every page adheres to the [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/) international standard.
 
+## Testable
+A pytest suite in `test_site.py` verifies structural integrity across all pages, including header/footer consistency, sitemap and RSS completeness, internal link validity, image alt text, and W3C compliance. To run it:
+
+```bash
+# Install dependencies (once)
+pip install pytest beautifulsoup4 requests
+
+# Run all tests
+pytest test_site.py -v
+
+# Skip network-dependent W3C tests
+pytest test_site.py -v -k "not w3c"
+```
+
 ## Open-Source
 The website is licensed using the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/), so you can share and adapt my work freely.
