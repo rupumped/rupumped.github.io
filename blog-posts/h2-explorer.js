@@ -28,17 +28,21 @@
 		})
 		.then(function (data) {
 			db = data;
-			db.institutions.forEach(function (it, i) { instMap[it.name]   = { rank: i + 1, h2: it.h2 }; });
-			db.countries.forEach(function (c, i)     { countryMap[c.name] = { rank: i + 1, h3: c.h3 }; });
+			var iR = buildTieRanks(db.institutions, 'h2');
+			db.institutions.forEach(function (it, i) { instMap[it.name]   = { rank: iR[i], h2: it.h2 }; });
+			var cR = buildTieRanks(db.countries, 'h3');
+			db.countries.forEach(function (c, i)     { countryMap[c.name] = { rank: cR[i], h3: c.h3 }; });
 			Object.keys(db.fields).forEach(function (n) {
 				var fd = db.fields[n];
-				fd.institutions.forEach(function (it, i) { push(instRanks,   it.name, { cat: n, type: 'Field',    rank: i+1, score: it.h2 }); });
-				fd.countries.forEach(function (c, i)    { push(countryRanks, c.name,  { cat: n, type: 'Field',    rank: i+1, score: c.h3  }); });
+				var fI = buildTieRanks(fd.institutions, 'h2'), fC = buildTieRanks(fd.countries, 'h3');
+				fd.institutions.forEach(function (it, i) { push(instRanks,   it.name, { cat: n, type: 'Field',    rank: fI[i], score: it.h2 }); });
+				fd.countries.forEach(function (c, i)    { push(countryRanks, c.name,  { cat: n, type: 'Field',    rank: fC[i], score: c.h3  }); });
 			});
 			Object.keys(db.subfields).forEach(function (n) {
 				var sd = db.subfields[n];
-				sd.institutions.forEach(function (it, i) { push(instRanks,   it.name, { cat: n, type: 'Subfield', rank: i+1, score: it.h2 }); });
-				sd.countries.forEach(function (c, i)    { push(countryRanks, c.name,  { cat: n, type: 'Subfield', rank: i+1, score: c.h3  }); });
+				var sI = buildTieRanks(sd.institutions, 'h2'), sC = buildTieRanks(sd.countries, 'h3');
+				sd.institutions.forEach(function (it, i) { push(instRanks,   it.name, { cat: n, type: 'Subfield', rank: sI[i], score: it.h2 }); });
+				sd.countries.forEach(function (c, i)    { push(countryRanks, c.name,  { cat: n, type: 'Subfield', rank: sC[i], score: c.h3  }); });
 			});
 			entries = []
 				.concat(Object.keys(db.fields).map(function (n)    { return { name: n,      kind: 'field'       }; }))
@@ -177,6 +181,21 @@
 		var label = kind === 'field' ? 'Field' : 'Subfield';
 		hdr(name, label);
 		var grid = mk('div', 'results-grid');
+		var hasTie = false;
+
+		function tiedRows(items, scoreKey) {
+			var rows = [], baseRank = 1;
+			for (var i = 0; i < items.length; i++) {
+				var score = items[i][scoreKey];
+				var withPrev = i > 0 && score !== null && score === items[i - 1][scoreKey];
+				var withNext = i < items.length - 1 && score !== null && score === items[i + 1][scoreKey];
+				if (i > 0 && !withPrev) baseRank = i + 1;
+				if (withPrev || withNext) hasTie = true;
+				rows.push([(withPrev || withNext) ? baseRank + '*' : baseRank, items[i].name, score]);
+			}
+			return rows;
+		}
+
 		function col(lbl, headers, rows, linkKind) {
 			var d  = mk('div');
 			var lp = mk('p', 'table-label'); lp.textContent = lbl;
@@ -184,16 +203,16 @@
 			return d;
 		}
 		grid.appendChild(col('Institutions', ['Rank', 'Institution', 'h<sub>2</sub>'],
-			fd.institutions.slice(0, 10).map(function (it, i) { return [i + 1, it.name, it.h2]; }), 'institution'));
+			tiedRows(fd.institutions.slice(0, 10), 'h2'), 'institution'));
 		grid.appendChild(col('Countries', ['Rank', 'Country', 'h<sub>3</sub>'],
-			fd.countries.slice(0, 10).map(function (c, i) { return [i + 1, c.name, c.h3]; }), 'country'));
+			tiedRows(fd.countries.slice(0, 10), 'h3'), 'country'));
 		$res.appendChild(grid);
+		if (hasTie) $res.appendChild(note('* Tied score — entries with equal scores share a rank.'));
 	}
 
 	function renderInstitution(name) {
 		var info = instMap[name];
-		var rank = info.rank;
-		hdr(name, 'Institution', rank);
+		hdr(name, 'Institution', info ? info.rank : undefined);
 		var specific = (instRanks[name] || []).slice().sort(function (a, b) { return a.rank - b.rank; });
 		if (!specific.length) {
 			$res.appendChild(empty('Not quite in the top 100 in any field'));
@@ -207,8 +226,7 @@
 
 	function renderCountry(name) {
 		var info = countryMap[name];
-		var rank = info.rank;
-		hdr(name, 'Country', rank);
+		hdr(name, 'Country', info ? info.rank : undefined);
 		var specific = (countryRanks[name] || []).slice().sort(function (a, b) { return a.rank - b.rank; });
 		if (!specific.length) {
 			$res.appendChild(empty('Not quite in the top 100 in any field'));
@@ -291,6 +309,15 @@
 	}
 
 	function mk(tag, cls) { var e = document.createElement(tag); if (cls) e.className = cls; return e; }
+
+	function buildTieRanks(items, scoreKey) {
+		var ranks = [];
+		for (var i = 0; i < items.length; i++) {
+			var score = items[i][scoreKey];
+			ranks.push(i === 0 || score === null || score !== items[i - 1][scoreKey] ? i + 1 : ranks[i - 1]);
+		}
+		return ranks;
+	}
 
 	function buildHints() {
 		var lbl = mk('p', 'hints-label'); lbl.textContent = 'Did you know?';
