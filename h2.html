@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<title>The US Wins 22 of 26 Golds in the Academic Olympics. China Wins the Rest, and It's All STEM.</title>
+	<title>The h₂ Index: A Fairer University Ranking of Research Depth by Field</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="rss.xml">
@@ -14,7 +14,7 @@
 		{
 			"@context": "https://schema.org",
 			"@type": "BlogPosting",
-			"headline": "The US Wins 22 of 26 Golds in the Academic Olympics. China Wins the Rest, and It's All STEM.",
+			"headline": "The h₂ Index: A Fairer University Ranking of Research Depth by Field",
 			"image": [
 				"https://rupumped.github.io/blog/h2.png",
 				"https://rupumped.github.io/blog-posts/h2-cover.png"
@@ -29,7 +29,7 @@
 	</script>
 
 	<!-- Open Graph Tags -->
-	<meta property="og:title" content="The US Wins 22 of 26 Golds in the Academic Olympics. China Wins the Rest, and It's All STEM.">
+	<meta property="og:title" content="The h₂ Index: A Fairer University Ranking of Research Depth by Field">
 	<meta property="og:description" content="CMU #1 in CS but 175th overall; Wageningen #1 in Ag/Environmental Science but 172nd overall; Shenyang Pharmaceutical #1 in Pharmacology but 535th overall.">
 	<meta property="og:image" content="https://rupumped.github.io/blog/h2.png">
 	<meta property="og:image:width" content="1000">
@@ -57,6 +57,193 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 	<script src="https://rupumped.github.io/NicksAPPS/JavaScript/katex-support.js"></script>
+	<style>
+		/* Rankings Explorer */
+		#rankings-explorer {
+			margin: 1.8em 0;
+			padding: 1.5em;
+			border: 1px solid var(--separator-color);
+			background: color-mix(in oklch, var(--link-color) 10%, transparent);
+		}
+		#rankings-explorer > h2 { margin-top: 0; }
+		#rankings-explorer > p.explorer-desc { margin-top: 0; color: var(--grayed-out); font-size: 0.9em; }
+
+		/* Loading dots */
+		#explorer-loading {
+			text-align: center;
+			padding: 1.5em 0;
+			color: var(--grayed-out);
+			font-style: italic;
+			font-size: 0.9em;
+		}
+		#explorer-loading p { margin: 0; }
+		.explorer-dots { display: flex; gap: 0.5em; justify-content: center; margin-bottom: 0.6em; }
+		.explorer-dots span {
+			display: block;
+			width: 0.55em; height: 0.55em;
+			border-radius: 50%;
+			background: var(--link-color);
+			opacity: 0.3;
+			animation: explorer-bounce 1.4s ease-in-out infinite;
+		}
+		.explorer-dots span:nth-child(2) { animation-delay: 0.2s; }
+		.explorer-dots span:nth-child(3) { animation-delay: 0.4s; }
+		@keyframes explorer-bounce {
+			0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+			40%           { transform: scale(1);   opacity: 1;   }
+		}
+
+		/* Search */
+		.explorer-search-wrap { position: relative; margin-bottom: 1em; }
+		#explorer-search {
+			width: 100%; box-sizing: border-box;
+			padding: 0.55em 2.2em 0.55em 0.85em;
+			font-family: var(--special-font-family);
+			font-size: 1em;
+			color: var(--text-color);
+			background: var(--bg-color);
+			border: 1px solid var(--active-gray);
+			border-radius: 3px;
+			outline: none;
+			transition: border-color 0.15s, box-shadow 0.15s;
+		}
+		#explorer-search:focus {
+			border-color: var(--link-color);
+			box-shadow: 0 0 0 2px color-mix(in oklch, var(--link-color) 18%, transparent);
+		}
+		#explorer-clear {
+			position: absolute; right: 0.5em; top: 50%;
+			transform: translateY(-50%);
+			background: none; border: none; cursor: pointer;
+			padding: 0.2em; line-height: 1;
+			color: var(--grayed-out);
+			font-size: 1.1em;
+			transition: color 0.15s;
+		}
+		#explorer-clear:hover { color: var(--text-color); }
+
+		/* Autocomplete dropdown */
+		#explorer-dropdown {
+			position: absolute; top: 100%; left: 0; right: 0; z-index: 50;
+			margin: 0; padding: 0; list-style: none;
+			background: var(--bg-color);
+			border: 1px solid var(--active-gray);
+			border-top: none;
+			border-radius: 0 0 3px 3px;
+			box-shadow: 0 6px 16px color-mix(in oklch, var(--text-color) 12%, transparent);
+			max-height: 18em; overflow-y: auto;
+		}
+		#explorer-dropdown li {
+			display: flex; align-items: center; gap: 0.6em;
+			padding: 0.4em 0.85em;
+			cursor: pointer;
+			font-family: var(--special-font-family);
+			font-size: 0.85em;
+			border-bottom: 1px solid var(--separator-color);
+		}
+		#explorer-dropdown li:last-child { border-bottom: none; }
+		#explorer-dropdown li:hover,
+		#explorer-dropdown li.active { background: color-mix(in oklch, var(--link-color) 10%, var(--bg-color)); }
+
+		/* Type badges */
+		.type-badge {
+			flex-shrink: 0;
+			display: inline-block;
+			padding: 0.08em 0.45em;
+			font-family: var(--special-font-family);
+			font-size: 0.72em; font-weight: 600;
+			text-transform: uppercase; letter-spacing: 0.04em;
+			border-radius: 3px;
+			border: 1px solid color-mix(in oklch, var(--link-color) 30%, transparent);
+			background: color-mix(in oklch, var(--link-color) 12%, var(--bg-color));
+			color: var(--link-color);
+			vertical-align: middle;
+		}
+
+		/* Results */
+		.results-header {
+			font-family: var(--special-font-family);
+			font-weight: 500; font-size: 1em;
+			margin: 0.5em 0 0.8em;
+		}
+		.results-header .type-badge { margin-left: 0.4em; }
+		.copy-link-btn {
+			background: none; border: none; cursor: pointer;
+			padding: 0 0.15em; margin-left: 0.3em;
+			font-size: 1em; line-height: 1; vertical-align: middle;
+			color: var(--grayed-out);
+			transition: color 0.15s;
+		}
+		.copy-link-btn:hover { color: var(--link-color); }
+		.table-label {
+			font-family: var(--special-font-family);
+			font-weight: 600; font-size: 0.82em;
+			text-transform: uppercase; letter-spacing: 0.05em;
+			color: var(--grayed-out);
+			margin: 0 0 0.25em;
+		}
+		.results-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1em;
+		}
+		@media (max-width: 600px) { .results-grid { grid-template-columns: 1fr; } }
+		.explorer-empty {
+			text-align: center; font-style: italic;
+			color: var(--grayed-out); padding: 0.5em 0;
+		}
+		.explorer-note {
+			font-size: 0.78em; color: var(--grayed-out);
+			font-style: italic; margin-top: 0.4em;
+		}
+
+		/* Ranking badges (institution / country results) */
+		.ranking-badges {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			gap: 0.4em;
+			margin: 0.5em 0;
+			line-height: 1em;
+		}
+		.ranking-badge {
+			display: inline-block;
+			padding: 0.3em 0.6em;
+			background-color: color-mix(in oklch, var(--link-color) 15%, transparent);
+			border-radius: 0.5em;
+			font-family: var(--special-font-family);
+			font-size: 0.9em;
+		}
+		a.ranking-badge {
+			color: inherit;
+			text-decoration: none;
+			transition: filter 0.15s;
+		}
+		a.ranking-badge:hover { filter: brightness(0.85); }
+
+		/* Did you know hints */
+		#explorer-hints {
+			margin: 0 0 0.8em;
+			font-size: 0.9em;
+		}
+		.hints-label {
+			font-family: var(--special-font-family);
+			font-weight: 600;
+			font-size: 0.82em;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			color: var(--grayed-out);
+			margin: 0 0 0.3em;
+		}
+		.hints-list {
+			margin: 0;
+			padding-left: 1.4em;
+		}
+		.hints-list li { margin: 0.25em 0; }
+		.results-header .ranking-badge {
+			background: none;
+		}
+	</style>
 </head>
 <body>
 	<header>
@@ -78,19 +265,40 @@
 	</header>
 
 	<main>
-		<h1>The US Wins 22 of 26 Golds in the Academic Olympics. China Wins the Rest, and It's All STEM.</h1>
+		<h1>The h₂ Index: A Fairer University Ranking of Research Depth by Field</h1>
 		<p class="date">Posted on July 7, 2026 • 8-minute read</p>
-		<figure class="cover">
+		<!-- <figure class="cover">
 			<img loading="lazy" src="blog-posts/h2-cover.png" alt="Iconic photos of three universities with cover text: CMU #1 in CS but 175th overall; Wageningen #1 in Ag/Environmental Science but 172nd overall; Shenyang Pharmaceutical #1 in Pharmacology but 535th overall.">
 			<figcaption>Photo Credits: <a href="https://www.flickr.com/photos/lichtjaeger/52220944501" rel="external" target="_blank">Tobiduer</a>, <a href="https://www.wageningen.nl/ondernemers/kennis-en-industrieterreinen/" target="_blank" rel="external">Wageningen</a>, and <a href="https://en.syphu.edu.cn/About/Campus.htm" target="_blank" rel="external">Shenyang Pharmaceutical University</a></figcaption>
-		</figure>
+		</figure> -->
 
-		<p>CMU ranks #1 in CS but 175th overall; Wageningen ranks #1 in Agricultural and Environmental Sciences but 172nd overall; and Shenyang Pharmaceutical University ranks #1 in Pharmacology but 535th overall. The US still leads overall, but Chinese universities are the new global STEM elite. Meanwhile, Brazil has quietly built the university with the deepest bench of dentistry faculty in the world.</p>
+		<!-- <p>CMU ranks #1 in CS but 175th overall; Wageningen ranks #1 in Agricultural and Environmental Sciences but 172nd overall; and Shenyang Pharmaceutical University ranks #1 in Pharmacology but 535th overall. The US still leads overall, but Chinese universities are the new global STEM elite. Meanwhile, Brazil has quietly built the university with the deepest bench of dentistry faculty in the world.</p> -->
+		<figure class="cover">
+			<div id="rankings-explorer">
+				<h2>Rankings Explorer</h2>
+				<p class="explorer-desc">Search for any institution, country, field, or subfield to see how it stacks up.</p>
+				<div id="explorer-loading">
+					<div class="explorer-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+					<p>Loading rankings data&hellip;</p>
+				</div>
+				<div id="explorer-ui" hidden>
+					<div class="explorer-search-wrap">
+						<input type="text" id="explorer-search" placeholder="e.g., Harvard University, United States, Computer Science&hellip;" autocomplete="off" spellcheck="false" aria-label="Search rankings" aria-autocomplete="list" aria-controls="explorer-dropdown">
+						<button id="explorer-clear" aria-label="Clear search" hidden>&times;</button>
+						<ul id="explorer-dropdown" role="listbox" aria-label="Suggestions" hidden></ul>
+					</div>
+					<div id="explorer-hints"></div>
+					<div id="explorer-results" aria-live="polite"></div>
+				</div>
+			</div>
+			<figcaption>Derived from <a rel="external" target="_blank" href="https://openalex.org/">OpenAlex</a>, CC0</figcaption>
+		</figure>
 
 		<section class="toc">
 			<h2>Contents</h2>
 			<div>
 				<ul>
+					<li><a href="#rankings-explorer">Rankings Explorer</a></li>
 					<li><a href="#Intro">The 15-Year-Old Prediction</a></li>
 					<li><a href="#Concept">Concept</a></li>
 					<li><a href="#Results">Results</a></li>
@@ -108,7 +316,7 @@
 				<p>Given, e.g., the h-indices of the researchers of an institute (which indices will be denoted by h<sub>1</sub> in what follows), an index, h<sub>2</sub>, of the institute can be determined: the institute has an index h<sub>2</sub> if h<sub>2</sub> of its N researchers have an h<sub>1</sub>-index of at least h<sub>2</sub> each, and the other (N-h<sub>2</sub>) researchers have h<sub>1</sub>-indices lower than h<sub>2</sub> each. The succession can then be continued, e.g., for networks of institutions or countries or other higher levels of aggregation.</p>
 				<p>Since no sufficient data for testing the concept on the researcher-institute-country hierarchy were available, another example was chosen.</p>
 			</blockquote>
-			<p>Fifteen years later, OpenAlex launched a FOSS bibliographic catalogue complete with citation indexing, authors, fields, and institutions. We now have the dataset for which Schubert wished in 2007. Schubert implied that computing the h<sub>2</sub> of institutes would be more interesting than that of journals. This is that analysis.</p>
+			<p>Fifteen years later, OpenAlex launched a FOSS bibliographic catalogue complete with citation indexing, authors, fields, institutions, and countries. We now have the dataset for which Schubert wished in 2007. Schubert implied that computing the h<sub>2</sub> of institutes would be more interesting than that of journals. This is that analysis.</p>
 		</section>
 
 		<section id="Concept">
@@ -290,5 +498,6 @@
 			<a href="tarpit/trap-3.html">Old Resources</a>
 		</div>
 	</footer>
+	<script src="blog-posts/h2-explorer.js"></script>
 </body>
 </html>
