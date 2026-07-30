@@ -196,7 +196,7 @@
 		hdr(name, 'Institution', rank);
 		var specific = (instRanks[name] || []).slice().sort(function (a, b) { return a.rank - b.rank; });
 		if (!specific.length) {
-			$res.appendChild(empty('Top 100 in any field or subfield? Not quite — but a true academic generalist!'));
+			$res.appendChild(empty('Not quite in the top 100 in any field'));
 			return;
 		}
 		var container = mk('div', 'ranking-badges');
@@ -211,7 +211,7 @@
 		hdr(name, 'Country', rank);
 		var specific = (countryRanks[name] || []).slice().sort(function (a, b) { return a.rank - b.rank; });
 		if (!specific.length) {
-			$res.appendChild(empty('Top 100 in any field or subfield? Not quite — a well-rounded research nation!'));
+			$res.appendChild(empty('Not quite in the top 100 in any field'));
 			return;
 		}
 		var container = mk('div', 'ranking-badges');
