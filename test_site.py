@@ -7,8 +7,12 @@ Run all tests:
 Skip network-dependent W3C tests:
     .venv/bin/pytest test_site.py -v -k "not w3c"
 
+Skip headless-browser tests:
+    .venv/bin/pytest test_site.py -v -k "not browser"
+
 Dependencies:
-    pip install pytest beautifulsoup4 requests
+    pip install pytest beautifulsoup4 requests playwright pytest-playwright
+    playwright install chromium
 """
 import difflib
 import re
@@ -541,7 +545,42 @@ def test_sitemap_html_matches_sitemap_xml():
 
 
 # ---------------------------------------------------------------------------
-# 13. W3C compliance  (requires network; skip with: pytest -k "not w3c")
+# 13. Mobile horizontal overflow  (requires browser; skip with: pytest -k "not browser")
+# ---------------------------------------------------------------------------
+
+@pytest.mark.browser
+def test_no_mobile_horizontal_overflow(browser):
+    """No page should overflow horizontally at a 390 px mobile viewport."""
+    context = browser.new_context(viewport={"width": 390, "height": 844})
+    page = context.new_page()
+
+    failures: list[str] = []
+    for f in get_html_files(EXCLUDE_FROM_NAV_CHECKS):
+        page.goto(f"file://{f}")
+        page.wait_for_load_state("domcontentloaded")
+        # Scroll through entire page so lazy-loaded images are rendered and affect layout
+        page.evaluate("""
+            () => new Promise(resolve => {
+                const step = (y) => {
+                    window.scrollTo(0, y);
+                    if (y < document.body.scrollHeight)
+                        requestAnimationFrame(() => step(y + 500));
+                    else
+                        setTimeout(resolve, 200);
+                };
+                step(0);
+            })
+        """)
+        scroll_width = page.evaluate("document.documentElement.scrollWidth")
+        if scroll_width > 390:
+            failures.append(f"  {f.name}: scrollWidth={scroll_width}px (viewport=390px)")
+
+    context.close()
+    assert not failures, "Pages with mobile horizontal overflow:\n" + "\n".join(failures)
+
+
+# ---------------------------------------------------------------------------
+# 14. W3C compliance  (requires network; skip with: pytest -k "not w3c")
 # ---------------------------------------------------------------------------
 
 @pytest.mark.network
