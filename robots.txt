@@ -1,6 +1,7 @@
 User-agent: *
 Allow: *
 Disallow: /tarpit/
+Disallow: /business-card.html
 
 User-agent: GPTBot
 Disallow: /
