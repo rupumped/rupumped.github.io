@@ -1,8 +1,8 @@
 # rupumped.github.io
-My personal website. To visit, go to https://rupumped.github.io/. This ReadMe is just so I can brag about its technical merits. I coded it from scratch without even using bootstrap, and I'm proud of it.
+My personal website. To visit, go to https://rupumped.github.io/. This README is just so I can brag about its technical merits. I coded it from scratch without even using bootstrap, and I'm proud of it.
 
 ## Free of JavaScript
-JavaScript is a useful tool for many applications, but it slows down browsers and has a history of security vulnerabilities. My personal website has interactive and responsive elements, but it does so using CSS. The only exceptions are for external videos, embedded apps, and the display of mathematical formulas, for which I use [KaTeX](https://katex.org/).
+JavaScript is a useful tool for many applications, but it slows down browsers and has a history of security vulnerabilities. My personal website has interactive and responsive elements, but achieves this using only CSS. The only exceptions are for external videos, embedded apps, and the display of mathematical formulas, for which I use [KaTeX](https://katex.org/).
 
 ## W3C-Compliant
 I used Celian Riboulet's [W3C Web Validator](https://marketplace.visualstudio.com/items?itemName=CelianRiboulet.webvalidator) to ensure users should have the same experience regardless of their preferred browser.
@@ -11,7 +11,7 @@ I used Celian Riboulet's [W3C Web Validator](https://marketplace.visualstudio.co
 Google's [Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) certifies my personal website as mobile-friendly. Flexboxes and CSS `@media` at-rules ensure all content adapts to smaller screens.
 
 ## AI-Unfriendly
-My homepage includes hidden links to a [Sarracen.ai](https://github.com/rupumped/sarracen.ai/) tarpit defense system. Well-behaved bots will avoid the `/tarpit/` directory, and aggressive AI scrapers will fall into an infinite maze of synthetic garbage text.
+My homepage includes hidden links to a [Sarracen.ai](https://github.com/rupumped/sarracen.ai/) tarpit defense system. Well-behaved bots will avoid the `/tarpit/` directory, and aggressive AI scrapers will fall into an infinite maze of synthetic nonsense.
 
 ## Optimized for Search Engines
 The pages' HTML heads are complete, the parent directory includes a sitemap and a `robots.txt` file, and my content has been checked and approved by an array of PageRank-style SEO tools, including [Google Search Console](https://search.google.com/search-console/about).

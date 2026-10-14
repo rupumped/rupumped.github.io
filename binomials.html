@@ -147,9 +147,9 @@
 			<div class="equation">
 				\begin{equation}
 					\begin{array}{rl}
-						\frac{\partial J}{\partial p_l} & =\frac{\partial}{\partial p_l} \sum_{j=0}^n \left( t(j)-\frac{1}{m}\sum_{i=1}^m f(k;n,p_i') \right)^2 \\
-						& =\sum_{j=0}^n \frac{\partial}{\partial p_l} \left( t(j)-\frac{1}{m}\sum_{i=1}^m f(k;n,p_i') \right)^2 \\
-						& =2\left( t(j)-\frac{1}{m}\sum_{i=1}^m f(k;n,p_i') \right)\left( -\frac{1}{m}\sum_{i=1}^m \frac{\partial}{\partial p_l}f(j;n,p_i) \right)
+						\frac{\partial J}{\partial p_l} & =\frac{\partial}{\partial p_l} \sum_{j=0}^n \left( t(j)-\frac{1}{m}\sum_{i=1}^m f(j;n,p_i') \right)^2 \\
+						& =\sum_{j=0}^n \frac{\partial}{\partial p_l} \left( t(j)-\frac{1}{m}\sum_{i=1}^m f(j;n,p_i') \right)^2 \\
+						& =\sum_{j=0}^n 2\left( t(j)-\frac{1}{m}\sum_{i=1}^m f(j;n,p_i') \right)\left( -\frac{1}{m}\sum_{i=1}^m \frac{\partial}{\partial p_l}f(j;n,p_i) \right)
 					\end{array}
 				\end{equation}
 				<!-- (6) \label{eq:grad-J} -->
@@ -175,7 +175,7 @@
 						\frac{\partial}{\partial p} f(j;n,p) & =\frac{\partial}{\partial p} \left( \begin{array}{c} n \\ j \end{array} \right)p^j (1-p)^{n-j} \\
 						& = \left( \begin{array}{c} n \\ j \end{array} \right) \frac{\partial}{\partial p} \left( p^j (1-p)^{n-j} \right)\\
 						& = \left( \begin{array}{c} n \\ j \end{array} \right) \left( p^j\frac{\partial}{\partial p} \left((1-p)^{n-j}\right) + (1-p)^{n-j}\frac{\partial}{\partial p}(p^j) \right) \\
-						& = \left( \begin{array}{c} n \\ j \end{array} \right) \left(-p^j(n-j)(1-p)^{n-j-1}+(1-p)^{n-j}kp^{j-1} \right) \\
+						& = \left( \begin{array}{c} n \\ j \end{array} \right) \left(-p^j(n-j)(1-p)^{n-j-1}+(1-p)^{n-j}jp^{j-1} \right) \\
 						& = \left( \begin{array}{c} n \\ j \end{array} \right)p^{j-1}(1-p)^{n-j-1}(j-pn)
 					\end{array}
 				\end{equation}
@@ -218,7 +218,7 @@
 				<div class="state">\(D\gets \infty\)</div>
 				<div class="state"><b>while</b> \(D\geq \epsilon\) <b>do</b>:</div>
 				<div class="indented">
-					<div class="state">\(t'(k)\gets \sum_{i=1}^m f(k;n,p_i')\)</div>
+					<div class="state">\(t'(k)\gets \frac{1}{m}\sum_{i=1}^m f(k;n,p_i')\)</div>
 					<div class="state">\(l\gets 1\)</div>
 					<div class="state"><b>while</b> \(l\leq m\) <b>do</b>:</div>
 					<div class="indented">
@@ -236,7 +236,7 @@
 
 			<p>The output of the algorithm is \(p_i\ \forall i\in (1,...,m)\), a list of probabilities defining the \(m\) binomial distributions whose average most closely matches \(t(k)\).</p>
 
-			<p>For unknown \(m\), plot \(J\) against \(m\) and select an appropriate cutoff point after which the difference between \(t(k)\) and \(t(j)\) is considered small enough. Alternatively, apply a penalty to \(m\), e.g. \(\lambda m\), and find the minimum of \(J+\lambda m\) iteratively.</p>
+			<p>For unknown \(m\), plot \(J\) against \(m\) and select an appropriate cutoff point after which the difference between \(t(k)\) and \(t'(k)\) is considered small enough. Alternatively, apply a penalty to \(m\), e.g. \(\lambda m\), and find the minimum of \(J+\lambda m\) iteratively.</p>
 		</section>
 	</main>
 	

@@ -6,7 +6,7 @@
 		<link>https://rupumped.github.io/</link>
 		<description>Academic publications and blog posts by Nicholas S Selby</description>
 		<language>en-us</language>
-		<copyright>Copyright 2018–2024, Nicholas S Selby</copyright>
+		<copyright>Copyright 2018–2026, Nicholas S Selby</copyright>
 		<pubDate>Thu, 3 Oct 2024 00:00:00 GMT</pubDate>
 		<lastBuildDate>Thu, 3 Oct 2024 00:00:00 GMT</lastBuildDate>
 		<docs>https://www.rssboard.org/rss-specification</docs>
@@ -89,7 +89,7 @@
 			<title>Trivia Questions and Answers</title>
 			<link>https://rupumped.github.io/trivia.html</link>
 			<description>Which animal shares its name with the beginning of the only continent on which they are not found?</description>
-			<enclosure url="https://rupumped.github.io/blog/trivia.jpeg" length="57574" type="image/png" />
+			<enclosure url="https://rupumped.github.io/blog/trivia.jpeg" length="57574" type="image/jpeg" />
 			<category>Blog Posts</category>
 			<pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
 			<guid isPermaLink="true">https://rupumped.github.io/trivia.html</guid>
