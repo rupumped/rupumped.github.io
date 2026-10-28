@@ -25,7 +25,7 @@ figure.cover figcaption {
 }
 
 section.toc {
-	background-color: color-mix(in oklch, var(--link-color) 10%, transparent);
+	background-color: var(--callout-bg);
 	padding: 1.5em;
 }
 section.toc h2 {

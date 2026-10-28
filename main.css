@@ -14,6 +14,7 @@
 	--max-w: 90%;
 	--main-font-family: 'Literata', Georgia, serif;
 	--special-font-family: 'Bricolage Grotesque', sans-serif;
+	--callout-bg: color-mix(in oklch, var(--accent-color) 12%, transparent);
 }
 
 html {

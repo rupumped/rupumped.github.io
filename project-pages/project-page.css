@@ -11,7 +11,7 @@
 }
 
 #skills-demonstrated {
-	background-color: color-mix(in oklch, var(--accent-color) 10%, transparent);
+	background-color: var(--callout-bg);
 	padding: 1.5em;
 }
 #skills-demonstrated h2 {
@@ -41,7 +41,7 @@
 blockquote {
 	padding: 0.8em 1.2em;
 	margin-left: 0;
-	background-color: color-mix(in oklch, var(--accent-color) 10%, transparent);
+	background-color: var(--callout-bg);
 	border-radius: 3px;
 	font-style: italic;
 }
