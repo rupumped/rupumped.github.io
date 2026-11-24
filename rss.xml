@@ -21,6 +21,15 @@
 
 		<!-- Publications -->
 		<item>
+			<title>Successive h-indices using OpenAlex</title>
+			<link>https://link.springer.com/article/10.1007/s11192-026-05899-1</link>
+			<description>I apply Schubert's successive h-index framework to OpenAlex, computing h2 for 22,980 institutions and h3 for 214 countries across 13.3 million researchers. The overall institution-level ranking is substantially shaped by biomedical field representation: Medicine accounts for 24% of the author pool and institutions without a large biomedical program are in general structurally disadvantaged, though the overall ranking is not reducible to biomedical representation alone. Field-specific decomposition is more informative: according to this metric, Wageningen University leads Agricultural &amp; Biological Sciences and the University of Chinese Academy of Sciences leads Environmental Science, Materials Science, and Engineering; Carnegie Mellon leads Computer Science from 159th; Brazil holds two of the world's top-six dental-research institutions by field h2. I normalize for group size using Egghe's Lotkaian scaling and find that Italy and Japan tie on h3 despite a 6 difference in institutional scale.</description>
+			<enclosure url="https://rupumped.github.io/scholarship/h2.png" length="264021" type="image/png" />
+			<category>Academic Publications</category>
+			<pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+			<guid isPermaLink="true">https://link.springer.com/article/10.1007/s11192-026-05899-1</guid>
+		</item>
+		<item>
 			<title>Social and Economic Impact Analysis of Solar Mini-Grids in Rural Africa: A Cohort Study from Kenya and Nigeria</title>
 			<link>https://iopscience.iop.org/article/10.1088/2634-4505/ad4ffb</link>
 			<description>This study presents the first comprehensive analysis of the social and economic effects of solar mini-grids in rural African settings, specifically in Kenya and Nigeria. A group of 2,658 household heads and business owners connected to mini-grids over the last five years were interviewed both before and one year after their connection. These interviews focused on changes in gender equality, productivity, health, safety, and economic activity. The results show notable improvements in all areas. Economic activities and productivity increased significantly among the connected households and businesses. The median income of rural Kenyan community members quadrupled. Gender equality also improved, with women gaining more opportunities in decision making and business. Health and safety enhancements were linked to reduced use of hazardous energy sources like kerosene lamps. The introduction of solar mini-grids not only transformed the energy landscape but also led to broad socioeconomic benefits in these rural areas. The research highlights the substantial impact of decentralized renewable energy on the social and economic development of rural African communities. Its findings are crucial for policymakers, development agencies, and stakeholders focused on promoting sustainable energy and development in Africa.</description>
